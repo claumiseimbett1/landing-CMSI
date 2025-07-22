@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría, Asesoría y Formación Especializada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --beige-light: #f3ede0;
+            --black: #000000;
+            --beige-dark: #d5b690;
+            --yellow: #fffc00;
+            --beige-muted: #d6ccc2; /* Color adicional de la paleta */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--beige-light);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--beige-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* INDICACIÓN: Coloca la ruta de tu imagen de fondo aquí */
+            background-image: url('img/banner-landing.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(213, 182, 144, 0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            color: var(--beige-dark);
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #f3ede0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: var(--black);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--beige-dark), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Biography Section */
+        .biography {
+            padding: 80px 20px;
+            background-color: white;
+            position: relative;
+        }
+
+        .biography-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .bio-image-container {
+            width: 300px;
+            height: 400px;
+            border: 3px solid var(--beige-muted);
+            overflow: hidden;
+            position: relative;
+            background-color: var(--beige-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 10px 10px 0 var(--black);
+        }
+        
+        .bio-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bio-image-container:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 15px 15px 0 var(--black);
+        }
+
+        .bio-text h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .bio-text p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .bio-highlights {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--beige-light);
+            border-left: 4px solid var(--beige-dark);
+        }
+
+        .bio-highlights h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .bio-highlights ul {
+            list-style: none;
+        }
+
+        .bio-highlights li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .bio-highlights li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--beige-dark);
+            font-weight: bold;
+        }
+
+        /* Services Section */
+        .services, .resources, .technological-products {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow), var(--beige-dark));
+        }
+
+        .services-grid, .resources-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: var(--beige-light);
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-top-color: var(--d5b690);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -5px; /* Starts hidden above the card */
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--yellow), var(--beige-dark));
+            transform: translateX(-100%);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon svg {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon svg {
+            transform: scale(1.1);
+        }
+
+        .service-icon svg * {
+            fill: none !important;
+            stroke: var(--black) !important;
+            stroke-width: 1.5px !important;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 80px 20px;
+            background-color: var(--beige-light);
+        }
+
+        .experience-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .experience-number {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--yellow), var(--beige-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        /* Resources & Tech Products Section */
+        .resources, .technological-products {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+        
+        .technological-products {
+            background-color: var(--beige-muted);
+        }
+        
+        .technological-products .resources-grid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .technological-products .resource-card {
+            background-color: #fff;
+            max-width: 450px; /* Ancho ajustado */
+            flex-shrink: 0;
+        }
+
+        .resource-card {
+            background-color: var(--beige-light);
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--beige-dark);
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resource-icon svg {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .resource-icon svg * {
+            fill: none !important;
+            stroke: var(--black) !important;
+            stroke-width: 1.5px !important;
+        }
+
+        .resource-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+        
+        .resource-card p {
+            flex-grow: 1;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--black);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: var(--beige-dark);
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--beige-light) 0%, rgba(213,182,144,0.3) 100%);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+        
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--black);
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--beige-dark);
+        }
+        
+        .contact-item a:hover .contact-icon svg {
+            fill: var(--beige-dark);
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .biography-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .bio-image-container {
+                margin: 0 auto 40px auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* O implementar un menú hamburguesa */
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <!-- INDICACIÓN: Coloca la ruta de tu logo aquí -->
+                <img src="logos/logo-CLAU.svg" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#biografia">Biografía</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#productos-tecnologicos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Consultoría y Asesoría en Formación y Proyectos de Investigación</h1>
+                <p>Experta investigación cientifica enfocada en sensores remotos, óptica y fotónica aplicada, con enfoque en la 		   implementación de herramientas de inteligencia artificial en diversos sectores.
+                   Transformando ideas en proyectos exitosos con enfoque científico y tecnológico.</p>
+                <!-- INDICACIÓN: Reemplaza "TU_NUMERO" con tu número de WhatsApp, incluyendo el código de país -->
+                <a href="https://wa.me/+573043499052?text=Hola,%20estoy%20interesado%20en%20una%20consultoría." class="cta-button">Solicitar Consultoría</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biography Section -->
+    <section class="biography" id="biografia">
+        <h2 class="section-title">Acerca de Mí</h2>
+        <div class="biography-content">
+            <div class="bio-image-container">
+                 <!-- INDICACIÓN: Coloca la ruta de tu foto para la biografía aquí -->
+                <img src="img/ClaudiaPro-Frente.jpg" alt="Foto biografía">
+            </div>
+            <div class="bio-text">
+                <h3> Claudia Milena Serpa Imbett, PhD </h3>
+                <p>
+                    Soy investigadora científica, PhD. Actualmente, realizo Posdoctorado en sistemas de Agricultura digital e IA 		    para gestión agricola y ganadera en AGROSAVIA. Consultora especializada en la aplicación de tecnologías   			    ópticas avanzadas. Con más de 15 años de experiencia en el campo de la óptica, fotónica, 
+		    y sensores remotos y proximales, he dedicado mi carrera a desarrollar soluciones innovadoras. 
+                </p>
+                <p>
+                    Mi formación académica incluye un Doctorado en Ingeniería de la Universidad Pontificia Bolivariana, sede 			    Medellín, con una pasantía de investigación en la Universidad de Campinas (Brasil). He publicado más de 30    		    artículos en revistas indexadas y congresos científicos. Además, he liderado proyectos de investigación con    		    financiación externa y participado activamente en el diseño de soluciones tecnológicas basadas en software,  		    así como en procesos de patentamiento de tecnologías.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <h2 class="section-title">Servicios de Consultoría</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 11V3h2v8h8v2h-8v8h-2v-8H3v-2h8z"/></svg>
+                </div>
+                <h3>Asesoría de Proyectos</h3>
+                <p>Diseño y desarrollo de proyectos de investigación con enfoque en agricultura digital, machine learning, 			   inteligencia artificial (IA) y tecnologías emergentes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h12v2H4z"/></svg>
+                </div>
+                <h3>Redacción Científica</h3>
+                <p>Elaboración de artículos científicos y propuestas de investigación con estándares internacionales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                </div>
+                <h3>Sensores Remotos</h3>
+                <p>Implementación y análisis de datos satelitales para agricultura digital y monitoreo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 11h2v2H7v-2zm10-4H7v2h10V7zm-2 4h2v2h-2v-2zm-4 4H7v2h6v-2zM5 21h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2zM5 5h14v14H5V5z"/></svg>
+                </div>
+                <h3>Óptica y Fotónica</h3>
+                <p>Aplicaciones innovadoras en sistemas ópticos para soluciones agrícolas avanzadas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"/></svg>
+                </div>
+                <h3>Agro 4.0</h3>
+                <p>Integración de tecnologías digitales, machine learning e inteligencia aritifical para optimización de procesos agrícolas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                </div>
+                <h3>Capacitación Especializada</h3>
+                <p>Cursos y talleres personalizados en tecnologías aplicadas a la agricultura.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experiencia">
+        <h2 class="section-title">Experiencia Profesional</h2>
+        <div class="experience-content">
+            <div class="experience-item">
+                <div class="experience-number">15+</div>
+                <h3>Años de Experiencia</h3>
+                <p>Trayectoria académica y profesional</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-number">5+</div>
+                <h3>Proyectos Completados</h3>
+                <p>Investigación y consultoría exitosa</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-number">30+</div>
+                <h3>Publicaciones</h3>
+                <p>Artículos en revistas indexadas y documentos de conferencia</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-number">50+</div>
+                <h3>Profesionales Capacitados</h3>
+                <p>En sensores de fibra óptica, sensado remoto asistido por machine learning, fotonica en la agricultura digital, 		   y tecnologías emergentes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="recursos">
+        <h2 class="section-title">Recursos Descargables</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></div>
+                <h4>Sensores Remotos</h4>
+                <p>Guía completa sobre aplicaciones de sensores remotos en agricultura moderna.</p>
+                <a href="recursos/Sensores_Remotos_CMSI_UNIMAG.pdf" class="download-link">Descargar PDF →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></div>
+                <h4>Óptica y Fotónica en Agro 4.0</h4>
+                <p>Fundamentos físicos para la de implementación de sistemas ópticos en agricultura digital.</p>
+                <a href="recursos/Capacitacion_MULTI_HYPER_AGROSAVIA.pdf" class="download-link">Descargar PDF →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 16.6L4.8 12l-1.4 1.4L9.4 19.4l12-12-1.4-1.4-10.6 10.6z"/></svg></div>
+                <h4>Agricultura Digital</h4>
+                <p>Curso introductorio sobre transformación digital en el sector agrícola.</p>
+                <a href="recursos/Agricultura4.0-SAHED_UNIREMINGTON.pdf" class="download-link">Acceder al Curso →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-8v-2h8v2zm0-4h-8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                </div>
+                <h4>Redacción de Proyectos</h4>
+                <p>Pautas para elaboración de propuestas de investigación científica exitosas.</p>
+                <a href="recursos/Fundamentos_Inv_Cientifica_UNISINU.pdf" class="download-link">Descargar Material →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm0-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                </div>
+                <h4>Redacción de Artículos Científicos</h4>
+                <p>Metodología paso a paso para redacción y publicación de artículos científicos en revistas indexadas.</p>
+                <a href="recursos/Pautas_Redaccion_Articulos_Cientificos_UNISINU.pdf" class="download-link">Ver Recursos →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11h16v2H4zm13.41-3.59L19 6l-1.41-1.41L15.17 7H8.83L6.41 4.59 5 6l1.41 1.41L8.83 10h6.34l2.24-2.59zM4 15h16v2H4z"/></svg>
+                </div>
+                <h4>Sensores de Fibra Óptica</h4>
+                <p>Aplicaciones avanzadas de sensores de fibra óptica en monitoreo de sistemas eléctricos - Curso impartido a 			   Siemens - Colombia.</p>
+                <a href="recursos/Capacitacion_FO_SIEMENS.pdf" class="download-link">Descargar PDF →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technological Products Section -->
+    <section class="technological-products" id="productos-tecnologicos">
+        <h2 class="section-title">Productos Tecnológicos</h2>
+        <div class="resources-grid">
+             <div class="resource-card">
+                <div class="resource-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                </div>
+                <h4>HYPERSATELLITE</h4>
+                <p>Aplicación avanzada para procesamiento digital de imágenes satelitales en una App Android.</p>
+                <a href="https://www.hypersatelliteapp.com" target="_blank" class="download-link">Visitar Sitio Web →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="contact-content">
+            <h2 class="section-title">¿Listo para transformar tu proyecto?</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">
+                Contáctame para discutir cómo puedo ayudarte a alcanzar tus objetivos de investigación y desarrollo.
+            </p>
+            <!-- INDICACIÓN: Reemplaza "TU_NUMERO" con tu número de WhatsApp, incluyendo el código de país -->
+            <a href="https://wa.me/573043499052?text=Hola,%20quisiera%20agendar%20una%20consultoría." class="cta-button">Agendar Consultoría</a>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <!-- INDICACIÓN: Coloca tu link de LinkedIn aquí -->
+                    <a href="https://www.linkedin.com/in/claudia-milena-serpa-imbett-a69520136/" target="_blank">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 6.66h-2.47v6.84h2.47v-6.84zM8.22 8.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM16.5 11.38c-1.66 0-2.5 1.06-2.5 1.06V11.5h-2.47v6.84h2.47v-3.55c0-.9.6-1.63 1.8-1.63s1.6.73 1.6 1.63v3.55h2.5v-4.1c0-2.5-1.9-3.5-4.3-3.5z"/></svg>
+                        </div>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <!-- INDICACIÓN: Coloca tu link de GitHub aquí -->
+                    <a href="https://github.com/claumiseimbett1/" target="_blank">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.646.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        </div>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <!-- INDICACIÓN: Coloca tu link de ORCID aquí -->
+                    <a href="https://orcid.org/0000-0002-1420-0084" target="_blank">
+                        <div class="contact-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.444h2.445v10.333H7.369V4.444zm1.222 11.556c-.678 0-1.222.544-1.222 1.222s.544 1.222 1.222 1.222 1.222-.544 1.222-1.222-.544-1.222-1.222-1.222zm5.044-11.556h2.445v5.044c0 2.8-.978 4.089-3.467 4.089-1.222 0-2.222-.489-2.911-1.067l.8-1.533c.556.4 1.156.711 1.8.711.8 0 1.289-.4 1.289-1.422V4.444z"/></svg>
+                        </div>
+                        <span>ORCID</span>
+                    </a>
+                </div>
+                 <div class="contact-item">
+                    <!-- INDICACIÓN: Reemplaza "TU_NUMERO" con tu número de WhatsApp, incluyendo el código de país -->
+                    <a href="https://wa.me/TU_NUMERO?text=Hola,%20quisiera%20contactarte." target="_blank">
+                        <div class="contact-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.78.46 3.45 1.29 4.9L2 22l5.25-1.38c1.37.74 2.93 1.18 4.58 1.18h.17c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zM12.04 20.1c-1.44 0-2.81-.38-4.01-1.04l-.29-.17-2.98.78.8-2.92-.19-.31a8.07 8.07 0 0 1-1.24-4.38c0-4.47 3.63-8.1 8.1-8.1s8.1 3.63 8.1 8.1-3.64 8.1-8.1 8.1zm4.43-5.93c-.24-.12-1.44-.71-1.67-.79-.23-.08-.39-.12-.56.12-.17.24-.63.79-.77.95-.14.17-.29.18-.53.06s-1.04-.38-1.98-1.22c-.73-.66-1.22-1.47-1.36-1.72s-.02-.38.1-.51c.11-.11.24-.29.37-.43.12-.14.17-.24.25-.4.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31s-.88.86-.88 2.09c0 1.23.9 2.42 1.03 2.59.12.17 1.78 2.71 4.3 3.83.6.26 1.08.42 1.45.53.62.2 1.18.16 1.62.1.48-.07 1.44-.59 1.64-1.15.2-.56.2-1.04.14-1.15s-.22-.18-.47-.3z"/></svg>
+                        </div>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe elements
+        document.querySelectorAll('.service-card, .experience-item, .resource-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
