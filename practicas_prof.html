@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglamento de Prácticas Profesionales - Universidad del Sinú</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #dc2626, #f87171);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <!-- Universidad del Sinú Logo - Replace with actual logo file -->
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center p-2">
+                        <img src="./assets/logo-unisinu.png" alt="Universidad del Sinú Logo" class="w-full h-full object-contain rounded-full">
+                        <!-- Fallback if logo not found -->
+                        <div class="w-full h-full bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-sm" style="display: none;">
+                            LOGO
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold">Universidad del Sinú</h1>
+                        <p class="text-red-100">Elías Bechara Zainúm</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <span class="text-sm font-medium">Reglamento</span>
+                        <div class="text-lg font-bold">Prácticas Profesionales</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- Overview Section -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">🏢 Reglamento de Prácticas Profesionales</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Normativa que regula las prácticas profesionales como componente curricular obligatorio para la formación integral del estudiante</p>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="grid md:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">⏰</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-red-600 mb-2">480</h3>
+                    <p class="text-gray-600">Horas Mínimas</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">📚</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-green-600 mb-2">16</h3>
+                    <p class="text-gray-600">Créditos Académicos</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">📊</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-purple-600 mb-2">3.5</h3>
+                    <p class="text-gray-600">Promedio Mínimo</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-orange-600 mb-2">80%</h3>
+                    <p class="text-gray-600">Créditos Cursados</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipos de Prácticas Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">🎯 Tipos de Prácticas Profesionales</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Práctica Profesional -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-xl">💼</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Práctica Profesional</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Experiencia laboral en empresas del sector productivo, aplicando conocimientos teóricos en contextos reales de trabajo.</p>
+                    <div class="bg-red-50 rounded-lg p-3">
+                        <p class="text-sm text-red-700 font-medium">✓ Supervisión empresarial y académica</p>
+                    </div>
+                </div>
+
+                <!-- Práctica Social -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-xl">🤝</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Práctica Social</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Actividades de proyección social y responsabilidad universitaria en beneficio de comunidades vulnerables.</p>
+                    <div class="bg-green-50 rounded-lg p-3">
+                        <p class="text-sm text-green-700 font-medium">✓ Impacto social y comunitario</p>
+                    </div>
+                </div>
+
+                <!-- Práctica de Investigación -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-xl">🔬</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Práctica de Investigación</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Participación en proyectos de investigación institucionales o externos, contribuyendo al desarrollo científico.</p>
+                    <div class="bg-purple-50 rounded-lg p-3">
+                        <p class="text-sm text-purple-700 font-medium">✓ Vinculación a grupos de investigación</p>
+                    </div>
+                </div>
+
+                <!-- Práctica de Emprendimiento -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-l-4 border-orange-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-xl">🚀</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Práctica de Emprendimiento</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Desarrollo de iniciativas empresariales propias, fomentando el espíritu emprendedor y la innovación.</p>
+                    <div class="bg-orange-50 rounded-lg p-3">
+                        <p class="text-sm text-orange-700 font-medium">✓ Plan de negocio viable</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proceso Timeline -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">⏳ Proceso de Prácticas Profesionales</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative flex items-center mb-8">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl pulse-animation">1</div>
+                        <div class="ml-8 bg-white rounded-lg p-6 shadow-lg flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Inscripción y Requisitos</h3>
+                            <p class="text-gray-600">Verificación de requisitos académicos y presentación de documentos ante la Coordinación de Prácticas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex items-center mb-8">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl">2</div>
+                        <div class="ml-8 bg-white rounded-lg p-6 shadow-lg flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Búsqueda y Selección</h3>
+                            <p class="text-gray-600">Identificación de oportunidades de práctica y proceso de selección en la organización receptora.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex items-center mb-8">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl">3</div>
+                        <div class="ml-8 bg-white rounded-lg p-6 shadow-lg flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Formalización</h3>
+                            <p class="text-gray-600">Firma de convenios, asignación de supervisor académico y empresarial, definición del plan de trabajo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex items-center mb-8">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl">4</div>
+                        <div class="ml-8 bg-white rounded-lg p-6 shadow-lg flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Ejecución</h3>
+                            <p class="text-gray-600">Desarrollo de actividades programadas con seguimiento continuo y evaluaciones periódicas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative flex items-center">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl">✓</div>
+                        <div class="ml-8 bg-white rounded-lg p-6 shadow-lg flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Evaluación Final</h3>
+                            <p class="text-gray-600">Presentación de informe final, evaluación integral y certificación de cumplimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requisitos -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">📋 Requisitos y Documentación</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-red-600 mb-6 flex items-center">
+                        <span class="mr-3">✅</span>
+                        Requisitos Académicos
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Haber cursado y aprobado el 80% de los créditos del programa</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Promedio académico acumulado mínimo de 3.5</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Estar matriculado en el semestre correspondiente</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Paz y salvo financiero y académico</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-purple-600 mb-6 flex items-center">
+                        <span class="mr-3">📄</span>
+                        Documentos Requeridos
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Solicitud de inscripción de práctica</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Hoja de vida actualizada</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Certificado de notas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3 mt-1">•</span>
+                            <span class="text-gray-700">Carta de aceptación de la empresa</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluación -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">📊 Sistema de Evaluación</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">👨‍💼</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Supervisor Empresarial</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">40%</div>
+                        <p class="text-gray-600">Evaluación del desempeño laboral y competencias profesionales</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">👨‍🏫</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Supervisor Académico</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-green-600 mb-2">40%</div>
+                        <p class="text-gray-600">Seguimiento académico y evaluación de informes</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">📝</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Informe Final</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-orange-600 mb-2">20%</div>
+                        <p class="text-gray-600">Presentación y sustentación del informe final</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                <div class="flex items-center">
+                    <span class="text-2xl mr-3">⚠️</span>
+                    <div>
+                        <h4 class="text-lg font-bold text-yellow-800">Nota Importante</h4>
+                        <p class="text-yellow-700">La calificación mínima para aprobar las prácticas profesionales es de 3.0. En caso de no alcanzar esta nota, el estudiante deberá repetir el proceso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="bg-gradient-to-r from-red-600 to-red-800 rounded-2xl p-8 text-white text-center">
+            <h2 class="text-3xl font-bold mb-4">📞 Coordinación de Prácticas Profesionales</h2>
+            <p class="text-xl mb-6">Para más información y asesoría sobre prácticas profesionales</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/20 rounded-lg p-4">
+                    <h3 class="font-bold mb-2">📧 Correo Electrónico</h3>
+                    <p>practicas@unisinu.edu.co</p>
+                </div>
+                <div class="bg-white/20 rounded-lg p-4">
+                    <h3 class="font-bold mb-2">📱 Teléfono</h3>
+                    <p>(+57) 5 123 4567 Ext. 1234</p>
+                </div>
+                <div class="bg-white/20 rounded-lg p-4">
+                    <h3 class="font-bold mb-2">🏢 Oficina</h3>
+                    <p>Edificio Administrativo - Piso 2</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <!-- Universidad del Sinú Logo - Replace with actual logo file -->
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4 p-1">
+                    <img src="./assets/logo-unisinu.png" alt="Universidad del Sinú Logo" class="w-full h-full object-contain rounded-full">
+                    <!-- Fallback if logo not found -->
+                    <div class="w-full h-full bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-xs" style="display: none;">
+                        LOGO
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold">Universidad del Sinú</h3>
+                    <p class="text-gray-400">Elías Bechara Zainúm</p>
+                </div>
+            </div>
+            <p class="text-gray-400">© 2024 Universidad del Sinú. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9637f101f4c74c16',t:'MTc1MzIzOTc3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
