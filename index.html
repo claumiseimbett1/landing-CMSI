@@ -929,7 +929,7 @@
                 <form action="https://formspree.io/f/mqadkzjy" method="POST" id="newsletter-form">
                     <input type="email" name="email" placeholder="Tu correo electrónico" required>
                     <input type="hidden" name="_subject" value="Nueva suscripción al Newsletter - CMSI">
-                    <input type="hidden" name="_next" value="thanks.html">
+                    <input type="hidden" name="_next" value="index.html?subscribed=true">
                     <input type="hidden" name="_captcha" value="false">
                     <button type="submit" class="subscribe-btn">Suscribirme</button>
                 </form>
@@ -1214,9 +1214,25 @@
             }
         }
 
+        // Check for subscription confirmation in URL
+        function checkSubscriptionStatus() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('subscribed') === 'true') {
+                localStorage.setItem('newsletter_subscribed', 'true');
+                activateNewsletterButton();
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+                // Show success message
+                alert('¡Suscripción exitosa! Ahora puedes acceder al newsletter.');
+            }
+        }
+
         // Newsletter access control
         document.addEventListener('DOMContentLoaded', function() {
             const accessBtn = document.getElementById('newsletter-access-btn');
+            
+            // Check URL first
+            checkSubscriptionStatus();
             
             if (localStorage.getItem('newsletter_subscribed') === 'true') {
                 activateNewsletterButton();
