@@ -1184,6 +1184,14 @@
             submitBtn.textContent = 'Suscribiendo...';
             submitBtn.disabled = true;
             
+            // Store subscription status in localStorage
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+                localStorage.setItem('newsletter_subscribed', 'true');
+                localStorage.setItem('subscriber_email', email);
+                activateNewsletterButton();
+            }
+            
             // Let Formspree handle the submission
             // The form will redirect or show Formspree's default success page
             
@@ -1192,6 +1200,24 @@
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }, 3000);
+        });
+
+        // Function to activate newsletter access button
+        function activateNewsletterButton() {
+            const accessBtn = document.querySelector('.newsletter-access-btn');
+            if (accessBtn) {
+                accessBtn.style.backgroundColor = 'var(--yellow)';
+                accessBtn.style.borderColor = 'var(--yellow)';
+                accessBtn.style.color = 'var(--black)';
+                accessBtn.textContent = '✓ Acceder al Newsletter';
+            }
+        }
+
+        // Check subscription status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('newsletter_subscribed') === 'true') {
+                activateNewsletterButton();
+            }
         });
     </script>
 </body>
