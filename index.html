@@ -312,7 +312,7 @@
         }
 
         /* Services Section */
-        .services, .resources, .technological-products, .university-teaching {
+        .services, .resources, .technological-products, .university-teaching, .newsletter-subscription {
             padding: 80px 20px;
             background-color: white;
         }
@@ -531,6 +531,106 @@
             transform: translateX(5px);
         }
 
+        /* Newsletter Subscription Section */
+        .newsletter-subscription {
+            background-color: var(--beige-light);
+        }
+
+        .subscription-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .subscription-text h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .subscription-text p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #333;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscription-form {
+            margin-bottom: 30px;
+        }
+
+        .subscription-form form {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscription-form input[type="email"] {
+            flex: 1;
+            min-width: 280px;
+            padding: 15px 20px;
+            border: 2px solid var(--beige-dark);
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .subscription-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 10px rgba(213, 182, 144, 0.3);
+        }
+
+        .subscribe-btn {
+            background-color: var(--black);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .subscribe-btn:hover {
+            background-color: var(--beige-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .newsletter-link {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--beige-muted);
+        }
+
+        .newsletter-access-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: transparent;
+            border: 2px solid var(--beige-dark);
+            color: var(--beige-dark);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .newsletter-access-btn:hover {
+            background-color: var(--beige-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(213, 182, 144, 0.3);
+        }
+
         /* Contact Section */
         .contact {
             padding: 80px 20px;
@@ -660,6 +760,21 @@
             .hero-text h1 {
                 font-size: 2.5em;
             }
+            
+            .subscription-form form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .subscription-form input[type="email"] {
+                min-width: auto;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .subscribe-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -676,6 +791,7 @@
                 <li><a href="#biografia">Biografía</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#suscripcion">Newsletter</a></li>
                 <li><a href="#recursos">Recursos</a></li>
                 <li><a href="#docencia-universitaria">Docencia</a></li>
                 <li><a href="#productos-tecnologicos">Productos</a></li>
@@ -796,6 +912,29 @@
                 <div class="experience-number">50+</div>
                 <h3>Profesionales Capacitados</h3>
                 <p>En sensores de fibra óptica, sensado remoto asistido por machine learning, fotonica en la agricultura digital, 		   y tecnologías emergentes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription Section -->
+    <section class="newsletter-subscription" id="suscripcion">
+        <h2 class="section-title">Mantente Actualizado</h2>
+        <div class="subscription-content">
+            <div class="subscription-text">
+                <h3>Suscríbete a nuestro Newsletter</h3>
+                <p>Recibe las últimas tendencias en agricultura digital, sensores remotos, energía y tecnologías emergentes directamente en tu bandeja de entrada.</p>
+            </div>
+            <div class="subscription-form">
+                <form action="https://formspree.io/f/mqadkzjy" method="POST" id="newsletter-form">
+                    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                    <input type="hidden" name="_subject" value="Nueva suscripción al Newsletter - CMSI">
+                    <input type="hidden" name="_next" value="thanks.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="subscribe-btn">Suscribirme</button>
+                </form>
+            </div>
+            <div class="newsletter-link">
+                <a href="newsletter.html" class="newsletter-access-btn">Acceder al Newsletter Actual</a>
             </div>
         </div>
     </section>
@@ -1033,6 +1172,25 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
+        });
+
+        // Newsletter subscription form handling with Formspree
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('.subscribe-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Change button text to show loading
+            submitBtn.textContent = 'Suscribiendo...';
+            submitBtn.disabled = true;
+            
+            // Let Formspree handle the submission
+            // The form will redirect or show Formspree's default success page
+            
+            // Reset button after a delay (in case there's an error)
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
         });
     </script>
 </body>
