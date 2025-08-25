@@ -1216,6 +1216,7 @@
                 accessBtn.textContent = '✓ Acceder al Newsletter';
                 accessBtn.href = 'newsletter.html';
                 accessBtn.classList.add('subscribed');
+                console.log('Button activated. New href:', accessBtn.href);
             }
         }
 
@@ -1249,14 +1250,18 @@
             accessBtn.addEventListener('click', function(e) {
                 const isSubscribed = localStorage.getItem('newsletter_subscribed') === 'true';
                 console.log('Button clicked. Is subscribed:', isSubscribed);
-                console.log('Button href:', accessBtn.href);
+                console.log('Button href:', this.href);
                 
                 if (!isSubscribed) {
                     e.preventDefault();
                     alert('Debes suscribirte al newsletter para acceder al contenido.');
                     document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
                 } else {
-                    console.log('Allowing navigation to newsletter...');
+                    console.log('Allowing navigation to:', this.href);
+                    // Forzar navegación si el href es correcto
+                    if (this.href && this.href !== window.location.href + '#') {
+                        window.location.href = this.href;
+                    }
                 }
             });
         });
