@@ -1238,16 +1238,17 @@
             
             if (localStorage.getItem('newsletter_subscribed') === 'true') {
                 activateNewsletterButton();
-            } else {
-                // Disable access for non-subscribers
-                accessBtn.addEventListener('click', function(e) {
-                    if (!accessBtn.classList.contains('subscribed')) {
-                        e.preventDefault();
-                        alert('Debes suscribirte al newsletter para acceder al contenido.');
-                        document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
             }
+            
+            // Always add click handler that checks subscription status
+            accessBtn.addEventListener('click', function(e) {
+                if (localStorage.getItem('newsletter_subscribed') !== 'true') {
+                    e.preventDefault();
+                    alert('Debes suscribirte al newsletter para acceder al contenido.');
+                    document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
+                }
+                // If subscribed, let the default behavior (link navigation) work
+            });
         });
 
     </script>
