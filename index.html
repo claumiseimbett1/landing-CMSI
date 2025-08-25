@@ -935,7 +935,7 @@
                 </form>
             </div>
             <div class="newsletter-link">
-                <a href="newsletter.html" class="newsletter-access-btn">Acceder al Newsletter Actual</a>
+                <a href="#" class="newsletter-access-btn" id="newsletter-access-btn">Acceder al Newsletter Actual</a>
             </div>
         </div>
     </section>
@@ -1210,15 +1210,26 @@
                 accessBtn.style.borderColor = 'var(--yellow)';
                 accessBtn.style.color = 'var(--black)';
                 accessBtn.textContent = '✓ Acceder al Newsletter';
+                accessBtn.href = 'newsletter.html';
             }
         }
 
-        // Check subscription status on page load
+        // Newsletter access control
         document.addEventListener('DOMContentLoaded', function() {
+            const accessBtn = document.getElementById('newsletter-access-btn');
+            
             if (localStorage.getItem('newsletter_subscribed') === 'true') {
                 activateNewsletterButton();
+            } else {
+                // Disable access for non-subscribers
+                accessBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Debes suscribirte al newsletter para acceder al contenido.');
+                    document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
+                });
             }
         });
+
     </script>
 </body>
 </html>
