@@ -925,8 +925,11 @@
                 <p>Recibe las últimas tendencias en agricultura digital, sensores remotos y tecnologías emergentes directamente en tu bandeja de entrada.</p>
             </div>
             <div class="subscription-form">
-                <form action="#" method="POST" id="newsletter-form">
+                <form action="https://formspree.io/f/mqadkzjy" method="POST" id="newsletter-form">
                     <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                    <input type="hidden" name="_subject" value="Nueva suscripción al Newsletter - CMSI">
+                    <input type="hidden" name="_next" value="thanks.html">
+                    <input type="hidden" name="_captcha" value="false">
                     <button type="submit" class="subscribe-btn">Suscribirme</button>
                 </form>
             </div>
@@ -1171,30 +1174,23 @@
             observer.observe(el);
         });
 
-        // Newsletter subscription form handling
+        // Newsletter subscription form handling with Formspree
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = this.querySelector('input[type="email"]').value;
             const submitBtn = this.querySelector('.subscribe-btn');
-            
-            // Save original button text
             const originalText = submitBtn.textContent;
             
             // Change button text to show loading
             submitBtn.textContent = 'Suscribiendo...';
             submitBtn.disabled = true;
             
-            // Here you would normally send the email to your backend
-            // For now, we'll simulate a successful subscription
+            // Let Formspree handle the submission
+            // The form will redirect or show Formspree's default success page
+            
+            // Reset button after a delay (in case there's an error)
             setTimeout(() => {
-                alert('¡Gracias por suscribirte! Pronto recibirás nuestro newsletter con las últimas novedades.');
-                this.reset(); // Clear the form
-                
-                // Reset button
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+            }, 3000);
         });
     </script>
 </body>
