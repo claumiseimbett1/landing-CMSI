@@ -1248,20 +1248,17 @@
             
             // Always add click handler that checks subscription status
             accessBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Siempre prevenir el comportamiento por defecto
+                
                 const isSubscribed = localStorage.getItem('newsletter_subscribed') === 'true';
                 console.log('Button clicked. Is subscribed:', isSubscribed);
-                console.log('Button href:', this.href);
                 
                 if (!isSubscribed) {
-                    e.preventDefault();
                     alert('Debes suscribirte al newsletter para acceder al contenido.');
                     document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
                 } else {
-                    console.log('Allowing navigation to:', this.href);
-                    // Forzar navegación si el href es correcto
-                    if (this.href && this.href !== window.location.href + '#') {
-                        window.location.href = this.href;
-                    }
+                    console.log('Navigating to newsletter.html...');
+                    window.location.href = 'newsletter.html';
                 }
             });
         });
