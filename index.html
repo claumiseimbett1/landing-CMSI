@@ -632,6 +632,10 @@
             box-shadow: 0 5px 15px rgba(255, 252, 0, 0.3);
         }
 
+        .newsletter-access-btn.subscribed {
+            pointer-events: auto;
+        }
+
         /* Contact Section */
         .contact {
             padding: 80px 20px;
@@ -1206,11 +1210,9 @@
         function activateNewsletterButton() {
             const accessBtn = document.querySelector('.newsletter-access-btn');
             if (accessBtn) {
-                accessBtn.style.backgroundColor = 'var(--yellow)';
-                accessBtn.style.borderColor = 'var(--yellow)';
-                accessBtn.style.color = 'var(--black)';
                 accessBtn.textContent = '✓ Acceder al Newsletter';
                 accessBtn.href = 'newsletter.html';
+                accessBtn.classList.add('subscribed');
             }
         }
 
@@ -1239,9 +1241,11 @@
             } else {
                 // Disable access for non-subscribers
                 accessBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    alert('Debes suscribirte al newsletter para acceder al contenido.');
-                    document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
+                    if (!accessBtn.classList.contains('subscribed')) {
+                        e.preventDefault();
+                        alert('Debes suscribirte al newsletter para acceder al contenido.');
+                        document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
+                    }
                 });
             }
         });
