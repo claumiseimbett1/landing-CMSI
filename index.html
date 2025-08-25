@@ -940,6 +940,9 @@
             </div>
             <div class="newsletter-link">
                 <a href="#" class="newsletter-access-btn" id="newsletter-access-btn">Acceder al Newsletter Actual</a>
+                <br><br>
+                <!-- Botón temporal para testing -->
+                <button onclick="localStorage.setItem('newsletter_subscribed', 'true'); activateNewsletterButton(); alert('Suscripción simulada activada!');" style="background: red; color: white; padding: 10px;">TEST: Simular Suscripción</button>
             </div>
         </div>
     </section>
@@ -1219,7 +1222,9 @@
         // Check for subscription confirmation in URL
         function checkSubscriptionStatus() {
             const urlParams = new URLSearchParams(window.location.search);
+            console.log('URL params:', urlParams.toString());
             if (urlParams.get('subscribed') === 'true') {
+                console.log('Subscription detected, activating...');
                 localStorage.setItem('newsletter_subscribed', 'true');
                 activateNewsletterButton();
                 // Clean URL
@@ -1242,12 +1247,17 @@
             
             // Always add click handler that checks subscription status
             accessBtn.addEventListener('click', function(e) {
-                if (localStorage.getItem('newsletter_subscribed') !== 'true') {
+                const isSubscribed = localStorage.getItem('newsletter_subscribed') === 'true';
+                console.log('Button clicked. Is subscribed:', isSubscribed);
+                console.log('Button href:', accessBtn.href);
+                
+                if (!isSubscribed) {
                     e.preventDefault();
                     alert('Debes suscribirte al newsletter para acceder al contenido.');
                     document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    console.log('Allowing navigation to newsletter...');
                 }
-                // If subscribed, let the default behavior (link navigation) work
             });
         });
 
