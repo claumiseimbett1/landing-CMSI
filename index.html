@@ -940,9 +940,6 @@
             </div>
             <div class="newsletter-link">
                 <a href="#" class="newsletter-access-btn" id="newsletter-access-btn">Acceder al Newsletter Actual</a>
-                <br><br>
-                <!-- Botón temporal para testing -->
-                <button onclick="localStorage.setItem('newsletter_subscribed', 'true'); activateNewsletterButton(); alert('Suscripción simulada activada!');" style="background: red; color: white; padding: 10px;">TEST: Simular Suscripción</button>
             </div>
         </div>
     </section>
@@ -1216,16 +1213,13 @@
                 accessBtn.textContent = '✓ Acceder al Newsletter';
                 accessBtn.href = 'newsletter.html';
                 accessBtn.classList.add('subscribed');
-                console.log('Button activated. New href:', accessBtn.href);
             }
         }
 
         // Check for subscription confirmation in URL
         function checkSubscriptionStatus() {
             const urlParams = new URLSearchParams(window.location.search);
-            console.log('URL params:', urlParams.toString());
             if (urlParams.get('subscribed') === 'true') {
-                console.log('Subscription detected, activating...');
                 localStorage.setItem('newsletter_subscribed', 'true');
                 activateNewsletterButton();
                 // Clean URL
@@ -1251,13 +1245,11 @@
                 e.preventDefault(); // Siempre prevenir el comportamiento por defecto
                 
                 const isSubscribed = localStorage.getItem('newsletter_subscribed') === 'true';
-                console.log('Button clicked. Is subscribed:', isSubscribed);
                 
                 if (!isSubscribed) {
                     alert('Debes suscribirte al newsletter para acceder al contenido.');
                     document.getElementById('newsletter-form').scrollIntoView({ behavior: 'smooth' });
                 } else {
-                    console.log('Navigating to newsletter.html...');
                     window.location.href = 'newsletter.html';
                 }
             });
