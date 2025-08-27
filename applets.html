@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applets para Aprendizaje - Claudia Milena Serpa Imbett, PhD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --beige-light: #f3ede0;
+            --black: #000000;
+            --beige-dark: #d5b690;
+            --yellow: #fffc00;
+            --beige-muted: #d6ccc2;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--beige-light);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--beige-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 50px 20px 80px;
+            background: linear-gradient(135deg, #f5f5f5 0%, var(--beige-light) 100%);
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--black);
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow), var(--beige-dark));
+        }
+
+        .page-description {
+            text-align: center;
+            font-size: 1.2em;
+            max-width: 900px;
+            margin: 40px auto 60px;
+            color: #333;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 12px 25px;
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            background-color: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 252, 0, 0.3);
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .applet-section {
+            margin-bottom: 80px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: var(--black);
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--yellow), var(--beige-dark));
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        .applets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .applet-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .applet-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: var(--beige-dark);
+        }
+
+        .applet-screenshot {
+            height: 200px;
+            background: linear-gradient(135deg, var(--beige-light) 0%, #e8e8e8 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid var(--beige-muted);
+        }
+
+        .applet-screenshot::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,252,0,0.1) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(213,182,144,0.1) 0%, transparent 60%);
+        }
+
+        .screenshot-placeholder {
+            font-size: 3em;
+            color: var(--beige-dark);
+            z-index: 2;
+            position: relative;
+        }
+
+        .applet-content {
+            padding: 25px;
+        }
+
+        .applet-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .applet-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .applet-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .applet-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .applet-link:hover::before {
+            left: 100%;
+        }
+
+        .applet-link:hover {
+            background: linear-gradient(135deg, var(--beige-dark) 0%, #b8956f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Coming Soon Style */
+        .coming-soon {
+            opacity: 0.6;
+            position: relative;
+        }
+
+        .coming-soon .applet-screenshot {
+            background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%);
+        }
+
+        .coming-soon::after {
+            content: 'Próximamente';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        /* Specific Section Colors */
+        .remote-sensing {
+            border-left: 5px solid #2ecc71;
+        }
+
+        .machine-learning {
+            border-left: 5px solid #3498db;
+        }
+
+        .system-analysis {
+            border-left: 5px solid #e74c3c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 2em;
+            }
+            
+            .applets-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .applet-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="logos/logo-CLAU.svg" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#biografia">Biografía</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#experiencia">Experiencia</a></li>
+                <li><a href="index.html#suscripcion">Newsletter</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="docencia.html">Docencia</a></li>
+                <li><a href="applets.html">Applets</a></li>
+                <li><a href="index.html#productos-tecnologicos">Productos</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="section-container">
+            <a href="index.html" class="back-link">← Volver al Inicio</a>
+            
+            <h1 class="page-title">🚀 Applets para Aprendizaje Interactivo</h1>
+            <p class="page-description">
+                Bienvenido al futuro del aprendizaje científico y tecnológico. Nuestros applets interactivos transforman 
+                conceptos complejos en experiencias visuales y prácticas, facilitando la comprensión de sensores remotos, 
+                machine learning y análisis de sistemas de manera intuitiva y efectiva.
+            </p>
+
+            <!-- Sensores Remotos Section -->
+            <section class="applet-section remote-sensing">
+                <h2 class="section-title">🛰️ Sensores Remotos</h2>
+                <p class="section-description">
+                    Explora el fascinante mundo de los sensores remotos a través de herramientas interactivas que te permiten 
+                    visualizar y manipular datos satelitales en tiempo real.
+                </p>
+                
+                <div class="applets-grid">
+                    <div class="applet-card">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🛰️</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Plataforma Interactiva de Sensores Remotos</h3>
+                            <p class="applet-description">
+                                Aprende los fundamentos de la teledetección a través de visualizaciones interactivas, análisis espectral 
+                                y procesamiento de imágenes satelitales con herramientas pedagógicas avanzadas.
+                            </p>
+                            <a href="https://claumiseimbett1.github.io/applet2learn/" target="_blank" class="applet-link">
+                                Explorar Applet →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Machine Learning Section -->
+            <section class="applet-section machine-learning">
+                <h2 class="section-title">🤖 Machine Learning</h2>
+                <p class="section-description">
+                    Domina los algoritmos de aprendizaje automático mediante experiencias interactivas que te permiten 
+                    experimentar con diferentes modelos y observar sus resultados en tiempo real.
+                </p>
+                
+                <div class="applets-grid">
+                    <div class="applet-card">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🌳</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Random Forest Interactivo</h3>
+                            <p class="applet-description">
+                                Comprende el funcionamiento de Random Forest mediante visualizaciones dinámicas de árboles de decisión 
+                                y análisis de importancia de características.
+                            </p>
+                            <a href="https://claumiseimbett1.github.io/applet2learn/2-random-forest-teaching-app" target="_blank" class="applet-link">
+                                Explorar Applet →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">📊</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Support Vector Machine (SVM)</h3>
+                            <p class="applet-description">
+                                Visualiza cómo funcionan las máquinas de vectores de soporte, experimenta con diferentes kernels 
+                                y observa la separación de clases en tiempo real.
+                            </p>
+                            <a href="https://claumiseimbett1.github.io/applet2learn/4-svm_standalone_html" target="_blank" class="applet-link">
+                                Explorar Applet →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🎯</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">K-Means Clustering</h3>
+                            <p class="applet-description">
+                                Entiende el algoritmo de agrupamiento K-Means mediante visualizaciones interactivas que muestran 
+                                la formación de clusters paso a paso.
+                            </p>
+                            <a href="https://claumiseimbett1.github.io/applet2learn/5-kmeans-applet" target="_blank" class="applet-link">
+                                Explorar Applet →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">📈</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Análisis de Componentes Principales (PCA)</h3>
+                            <p class="applet-description">
+                                Explora la reducción de dimensionalidad con PCA mediante visualizaciones que muestran cómo se 
+                                transforman los datos en espacios de menor dimensión.
+                            </p>
+                            <a href="https://claumiseimbett1.github.io/applet2learn/6-pca-applet" target="_blank" class="applet-link">
+                                Explorar Applet →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">⚡</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">XGBoost Interactivo</h3>
+                            <p class="applet-description">
+                                Comprende el poder del gradient boosting extremo mediante visualizaciones que muestran cómo se 
+                                construyen y combinan los árboles de decisión.
+                            </p>
+                            <a href="https://claumiseimbett1.github.io/applet2learn/7-xgboost-applet" target="_blank" class="applet-link">
+                                Explorar Applet →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🧠</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Red Neuronal Simple</h3>
+                            <p class="applet-description">
+                                Descubre los fundamentos de las redes neuronales mediante una implementación interactiva que muestra 
+                                el proceso de aprendizaje neurona por neurona.
+                            </p>
+                            <a href="https://claumiseimbett1.github.io/applet2learn/8-simple-neural-network" target="_blank" class="applet-link">
+                                Explorar Applet →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Análisis de Sistemas Section -->
+            <section class="applet-section system-analysis">
+                <h2 class="section-title">⚙️ Análisis de Sistemas</h2>
+                <p class="section-description">
+                    Próximamente: Herramientas interactivas para el análisis y modelado de sistemas complejos, simulaciones 
+                    dinámicas y optimización de procesos industriales.
+                </p>
+                
+                <div class="applets-grid">
+                    <div class="applet-card coming-soon">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🔧</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Simulador de Sistemas Dinámicos</h3>
+                            <p class="applet-description">
+                                Herramienta interactiva para modelar y simular sistemas dinámicos complejos con visualización en tiempo real.
+                            </p>
+                            <a href="#" class="applet-link">Próximamente</a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card coming-soon">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">📊</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Optimización de Procesos</h3>
+                            <p class="applet-description">
+                                Applet para experimentar con algoritmos de optimización y ver su aplicación en procesos industriales.
+                            </p>
+                            <a href="#" class="applet-link">Próximamente</a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card coming-soon">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🎛️</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Control de Sistemas</h3>
+                            <p class="applet-description">
+                                Simulador interactivo para diseñar y probar controladores PID y sistemas de control avanzados.
+                            </p>
+                            <a href="#" class="applet-link">Próximamente</a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card coming-soon">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🌊</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Análisis de Señales</h3>
+                            <p class="applet-description">
+                                Herramienta para el análisis interactivo de señales, transformadas de Fourier y filtros digitales.
+                            </p>
+                            <a href="#" class="applet-link">Próximamente</a>
+                        </div>
+                    </div>
+
+                    <div class="applet-card coming-soon">
+                        <div class="applet-screenshot">
+                            <div class="screenshot-placeholder">🔬</div>
+                        </div>
+                        <div class="applet-content">
+                            <h3 class="applet-title">Modelado de Sistemas Complejos</h3>
+                            <p class="applet-description">
+                                Plataforma para crear y simular modelos de sistemas complejos con múltiples variables interconectadas.
+                            </p>
+                            <a href="#" class="applet-link">Próximamente</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe elements
+        document.querySelectorAll('.applet-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth hover effects
+        document.querySelectorAll('.applet-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (this.style.opacity === '1') {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
