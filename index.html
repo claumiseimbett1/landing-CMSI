@@ -988,45 +988,44 @@
         </div>
     </section>
 
-    <!-- Full-Width Video Banner Section -->
-    <section style="
+    <!-- Video Section Integrated -->
+    <div style="
         width: 100vw; 
+        margin: 40px 0; 
         margin-left: calc(-50vw + 50%); 
-        padding: 60px 0; 
-        background: linear-gradient(135deg, var(--black) 0%, #333 50%, var(--beige-dark) 100%);
-        position: relative;
-        overflow: hidden;
+        padding: 40px 20px; 
+        background: linear-gradient(135deg, var(--beige-light) 0%, #f8f9fa 100%);
+        border-top: 3px solid var(--yellow);
+        border-bottom: 3px solid var(--yellow);
     ">
-        <!-- Decorative background elements -->
-        <div style="
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 40%;
-            height: 200%;
-            background: radial-gradient(ellipse, rgba(255,252,0,0.1) 0%, transparent 70%);
-            transform: rotate(15deg);
-            z-index: 1;
-        "></div>
-        
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h3 style="color: white; font-size: 1.8em; margin-bottom: 10px;">
-                    ✨ Applets Interactivos en Acción
-                </h3>
-                <p style="color: var(--beige-light); font-size: 1.1em; max-width: 600px; margin: 0 auto;">
-                    Descubre cómo la tecnología transforma el aprendizaje científico
-                </p>
-            </div>
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+            <h3 style="
+                color: var(--black); 
+                font-size: 1.6em; 
+                margin-bottom: 15px;
+                font-weight: 600;
+            ">
+                ✨ Conoce Nuestros Applets Interactivos
+            </h3>
+            <p style="
+                color: #555; 
+                font-size: 1.1em; 
+                margin-bottom: 30px; 
+                max-width: 700px; 
+                margin-left: auto; 
+                margin-right: auto;
+            ">
+                Descubre cómo la tecnología transforma el aprendizaje científico a través de herramientas visuales
+            </p>
             
             <div style="
-                position: relative; 
-                max-width: 900px; 
+                max-width: 800px; 
                 margin: 0 auto;
-                border-radius: 15px;
+                border-radius: 10px;
                 overflow: hidden;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-                border: 3px solid var(--yellow);
+                box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+                background: white;
+                padding: 15px;
             ">
                 <video 
                     controls 
@@ -1034,48 +1033,25 @@
                         width: 100%; 
                         height: auto; 
                         display: block;
-                        background: #000;
+                        border-radius: 8px;
                     "
-                    poster="img/video-poster.jpg"
                 >
                     <source src="videos/APPLET.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
-                
-                <!-- Play overlay for better visual impact -->
-                <div style="
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 80px;
-                    height: 80px;
-                    background: rgba(255,252,0,0.9);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    pointer-events: none;
-                " id="play-overlay">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                        <path d="M8 5V19L19 12L8 5Z" fill="var(--black)" stroke="var(--black)" stroke-width="2"/>
-                    </svg>
-                </div>
             </div>
             
             <p style="
                 text-align: center; 
                 margin-top: 20px; 
                 font-style: italic; 
-                color: var(--beige-light); 
-                font-size: 0.95em;
+                color: #666; 
+                font-size: 0.9em;
             ">
-                🎯 Experimenta con machine learning, sensores remotos y análisis de sistemas de forma visual e interactiva
+                🎯 Machine Learning • Sensores Remotos • Análisis de Sistemas
             </p>
         </div>
-    </section>
+    </div>
 
     <section class="services" id="applets-aprendizaje-continue" style="padding-top: 40px;">
         <div class="subscription-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
@@ -1265,31 +1241,6 @@
                 alert('¡Suscripción exitosa! Ahora puedes acceder al newsletter.');
             }
         }
-
-        // Video interaction handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('video');
-            const playOverlay = document.getElementById('play-overlay');
-            
-            if (video && playOverlay) {
-                // Hide overlay when video starts playing
-                video.addEventListener('play', function() {
-                    playOverlay.style.opacity = '0';
-                    playOverlay.style.transform = 'translate(-50%, -50%) scale(0.5)';
-                });
-                
-                // Show overlay when video is paused or ended
-                video.addEventListener('pause', function() {
-                    playOverlay.style.opacity = '1';
-                    playOverlay.style.transform = 'translate(-50%, -50%) scale(1)';
-                });
-                
-                video.addEventListener('ended', function() {
-                    playOverlay.style.opacity = '1';
-                    playOverlay.style.transform = 'translate(-50%, -50%) scale(1)';
-                });
-            }
-        });
 
         // Newsletter access control
         document.addEventListener('DOMContentLoaded', function() {
