@@ -985,16 +985,101 @@
                 <p>Descubre el poder del aprendizaje visual e interactivo a través de applets especializados. Desde sensores remotos hasta machine learning y análisis de sistemas: ¡La ciencia cobra vida en tu pantalla!</p>
             </div>
             
-            <!-- Video Section -->
-            <div style="margin: 40px 0; display: flex; justify-content: center;">
-                <div style="max-width: 600px; width: 100%; position: relative; background-color: var(--beige-light); padding: 20px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <video controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                        <source src="video/APPLET.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento de video.
-                    </video>
-                    <p style="margin-top: 15px; font-style: italic; color: #666;">Conoce nuestros applets interactivos en acción</p>
+        </div>
+    </section>
+
+    <!-- Full-Width Video Banner Section -->
+    <section style="
+        width: 100vw; 
+        margin-left: calc(-50vw + 50%); 
+        padding: 60px 0; 
+        background: linear-gradient(135deg, var(--black) 0%, #333 50%, var(--beige-dark) 100%);
+        position: relative;
+        overflow: hidden;
+    ">
+        <!-- Decorative background elements -->
+        <div style="
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 40%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255,252,0,0.1) 0%, transparent 70%);
+            transform: rotate(15deg);
+            z-index: 1;
+        "></div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h3 style="color: white; font-size: 1.8em; margin-bottom: 10px;">
+                    ✨ Applets Interactivos en Acción
+                </h3>
+                <p style="color: var(--beige-light); font-size: 1.1em; max-width: 600px; margin: 0 auto;">
+                    Descubre cómo la tecnología transforma el aprendizaje científico
+                </p>
+            </div>
+            
+            <div style="
+                position: relative; 
+                max-width: 900px; 
+                margin: 0 auto;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                border: 3px solid var(--yellow);
+            ">
+                <video 
+                    controls 
+                    style="
+                        width: 100%; 
+                        height: auto; 
+                        display: block;
+                        background: #000;
+                    "
+                    poster="img/video-poster.jpg"
+                >
+                    <source src="video/APPLET.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                
+                <!-- Play overlay for better visual impact -->
+                <div style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 80px;
+                    height: 80px;
+                    background: rgba(255,252,0,0.9);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                " id="play-overlay">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5V19L19 12L8 5Z" fill="var(--black)" stroke="var(--black)" stroke-width="2"/>
+                    </svg>
                 </div>
             </div>
+            
+            <p style="
+                text-align: center; 
+                margin-top: 20px; 
+                font-style: italic; 
+                color: var(--beige-light); 
+                font-size: 0.95em;
+            ">
+                🎯 Experimenta con machine learning, sensores remotos y análisis de sistemas de forma visual e interactiva
+            </p>
+        </div>
+    </section>
+
+    <section class="services" id="applets-aprendizaje-continue" style="padding-top: 40px;">
+        <div class="subscription-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <div style="margin-top: 0;">
             
             <div style="margin-top: 40px;">
                 <a href="applets.html" class="cta-button">Explorar Applets Interactivos</a>
@@ -1180,6 +1265,31 @@
                 alert('¡Suscripción exitosa! Ahora puedes acceder al newsletter.');
             }
         }
+
+        // Video interaction handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            const playOverlay = document.getElementById('play-overlay');
+            
+            if (video && playOverlay) {
+                // Hide overlay when video starts playing
+                video.addEventListener('play', function() {
+                    playOverlay.style.opacity = '0';
+                    playOverlay.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                });
+                
+                // Show overlay when video is paused or ended
+                video.addEventListener('pause', function() {
+                    playOverlay.style.opacity = '1';
+                    playOverlay.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
+                
+                video.addEventListener('ended', function() {
+                    playOverlay.style.opacity = '1';
+                    playOverlay.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
+            }
+        });
 
         // Newsletter access control
         document.addEventListener('DOMContentLoaded', function() {
