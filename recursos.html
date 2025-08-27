@@ -483,6 +483,16 @@
                         else if (href.includes('index.html')) {
                             this.trackDownload('Navegación a Inicio');
                         }
+                        // Track specific docencia tools
+                        else if (href.includes('TDG-IngElectrica-UNISINU')) {
+                            this.trackDownload('Plataforma: Trabajo Grado Ing. Eléctrica');
+                        } else if (href.includes('chatbootunisinutdg.streamlit.app')) {
+                            this.trackDownload('Chatbot: Elektra UNISINU');
+                        } else if (href.includes('teledeteccion-curso')) {
+                            this.trackDownload('Repositorio: Sensores Remotos y ML');
+                        } else if (href.includes('prompt-generator-AI')) {
+                            this.trackDownload('Generador: Prompts para IA');
+                        }
                     }
                 });
             }
