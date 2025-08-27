@@ -1143,6 +1143,258 @@
     </footer>
 
     <script>
+        // Analytics and Counters System
+        class SiteAnalytics {
+            constructor() {
+                this.storageKey = 'site_analytics';
+                this.sessionKey = 'site_session';
+                this.init();
+            }
+
+            init() {
+                this.trackPageVisit();
+                this.setupDownloadTracking();
+                this.setupSectionViews();
+                this.displayStats();
+            }
+
+            getAnalytics() {
+                const stored = localStorage.getItem(this.storageKey);
+                return stored ? JSON.parse(stored) : {
+                    totalVisits: 0,
+                    uniqueVisitors: 0,
+                    downloads: {},
+                    sectionViews: {
+                        biografia: 0,
+                        servicios: 0,
+                        experiencia: 0,
+                        recursos: 0,
+                        productos: 0
+                    },
+                    dailyStats: {}
+                };
+            }
+
+            saveAnalytics(data) {
+                localStorage.setItem(this.storageKey, JSON.stringify(data));
+                // Also try to sync with external service
+                this.syncWithServer(data);
+            }
+
+            trackPageVisit() {
+                const analytics = this.getAnalytics();
+                const today = new Date().toISOString().split('T')[0];
+                
+                // Check if this is a new session
+                const isNewSession = !sessionStorage.getItem(this.sessionKey);
+                
+                if (isNewSession) {
+                    analytics.totalVisits++;
+                    sessionStorage.setItem(this.sessionKey, Date.now().toString());
+                    
+                    // Track daily stats
+                    if (!analytics.dailyStats[today]) {
+                        analytics.dailyStats[today] = 0;
+                    }
+                    analytics.dailyStats[today]++;
+                    
+                    // Track unique visitors (approximation)
+                    const lastVisit = localStorage.getItem('last_visit');
+                    const now = Date.now();
+                    if (!lastVisit || (now - parseInt(lastVisit)) > 24 * 60 * 60 * 1000) {
+                        analytics.uniqueVisitors++;
+                        localStorage.setItem('last_visit', now.toString());
+                    }
+                }
+                
+                this.saveAnalytics(analytics);
+            }
+
+            trackDownload(filename) {
+                const analytics = this.getAnalytics();
+                if (!analytics.downloads[filename]) {
+                    analytics.downloads[filename] = 0;
+                }
+                analytics.downloads[filename]++;
+                this.saveAnalytics(analytics);
+                
+                // Show download notification
+                this.showNotification(`Descarga registrada: ${filename}`);
+            }
+
+            trackSectionView(sectionId) {
+                const analytics = this.getAnalytics();
+                if (analytics.sectionViews[sectionId] !== undefined) {
+                    analytics.sectionViews[sectionId]++;
+                    this.saveAnalytics(analytics);
+                }
+            }
+
+            setupDownloadTracking() {
+                // Track all download links
+                document.addEventListener('click', (e) => {
+                    const link = e.target.closest('a');
+                    if (link && (
+                        link.classList.contains('download-link') ||
+                        link.href.includes('.pdf') ||
+                        link.href.includes('.zip') ||
+                        link.href.includes('.docx') ||
+                        link.href.includes('.xlsx')
+                    )) {
+                        const filename = link.href.split('/').pop() || link.textContent || 'archivo';
+                        this.trackDownload(filename);
+                    }
+                });
+            }
+
+            setupSectionViews() {
+                const sections = ['biografia', 'servicios', 'experiencia', 'recursos', 'productos'];
+                const observerOptions = {
+                    threshold: 0.5,
+                    rootMargin: '0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.id;
+                            if (sections.includes(sectionId)) {
+                                // Only track once per session
+                                if (!sessionStorage.getItem(`viewed_${sectionId}`)) {
+                                    this.trackSectionView(sectionId);
+                                    sessionStorage.setItem(`viewed_${sectionId}`, 'true');
+                                }
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(sectionId => {
+                    const element = document.getElementById(sectionId);
+                    if (element) {
+                        observer.observe(element);
+                    }
+                });
+            }
+
+            displayStats() {
+                const analytics = this.getAnalytics();
+                
+                // Create floating stats panel
+                const statsPanel = document.createElement('div');
+                statsPanel.id = 'stats-panel';
+                statsPanel.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(0,0,0,0.8);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 8px;
+                    font-size: 12px;
+                    z-index: 1000;
+                    max-width: 250px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    transform: translateX(200px);
+                `;
+                
+                const totalDownloads = Object.values(analytics.downloads).reduce((sum, count) => sum + count, 0);
+                const totalSectionViews = Object.values(analytics.sectionViews).reduce((sum, count) => sum + count, 0);
+                
+                statsPanel.innerHTML = `
+                    <div style="font-weight: bold; margin-bottom: 8px; color: #fffc00;">📊 Estadísticas del Sitio</div>
+                    <div>👥 Visitas: ${analytics.totalVisits}</div>
+                    <div>👤 Visitantes únicos: ${analytics.uniqueVisitors}</div>
+                    <div>📥 Descargas: ${totalDownloads}</div>
+                    <div>👀 Vistas de sección: ${totalSectionViews}</div>
+                    <div style="margin-top: 8px; font-size: 10px; opacity: 0.7;">Click para ocultar</div>
+                `;
+                
+                document.body.appendChild(statsPanel);
+                
+                // Slide in animation
+                setTimeout(() => {
+                    statsPanel.style.transform = 'translateX(0)';
+                }, 1000);
+                
+                // Toggle visibility
+                statsPanel.addEventListener('click', () => {
+                    const isHidden = statsPanel.style.transform === 'translateX(200px)';
+                    statsPanel.style.transform = isHidden ? 'translateX(0)' : 'translateX(200px)';
+                });
+                
+                // Auto-hide after 10 seconds
+                setTimeout(() => {
+                    if (statsPanel.style.transform === 'translateX(0px)' || !statsPanel.style.transform) {
+                        statsPanel.style.transform = 'translateX(200px)';
+                    }
+                }, 10000);
+            }
+
+            showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: #4CAF50;
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    z-index: 1001;
+                    font-size: 14px;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+                setTimeout(() => notification.style.transform = 'translateX(100%)', 3000);
+                setTimeout(() => document.body.removeChild(notification), 3500);
+            }
+
+            syncWithServer(data) {
+                // Optional: sync with external analytics service
+                // You can implement this to send data to Google Analytics, Formspree, etc.
+                try {
+                    // Example with a simple endpoint
+                    fetch('https://formspree.io/f/mqadkzjy', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            type: 'analytics',
+                            data: {
+                                visits: data.totalVisits,
+                                downloads: Object.keys(data.downloads).length,
+                                timestamp: new Date().toISOString()
+                            }
+                        })
+                    }).catch(() => {}); // Silent fail
+                } catch (e) {
+                    // Silent fail
+                }
+            }
+
+            // Public method to get stats for admin view
+            getFormattedStats() {
+                const analytics = this.getAnalytics();
+                return {
+                    visits: analytics.totalVisits,
+                    uniqueVisitors: analytics.uniqueVisitors,
+                    downloads: analytics.downloads,
+                    sectionViews: analytics.sectionViews,
+                    dailyStats: analytics.dailyStats
+                };
+            }
+        }
+
+        // Initialize analytics
+        const analytics = new SiteAnalytics();
+
         // Mobile menu functionality
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navLinks = document.querySelector('.nav-links');
