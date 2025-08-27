@@ -702,8 +702,19 @@
         footer {
             background-color: var(--black);
             color: white;
-            text-align: center;
             padding: 30px 20px;
+        }
+
+        #footer-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        #footer-stats strong {
+            color: var(--yellow);
+            font-weight: bold;
         }
 
         /* Responsive */
@@ -781,6 +792,14 @@
             
             .subscribe-btn {
                 width: 100%;
+            }
+            
+            #footer-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                font-size: 0.8em;
+                margin-top: 15px;
             }
         }
     </style>
@@ -1139,7 +1158,14 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+            <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+            <div id="footer-stats" style="display: flex; gap: 15px; font-size: 0.9em; color: #ccc;">
+                <span>👥 Visitas: <strong id="visit-count">0</strong></span>
+                <span>📥 Descargas: <strong id="download-count">0</strong></span>
+                <span>👀 Vistas: <strong id="view-count">0</strong></span>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -1177,6 +1203,8 @@
 
             saveAnalytics(data) {
                 localStorage.setItem(this.storageKey, JSON.stringify(data));
+                // Update footer stats in real time
+                this.updateFooterStats(data);
                 // Also try to sync with external service
                 this.syncWithServer(data);
             }
@@ -1279,57 +1307,21 @@
 
             displayStats() {
                 const analytics = this.getAnalytics();
-                
-                // Create floating stats panel
-                const statsPanel = document.createElement('div');
-                statsPanel.id = 'stats-panel';
-                statsPanel.style.cssText = `
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    background: rgba(0,0,0,0.8);
-                    color: white;
-                    padding: 15px;
-                    border-radius: 8px;
-                    font-size: 12px;
-                    z-index: 1000;
-                    max-width: 250px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    transform: translateX(200px);
-                `;
-                
+                this.updateFooterStats(analytics);
+            }
+
+            updateFooterStats(analytics) {
                 const totalDownloads = Object.values(analytics.downloads).reduce((sum, count) => sum + count, 0);
                 const totalSectionViews = Object.values(analytics.sectionViews).reduce((sum, count) => sum + count, 0);
                 
-                statsPanel.innerHTML = `
-                    <div style="font-weight: bold; margin-bottom: 8px; color: #fffc00;">📊 Estadísticas del Sitio</div>
-                    <div>👥 Visitas: ${analytics.totalVisits}</div>
-                    <div>👤 Visitantes únicos: ${analytics.uniqueVisitors}</div>
-                    <div>📥 Descargas: ${totalDownloads}</div>
-                    <div>👀 Vistas de sección: ${totalSectionViews}</div>
-                    <div style="margin-top: 8px; font-size: 10px; opacity: 0.7;">Click para ocultar</div>
-                `;
+                // Update footer counters
+                const visitCount = document.getElementById('visit-count');
+                const downloadCount = document.getElementById('download-count');
+                const viewCount = document.getElementById('view-count');
                 
-                document.body.appendChild(statsPanel);
-                
-                // Slide in animation
-                setTimeout(() => {
-                    statsPanel.style.transform = 'translateX(0)';
-                }, 1000);
-                
-                // Toggle visibility
-                statsPanel.addEventListener('click', () => {
-                    const isHidden = statsPanel.style.transform === 'translateX(200px)';
-                    statsPanel.style.transform = isHidden ? 'translateX(0)' : 'translateX(200px)';
-                });
-                
-                // Auto-hide after 10 seconds
-                setTimeout(() => {
-                    if (statsPanel.style.transform === 'translateX(0px)' || !statsPanel.style.transform) {
-                        statsPanel.style.transform = 'translateX(200px)';
-                    }
-                }, 10000);
+                if (visitCount) visitCount.textContent = analytics.totalVisits;
+                if (downloadCount) downloadCount.textContent = totalDownloads;
+                if (viewCount) viewCount.textContent = totalSectionViews;
             }
 
             showNotification(message) {
@@ -1356,27 +1348,9 @@
             }
 
             syncWithServer(data) {
-                // Optional: sync with external analytics service
-                // You can implement this to send data to Google Analytics, Formspree, etc.
-                try {
-                    // Example with a simple endpoint
-                    fetch('https://formspree.io/f/mqadkzjy', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            type: 'analytics',
-                            data: {
-                                visits: data.totalVisits,
-                                downloads: Object.keys(data.downloads).length,
-                                timestamp: new Date().toISOString()
-                            }
-                        })
-                    }).catch(() => {}); // Silent fail
-                } catch (e) {
-                    // Silent fail
-                }
+                // Sync disabled to avoid sending emails on each visit
+                // You can enable this later if you want to use an external analytics service
+                return;
             }
 
             // Public method to get stats for admin view
