@@ -1029,7 +1029,9 @@
                     autoplay 
                     muted 
                     loop 
+                    playsinline
                     controls 
+                    preload="auto"
                     style="
                         width: 100%; 
                         height: auto; 
@@ -1242,6 +1244,35 @@
                 alert('¡Suscripción exitosa! Ahora puedes acceder al newsletter.');
             }
         }
+
+        // Video autoplay handling for mobile devices
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            
+            if (video) {
+                // Try to play the video when the page loads
+                const playPromise = video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Video started playing successfully
+                    }).catch((error) => {
+                        // Autoplay was prevented, user interaction required
+                        console.log('Autoplay prevented:', error);
+                    });
+                }
+                
+                // Also try to play when user scrolls to the video section
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && video.paused) {
+                            video.play().catch(e => console.log('Play failed:', e));
+                        }
+                    });
+                });
+                observer.observe(video);
+            }
+        });
 
         // Newsletter access control
         document.addEventListener('DOMContentLoaded', function() {
