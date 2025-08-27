@@ -1239,6 +1239,7 @@
             }
 
             trackDownload(filename) {
+                console.log('Tracking download:', filename); // Debug log
                 const analytics = this.getAnalytics();
                 if (!analytics.downloads[filename]) {
                     analytics.downloads[filename] = 0;
@@ -1247,7 +1248,7 @@
                 this.saveAnalytics(analytics);
                 
                 // Show download notification
-                this.showNotification(`Descarga registrada: ${filename}`);
+                this.showNotification(`✅ ${filename}`);
             }
 
             trackSectionView(sectionId) {
@@ -1259,18 +1260,51 @@
             }
 
             setupDownloadTracking() {
-                // Track all download links
+                // Track all download and resource access links
                 document.addEventListener('click', (e) => {
                     const link = e.target.closest('a');
-                    if (link && (
-                        link.classList.contains('download-link') ||
-                        link.href.includes('.pdf') ||
-                        link.href.includes('.zip') ||
-                        link.href.includes('.docx') ||
-                        link.href.includes('.xlsx')
-                    )) {
-                        const filename = link.href.split('/').pop() || link.textContent || 'archivo';
-                        this.trackDownload(filename);
+                    if (link) {
+                        const href = link.href;
+                        const linkText = link.textContent.trim();
+                        console.log('Link clicked:', href, 'Text:', linkText); // Debug log
+                        
+                        // Track actual file downloads
+                        if (link.classList.contains('download-link') ||
+                            href.includes('.pdf') ||
+                            href.includes('.zip') ||
+                            href.includes('.docx') ||
+                            href.includes('.xlsx') ||
+                            href.includes('.ppt') ||
+                            href.includes('.pptx') ||
+                            href.includes('.xls')) {
+                            
+                            const filename = href.split('/').pop() || linkText || 'archivo';
+                            this.trackDownload(`Descarga: ${filename}`);
+                        }
+                        // Track resource page visits
+                        else if (href.includes('recursos.html')) {
+                            this.trackDownload('Acceso a Recursos');
+                        }
+                        // Track applet page visits
+                        else if (href.includes('applets.html')) {
+                            this.trackDownload('Acceso a Applets');
+                        }
+                        // Track docencia page visits
+                        else if (href.includes('docencia.html')) {
+                            this.trackDownload('Acceso a Docencia');
+                        }
+                        // Track newsletter access
+                        else if (href.includes('newsletter.html')) {
+                            this.trackDownload('Acceso a Newsletter');
+                        }
+                        // Track external resource links
+                        else if (link.target === '_blank' && 
+                                !href.includes('wa.me') && 
+                                !href.includes('linkedin.com') && 
+                                !href.includes('github.com') && 
+                                !href.includes('orcid.org')) {
+                            this.trackDownload(`Enlace externo: ${linkText}`);
+                        }
                     }
                 });
             }
@@ -1363,6 +1397,23 @@
                     sectionViews: analytics.sectionViews,
                     dailyStats: analytics.dailyStats
                 };
+            }
+
+            // Debug method to show all downloads
+            showDownloads() {
+                const analytics = this.getAnalytics();
+                console.log('Todas las descargas registradas:');
+                console.table(analytics.downloads);
+                return analytics.downloads;
+            }
+
+            // Method to reset analytics (for testing)
+            resetAnalytics() {
+                localStorage.removeItem(this.storageKey);
+                localStorage.removeItem('last_visit');
+                sessionStorage.clear();
+                console.log('Analytics reseteadas');
+                this.displayStats();
             }
         }
 
