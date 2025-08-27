@@ -48,8 +48,8 @@
         }
 
         .logo-container {
-            width: 150px;
-            height: 60px;
+            width: 200px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -939,6 +939,11 @@
                     <input type="hidden" name="_subject" value="Nueva suscripción al Newsletter - CMSI">
                     <input type="hidden" name="_next" value="index.html?subscribed=true">
                     <input type="hidden" name="_captcha" value="false">
+                    <!-- Honeypot field -->
+                    <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+                    <!-- Rate limiting -->
+                    <input type="hidden" name="_replyto" value="">
+                    <input type="hidden" name="timestamp" value="">
                     <button type="submit" class="subscribe-btn">Suscribirme</button>
                 </form>
             </div>
@@ -1197,18 +1202,47 @@
 
         // Newsletter subscription form handling with Formspree
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            const email = this.querySelector('input[type="email"]').value;
             const submitBtn = this.querySelector('.subscribe-btn');
             const originalText = submitBtn.textContent;
+            
+            // Check rate limiting - allow only one submission per 60 seconds
+            const lastSubmission = localStorage.getItem('last_subscription_attempt');
+            const now = Date.now();
+            if (lastSubmission && (now - parseInt(lastSubmission)) < 60000) {
+                e.preventDefault();
+                alert('Por favor espera un momento antes de intentar suscribirte nuevamente.');
+                return false;
+            }
+            
+            // Check if this email is already subscribed
+            if (isAlreadySubscribed(email)) {
+                e.preventDefault();
+                alert('Este correo electrónico ya está suscrito a nuestro newsletter.');
+                return false;
+            }
+            
+            // Check if already subscribed in this session
+            if (localStorage.getItem('newsletter_subscribed') === 'true') {
+                const storedEmail = localStorage.getItem('subscriber_email');
+                if (storedEmail && storedEmail.toLowerCase() === email.toLowerCase()) {
+                    e.preventDefault();
+                    alert('Ya estás suscrito con este correo electrónico.');
+                    return false;
+                }
+            }
+            
+            // Set timestamp for rate limiting and Formspree
+            localStorage.setItem('last_subscription_attempt', now.toString());
+            this.querySelector('input[name="timestamp"]').value = now;
             
             // Change button text to show loading
             submitBtn.textContent = 'Suscribiendo...';
             submitBtn.disabled = true;
             
-            // Store subscription status in localStorage
-            const email = this.querySelector('input[type="email"]').value;
+            // Store subscription status in both localStorage and cookies
             if (email) {
-                localStorage.setItem('newsletter_subscribed', 'true');
-                localStorage.setItem('subscriber_email', email);
+                storeSubscription(email);
                 activateNewsletterButton();
             }
             
@@ -1274,6 +1308,61 @@
             }
         });
 
+        // Cookie management functions
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Strict`;
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Enhanced subscription checking function
+        function isAlreadySubscribed(email) {
+            // Check localStorage
+            const localEmails = JSON.parse(localStorage.getItem('subscribed_emails') || '[]');
+            if (localEmails.includes(email.toLowerCase())) {
+                return true;
+            }
+
+            // Check cookies
+            const cookieEmails = getCookie('subscribed_emails');
+            if (cookieEmails) {
+                const emails = JSON.parse(decodeURIComponent(cookieEmails));
+                if (emails.includes(email.toLowerCase())) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // Store subscription in both localStorage and cookies
+        function storeSubscription(email) {
+            // Store in localStorage
+            let localEmails = JSON.parse(localStorage.getItem('subscribed_emails') || '[]');
+            if (!localEmails.includes(email.toLowerCase())) {
+                localEmails.push(email.toLowerCase());
+                localStorage.setItem('subscribed_emails', JSON.stringify(localEmails));
+            }
+
+            // Store in cookies (expires in 1 year)
+            setCookie('subscribed_emails', encodeURIComponent(JSON.stringify(localEmails)), 365);
+            setCookie('newsletter_subscribed', 'true', 365);
+            
+            localStorage.setItem('newsletter_subscribed', 'true');
+            localStorage.setItem('subscriber_email', email.toLowerCase());
+        }
+
         // Newsletter access control
         document.addEventListener('DOMContentLoaded', function() {
             const accessBtn = document.getElementById('newsletter-access-btn');
@@ -1281,15 +1370,20 @@
             // Check URL first
             checkSubscriptionStatus();
             
-            if (localStorage.getItem('newsletter_subscribed') === 'true') {
+            // Check both localStorage and cookies for subscription status
+            const localSubscribed = localStorage.getItem('newsletter_subscribed') === 'true';
+            const cookieSubscribed = getCookie('newsletter_subscribed') === 'true';
+            
+            if (localSubscribed || cookieSubscribed) {
                 activateNewsletterButton();
             }
             
             // Always add click handler that checks subscription status
             accessBtn.addEventListener('click', function(e) {
-                e.preventDefault(); // Siempre prevenir el comportamiento por defecto
+                e.preventDefault();
                 
-                const isSubscribed = localStorage.getItem('newsletter_subscribed') === 'true';
+                const isSubscribed = localStorage.getItem('newsletter_subscribed') === 'true' || 
+                                   getCookie('newsletter_subscribed') === 'true';
                 
                 if (!isSubscribed) {
                     alert('Debes suscribirte al newsletter para acceder al contenido.');
