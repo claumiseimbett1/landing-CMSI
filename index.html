@@ -1217,13 +1217,20 @@
             trackPageVisit() {
                 const analytics = this.getAnalytics();
                 const today = new Date().toISOString().split('T')[0];
+                const pageKey = this.sessionKey + '_index';
                 
-                // Check if this is a new session
-                const isNewSession = !sessionStorage.getItem(this.sessionKey);
+                console.log('🔍 Checking page visit...'); // Debug log
+                
+                // Check if this is a new session for this page
+                const isNewSession = !sessionStorage.getItem(pageKey);
+                
+                console.log('📊 New session?', isNewSession); // Debug log
                 
                 if (isNewSession) {
                     analytics.totalVisits++;
-                    sessionStorage.setItem(this.sessionKey, Date.now().toString());
+                    sessionStorage.setItem(pageKey, Date.now().toString());
+                    
+                    console.log('✅ Visit counted! Total visits:', analytics.totalVisits); // Debug log
                     
                     // Track daily stats
                     if (!analytics.dailyStats[today]) {
@@ -1238,9 +1245,13 @@
                         analytics.uniqueVisitors++;
                         localStorage.setItem('last_visit', now.toString());
                     }
+                    
+                    this.saveAnalytics(analytics);
+                } else {
+                    console.log('⏭️ Session already exists, not counting visit'); // Debug log
+                    // Still update footer stats even if not counting visit
+                    this.updateFooterStats(analytics);
                 }
-                
-                this.saveAnalytics(analytics);
             }
 
             trackDownload(filename) {
@@ -1260,7 +1271,10 @@
                 const analytics = this.getAnalytics();
                 if (analytics.sectionViews[sectionId] !== undefined) {
                     analytics.sectionViews[sectionId]++;
+                    console.log(`👀 Section view tracked: ${sectionId} (${analytics.sectionViews[sectionId]} times)`); // Debug log
                     this.saveAnalytics(analytics);
+                } else {
+                    console.log(`❌ Section not found in config: ${sectionId}`); // Debug log
                 }
             }
 
@@ -1358,15 +1372,21 @@
                     rootMargin: '0px'
                 };
 
+                console.log('🔧 Setting up section views for:', sections); // Debug log
+
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const sectionId = entry.target.id;
+                            console.log(`🔍 Section visible: ${sectionId}`); // Debug log
                             if (sections.includes(sectionId)) {
                                 // Only track once per session
                                 if (!sessionStorage.getItem(`viewed_${sectionId}`)) {
+                                    console.log(`📊 First time viewing section: ${sectionId}`); // Debug log
                                     this.trackSectionView(sectionId);
                                     sessionStorage.setItem(`viewed_${sectionId}`, 'true');
+                                } else {
+                                    console.log(`⏭️ Section already viewed in this session: ${sectionId}`); // Debug log
                                 }
                             }
                         }
@@ -1376,7 +1396,10 @@
                 sections.forEach(sectionId => {
                     const element = document.getElementById(sectionId);
                     if (element) {
+                        console.log(`✅ Found and observing section: ${sectionId}`); // Debug log
                         observer.observe(element);
+                    } else {
+                        console.log(`❌ Section not found in DOM: ${sectionId}`); // Debug log
                     }
                 });
             }
@@ -1461,6 +1484,27 @@
 
         // Initialize analytics
         const analytics = new SiteAnalytics();
+
+        // Debugging functions (available in console)
+        window.analytics = analytics;
+        window.resetAnalytics = () => analytics.resetAnalytics();
+        window.debugAnalytics = () => {
+            const data = analytics.getAnalytics();
+            console.log('=== ANALYTICS DEBUG ===');
+            console.log('📊 Total visits:', data.totalVisits);
+            console.log('👥 Unique visitors:', data.uniqueVisitors);
+            console.log('👀 Section views:');
+            Object.keys(data.sectionViews).forEach(key => {
+                console.log(`  ${key}: ${data.sectionViews[key]}`);
+            });
+            console.log('📥 Downloads:', Object.keys(data.downloads).length, 'types');
+            return data;
+        };
+        
+        // Auto-debug on page load
+        setTimeout(() => {
+            console.log('🚀 Analytics initialized. Use debugAnalytics() or resetAnalytics() in console');
+        }, 1000);
 
         // Mobile menu functionality
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
