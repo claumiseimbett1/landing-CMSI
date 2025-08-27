@@ -1219,18 +1219,12 @@
                 const today = new Date().toISOString().split('T')[0];
                 const pageKey = this.sessionKey + '_index';
                 
-                console.log('🔍 Checking page visit...'); // Debug log
-                
                 // Check if this is a new session for this page
                 const isNewSession = !sessionStorage.getItem(pageKey);
-                
-                console.log('📊 New session?', isNewSession); // Debug log
                 
                 if (isNewSession) {
                     analytics.totalVisits++;
                     sessionStorage.setItem(pageKey, Date.now().toString());
-                    
-                    console.log('✅ Visit counted! Total visits:', analytics.totalVisits); // Debug log
                     
                     // Track daily stats
                     if (!analytics.dailyStats[today]) {
@@ -1248,14 +1242,12 @@
                     
                     this.saveAnalytics(analytics);
                 } else {
-                    console.log('⏭️ Session already exists, not counting visit'); // Debug log
                     // Still update footer stats even if not counting visit
                     this.updateFooterStats(analytics);
                 }
             }
 
             trackDownload(filename) {
-                console.log('Tracking download:', filename); // Debug log
                 const analytics = this.getAnalytics();
                 if (!analytics.downloads[filename]) {
                     analytics.downloads[filename] = 0;
@@ -1271,10 +1263,7 @@
                 const analytics = this.getAnalytics();
                 if (analytics.sectionViews[sectionId] !== undefined) {
                     analytics.sectionViews[sectionId]++;
-                    console.log(`👀 Section view tracked: ${sectionId} (${analytics.sectionViews[sectionId]} times)`); // Debug log
                     this.saveAnalytics(analytics);
-                } else {
-                    console.log(`❌ Section not found in config: ${sectionId}`); // Debug log
                 }
             }
 
@@ -1285,7 +1274,6 @@
                     if (link) {
                         const href = link.href;
                         const linkText = link.textContent.trim();
-                        console.log('Link clicked:', href, 'Text:', linkText); // Debug log
                         
                         // Track actual file downloads
                         if (link.classList.contains('download-link') ||
@@ -1372,21 +1360,15 @@
                     rootMargin: '0px'
                 };
 
-                console.log('🔧 Setting up section views for:', sections); // Debug log
-
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const sectionId = entry.target.id;
-                            console.log(`🔍 Section visible: ${sectionId}`); // Debug log
                             if (sections.includes(sectionId)) {
                                 // Only track once per session
                                 if (!sessionStorage.getItem(`viewed_${sectionId}`)) {
-                                    console.log(`📊 First time viewing section: ${sectionId}`); // Debug log
                                     this.trackSectionView(sectionId);
                                     sessionStorage.setItem(`viewed_${sectionId}`, 'true');
-                                } else {
-                                    console.log(`⏭️ Section already viewed in this session: ${sectionId}`); // Debug log
                                 }
                             }
                         }
@@ -1396,10 +1378,7 @@
                 sections.forEach(sectionId => {
                     const element = document.getElementById(sectionId);
                     if (element) {
-                        console.log(`✅ Found and observing section: ${sectionId}`); // Debug log
                         observer.observe(element);
-                    } else {
-                        console.log(`❌ Section not found in DOM: ${sectionId}`); // Debug log
                     }
                 });
             }
@@ -1413,35 +1392,14 @@
                 const totalDownloads = Object.values(analytics.downloads).reduce((sum, count) => sum + count, 0);
                 const totalSectionViews = Object.values(analytics.sectionViews).reduce((sum, count) => sum + count, 0);
                 
-                console.log('📊 Updating footer stats:', {
-                    visits: analytics.totalVisits,
-                    downloads: totalDownloads,
-                    views: totalSectionViews
-                }); // Debug log
-                
                 // Update footer counters
                 const visitCount = document.getElementById('visit-count');
                 const downloadCount = document.getElementById('download-count');
                 const viewCount = document.getElementById('view-count');
                 
-                console.log('🔍 Footer elements found:', {
-                    visitCount: !!visitCount,
-                    downloadCount: !!downloadCount,
-                    viewCount: !!viewCount
-                }); // Debug log
-                
-                if (visitCount) {
-                    visitCount.textContent = analytics.totalVisits;
-                    console.log('✅ Updated visits to:', analytics.totalVisits);
-                }
-                if (downloadCount) {
-                    downloadCount.textContent = totalDownloads;
-                    console.log('✅ Updated downloads to:', totalDownloads);
-                }
-                if (viewCount) {
-                    viewCount.textContent = totalSectionViews;
-                    console.log('✅ Updated views to:', totalSectionViews);
-                }
+                if (visitCount) visitCount.textContent = analytics.totalVisits;
+                if (downloadCount) downloadCount.textContent = totalDownloads;
+                if (viewCount) viewCount.textContent = totalSectionViews;
             }
 
             showNotification(message) {
@@ -1522,12 +1480,9 @@
             return data;
         };
         
-        // Auto-debug on page load
+        // Initialize footer stats on page load
         setTimeout(() => {
-            console.log('🚀 Analytics initialized. Use debugAnalytics() or resetAnalytics() in console');
-            // Force footer update
             analytics.displayStats();
-            console.log('🔄 Footer stats updated on load');
         }, 1000);
 
         // Mobile menu functionality
