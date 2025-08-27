@@ -237,8 +237,19 @@
         footer {
             background-color: var(--black);
             color: white;
-            text-align: center;
             padding: 30px 20px;
+        }
+
+        #footer-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        #footer-stats strong {
+            color: var(--yellow);
+            font-weight: bold;
         }
 
         /* Responsive */
@@ -253,6 +264,14 @@
             
             .resources-grid {
                 grid-template-columns: 1fr;
+            }
+
+            #footer-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                font-size: 0.8em;
+                margin-top: 15px;
             }
         }
     </style>
@@ -348,7 +367,191 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+            <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+            <div id="footer-stats" style="display: flex; gap: 15px; font-size: 0.9em; color: #ccc;">
+                <span>👥 Visitas: <strong id="visit-count">0</strong></span>
+                <span>📥 Descargas: <strong id="download-count">0</strong></span>
+                <span>👀 Vistas: <strong id="view-count">0</strong></span>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Analytics and Counters System - Simplified version for resource pages
+        class SiteAnalytics {
+            constructor() {
+                this.storageKey = 'site_analytics';
+                this.sessionKey = 'site_session';
+                this.init();
+            }
+
+            init() {
+                this.trackPageVisit();
+                this.setupDownloadTracking();
+                this.displayStats();
+            }
+
+            getAnalytics() {
+                const stored = localStorage.getItem(this.storageKey);
+                return stored ? JSON.parse(stored) : {
+                    totalVisits: 0,
+                    uniqueVisitors: 0,
+                    downloads: {},
+                    sectionViews: {
+                        biografia: 0,
+                        servicios: 0,
+                        experiencia: 0,
+                        recursos: 0,
+                        productos: 0
+                    },
+                    dailyStats: {}
+                };
+            }
+
+            saveAnalytics(data) {
+                localStorage.setItem(this.storageKey, JSON.stringify(data));
+                // Update footer stats in real time
+                this.updateFooterStats(data);
+            }
+
+            trackPageVisit() {
+                const analytics = this.getAnalytics();
+                const today = new Date().toISOString().split('T')[0];
+                
+                // Check if this is a new session for this page
+                const isNewSession = !sessionStorage.getItem(this.sessionKey + '_recursos');
+                
+                if (isNewSession) {
+                    analytics.totalVisits++;
+                    sessionStorage.setItem(this.sessionKey + '_recursos', Date.now().toString());
+                    
+                    // Track daily stats
+                    if (!analytics.dailyStats[today]) {
+                        analytics.dailyStats[today] = 0;
+                    }
+                    analytics.dailyStats[today]++;
+                    
+                    // Track unique visitors (approximation)
+                    const lastVisit = localStorage.getItem('last_visit');
+                    const now = Date.now();
+                    if (!lastVisit || (now - parseInt(lastVisit)) > 24 * 60 * 60 * 1000) {
+                        analytics.uniqueVisitors++;
+                        localStorage.setItem('last_visit', now.toString());
+                    }
+                }
+                
+                this.saveAnalytics(analytics);
+            }
+
+            trackDownload(filename) {
+                console.log('Tracking download:', filename); // Debug log
+                const analytics = this.getAnalytics();
+                if (!analytics.downloads[filename]) {
+                    analytics.downloads[filename] = 0;
+                }
+                analytics.downloads[filename]++;
+                this.saveAnalytics(analytics);
+                
+                // Show download notification
+                this.showNotification(`✅ ${filename}`);
+            }
+
+            setupDownloadTracking() {
+                // Track all download links on this page
+                document.addEventListener('click', (e) => {
+                    const link = e.target.closest('a');
+                    if (link) {
+                        const href = link.href;
+                        const linkText = link.textContent.trim();
+                        console.log('Link clicked:', href, 'Text:', linkText); // Debug log
+                        
+                        // Track PDF downloads
+                        if (link.classList.contains('download-link') ||
+                            href.includes('.pdf') ||
+                            href.includes('.zip') ||
+                            href.includes('.docx') ||
+                            href.includes('.xlsx') ||
+                            href.includes('.ppt') ||
+                            href.includes('.pptx') ||
+                            href.includes('.xls')) {
+                            
+                            const filename = href.split('/').pop() || linkText || 'archivo';
+                            this.trackDownload(`PDF: ${filename}`);
+                        }
+                        // Track navigation back to main page
+                        else if (href.includes('index.html')) {
+                            this.trackDownload('Navegación a Inicio');
+                        }
+                    }
+                });
+            }
+
+            displayStats() {
+                const analytics = this.getAnalytics();
+                this.updateFooterStats(analytics);
+            }
+
+            updateFooterStats(analytics) {
+                const totalDownloads = Object.values(analytics.downloads).reduce((sum, count) => sum + count, 0);
+                const totalSectionViews = Object.values(analytics.sectionViews).reduce((sum, count) => sum + count, 0);
+                
+                // Update footer counters
+                const visitCount = document.getElementById('visit-count');
+                const downloadCount = document.getElementById('download-count');
+                const viewCount = document.getElementById('view-count');
+                
+                if (visitCount) visitCount.textContent = analytics.totalVisits;
+                if (downloadCount) downloadCount.textContent = totalDownloads;
+                if (viewCount) viewCount.textContent = totalSectionViews;
+            }
+
+            showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: #4CAF50;
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    z-index: 1001;
+                    font-size: 14px;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+                setTimeout(() => notification.style.transform = 'translateX(100%)', 3000);
+                setTimeout(() => document.body.removeChild(notification), 3500);
+            }
+
+            // Debug method to show all downloads
+            showDownloads() {
+                const analytics = this.getAnalytics();
+                console.log('Todas las descargas registradas:');
+                console.table(analytics.downloads);
+                return analytics.downloads;
+            }
+
+            // Method to reset analytics (for testing)
+            resetAnalytics() {
+                localStorage.removeItem(this.storageKey);
+                localStorage.removeItem('last_visit');
+                sessionStorage.clear();
+                console.log('Analytics reseteadas');
+                this.displayStats();
+            }
+        }
+
+        // Initialize analytics
+        const analytics = new SiteAnalytics();
+
+        // Make analytics available globally for debugging
+        window.analytics = analytics;
+    </script>
 </body>
 </html>
