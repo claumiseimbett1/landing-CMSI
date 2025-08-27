@@ -1413,14 +1413,35 @@
                 const totalDownloads = Object.values(analytics.downloads).reduce((sum, count) => sum + count, 0);
                 const totalSectionViews = Object.values(analytics.sectionViews).reduce((sum, count) => sum + count, 0);
                 
+                console.log('📊 Updating footer stats:', {
+                    visits: analytics.totalVisits,
+                    downloads: totalDownloads,
+                    views: totalSectionViews
+                }); // Debug log
+                
                 // Update footer counters
                 const visitCount = document.getElementById('visit-count');
                 const downloadCount = document.getElementById('download-count');
                 const viewCount = document.getElementById('view-count');
                 
-                if (visitCount) visitCount.textContent = analytics.totalVisits;
-                if (downloadCount) downloadCount.textContent = totalDownloads;
-                if (viewCount) viewCount.textContent = totalSectionViews;
+                console.log('🔍 Footer elements found:', {
+                    visitCount: !!visitCount,
+                    downloadCount: !!downloadCount,
+                    viewCount: !!viewCount
+                }); // Debug log
+                
+                if (visitCount) {
+                    visitCount.textContent = analytics.totalVisits;
+                    console.log('✅ Updated visits to:', analytics.totalVisits);
+                }
+                if (downloadCount) {
+                    downloadCount.textContent = totalDownloads;
+                    console.log('✅ Updated downloads to:', totalDownloads);
+                }
+                if (viewCount) {
+                    viewCount.textContent = totalSectionViews;
+                    console.log('✅ Updated views to:', totalSectionViews);
+                }
             }
 
             showNotification(message) {
@@ -1504,6 +1525,9 @@
         // Auto-debug on page load
         setTimeout(() => {
             console.log('🚀 Analytics initialized. Use debugAnalytics() or resetAnalytics() in console');
+            // Force footer update
+            analytics.displayStats();
+            console.log('🔄 Footer stats updated on load');
         }, 1000);
 
         // Mobile menu functionality
