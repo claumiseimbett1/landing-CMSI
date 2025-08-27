@@ -194,6 +194,27 @@
             margin-top: 30px;
         }
 
+        /* Single item centering for sections with only one applet */
+        .applets-grid:has(.applet-card:only-child) {
+            justify-content: center;
+        }
+
+        .applets-grid .applet-card:only-child {
+            max-width: 380px;
+            justify-self: center;
+        }
+
+        /* Fallback for browsers that don't support :has() */
+        .single-applet-grid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .single-applet-grid .applet-card {
+            max-width: 380px;
+            flex-shrink: 0;
+        }
+
         .applet-card {
             background: linear-gradient(145deg, #ffffff, #f8f9fa);
             border-radius: 12px;
@@ -398,7 +419,7 @@
                     comprender la operacion de plataformas remotas.
                 </p>
                 
-                <div class="applets-grid">
+                <div class="applets-grid single-applet-grid">
                     <div class="applet-card">
                         <div class="applet-screenshot">
                             <div class="screenshot-placeholder">🛰️</div>
