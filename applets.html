@@ -654,12 +654,12 @@
                 <div class="applets-grid">
                     <div class="applet-card">
                         <div class="applet-screenshot">
-                            <div class="screenshot-placeholder">🔧</div>
+                            <div class="screenshot-placeholder">🎛️</div>
                         </div>
                         <div class="applet-content">
-                            <h3 class="applet-title">Simulador Funcion de Transferencia: Sistema LTI</h3>
+                            <h3 class="applet-title">Simulador Función de Transferencia: Sistema LTI</h3>
                             <p class="applet-description">
-                                Herramienta interactiva para modelar funcion de Transferencia de un Sistema LTI.
+                                Herramienta interactiva para modelar función de transferencia de un Sistema LTI (Linear Time-Invariant).
                             </p>
                             <a href="https://claumiseimbett1.github.io/applet2learn/9-Sistema-LTI.html" target="_blank" class="applet-link">
                                 Explorar Applet →
@@ -669,7 +669,7 @@
 
                     <div class="applet-card">
                         <div class="applet-screenshot">
-                            <div class="screenshot-placeholder">📊</div>
+                            <div class="screenshot-placeholder">∫</div>
                         </div>
                         <div class="applet-content">
                             <h3 class="applet-title">Transformada de Laplace</h3>
@@ -684,40 +684,42 @@
 
                     <div class="applet-card">
                         <div class="applet-screenshot">
-                            <div class="screenshot-placeholder">📊</div>
+                            <div class="screenshot-placeholder">🔗</div>
                         </div>
                         <div class="applet-content">
-                            <h3 class="applet-title">Regla de Mason: Funcion de Transferencia </h3>
+                            <h3 class="applet-title">Regla de Mason: Función de Transferencia</h3>
                             <p class="applet-description">
-                                Ejemplo de diagrama de Mason para hallar la función de Transferencia de un sistema.
+                                Ejemplo de diagrama de Mason para hallar la función de transferencia de un sistema.
                             </p>
-                            <a "https://claumiseimbett1.github.io/applet2learn/11-mason_loops_diagram.html" target="_blank" class="applet-link">
+                            <a href="https://claumiseimbett1.github.io/applet2learn/11-mason_loops_diagram.html" target="_blank" class="applet-link">
                                 Explorar Applet →
+                            </a>
                         </div>
                     </div>
 
                     <div class="applet-card">
                         <div class="applet-screenshot">
-                            <div class="screenshot-placeholder">📊</div>
+                            <div class="screenshot-placeholder">🌡️</div>
                         </div>
                         <div class="applet-content">
-                            <h3 class="applet-title"> Sistema Térmico</h3>
+                            <h3 class="applet-title">Sistema Térmico</h3>
                             <p class="applet-description">
-                                Applet interactivo para comprender el funcionamiento de sistemas de segundo orden: masa-resorte amortiguado .
+                                Applet interactivo para comprender el funcionamiento de sistemas de primer orden: sistema térmico.
                             </p>
-                            <a "https://claumiseimbett1.github.io/applet2learn/12-mass_spring_damper_html.html" target="_blank" class="applet-link">
+                            <a href="https://claumiseimbett1.github.io/applet2learn/12-mass_spring_damper_html.html" target="_blank" class="applet-link">
                                 Explorar Applet →
+                            </a>
                         </div>
                     </div>
 
                     <div class="applet-card coming-soon">
                         <div class="applet-screenshot">
-                            <div class="screenshot-placeholder">🔬</div>
+                            <div class="screenshot-placeholder">🏃</div>
                         </div>
                         <div class="applet-content">
-                            <h3 class="applet-title">Sistema Masa - Resorte</h3>
+                            <h3 class="applet-title">Sistema Masa-Resorte</h3>
                             <p class="applet-description">
-                               Applet interactivo para comprender el funcionamiento de sistemas de primer orden: sistema térmico  .
+                               Applet interactivo para comprender el funcionamiento de sistemas de segundo orden: masa-resorte amortiguado.
                             </p>
                             <a href="#" class="applet-link">Próximamente</a>
                         </div>
@@ -725,12 +727,12 @@
 
                      <div class="applet-card coming-soon">
                         <div class="applet-screenshot">
-                            <div class="screenshot-placeholder">🔬</div>
+                            <div class="screenshot-placeholder">📈</div>
                         </div>
                         <div class="applet-content">
-                            <h3 class="applet-title">Diagrama de Bode </h3>
+                            <h3 class="applet-title">Diagrama de Bode</h3>
                             <p class="applet-description">
-                               Applet interactivo para comprender los diagramas de Bode y analisis frecuencial .
+                               Applet interactivo para comprender los diagramas de Bode y análisis frecuencial.
                             </p>
                             <a href="#" class="applet-link">Próximamente</a>
                         </div>
@@ -856,6 +858,10 @@
                                 appletName = 'Applet: Sistema LTI';
                             } else if (href.includes('10-laplace-transform')) {
                                 appletName = 'Applet: Transformada de Laplace';
+                            } else if (href.includes('11-mason_loops_diagram')) {
+                                appletName = 'Applet: Regla de Mason';
+                            } else if (href.includes('12-mass_spring_damper_html')) {
+                                appletName = 'Applet: Sistema Térmico';
                             } else if (href.includes('applet2learn/') && !href.includes('/')) {
                                 appletName = 'Applet: Sensores Remotos';
                             }
