@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claudia Milena Serpa Imbett, PhD</title>
+
+    <!-- Hotmart Widget Integration -->
+    <script type="text/javascript">
+        function importHotmart(){
+             var imported = document.createElement('script');
+             imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+             document.head.appendChild(imported);
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+            document.head.appendChild(link);
+        }
+        importHotmart();
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -820,6 +836,7 @@
                 <li><a href="#experiencia">Experiencia</a></li>
                 <li><a href="#suscripcion">Newsletter</a></li>
                 <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="#curso-agtech">Curso AgTech</a></li>
                 <li><a href="docencia.html">Docencia</a></li>
                 <li><a href="applets.html">Applets</a></li>
                 <li><a href="#productos-tecnologicos">Productos</a></li>
@@ -984,6 +1001,68 @@
             </div>
             <div style="margin-top: 30px;">
                 <a href="recursos.html" class="cta-button">Ver Todos los Recursos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AgTech Course Promotion Section -->
+    <section class="services" id="curso-agtech">
+        <h2 class="section-title">Certificación Profesional</h2>
+        <div class="subscription-content" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+            <div class="subscription-text">
+                <h3>AgTech con Google Earth Engine, Machine Learning y Python</h3>
+                <p>Domina las tecnologías más avanzadas en agricultura digital. Aprende a procesar imágenes satelitales, implementar algoritmos de machine learning y desarrollar soluciones AgTech profesionales con Python y Google Earth Engine.</p>
+            </div>
+
+            <!-- Course Features Grid -->
+            <div class="services-grid" style="margin: 40px 0; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div class="service-card" style="background-color: var(--beige-light);">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"/></svg>
+                    </div>
+                    <h4>Google Earth Engine</h4>
+                    <p>Procesamiento de imágenes satelitales a escala planetaria</p>
+                </div>
+                <div class="service-card" style="background-color: var(--beige-light);">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    </div>
+                    <h4>Machine Learning</h4>
+                    <p>Algoritmos avanzados para análisis predictivo agrícola</p>
+                </div>
+                <div class="service-card" style="background-color: var(--beige-light);">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h12v2H4z"/></svg>
+                    </div>
+                    <h4>Python Aplicado</h4>
+                    <p>Desarrollo de herramientas AgTech profesionales</p>
+                </div>
+            </div>
+
+            <!-- Brochure Download Section -->
+            <div style="background-color: var(--beige-light); padding: 30px; border-radius: 10px; margin: 40px 0; border: 2px solid var(--beige-dark);">
+                <h4 style="color: var(--black); margin-bottom: 15px; font-size: 1.3em;">📋 Información Completa del Curso</h4>
+                <p style="margin-bottom: 20px; color: #333;">Descarga el brochure detallado con el programa completo, metodología y beneficios de la certificación.</p>
+                <a href="#" class="download-link" style="background-color: var(--black); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; transition: all 0.3s ease;" onclick="alert('El brochure estará disponible próximamente'); return false;">
+                    📄 Descargar Brochure PDF
+                </a>
+            </div>
+
+            <!-- Hotmart Purchase Section -->
+            <div style="background: linear-gradient(135deg, var(--yellow) 0%, var(--beige-dark) 100%); padding: 40px; border-radius: 15px; margin: 40px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <h4 style="color: var(--black); margin-bottom: 20px; font-size: 1.5em; font-weight: bold;">🚀 ¡Inscríbete Ahora!</h4>
+                <p style="margin-bottom: 25px; color: var(--black); font-size: 1.1em; font-weight: 500;">Obtén tu certificación profesional en AgTech y transforma tu carrera</p>
+
+                <!-- Hotmart Widget Integration -->
+                <div id="hotmart-widget-container" style="margin: 20px 0;">
+                    <a onclick="return false;" href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display: inline-block;">
+                        <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Comprar Curso" style="max-width: 200px; height: auto;">
+                    </a>
+                </div>
+
+                <p style="font-size: 0.9em; color: #333; margin-top: 15px;">
+                    <a href="https://go.hotmart.com/X101723249X?dp=1" target="_blank" style="color: var(--black); text-decoration: underline;">Ver más información del curso →</a>
+                </p>
             </div>
         </div>
     </section>
@@ -1198,6 +1277,7 @@
                         experiencia: 0,
                         suscripcion: 0,
                         recursos: 0,
+                        'curso-agtech': 0,
                         'docencia-universitaria': 0,
                         'applets-aprendizaje': 0,
                         'productos-tecnologicos': 0,
@@ -1355,7 +1435,7 @@
             }
 
             setupSectionViews() {
-                const sections = ['inicio', 'biografia', 'servicios', 'experiencia', 'suscripcion', 'recursos', 'docencia-universitaria', 'applets-aprendizaje', 'productos-tecnologicos', 'contacto'];
+                const sections = ['inicio', 'biografia', 'servicios', 'experiencia', 'suscripcion', 'recursos', 'curso-agtech', 'docencia-universitaria', 'applets-aprendizaje', 'productos-tecnologicos', 'contacto'];
                 const observerOptions = {
                     threshold: 0.5,
                     rootMargin: '0px'
