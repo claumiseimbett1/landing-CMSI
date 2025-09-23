@@ -1015,15 +1015,18 @@
             </div>
 
             <!-- Course Banner Image -->
-            <div style="margin: 40px 0;">
-                <img src="img/banner-curso-agtech.png" alt="Curso AgTech - Google Earth Engine, Machine Learning y Python" style="width: 100%; max-width: 800px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <div style="margin: 40px 0; position: relative;">
+                <div style="position: relative; display: inline-block;">
+                    <img src="img/banner-curso-agtech.png" alt="Curso AgTech - Google Earth Engine, Machine Learning y Python" style="width: 100%; max-width: 800px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); border-radius: 10px;"></div>
+                </div>
             </div>
 
             <!-- Brochure Download Section -->
             <div style="background-color: var(--beige-light); padding: 30px; border-radius: 10px; margin: 40px 0; border: 2px solid var(--beige-dark);">
                 <h4 style="color: var(--black); margin-bottom: 15px; font-size: 1.3em;">📋 Información Completa del Curso</h4>
                 <p style="margin-bottom: 20px; color: #333;">Descarga el brochure detallado con el programa completo, metodología y beneficios de la certificación.</p>
-                <a href="#" class="download-link" style="background-color: var(--black); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; transition: all 0.3s ease;" onclick="alert('El brochure estará disponible próximamente'); return false;">
+                <a href="#" style="background-color: var(--black); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; transition: all 0.3s ease; font-weight: 500;" onclick="alert('El brochure estará disponible próximamente'); return false;" onmouseover="this.style.backgroundColor='var(--beige-dark)'" onmouseout="this.style.backgroundColor='var(--black)'">
                     📄 Descargar Brochure PDF
                 </a>
             </div>
@@ -1035,7 +1038,7 @@
 
                 <!-- Hotmart Widget Integration -->
                 <div id="hotmart-widget-container" style="margin: 20px 0;">
-                    <a onclick="return false;" href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display: inline-block; background-color: var(--black); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 1.1em; font-weight: bold; transition: all 0.3s ease;">
+                    <a onclick="return false;" href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display: inline-block; background-color: var(--black); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 1.1em; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='var(--beige-dark)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='var(--black)'; this.style.transform='translateY(0)'">
                         Inscríbete Ahora
                     </a>
                 </div>
