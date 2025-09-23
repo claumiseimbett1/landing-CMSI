@@ -733,6 +733,20 @@
             font-weight: bold;
         }
 
+        /* Hotmart Button Override */
+        .hotmart-fb.hotmart__button-checkout {
+            background-color: var(--black) !important;
+            background: var(--black) !important;
+            color: white !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .hotmart-fb.hotmart__button-checkout:hover {
+            background-color: var(--beige-dark) !important;
+            background: var(--beige-dark) !important;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .biography-content {
@@ -1006,46 +1020,63 @@
     </section>
 
     <!-- AgTech Course Promotion Section -->
-    <section class="services" id="curso-agtech" style="background-color: var(--black); color: white;"">
-        <h2 class="section-title" style="color: var(--beige-light);">Certificación Profesional</h2>
-        <div class="subscription-content" style="max-width: 1000px; margin: 0 auto; text-align: center;">
-            <div class="subscription-text">
-                <h3 style="color: var(--beige-dark);">AgTech con Google Earth Engine, Machine Learning y Python</h3>
-                <p style="color: var(--beige-light);">Domina las tecnologías más avanzadas en agricultura digital. Aprende a procesar imágenes satelitales, implementar algoritmos de machine learning y desarrollar soluciones AgTech profesionales con Python y Google Earth Engine.</p>
-            </div>
+    <section class="services" id="curso-agtech" style="
+        background-image: url('img/banner-curso-agtech.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        color: white;
+    ">
+        <!-- Dark overlay for better text readability -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1;
+        "></div>
 
-            <!-- Course Banner Image -->
-            <div style="margin: 40px 0; position: relative;">
-                <div style="position: relative; display: inline-block;">
-                    <img src="img/banner-curso-agtech.png" alt="Curso AgTech - Google Earth Engine, Machine Learning y Python" style="width: 100%; max-width: 800px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); border-radius: 10px;"></div>
-                </div>
-            </div>
-
-            <!-- Brochure Download Section -->
-            <div style="background-color: var(--beige-light); padding: 30px; border-radius: 10px; margin: 40px 0; border: 2px solid var(--beige-dark);">
-                <h4 style="color: var(--black); margin-bottom: 15px; font-size: 1.3em;">📋 Información Completa del Curso</h4>
-                <p style="margin-bottom: 20px; color: #333;">Descarga el brochure detallado con el programa completo, metodología y beneficios de la certificación.</p>
-                <a href="#" style="background-color: var(--black); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; transition: all 0.3s ease; font-weight: 500;" onclick="alert('El brochure estará disponible próximamente'); return false;" onmouseover="this.style.backgroundColor='var(--beige-dark)'" onmouseout="this.style.backgroundColor='var(--black)'">
-                    📄 Descargar Brochure PDF
-                </a>
-            </div>
-
-            <!-- Hotmart Purchase Section -->
-            <div style="background: linear-gradient(135deg, var(--beige-dark) 0%, var(--beige-light) 100%); padding: 40px; border-radius: 15px; margin: 40px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <h4 style="color: var(--black); margin-bottom: 20px; font-size: 1.5em; font-weight: bold;">🚀 ¡Inscríbete Ahora!</h4>
-                <p style="margin-bottom: 25px; color: var(--black); font-size: 1.1em; font-weight: 500;">Obtén tu certificación profesional en AgTech y transforma tu carrera</p>
-
-                <!-- Hotmart Widget Integration -->
-                <div id="hotmart-widget-container" style="margin: 20px 0;">
-                    <a onclick="return false;" href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display: inline-block; background-color: var(--black); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 1.1em; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='var(--beige-dark)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='var(--black)'; this.style.transform='translateY(0)'">
-                        Inscríbete Ahora
-                    </a>
+        <!-- Content with higher z-index -->
+        <div style="position: relative; z-index: 2;">
+            <h2 class="section-title" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Certificación Profesional</h2>
+            <div class="subscription-content" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+                <div class="subscription-text">
+                    <h3 style="color: var(--beige-light); text-shadow: 2px 2px 4px rgba(0,0,0,0.8); font-size: 2.2em; margin-bottom: 20px;">AgTech con Google Earth Engine, Machine Learning y Python</h3>
+                    <p style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-size: 1.3em; max-width: 800px; margin: 0 auto 40px auto; line-height: 1.6;">Domina las tecnologías más avanzadas en agricultura digital. Aprende a procesar imágenes satelitales, implementar algoritmos de machine learning y desarrollar soluciones AgTech profesionales con Python y Google Earth Engine.</p>
                 </div>
 
-                <p style="font-size: 0.9em; color: #333; margin-top: 15px;">
-                    <a href="https://go.hotmart.com/X101723249X?dp=1" target="_blank" style="color: var(--black); text-decoration: underline;">Ver más información del curso →</a>
-                </p>
+                <!-- Content Cards Container -->
+                <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+
+                    <!-- Brochure Download Section -->
+                    <div style="background-color: rgba(243, 237, 224, 0.95); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; border: 2px solid var(--beige-dark); box-shadow: 0 15px 35px rgba(0,0,0,0.3); flex: 1; min-width: 300px;">
+                        <h4 style="color: var(--black); margin-bottom: 15px; font-size: 1.3em;">📋 Información Completa del Curso</h4>
+                        <p style="margin-bottom: 20px; color: #333;">Descarga el brochure detallado con el programa completo, metodología y beneficios de la certificación.</p>
+                        <a href="#" style="background-color: var(--black); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; transition: all 0.3s ease; font-weight: 500;" onclick="alert('El brochure estará disponible próximamente'); return false;" onmouseover="this.style.backgroundColor='var(--beige-dark)'" onmouseout="this.style.backgroundColor='var(--black)'">
+                            📄 Descargar Brochure PDF
+                        </a>
+                    </div>
+
+                    <!-- Hotmart Purchase Section -->
+                    <div style="background: linear-gradient(135deg, rgba(213, 182, 144, 0.95) 0%, rgba(243, 237, 224, 0.95) 100%); backdrop-filter: blur(10px); padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); flex: 1; min-width: 300px;">
+                        <h4 style="color: var(--black); margin-bottom: 20px; font-size: 1.5em; font-weight: bold;">🚀 ¡Inscríbete Ahora!</h4>
+                        <p style="margin-bottom: 25px; color: var(--black); font-size: 1.1em; font-weight: 500;">Obtén tu certificación profesional en AgTech y transforma tu carrera</p>
+
+                        <!-- Hotmart Widget Integration -->
+                        <div id="hotmart-widget-container" style="margin: 20px 0;">
+                            <a onclick="return false;" href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display: inline-block !important; background-color: var(--black) !important; background: var(--black) !important; color: white !important; padding: 15px 30px !important; text-decoration: none !important; border-radius: 5px !important; font-size: 1.1em !important; font-weight: bold !important; transition: all 0.3s ease !important; border: none !important; box-shadow: none !important;" onmouseover="this.style.backgroundColor='var(--beige-dark)'; this.style.background='var(--beige-dark)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='var(--black)'; this.style.background='var(--black)'; this.style.transform='translateY(0)'">
+                                Inscríbete Ahora
+                            </a>
+                        </div>
+
+                        <p style="font-size: 0.9em; color: #333; margin-top: 15px;">
+                            <a href="https://go.hotmart.com/X101723249X?dp=1" target="_blank" style="color: var(--black); text-decoration: underline;">Ver más información del curso →</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
