@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificación Profesional AgTech - Claudia Milena Serpa Imbett, PhD</title>
+    <meta name="description" content="Certificación profesional en AgTech con imágenes satelitales, machine learning y Python. Aprende agricultura de precisión con Google Earth Engine y tecnologías emergentes.">
+    <meta name="keywords" content="certificación AgTech, curso agricultura digital, machine learning agricultura, Google Earth Engine, sensores remotos, Python agricultura, Hotmart curso">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Claudia Milena Serpa Imbett, PhD">
+    <meta property="og:title" content="Certificación Profesional AgTech - Agricultura Digital y Machine Learning">
+    <meta property="og:description" content="Aprende agricultura de precisión con imágenes satelitales, machine learning y Python. Certificación profesional en AgTech con Google Earth Engine.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/banner-curso-agtech.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Certificación Profesional AgTech">
+    <meta name="twitter:description" content="Aprende agricultura de precisión con imágenes satelitales y machine learning. Certificación profesional en AgTech.">
+
+    <!-- Hotmart Widget Integration -->
+    <script type="text/javascript">
+        function importHotmart(){
+             var imported = document.createElement('script');
+             imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+             document.head.appendChild(imported);
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+            document.head.appendChild(link);
+        }
+        importHotmart();
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "AgTech con Google Earth Engine, Machine Learning y Python",
+      "description": "Certificación profesional en agricultura de precisión con imágenes satelitales, machine learning y Python. Aprende sensores remotos aplicados a AgTech con Google Earth Engine.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Hotmart",
+        "url": "https://hotmart.com"
+      },
+      "instructor": {
+        "@type": "Person",
+        "name": "Claudia Milena Serpa Imbett",
+        "jobTitle": "PhD en Óptica y Fotónica",
+        "description": "Experta en agricultura de precisión, sensores remotos y machine learning aplicado a AgTech"
+      },
+      "educationalLevel": "Professional",
+      "teaches": [
+        "Agricultura de precisión",
+        "Imágenes satelitales agricultura",
+        "Machine learning agricultura",
+        "Google Earth Engine",
+        "Sensores remotos agricultura",
+        "AgTech",
+        "Python para agricultura"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "100",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2025-01-01",
+        "priceValidUntil": "2025-12-31"
+      },
+      "courseMode": "online",
+      "startDate": "2025-10-15",
+      "inLanguage": "es",
+      "keywords": "agricultura de precisión, imágenes satelitales agricultura, AgTech, curso Hotmart, machine learning agricultura, sensores remotos, óptica aplicada, fotónica"
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --beige-light: #f3ede0;
+            --black: #000000;
+            --beige-dark: #d5b690;
+            --yellow: #fffc00;
+            --beige-muted: #d6ccc2;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--beige-light);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .logo-container {
+            width: 300px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--beige-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--black);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 160px;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* Course Hero Section */
+        .course-hero {
+            background-image: url('img/banner-curso-agtech.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            color: white;
+            padding: 100px 20px;
+        }
+
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .course-subtitle {
+            color: var(--beige-light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .course-description {
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .content-section.dark {
+            background-color: var(--beige-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Video Section */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 20px;
+            border: 2px solid var(--beige-light);
+        }
+
+        .video-title {
+            color: var(--beige-light);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            background: #000;
+            border: 3px solid var(--yellow);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 12px;
+        }
+
+        .video-description {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--beige-light);
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            font-size: 1.1em;
+        }
+
+        .youtube-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .youtube-btn {
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            display: inline-block;
+            padding: 8px 16px;
+            border: 2px solid var(--yellow);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255,252,0,0.1);
+        }
+
+        .youtube-btn:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        /* Purchase Section */
+        .purchase-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .purchase-card {
+            background-color: var(--beige-light);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            flex: 1;
+            min-width: 300px;
+            border: 2px solid var(--beige-dark);
+            text-align: center;
+        }
+
+        .purchase-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .purchase-title {
+            color: var(--black);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .purchase-subtitle {
+            margin-bottom: 25px;
+            color: var(--black);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .date-highlight {
+            background-color: var(--yellow);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--black);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .date-text {
+            margin: 0;
+            color: var(--black);
+            font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .brochure-section {
+            margin-bottom: 25px;
+        }
+
+        .brochure-text {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        .download-btn {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .download-btn:hover {
+            background-color: var(--beige-dark);
+            color: var(--black);
+        }
+
+        .hotmart-container {
+            margin: 20px 0;
+        }
+
+        .hotmart-btn {
+            display: inline-block !important;
+            background-color: var(--black) !important;
+            background: var(--black) !important;
+            color: white !important;
+            padding: 15px 30px !important;
+            text-decoration: none !important;
+            border-radius: 5px !important;
+            font-size: 1.1em !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .hotmart-btn:hover {
+            background-color: var(--beige-dark) !important;
+            background: var(--beige-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        .course-links {
+            font-size: 0.9em;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .course-links a {
+            color: var(--black);
+            text-decoration: underline;
+        }
+
+        /* Back to Home Button */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--black);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-weight: bold;
+        }
+
+        .back-home:hover {
+            background-color: var(--beige-dark);
+            color: var(--black);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 280px;
+                height: calc(100vh - 80px);
+                background-color: var(--beige-light);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 20px 0;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 1000;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .nav-links a {
+                font-size: 1.1em;
+                padding: 8px 15px;
+                width: 180px;
+                text-align: center;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background-color: var(--beige-dark);
+                color: white;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .course-subtitle {
+                font-size: 1.8em;
+            }
+
+            .course-description {
+                font-size: 1.1em;
+            }
+
+            .purchase-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .back-home {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                margin-top: 140px;
+            }
+
+            .course-hero {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .course-subtitle {
+                font-size: 1.5em;
+            }
+
+            .course-description {
+                font-size: 1em;
+            }
+
+            .content-section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="logos/logo-CLAU.svg" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#biografia">Biografía</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="certificacion.html">Certificación</a></li>
+                <li><a href="docencia.html">Docencia</a></li>
+                <li><a href="applets.html">Applets</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Course Hero Section -->
+        <section class="course-hero">
+            <div class="hero-content">
+                <h1 class="section-title">Certificación Profesional</h1>
+                <h2 class="course-subtitle">AgTech con Imágenes Satelitales, Machine Learning y Python</h2>
+                <p class="course-description">
+                    Aprende a procesar imágenes satelitales y de drones, comprender la óptica de los dispositivos, implementar algoritmos de machine learning y desarrollar soluciones AgTech con Python y Google Earth Engine.
+                </p>
+
+                <!-- Video Promocional -->
+                <div class="video-container">
+                    <h4 class="video-title">🎥 Video Promocional de la Certificación</h4>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/qs3Mf1gZs-0?rel=0&modestbranding=1&showinfo=0&controls=1"
+                            title="Certificación Profesional AgTech - Video Promocional"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-description">
+                        Descubre todo lo que aprenderás en nuestra certificación profesional
+                    </p>
+                    <div class="youtube-link">
+                        <a href="https://youtu.be/qs3Mf1gZs-0" target="_blank" class="youtube-btn">
+                            ▶️ Ver en YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Purchase Section -->
+                <div class="purchase-container">
+                    <div class="purchase-card">
+                        <div class="purchase-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px; stroke: var(--black); fill: none; stroke-width: 1.5px;">
+                                <circle cx="9" cy="21" r="1"/>
+                                <circle cx="20" cy="21" r="1"/>
+                                <path d="m1 1 4 4 8 8h6a2 2 0 0 1 2 2v2H7"/>
+                                <path d="M3 7h12l1 5H5z"/>
+                            </svg>
+                        </div>
+                        <h4 class="purchase-title">¡Compra Ahora!</h4>
+                        <p class="purchase-subtitle">Obtén tu certificación profesional en AgTech y transforma tu carrera</p>
+
+                        <!-- Fecha de Inicio -->
+                        <div class="date-highlight">
+                            <p class="date-text">
+                                ¡INICIA EL 15 DE OCTUBRE - HASTA 3 DE NOVIEMBRE 2025, LU y MI 6-10 PM VIA ZOOM!
+                            </p>
+                        </div>
+
+                        <!-- Brochure Download -->
+                        <div class="brochure-section">
+                            <p class="brochure-text">Descarga el brochure detallado con el programa completo</p>
+                            <a href="recursos/Brochure AgTech-Hotmart-Course.pdf" download class="download-btn">
+                                Descargar Brochure PDF
+                            </a>
+                        </div>
+
+                        <!-- Hotmart Widget Integration -->
+                        <div class="hotmart-container">
+                            <a onclick="return false;" href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="hotmart-fb hotmart__button-checkout hotmart-btn">
+                                Compra Ahora
+                            </a>
+                        </div>
+
+                        <div class="course-links">
+                            <a href="https://go.hotmart.com/X101723249X?dp=1" target="_blank">Ver más información del curso →</a><br>
+                            <a href="https://claumiseimbett.hotmart.host/agtech-con-google-earth-engine-machine-learning-y-python" target="_blank">Información del producto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home">← Volver al Inicio</a>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
