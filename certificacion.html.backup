@@ -622,7 +622,7 @@
         <!-- Course Hero Section -->
         <section class="course-hero">
             <div class="hero-content">
-                <h1 class="section-title">Curso Certificado por Florida Global University - CEL</h1>
+                <h1 class="section-title">Curso AgTech </h1> 
                 <h2 class="course-subtitle">AgTech con Google Earth Engine, Machine Learning y Python</h2>
                 <p class="course-description">
                     Aprende a procesar imágenes satelitales y de drones, comprender la óptica de los dispositivos, implementar algoritmos de machine learning y desarrollar soluciones AgTech con Python y Google Earth Engine. Modalidad 100% online vía plataforma Zoom.
@@ -663,7 +663,7 @@
                             </svg>
                         </div>
                         <h4 class="purchase-title">¡Compra Ahora!</h4>
-                        <p class="purchase-subtitle">Obtén tu certificación respaldada por Florida Global University - CEL</p>
+                        <p class="purchase-subtitle">Obtén tu certificación</p>
 
                         <!-- Fecha de Inicio -->
                         <div class="date-highlight">
