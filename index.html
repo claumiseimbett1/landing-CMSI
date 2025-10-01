@@ -842,6 +842,81 @@
             box-shadow: 0 8px 25px rgba(255,252,0,0.4) !important;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 35px;
+            border-left: 5px solid var(--yellow);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-left-color: var(--beige-dark);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 4em;
+            color: var(--beige-light);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid var(--beige-light);
+        }
+
+        .author-info h4 {
+            font-size: 1.1em;
+            color: var(--black);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.4;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .biography-content {
@@ -1151,6 +1226,7 @@
                 <li><a href="certificacion.html">Certificación</a></li>
                 <li><a href="docencia.html">Docencia</a></li>
                 <li><a href="applets.html">Applets</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
                 <li><a href="#productos-tecnologicos">Productos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -1312,6 +1388,40 @@
                 </svg>
                 <span>Inscripción</span>
             </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios" style="background-color: white;">
+        <h2 class="section-title">Lo Que Dicen Nuestros Estudiantes</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">
+                        "Excelente curso. Contenido actualizado, ejercicios prácticos, recursos didácticos para el aprendizaje, acceso a códigos y aplicación directa a proyectos AgTech. Aprendí a procesar imágenes satelitales con GEE y comprender ML. Altamente recomendado."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Erika Luciana Gómez</h4>
+                            <p>Zootecnista Independiente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">
+                        "Curso excepcional con aplicación práctica inmediata. Los módulos de GEE y Python me permitieron implementar soluciones de monitoreo con UAV y análisis multitemporal de cultivos. Excelente equilibrio entre teoría y práctica, con herramientas que uso diariamente en mis operaciones. Totalmente recomendado para profesionales del sector."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Argemiro David Arroyo</h4>
+                            <p>Técnico SIG & Operador UAV - AirData, Colombia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1607,7 +1717,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Technological Products Section -->
     <section class="technological-products" id="productos-tecnologicos">
         <h2 class="section-title">Productos Tecnológicos</h2>
@@ -1725,6 +1835,7 @@
                         'curso-agtech': 0,
                         'docencia-universitaria': 0,
                         'applets-aprendizaje': 0,
+                        'testimonios': 0,
                         'productos-tecnologicos': 0,
                         contacto: 0
                     },
@@ -1880,7 +1991,7 @@
             }
 
             setupSectionViews() {
-                const sections = ['inicio', 'biografia', 'servicios', 'experiencia', 'suscripcion', 'recursos', 'curso-agtech', 'docencia-universitaria', 'applets-aprendizaje', 'productos-tecnologicos', 'contacto'];
+                const sections = ['inicio', 'biografia', 'servicios', 'experiencia', 'suscripcion', 'recursos', 'curso-agtech', 'docencia-universitaria', 'applets-aprendizaje', 'testimonios', 'productos-tecnologicos', 'contacto'];
                 const observerOptions = {
                     threshold: 0.5,
                     rootMargin: '0px'
