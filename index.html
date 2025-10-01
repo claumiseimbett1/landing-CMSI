@@ -911,6 +911,20 @@
         .hero-btn-newsletter:hover svg {
             stroke: white !important;
         }
+
+        /* Biography Buttons Hover Effects */
+        .bio-btn-consulta:hover,
+        .bio-btn-cursos:hover {
+            background-color: var(--beige-dark) !important;
+            border-color: var(--beige-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(213,182,144,0.4) !important;
+        }
+
+        .bio-btn-consulta:hover svg,
+        .bio-btn-cursos:hover svg {
+            stroke: white !important;
+        }
     </style>
 </head>
 <body>
@@ -1059,6 +1073,52 @@
                         </svg>
                         <span style="font-size: 1.05em;">Docente universitaria Universidad del Sinú Montería Colombia</span>
                     </div>
+                </div>
+
+                <!-- Botones de CTA en Biografía -->
+                <div style="display: flex; gap: 15px; margin-top: 35px; flex-wrap: wrap; justify-content: center;">
+                    <a href="https://wa.me/573043499052?text=Hola,%20estoy%20interesado%20en%20una%20consultoría." class="bio-btn-consulta" style="
+                        background-color: var(--black);
+                        color: white;
+                        padding: 12px 24px;
+                        text-decoration: none;
+                        border-radius: 25px;
+                        font-size: 1em;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        border: 2px solid var(--black);
+                    ">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s ease;">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                        <span>Agenda consultoría</span>
+                    </a>
+                    <a href="#recursos" class="bio-btn-cursos" style="
+                        background-color: var(--black);
+                        color: white;
+                        padding: 12px 24px;
+                        text-decoration: none;
+                        border-radius: 25px;
+                        font-size: 1em;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        border: 2px solid var(--black);
+                    ">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s ease;">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span>Conoce cursos</span>
+                    </a>
                 </div>
             </div>
         </div>
