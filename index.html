@@ -1121,7 +1121,7 @@
                 <h2>Curso Certificado AgTech con GEE + ML + Python</h2>
                 <p>Domina las tecnologías más avanzadas en Agricultura Digital: Google Earth Engine, Machine Learning y Python para revolucionar tus proyectos AgTech.</p>
                 <p style="font-size: 0.95em; color: #999;">✓ Certificación Internacional<br>✓ Proyectos Prácticos<br>✓ Acceso de por vida</p>
-                <a href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="modal-cta" onclick="localStorage.setItem('modalClosed', 'true')">¡Inscríbete Ahora!</a>
+                <a href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="modal-cta">¡Inscríbete Ahora!</a>
                 <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
                     <a href="#" onclick="closeModal()" style="color: #999; text-decoration: underline;">No, gracias</a>
                 </p>
@@ -2196,16 +2196,16 @@
         // Modal Popup Functions
         function closeModal() {
             document.getElementById('courseModal').classList.remove('active');
-            localStorage.setItem('modalClosed', 'true');
+            // localStorage.setItem('modalClosed', 'true'); // Desactivado para pruebas
         }
 
-        // Show modal after 3 seconds if not previously closed
+        // Show modal after 3 seconds (siempre aparece para pruebas)
         window.addEventListener('load', function() {
             setTimeout(function() {
-                const modalClosed = localStorage.getItem('modalClosed');
-                if (!modalClosed) {
+                // const modalClosed = localStorage.getItem('modalClosed'); // Desactivado para pruebas
+                // if (!modalClosed) {
                     document.getElementById('courseModal').classList.add('active');
-                }
+                // }
             }, 3000); // 3 segundos
         });
 
