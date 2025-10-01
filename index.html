@@ -1308,19 +1308,9 @@
                 <h3>Suscríbete a nuestro Newsletter</h3>
                 <p>Recibe las últimas tendencias en agricultura digital, sensores remotos, energía y tecnologías emergentes directamente en tu bandeja de entrada.</p>
             </div>
-            <div class="subscription-form">
-                <form action="https://formspree.io/f/mqadkzjy" method="POST" id="newsletter-form">
-                    <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                    <input type="hidden" name="_subject" value="Nueva suscripción al Newsletter - CMSI">
-                    <input type="hidden" name="_next" value="index.html?subscribed=true">
-                    <input type="hidden" name="_captcha" value="false">
-                    <!-- Honeypot field -->
-                    <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
-                    <!-- Rate limiting -->
-                    <input type="hidden" name="_replyto" value="">
-                    <input type="hidden" name="timestamp" value="">
-                    <button type="submit" class="subscribe-btn">Suscribirme</button>
-                </form>
+            <div class="subscription-form" style="max-width: 600px; margin: 30px auto;">
+                <!-- Brevo Newsletter Form -->
+                <iframe width="100%" height="350" src="https://d22ced48.sibforms.com/serve/MUIFAANebAA_vFVJz-qLcnwBB0f_JEMFSBaaoT6Q1Npz0FveEf32ZDn-xD0xJFAvt5BfRuKoAk_DVNZSFjwqvwxVgyMzFmHgkJjpcqy5NBgGyd4_GRv5V_5HdlZXtmruz4mCNwzJnqc_pWozMTY-GlgXM4ymCkBDU1DGnI9rvuWsCZEF9Oh5J5Yix0GTxjFeXkllzOpkRRsh5d6H" frameborder="0" scrolling="auto" allowfullscreen style="display: block; margin: 0 auto; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>
             </div>
             <div class="newsletter-link">
                 <a href="#" class="newsletter-access-btn" id="newsletter-access-btn">Acceder al Newsletter Actual</a>
@@ -1908,82 +1898,17 @@
             observer.observe(el);
         });
 
-        // Newsletter subscription form handling with Formspree
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            const email = this.querySelector('input[type="email"]').value;
-            const submitBtn = this.querySelector('.subscribe-btn');
-            const originalText = submitBtn.textContent;
-            
-            // Check rate limiting - allow only one submission per 60 seconds
-            const lastSubmission = localStorage.getItem('last_subscription_attempt');
-            const now = Date.now();
-            if (lastSubmission && (now - parseInt(lastSubmission)) < 60000) {
-                e.preventDefault();
-                alert('Por favor espera un momento antes de intentar suscribirte nuevamente.');
-                return false;
-            }
-            
-            // Check if this email is already subscribed
-            if (isAlreadySubscribed(email)) {
-                e.preventDefault();
-                alert('Este correo electrónico ya está suscrito a nuestro newsletter.');
-                return false;
-            }
-            
-            // Check if already subscribed in this session
-            if (localStorage.getItem('newsletter_subscribed') === 'true') {
-                const storedEmail = localStorage.getItem('subscriber_email');
-                if (storedEmail && storedEmail.toLowerCase() === email.toLowerCase()) {
-                    e.preventDefault();
-                    alert('Ya estás suscrito con este correo electrónico.');
-                    return false;
-                }
-            }
-            
-            // Set timestamp for rate limiting and Formspree
-            localStorage.setItem('last_subscription_attempt', now.toString());
-            this.querySelector('input[name="timestamp"]').value = now;
-            
-            // Change button text to show loading
-            submitBtn.textContent = 'Suscribiendo...';
-            submitBtn.disabled = true;
-            
-            // Store subscription status in both localStorage and cookies
-            if (email) {
-                storeSubscription(email);
-                activateNewsletterButton();
-            }
-            
-            // Let Formspree handle the submission
-            // The form will redirect or show Formspree's default success page
-            
-            // Reset button after a delay (in case there's an error)
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 3000);
-        });
+        // Newsletter subscription handling - Now using Brevo iframe
+        // Brevo handles all form submission, validation, and email storage
+        // No need for custom form handling as it's all done in the iframe
 
-        // Function to activate newsletter access button
+        // Function to activate newsletter access button (keeping this for manual activation if needed)
         function activateNewsletterButton() {
             const accessBtn = document.querySelector('.newsletter-access-btn');
             if (accessBtn) {
                 accessBtn.textContent = '✓ Acceder al Newsletter';
                 accessBtn.href = 'newsletter.html';
                 accessBtn.classList.add('subscribed');
-            }
-        }
-
-        // Check for subscription confirmation in URL
-        function checkSubscriptionStatus() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('subscribed') === 'true') {
-                localStorage.setItem('newsletter_subscribed', 'true');
-                activateNewsletterButton();
-                // Clean URL
-                window.history.replaceState({}, document.title, window.location.pathname);
-                // Show success message
-                alert('¡Suscripción exitosa! Ahora puedes acceder al newsletter.');
             }
         }
 
