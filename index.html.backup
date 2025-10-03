@@ -878,7 +878,7 @@
         }
 
         .testimonials-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
         }
@@ -886,21 +886,43 @@
         .testimonials-wrapper {
             overflow: hidden;
             position: relative;
+            padding: 20px 0;
         }
 
-        .testimonials-slider {
+        .testimonials-track {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            gap: 30px;
+            animation: scroll-testimonials 30s linear infinite;
+            width: max-content;
+        }
+
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-testimonials {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .testimonial-card {
-            min-width: 100%;
+            flex: 0 0 450px;
             background-color: white;
-            padding: 40px;
+            padding: 35px;
             border-left: 5px solid var(--yellow);
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             position: relative;
             box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .testimonial-card::before {
@@ -917,71 +939,6 @@
         .testimonial-content {
             position: relative;
             z-index: 1;
-        }
-
-        .testimonial-dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--beige-light);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .testimonial-dot.active {
-            background-color: var(--yellow);
-            border-color: var(--beige-dark);
-            transform: scale(1.2);
-        }
-
-        .testimonial-dot:hover {
-            background-color: var(--beige-dark);
-        }
-
-        .testimonial-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 252, 0, 0.9);
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-        }
-
-        .testimonial-nav:hover {
-            background-color: var(--yellow);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-        }
-
-        .testimonial-nav.prev {
-            left: -60px;
-        }
-
-        .testimonial-nav.next {
-            right: -60px;
-        }
-
-        .testimonial-nav svg {
-            width: 24px;
-            height: 24px;
-            fill: #000;
         }
 
         .testimonial-text {
@@ -1104,11 +1061,8 @@
             }
 
             /* Testimonials Mobile */
-            .testimonial-nav {
-                display: none;
-            }
-
             .testimonial-card {
+                flex: 0 0 320px;
                 padding: 30px 20px;
             }
 
@@ -1121,6 +1075,10 @@
             .testimonials-container {
                 max-width: 100%;
                 padding: 0 10px;
+            }
+
+            .testimonials-track {
+                animation: scroll-testimonials 25s linear infinite;
             }
 
             #footer-stats {
@@ -1512,14 +1470,66 @@
     <section class="testimonials" id="testimonios" style="background-color: white;">
         <h2 class="section-title">Lo Que Dicen Nuestros Estudiantes</h2>
         <div class="testimonials-container">
-            <button class="testimonial-nav prev" aria-label="Anterior">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18l-6-6 6-6"/>
-                </svg>
-            </button>
-
             <div class="testimonials-wrapper">
-                <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <!-- Original testimonials -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso. Contenido actualizado, ejercicios prácticos, recursos didácticos para el aprendizaje, acceso a códigos y aplicación directa a proyectos AgTech. Aprendí a procesar imágenes satelitales con GEE y comprender ML. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Erika Luciana Gómez</h4>
+                                    <p>Zootecnista Independiente, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Curso excepcional con aplicación práctica inmediata. Los módulos de GEE y Python me permitieron implementar soluciones de monitoreo con UAV y análisis multitemporal de cultivos. Excelente equilibrio entre teoría y práctica, con herramientas que uso diariamente en mis operaciones. Totalmente recomendado para profesionales del sector."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Argemiro David Arroyo</h4>
+                                    <p>Técnico SIG & Operador UAV - AirData, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso para profesionales del sector pecuario. Las herramientas de GEE y ML son directamente aplicables al monitoreo de pasturas y gestión de sistemas ganaderos. Contenido práctico y actualizado que aplico regularmente en mis consultorías en Canadá. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Juan Carlos Rojas</h4>
+                                    <p>Consulting Ruminant Nutritionist - Beefsmart Consulting Inc., Alberta, Canadá</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "El curso me abrió una nueva visión sobre la teledetección y el poder del machine learning para interpretar nuestro entorno. Fue una experiencia motivadora que despertó aún más mi interés por aplicar estas herramientas en la investigación."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Luis Avila Lorduy</h4>
+                                    <p>Doctor (C) UNINORTE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicated testimonials for infinite loop -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <p class="testimonial-text">
@@ -1576,19 +1586,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <button class="testimonial-nav next" aria-label="Siguiente">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </button>
-
-            <div class="testimonial-dots">
-                <span class="testimonial-dot active" data-index="0"></span>
-                <span class="testimonial-dot" data-index="1"></span>
-                <span class="testimonial-dot" data-index="2"></span>
-                <span class="testimonial-dot" data-index="3"></span>
             </div>
         </div>
     </section>
@@ -2500,113 +2497,8 @@
             }
         });
 
-        // Testimonials Carousel
-        document.addEventListener('DOMContentLoaded', function() {
-            const slider = document.querySelector('.testimonials-slider');
-            const cards = document.querySelectorAll('.testimonial-card');
-            const dots = document.querySelectorAll('.testimonial-dot');
-            const prevBtn = document.querySelector('.testimonial-nav.prev');
-            const nextBtn = document.querySelector('.testimonial-nav.next');
-
-            let currentIndex = 0;
-            let autoPlayInterval;
-            const autoPlayDelay = 5000; // 5 seconds
-
-            function updateSlider() {
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                // Update dots
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % cards.length;
-                updateSlider();
-            }
-
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                updateSlider();
-            }
-
-            function goToSlide(index) {
-                currentIndex = index;
-                updateSlider();
-            }
-
-            // Auto-play functionality
-            function startAutoPlay() {
-                autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
-            }
-
-            function stopAutoPlay() {
-                clearInterval(autoPlayInterval);
-            }
-
-            function resetAutoPlay() {
-                stopAutoPlay();
-                startAutoPlay();
-            }
-
-            // Event listeners
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    nextSlide();
-                    resetAutoPlay();
-                });
-            }
-
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    prevSlide();
-                    resetAutoPlay();
-                });
-            }
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                    resetAutoPlay();
-                });
-            });
-
-            // Touch/swipe support for mobile
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            const testimonialWrapper = document.querySelector('.testimonials-wrapper');
-
-            testimonialWrapper.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-                stopAutoPlay();
-            }, { passive: true });
-
-            testimonialWrapper.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-                resetAutoPlay();
-            }, { passive: true });
-
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                if (touchEndX < touchStartX - swipeThreshold) {
-                    nextSlide();
-                }
-                if (touchEndX > touchStartX + swipeThreshold) {
-                    prevSlide();
-                }
-            }
-
-            // Pause auto-play when hovering (desktop only)
-            const testimonialSection = document.querySelector('.testimonials');
-            testimonialSection.addEventListener('mouseenter', stopAutoPlay);
-            testimonialSection.addEventListener('mouseleave', startAutoPlay);
-
-            // Start auto-play
-            startAutoPlay();
-        });
+        // Testimonials continuous scroll - CSS animation handles it automatically
+        // The animation pauses on hover via CSS :hover pseudo-class
 
     </script>
 </body>
