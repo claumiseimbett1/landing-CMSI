@@ -1325,6 +1325,7 @@
                 <li><a href="docencia.html">Docencia</a></li>
                 <li><a href="applets.html">Applets</a></li>
                 <li><a href="#productos-tecnologicos">Productos</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#suscripcion">Newsletter</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -1981,6 +1982,732 @@
         </div>
     </section>
 
+    <!-- ============================================ -->
+    <!--                   FAQ SECTION                -->
+    <!-- ============================================ -->
+
+    <style>
+    /* Variables CSS FAQ */
+    .faq-section {
+      --faq-primary-color: #2d5016;
+      --faq-secondary-color: #8fb339;
+      --faq-accent-color: #f39c12;
+      --faq-text-dark: #2c3e50;
+      --faq-text-light: #7f8c8d;
+      --faq-bg-light: #f8f9fa;
+      --faq-white: #ffffff;
+      --faq-border-radius: 12px;
+      --faq-transition: all 0.3s ease;
+    }
+
+    /* Container principal */
+    .faq-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .faq-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .faq-header h2 {
+      font-size: 2.5rem;
+      color: var(--faq-primary-color);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .faq-header p {
+      font-size: 1.1rem;
+      color: var(--faq-text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Tabs de categorías */
+    .faq-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .faq-tab {
+      padding: 12px 24px;
+      background: var(--faq-white);
+      border: 2px solid transparent;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--faq-transition);
+      font-weight: 600;
+      color: var(--faq-text-dark);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .faq-tab:hover {
+      border-color: var(--faq-secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .faq-tab.active {
+      background: var(--faq-secondary-color);
+      color: var(--faq-white);
+      border-color: var(--faq-secondary-color);
+    }
+
+    /* Items FAQ */
+    .faq-category {
+      display: none;
+    }
+
+    .faq-category.active {
+      display: block;
+      animation: faqFadeIn 0.5s ease;
+    }
+
+    @keyframes faqFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .faq-item {
+      background: var(--faq-white);
+      border-radius: var(--faq-border-radius);
+      margin-bottom: 15px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: var(--faq-transition);
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    .faq-question {
+      padding: 25px 30px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--faq-white);
+      transition: var(--faq-transition);
+    }
+
+    .faq-question:hover {
+      background: var(--faq-bg-light);
+    }
+
+    .faq-question h3 {
+      font-size: 1.1rem;
+      color: var(--faq-text-dark);
+      margin: 0;
+      font-weight: 600;
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .faq-icon {
+      width: 30px;
+      height: 30px;
+      background: var(--faq-secondary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--faq-white);
+      font-size: 1.2rem;
+      transition: var(--faq-transition);
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: var(--faq-accent-color);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-content {
+      padding: 0 30px 25px 30px;
+      color: var(--faq-text-light);
+      line-height: 1.8;
+    }
+
+    .faq-answer-content p {
+      margin-bottom: 15px;
+    }
+
+    .faq-answer-content ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .faq-answer-content ol {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .faq-answer-content li {
+      margin-bottom: 8px;
+    }
+
+    .faq-answer-content strong {
+      color: var(--faq-text-dark);
+    }
+
+    /* Botones CTA */
+    .faq-cta {
+      background: linear-gradient(135deg, var(--faq-primary-color) 0%, var(--faq-secondary-color) 100%);
+      color: var(--faq-white);
+      padding: 15px 30px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--faq-transition);
+      box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+    }
+
+    .faq-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+    }
+
+    /* Footer del FAQ */
+    .faq-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 40px;
+      background: var(--faq-white);
+      border-radius: var(--faq-border-radius);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    }
+
+    .faq-footer h3 {
+      color: var(--faq-primary-color);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .faq-contact-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .contact-btn {
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--faq-transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-btn.whatsapp {
+      background: #25D366;
+      color: var(--faq-white);
+    }
+
+    .contact-btn.email {
+      background: var(--faq-secondary-color);
+      color: var(--faq-white);
+    }
+
+    .contact-btn.linkedin {
+      background: #0077B5;
+      color: var(--faq-white);
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .faq-header h2 {
+        font-size: 2rem;
+      }
+
+      .faq-question {
+        padding: 20px;
+      }
+
+      .faq-question h3 {
+        font-size: 1rem;
+      }
+
+      .faq-answer-content {
+        padding: 0 20px 20px 20px;
+      }
+
+      .faq-tabs {
+        gap: 8px;
+      }
+
+      .faq-tab {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+
+      .faq-contact-buttons {
+        flex-direction: column;
+      }
+
+      .contact-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    </style>
+
+    <section class="faq-section" id="faq">
+      <div class="faq-container">
+
+        <!-- Header -->
+        <div class="faq-header">
+          <h2>Preguntas Frecuentes</h2>
+          <p>Todo lo que necesitas saber sobre el curso AgTech con Machine Learning y Sensores Remotos</p>
+        </div>
+
+        <!-- Tabs de categorías -->
+        <div class="faq-tabs">
+          <div class="faq-tab active" onclick="showFaqCategory('curso')">📚 Sobre el Curso</div>
+          <div class="faq-tab" onclick="showFaqCategory('tecnico')">💻 Requisitos Técnicos</div>
+          <div class="faq-tab" onclick="showFaqCategory('contenido')">🎯 Contenido</div>
+          <div class="faq-tab" onclick="showFaqCategory('pago')">💳 Inversión</div>
+          <div class="faq-tab" onclick="showFaqCategory('certificacion')">🎓 Certificación</div>
+          <div class="faq-tab" onclick="showFaqCategory('aplicacion')">🚀 Aplicación</div>
+        </div>
+
+        <!-- CATEGORÍA: SOBRE EL CURSO -->
+        <div class="faq-category active" id="curso">
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Qué es exactamente este curso?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Es un programa intensivo de <strong>24 horas</strong> donde aprenderás a procesar imágenes satelitales y de drones usando <strong>Google Earth Engine y Python</strong>, aplicando Machine Learning para resolver problemas reales en agricultura de precisión.</p>
+                <p>Combinas teoría con práctica hands-on en cada módulo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Cuándo inicia y cuál es el horario?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>Fechas:</strong> 15 de octubre al 3 de noviembre de 2025</p>
+                <p><strong>Horario:</strong> Lunes y miércoles de 6:00 PM a 10:00 PM (hora Colombia)</p>
+                <p><strong>Duración:</strong> 6 módulos, 24 horas totales, 100% en vivo vía Zoom</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Qué pasa si no puedo asistir a alguna sesión?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Todas las sesiones quedan <strong>grabadas</strong> y tienes acceso por <strong>6 meses</strong>. Recibes el link en menos de 24 horas en tu cuenta de Hotmart.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿El certificado tiene validez internacional?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Sí, está certificado por <strong>CEL (Center of Education and Leadership)</strong> y avalado por <strong>Florida Global University</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CATEGORÍA: REQUISITOS TÉCNICOS -->
+        <div class="faq-category" id="tecnico">
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Necesito saber programar?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>No es obligatorio.</strong> El curso está diseñado desde cero, pero si ya programas avanzarás más rápido.</p>
+                <p>Cubrimos desde instalación hasta algoritmos ML paso a paso.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Qué software necesito?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <ul>
+                  <li><strong>Google Earth Engine</strong> (gratuito, basado en web)</li>
+                  <li><strong>Python</strong> (gratuito, te enseñamos a instalarlo)</li>
+                  <li><strong>QGIS</strong> (opcional, gratuito)</li>
+                  <li><strong>Cuenta Google</strong> activa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Mi computadora es suficiente?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Sí. Con <strong>8GB RAM</strong> y navegador web moderno funciona perfectamente.</p>
+                <p>GEE procesa en la nube, no requieres equipo potente.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Necesito tener un dron?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>No.</strong> Trabajamos con imágenes satelitales gratuitas (Sentinel, Landsat) y datasets de ejemplo para drones multiespectrales.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CATEGORÍA: CONTENIDO -->
+        <div class="faq-category" id="contenido">
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Qué incluye exactamente el curso?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <ul>
+                  <li>24 horas de clases en vivo</li>
+                  <li>Scripts Python listos para usar</li>
+                  <li>Códigos GEE comentados</li>
+                  <li>Datasets de práctica</li>
+                  <li>6 proyectos prácticos</li>
+                  <li>Acceso a grabaciones por 6 meses</li>
+                  <li>Certificado internacional</li>
+                  <li>Grupo privado de alumnos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Qué temas exactos cubre el curso?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>Módulo 1:</strong> Fundamentos de sensores remotos (4h)</p>
+                <p><strong>Módulo 2:</strong> Imágenes satelitales con GEE - Sentinel, Landsat, MODIS (4h)</p>
+                <p><strong>Módulo 3:</strong> Imágenes de drones con Python (4h)</p>
+                <p><strong>Módulo 4:</strong> Radar SAR y LIDAR (4h)</p>
+                <p><strong>Módulo 5:</strong> Machine Learning en Python - Random Forest, SVM, XGBoost (4h)</p>
+                <p><strong>Módulo 6:</strong> ML aplicado a casos AgTech reales (4h)</p>
+                <a href="certificacion.html" class="faq-cta">📋 Ver Syllabus Completo</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Puedo aplicarlo a ganadería o solo agricultura?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Aplica para <strong>ambos</strong>. Cubrimos: monitoreo de pasturas, detección de estrés hídrico, análisis multitemporal, clasificación de coberturas (cultivos, pastos, suelo).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Es teoría o práctica?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>70% práctica hands-on.</strong> Cada módulo incluye ejercicios en vivo que replicas en tu computadora. Sales con proyectos funcionales.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CATEGORÍA: INVERSIÓN -->
+        <div class="faq-category" id="pago">
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Dónde me inscribo y cómo pago?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>El pago y acceso se gestionan 100% a través de <strong>Hotmart</strong>, plataforma segura internacional.</p>
+                <p><strong>Proceso:</strong></p>
+                <ol>
+                  <li>Clic en botón de inscripción → Redirige a Hotmart</li>
+                  <li>Elige método de pago (tarjeta/transferencia/cuotas)</li>
+                  <li>Acceso inmediato a plataforma Hotmart</li>
+                  <li>Recibes materiales 48h antes del inicio</li>
+                </ol>
+                <a href="certificacion.html" class="faq-cta">💳 Inscribirme en Hotmart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Aceptan pagos en cuotas?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Sí, hasta <strong>3 cuotas sin interés</strong> según tu país. Hotmart ofrece múltiples opciones de pago.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Hay garantía?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>Garantía 100% de satisfacción.</strong> Si en las primeras 2 sesiones no cumple tus expectativas, devolvemos tu inversión completa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Qué incluye Hotmart?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <ul>
+                  <li>✅ Pasarela de pago segura internacional</li>
+                  <li>✅ Acceso a grabaciones por 6 meses</li>
+                  <li>✅ Descarga de todos los materiales (PDFs, scripts, datasets)</li>
+                  <li>✅ Certificado digital</li>
+                  <li>✅ Soporte técnico 24/7</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CATEGORÍA: CERTIFICACIÓN -->
+        <div class="faq-category" id="certificacion">
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Cómo me evalúan?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>Evaluación:</strong></p>
+                <ul>
+                  <li>3 cuestionarios online (75%): 50 preguntas c/u, 70% mínimo
+                    <ul>
+                      <li>Quiz 1: Módulos 1-2</li>
+                      <li>Quiz 2: Módulos 3-4</li>
+                      <li>Quiz 3: Módulos 5-6</li>
+                    </ul>
+                  </li>
+                  <li>1 proyecto final en GEE (25%): Script + reporte breve</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>Requisitos para el certificado</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <ul>
+                  <li>✅ Nota mínima global: 75%</li>
+                  <li>✅ Completar los 3 quizzes</li>
+                  <li>✅ Proyecto final aprobado</li>
+                  <li>✅ Asistencia mínima: 70%</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Cuándo recibo el certificado?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Una semana después de entregar el proyecto final. Certificado por <strong>CEL</strong> avalado por <strong>Florida Global University</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Hay soporte después del curso?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Sí. <strong>Grupo privado de alumnos por 1 año</strong> donde resolvemos dudas. Además, <strong>office hours mensuales por 3 meses</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CATEGORÍA: APLICACIÓN PRÁCTICA -->
+        <div class="faq-category" id="aplicacion">
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Puedo usar mis propias imágenes/datos?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Sí, es lo ideal. En el <strong>módulo final</strong> trabajas con datos de tu interés (tu finca, región, cultivo específico).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Qué casos de uso concretos puedo resolver?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <ul>
+                  <li>Detección de estrés hídrico en cultivos</li>
+                  <li>Monitoreo de crecimiento vegetativo</li>
+                  <li>Estimación de biomasa en pasturas</li>
+                  <li>Detección de áreas degradadas</li>
+                  <li>Clasificación automática de coberturas</li>
+                  <li>Análisis temporal de salud del cultivo</li>
+                  <li>Identificación de zonas para manejo diferenciado</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Los códigos son reutilizables?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>Totalmente.</strong> Cada script está documentado y parametrizado para que solo cambies coordenadas, fechas y cultivo. Listos para producción.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaqItem(this)">
+              <h3>¿Funciona desde cualquier país?</h3>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Sí, <strong>100% online</strong>. Tenemos alumnos en 12 países. GEE y Python son universales.</p>
+                <p><strong>Horario:</strong> 6PM Colombia = 8PM Argentina = 7PM Miami = 12AM España</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer del FAQ -->
+        <div class="faq-footer">
+          <h3>¿Tienes más preguntas?</h3>
+          <p>Estoy aquí para ayudarte. Contáctame por tu canal preferido:</p>
+          <div class="faq-contact-buttons">
+            <a href="https://wa.me/573043499052?text=Hola,%20tengo%20preguntas%20sobre%20el%20curso%20AgTech" class="contact-btn whatsapp" target="_blank">
+              📱 WhatsApp
+            </a>
+            <a href="mailto:claumiseimbett@gmail.com" class="contact-btn email">
+              ✉️ Email
+            </a>
+            <a href="https://www.linkedin.com/in/claudia-milena-serpa-imbett-a69520136/" class="contact-btn linkedin" target="_blank">
+              💼 LinkedIn
+            </a>
+          </div>
+          <div style="margin-top: 30px;">
+            <a href="certificacion.html" class="faq-cta" style="font-size: 1.1rem; padding: 18px 40px;">
+              🚀 Inscribirme Ahora en Hotmart
+            </a>
+          </div>
+          <p style="margin-top: 20px; color: var(--faq-text-light); font-size: 0.9rem;">
+            ⏰ Cupos limitados: 30 personas | 🎁 Bonus: Scripts Python + comunidad extendida
+          </p>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contacto">
         <div class="contact-content">
@@ -2582,6 +3309,50 @@
 
         // Testimonials continuous scroll - CSS animation handles it automatically
         // The animation pauses on hover via CSS :hover pseudo-class
+
+        // ============================================
+        // FAQ FUNCTIONALITY
+        // ============================================
+
+        // Toggle FAQ items
+        function toggleFaqItem(element) {
+          const faqItem = element.parentElement;
+          const answer = faqItem.querySelector('.faq-answer');
+          const isActive = faqItem.classList.contains('active');
+
+          // Cerrar todos los items
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = null;
+          });
+
+          // Si no estaba activo, abrirlo
+          if (!isActive) {
+            faqItem.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        }
+
+        // Cambiar categoría
+        function showFaqCategory(categoryId) {
+          // Actualizar tabs
+          document.querySelectorAll('.faq-tab').forEach(tab => {
+            tab.classList.remove('active');
+          });
+          event.target.classList.add('active');
+
+          // Actualizar contenido
+          document.querySelectorAll('.faq-category').forEach(category => {
+            category.classList.remove('active');
+          });
+          document.getElementById(categoryId).classList.add('active');
+
+          // Cerrar todos los items abiertos en la nueva categoría
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = null;
+          });
+        }
 
     </script>
 </body>
