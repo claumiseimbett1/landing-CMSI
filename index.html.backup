@@ -905,7 +905,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-33.333%);
             }
         }
 
@@ -1087,7 +1087,7 @@
             }
 
             .testimonials-track {
-                animation: scroll-testimonials 20s linear infinite;
+                animation: scroll-testimonials 40s linear infinite;
                 gap: 20px;
             }
 
@@ -1553,6 +1553,63 @@
                     </div>
 
                     <!-- Duplicated testimonials for infinite loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso. Contenido actualizado, ejercicios prácticos, recursos didácticos para el aprendizaje, acceso a códigos y aplicación directa a proyectos AgTech. Aprendí a procesar imágenes satelitales con GEE y comprender ML. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Erika Luciana Gómez</h4>
+                                    <p>Zootecnista Independiente, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Curso excepcional con aplicación práctica inmediata. Los módulos de GEE y Python me permitieron implementar soluciones de monitoreo con UAV y análisis multitemporal de cultivos. Excelente equilibrio entre teoría y práctica, con herramientas que uso diariamente en mis operaciones. Totalmente recomendado para profesionales del sector."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Argemiro David Arroyo</h4>
+                                    <p>Técnico SIG & Operador UAV - AirData, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso para profesionales del sector pecuario. Las herramientas de GEE y ML son directamente aplicables al monitoreo de pasturas y gestión de sistemas ganaderos. Contenido práctico y actualizado que aplico regularmente en mis consultorías en Canadá. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Juan Carlos Rojas</h4>
+                                    <p>Consulting Ruminant Nutritionist - Beefsmart Consulting Inc., Alberta, Canadá</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "El curso me abrió una nueva visión sobre la teledetección y el poder del machine learning para interpretar nuestro entorno. Fue una experiencia motivadora que despertó aún más mi interés por aplicar estas herramientas en la investigación."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Luis Avila Lorduy</h4>
+                                    <p>Doctor (C) UNINORTE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third set for smooth infinite loop -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <p class="testimonial-text">
