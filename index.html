@@ -311,23 +311,7 @@
             text-decoration: none;
             display: inline-block;
             position: relative;
-            overflow: hidden;
             font-weight: 600;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, var(--beige-dark), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
         }
 
         .cta-button:hover {
@@ -335,7 +319,7 @@
             color: var(--black);
             border-color: var(--yellow);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5);
         }
 
         /* Biography Section */
@@ -346,23 +330,13 @@
         }
 
         /* Curso Section buttons hover effects */
-        .curso-btn-content:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(74, 124, 89, 0.4) !important;
-            background: linear-gradient(135deg, #5a9279 0%, #4a7c59 100%) !important;
-        }
-
-        .curso-btn-faq:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5) !important;
-            background-color: #fff700 !important;
-        }
-
+        .curso-btn-content:hover,
+        .curso-btn-faq:hover,
         .curso-btn-inscripcion:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
-            background-color: var(--beige-dark) !important;
-            border-color: var(--beige-dark) !important;
+            box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5) !important;
+            background-color: var(--yellow) !important;
+            border-color: var(--yellow) !important;
             color: var(--black) !important;
         }
 
@@ -836,11 +810,11 @@
         }
 
         .contact-item a:hover {
-            color: var(--beige-dark);
+            color: var(--yellow);
         }
-        
+
         .contact-item a:hover .contact-icon svg {
-            fill: var(--beige-dark);
+            fill: var(--yellow);
             transform: scale(1.1);
         }
 
@@ -877,14 +851,6 @@
             background: var(--beige-dark) !important;
         }
 
-        /* Course section buttons */
-        .curso-btn-content:hover,
-        .curso-btn-inscripcion:hover {
-            background-color: #fffc00 !important;
-            color: #000000 !important;
-            transform: translateY(-3px) !important;
-            box-shadow: 0 8px 25px rgba(255,252,0,0.4) !important;
-        }
 
         /* Testimonials Section */
         .testimonials {
@@ -1242,21 +1208,23 @@
         .modal-cta {
             display: inline-block;
             padding: 18px 45px;
-            background-color: var(--yellow);
-            color: var(--black);
+            background-color: var(--black);
+            color: white;
             text-decoration: none;
             border-radius: 30px;
             font-size: 1.2em;
             font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 252, 0, 0.3);
+            border: 2px solid var(--black);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .modal-cta:hover {
-            background-color: var(--black);
-            color: white;
+            background-color: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5);
         }
 
         @keyframes fadeIn {
@@ -1312,10 +1280,10 @@
                 <p style="font-size: 0.95em; color: #999;">✓ Certificado por @cel.education (CEL: Center of Education and Leadership) y avalado por @fgu_online (Florida Global University) <br>✓ Comunidad en Discord <br>✓ Acceso a códigos, applet y repositorios</p>
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
                     <a href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="modal-cta">¡Inscríbete Ahora!</a>
-                    <a href="faq.html" class="modal-cta" style="background-color: var(--yellow); color: var(--black); border: 2px solid var(--yellow);">
+                    <a href="faq.html" class="modal-cta">
                         ❓ Preguntas Frecuentes
                     </a>
-                    <a href="recursos/Mod1_Formacion_AGTECH_GEE_ML_PHYTON.pdf" download class="modal-cta" style="background-color: white; color: var(--black); border: 2px solid var(--black);">
+                    <a href="recursos/Mod1_Formacion_AGTECH_GEE_ML_PHYTON.pdf" download class="modal-cta">
                         📥 Descarga Módulo 1 Gratis
                     </a>
                 </div>
@@ -1490,7 +1458,7 @@
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="certificacion.html" class="curso-btn-content" style="
-                    background: linear-gradient(135deg, #4a7c59 0%, #5a9279 100%);
+                    background-color: var(--black);
                     color: white;
                     padding: 18px 45px;
                     text-decoration: none;
@@ -1498,11 +1466,11 @@
                     font-size: 1.2em;
                     font-weight: 600;
                     transition: all 0.3s ease;
-                    box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
                     display: inline-flex;
                     align-items: center;
                     gap: 12px;
-                    border: 2px solid transparent;
+                    border: 2px solid var(--black);
                 ">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
                         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -1511,19 +1479,19 @@
                     <span>Contenido del Curso</span>
                 </a>
                 <a href="faq.html" class="curso-btn-faq" style="
-                    background-color: var(--yellow);
-                    color: var(--black);
+                    background-color: var(--black);
+                    color: white;
                     padding: 18px 45px;
                     text-decoration: none;
                     border-radius: 50px;
                     font-size: 1.2em;
                     font-weight: 600;
                     transition: all 0.3s ease;
-                    box-shadow: 0 4px 15px rgba(255, 252, 0, 0.3);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
                     display: inline-flex;
                     align-items: center;
                     gap: 12px;
-                    border: 2px solid var(--yellow);
+                    border: 2px solid var(--black);
                 ">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
                         <circle cx="12" cy="12" r="10"/>
