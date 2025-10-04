@@ -191,24 +191,10 @@
 
         /* Course Hero Section */
         .course-hero {
-            background-image: url('img/banner-curso-agtech.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: var(--beige-light);
             position: relative;
-            color: white;
+            color: var(--black);
             padding: 100px 20px;
-        }
-
-        .course-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1;
         }
 
         .hero-content {
@@ -222,20 +208,17 @@
         .section-title {
             font-size: 3em;
             margin-bottom: 30px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            color: var(--black);
         }
 
         .course-subtitle {
-            color: var(--beige-light);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            color: var(--black);
             font-size: 2.2em;
             margin-bottom: 20px;
         }
 
         .course-description {
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            color: var(--black);
             font-size: 1.3em;
             max-width: 800px;
             margin: 0 auto 40px auto;
@@ -261,18 +244,17 @@
         .video-container {
             max-width: 800px;
             margin: 0 auto 40px auto;
-            background: rgba(255,255,255,0.1);
+            background: white;
             padding: 20px;
             border-radius: 20px;
-            border: 2px solid var(--beige-light);
+            border: 2px solid var(--beige-dark);
         }
 
         .video-title {
-            color: var(--beige-light);
+            color: var(--black);
             text-align: center;
             margin-bottom: 20px;
             font-size: 1.4em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .video-wrapper {
@@ -300,9 +282,8 @@
         .video-description {
             text-align: center;
             margin-top: 15px;
-            color: var(--beige-light);
+            color: var(--black);
             font-style: italic;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
             font-size: 1.1em;
         }
 
@@ -312,21 +293,21 @@
         }
 
         .youtube-btn {
-            color: var(--yellow);
+            color: var(--black);
             text-decoration: none;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
             display: inline-block;
             padding: 8px 16px;
-            border: 2px solid var(--yellow);
+            border: 2px solid var(--black);
             border-radius: 25px;
             transition: all 0.3s ease;
-            background: rgba(255,252,0,0.1);
+            background: white;
         }
 
         .youtube-btn:hover {
             background: var(--yellow);
             color: var(--black);
+            border-color: var(--yellow);
         }
 
         /* Purchase Section */
@@ -483,6 +464,31 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
+        .faq-btn {
+            display: inline-block !important;
+            background-color: var(--yellow) !important;
+            background: var(--yellow) !important;
+            color: var(--black) !important;
+            border: 2px solid var(--yellow) !important;
+            padding: 15px 30px !important;
+            text-decoration: none !important;
+            border-radius: 5px !important;
+            font-size: 1.1em !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease !important;
+            box-shadow: none !important;
+            margin-bottom: 15px !important;
+        }
+
+        .faq-btn:hover {
+            background-color: #fff700 !important;
+            background: #fff700 !important;
+            border-color: #fff700 !important;
+            color: var(--black) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5) !important;
+        }
+
         /* Footer */
         footer {
             background-color: var(--black);
@@ -627,7 +633,7 @@
                 <p class="course-description">
                     Aprende a procesar imágenes satelitales y de drones, comprender la óptica de los dispositivos, implementar algoritmos de machine learning y desarrollar soluciones AgTech con Python y Google Earth Engine. Modalidad 100% online vía plataforma Zoom.
                 </p>
-                <p class="course-description" style="margin-top: 20px; font-weight: bold; color: var(--yellow);">
+                <p class="course-description" style="margin-top: 20px; font-weight: bold; color: var(--black); background-color: var(--yellow); padding: 15px; border-radius: 10px; display: inline-block;">
                     Certificado por @cel.education (CEL: Center of Education and Leadership) y avalado por @fgu_online (Florida Global University)
                 </p>
 
@@ -680,6 +686,13 @@
                             <p class="brochure-text">Descarga el brochure detallado con el programa completo</p>
                             <a href="recursos/Brochure AgTech-Hotmart-Course.pdf" download class="download-btn">
                                 Descargar Brochure PDF
+                            </a>
+                        </div>
+
+                        <!-- FAQ Button -->
+                        <div class="hotmart-container">
+                            <a href="faq.html" class="faq-btn">
+                                ❓ Preguntas Frecuentes
                             </a>
                         </div>
 
