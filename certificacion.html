@@ -87,6 +87,7 @@
             --beige-dark: #d5b690;
             --yellow: #fffc00;
             --beige-muted: #d6ccc2;
+            --green: #4e7e32;
         }
 
         body {
@@ -293,15 +294,15 @@
         }
 
         .youtube-btn {
-            color: var(--black);
+            color: white;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
             padding: 8px 16px;
-            border: 2px solid var(--black);
+            border: 2px solid var(--green);
             border-radius: 25px;
             transition: all 0.3s ease;
-            background: white;
+            background: var(--green);
         }
 
         .youtube-btn:hover {
@@ -382,9 +383,9 @@
         }
 
         .download-btn {
-            background-color: var(--black);
+            background-color: var(--green);
             color: white;
-            border: 2px solid var(--black);
+            border: 2px solid var(--green);
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
@@ -407,10 +408,10 @@
 
         .hotmart-btn {
             display: inline-block !important;
-            background-color: var(--black) !important;
-            background: var(--black) !important;
+            background-color: var(--green) !important;
+            background: var(--green) !important;
             color: white !important;
-            border: 2px solid var(--black) !important;
+            border: 2px solid var(--green) !important;
             padding: 15px 30px !important;
             text-decoration: none !important;
             border-radius: 5px !important;
@@ -444,13 +445,13 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: var(--black);
+            background-color: var(--green);
             color: white;
-            border: 2px solid var(--black);
+            border: 2px solid var(--green);
             padding: 15px 20px;
             border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(78, 126, 50, 0.3);
             transition: all 0.3s ease;
             z-index: 1000;
             font-weight: bold;
@@ -461,15 +462,15 @@
             color: var(--black);
             border-color: var(--yellow);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(255, 252, 0, 0.4);
         }
 
         .faq-btn {
             display: inline-block !important;
-            background-color: var(--yellow) !important;
-            background: var(--yellow) !important;
-            color: var(--black) !important;
-            border: 2px solid var(--yellow) !important;
+            background-color: var(--green) !important;
+            background: var(--green) !important;
+            color: white !important;
+            border: 2px solid var(--green) !important;
             padding: 15px 30px !important;
             text-decoration: none !important;
             border-radius: 5px !important;
@@ -481,9 +482,9 @@
         }
 
         .faq-btn:hover {
-            background-color: #fff700 !important;
-            background: #fff700 !important;
-            border-color: #fff700 !important;
+            background-color: var(--yellow) !important;
+            background: var(--yellow) !important;
+            border-color: var(--yellow) !important;
             color: var(--black) !important;
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5) !important;
@@ -684,11 +685,11 @@
 
                 <!-- Video Promocional -->
                 <div class="video-container">
-                    <h4 class="video-title">Webinar de la Certificación</h4>
+                    <h4 class="video-title">Video Promocional de la Certificación</h4>
                     <div class="video-wrapper">
                         <iframe
-                            src="https://www.youtube.com/embed/Xkeys62vyLw?start=352&rel=0&modestbranding=1&showinfo=0&controls=1"
-                            title="Certificación Profesional AgTech - Webinar"
+                            src="https://www.youtube.com/embed/4gNrxm7tmgQ?rel=0&modestbranding=1&showinfo=0&controls=1"
+                            title="Certificación Profesional AgTech - Video Promocional"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin"
@@ -697,6 +698,29 @@
                     </div>
                     <p class="video-description">
                         Descubre todo lo que aprenderás en nuestra certificación profesional
+                    </p>
+                    <div class="youtube-link">
+                        <a href="https://www.youtube.com/watch?v=4gNrxm7tmgQ" target="_blank" class="youtube-btn">
+                            Ver en YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Invitación al Curso -->
+                <div class="video-container">
+                    <h4 class="video-title">Invitación al Curso</h4>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/Xkeys62vyLw?start=352&rel=0&modestbranding=1&showinfo=0&controls=1"
+                            title="Certificación Profesional AgTech - Invitación al Curso"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-description">
+                        Conoce más detalles sobre el curso y cómo inscribirte
                     </p>
                     <div class="youtube-link">
                         <a href="https://www.youtube.com/watch?v=Xkeys62vyLw&t=352s" target="_blank" class="youtube-btn">
