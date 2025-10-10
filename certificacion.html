@@ -88,6 +88,7 @@
             --yellow: #fffc00;
             --beige-muted: #d6ccc2;
             --green: #4e7e32;
+            --green-light: #5db53a;
         }
 
         body {
@@ -99,7 +100,7 @@
 
         /* Header */
         header {
-            background-color: var(--beige-light);
+            background-color: var(--green-light);
             padding: 10px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
@@ -245,17 +246,18 @@
         .video-container {
             max-width: 800px;
             margin: 0 auto 40px auto;
-            background: var(--beige-light);
+            background: var(--green-light);
             padding: 20px;
             border-radius: 20px;
-            border: 2px solid var(--beige-dark);
+            border: 2px solid var(--green);
         }
 
         .video-title {
-            color: var(--black);
+            color: var(--white);
             text-align: center;
             margin-bottom: 20px;
             font-size: 1.4em;
+            font-weight: bold;
         }
 
         .video-wrapper {
@@ -283,7 +285,7 @@
         .video-description {
             text-align: center;
             margin-top: 15px;
-            color: var(--black);
+            color: var(--white);
             font-style: italic;
             font-size: 1.1em;
         }
@@ -322,14 +324,14 @@
         }
 
         .purchase-card {
-            background-color: var(--beige-light);
+            background-color: var(--green-light);
             backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(93, 181, 58, 0.3);
             flex: 1;
             min-width: 300px;
-            border: 2px solid var(--beige-dark);
+            border: 2px solid var(--green);
             text-align: center;
         }
 
@@ -340,8 +342,12 @@
             margin-bottom: 20px;
         }
 
+        .purchase-icon svg {
+            stroke: var(--white);
+        }
+
         .purchase-title {
-            color: var(--black);
+            color: var(--white);
             margin-bottom: 20px;
             font-size: 1.5em;
             font-weight: bold;
@@ -349,7 +355,7 @@
 
         .purchase-subtitle {
             margin-bottom: 25px;
-            color: var(--black);
+            color: var(--white);
             font-size: 1.1em;
             font-weight: 500;
         }
@@ -378,7 +384,7 @@
 
         .brochure-text {
             margin-bottom: 15px;
-            color: #333;
+            color: var(--white);
             font-size: 0.95em;
         }
 
@@ -431,13 +437,17 @@
 
         .course-links {
             font-size: 0.9em;
-            color: #333;
+            color: var(--white);
             margin-top: 15px;
         }
 
         .course-links a {
-            color: var(--black);
+            color: var(--white);
             text-decoration: underline;
+        }
+
+        .course-links a:hover {
+            color: var(--yellow);
         }
 
         /* Back to Home Button */
