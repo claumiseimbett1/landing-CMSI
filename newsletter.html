@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter - Inteligencia Artificial, Energía e Innovación | Claudia Milena Serpa Imbett, PhD</title>
+    <title>Newsletter - Claudia Milena Serpa Imbett, PhD</title>
     <style>
         * {
             margin: 0;
@@ -16,8 +16,6 @@
             --black: #000000;
             --beige-dark: #d5b690;
             --yellow: #fffc00;
-            --beige-muted: #d6ccc2;
-            --green-primary: #4e7e32;
             --white: #ffffff;
         }
 
@@ -30,91 +28,30 @@
 
         /* Header */
         .newsletter-header {
-            background: linear-gradient(135deg, var(--beige-light) 0%, var(--beige-muted) 100%);
+            background-color: var(--beige-light);
             padding: 40px 20px;
             text-align: center;
             border-bottom: 4px solid var(--yellow);
-            position: relative;
-        }
-
-        .newsletter-header {
-            background-image: url('img/newsletter.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .newsletter-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1;
-        }
-
-        .newsletter-header .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-logo {
-            width: 120px;
-            height: auto;
-            margin-bottom: 20px;
         }
 
         .newsletter-title {
             font-size: 2.5em;
             margin-bottom: 10px;
-            color: var(--white);
+            color: var(--black);
             font-weight: 300;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .newsletter-subtitle {
             font-size: 1.2em;
-            color: var(--beige-light);
+            color: var(--black);
             font-weight: 500;
             margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .newsletter-date {
             font-size: 0.9em;
-            color: var(--beige-light);
+            color: var(--black);
             font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* Navigation */
-        .newsletter-nav {
-            background-color: var(--black);
-            padding: 15px 0;
-        }
-
-        .nav-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .nav-link {
-            color: var(--beige-dark);
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
-        }
-
-        .nav-link:hover {
-            color: var(--yellow);
-            background-color: rgba(213, 182, 144, 0.2);
         }
 
         /* Main Content */
@@ -122,188 +59,14 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 60px 20px;
-        }
-
-        /* Article Section */
-        .article-section {
-            margin-bottom: 50px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--beige-light);
-        }
-
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--black);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-
-        .section-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--white);
-        }
-
-        .section-title {
-            font-size: 1.8em;
-            color: var(--black);
-            font-weight: 400;
-        }
-
-        .article-card {
-            background-color: var(--beige-light);
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-left: 4px solid var(--green-primary);
-            transition: all 0.3s ease;
-        }
-
-        .article-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(78, 126, 50, 0.1);
-        }
-
-        .article-title {
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            color: var(--black);
-            font-weight: 500;
-        }
-
-        .article-excerpt {
-            font-size: 1em;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .read-more {
-            color: var(--green-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9em;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .read-more:hover {
-            color: var(--black);
-            transform: translateX(3px);
-        }
-
-        /* Featured Section */
-        .featured-section {
-            background: linear-gradient(135deg, var(--beige-dark), var(--beige-muted));
-            color: var(--black);
-            padding: 40px;
-            border-radius: 10px;
-            margin: 50px 0;
-            text-align: center;
-        }
-
-        .featured-title {
-            font-size: 2em;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .featured-content {
-            font-size: 1.1em;
-            margin-bottom: 25px;
-            opacity: 0.95;
-        }
-
-        .featured-btn {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .featured-btn:hover {
-            background-color: var(--yellow);
-            color: var(--black);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Resources Grid */
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .resource-item {
             background-color: var(--white);
-            border: 2px solid var(--beige-light);
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
         }
 
-        .resource-item:hover {
-            border-color: var(--yellow);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 252, 0, 0.1);
-        }
-
-        .resource-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--yellow), var(--beige-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-        }
-
-        .resource-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--black);
-        }
-
-        .resource-title {
+        .content-text {
             font-size: 1.1em;
-            margin-bottom: 10px;
-            color: var(--green-primary);
-            font-weight: 500;
-        }
-
-        .resource-link {
+            line-height: 1.8;
             color: var(--black);
-            text-decoration: none;
-            font-size: 0.9em;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .resource-link:hover {
-            color: var(--green-primary);
+            margin-bottom: 20px;
         }
 
         /* Footer */
@@ -384,22 +147,9 @@
             .newsletter-title {
                 font-size: 2em;
             }
-            
-            .nav-container {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-            
+
             .newsletter-content {
                 padding: 40px 15px;
-            }
-            
-            .article-card {
-                padding: 20px;
-            }
-            
-            .featured-section {
-                padding: 30px 20px;
             }
         }
     </style>
@@ -407,113 +157,18 @@
 <body>
     <!-- Header -->
     <header class="newsletter-header">
-        <div class="header-content">
-            <h1 class="newsletter-title">Newsletter</h1>
-            <h2 class="newsletter-subtitle">Innovación, Energía, Sensores Remotos y Tecnologías Emergentes</h2>
-            <p class="newsletter-date">Edición • Agosto 2025</p>
-        </div>
+        <h1 class="newsletter-title">Newsletter</h1>
+        <h2 class="newsletter-subtitle">Innovación, Energía, Sensores Remotos y Tecnologías Emergentes</h2>
+        <p class="newsletter-date">Edición • Agosto 2025</p>
     </header>
-
-    <!-- Navigation -->
-    <nav class="newsletter-nav">
-        <div class="nav-container">
-            <a href="#innovacion" class="nav-link">Innovación</a>
-            <a href="#energia" class="nav-link">Energía</a>
-            <a href="#sensores" class="nav-link">Sensores Remotos</a>
-            <a href="#tecnologias" class="nav-link">Tecnologías Emergentes</a>
-        </div>
-    </nav>
 
     <!-- Main Content -->
     <main class="newsletter-content">
-        
-        <!-- Innovación Section -->
-        <section class="article-section" id="innovacion">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Innovación</h2>
-            </div>
-            
-            <article class="article-card">
-                <h3 class="article-title">FarmSync: Ecosistema para el monitoreo ambiental de establos en agronegocios</h3>
-                <p class="article-excerpt">Un ecosistema IoT modular, asequible y escalable para el monitoreo y control ambiental en establos y graneros agrícolas, que integra sensores inalámbricos, algoritmos predictivos, nube e interfaz web, logra más del 95% de precisión y 96% de eficiencia ...</p>
-                <a href="https://www.mdpi.com/1424-8220/23/1/1" target="_blank" class="read-more">Leer más →</a>
-            </article>
-            
-            <article class="article-card">
-                <h3 class="article-title">Vehicle to Everything (V2X) y Edge Computing: un ciclo de vida seguro para la red de vehículos asistida por UAV y la descarga con Blockchain</h3>
-                <p class="article-excerpt">IRevolucionaria plataforma B-UV2X combina drones y blockchain para hacer más seguras, rápidas y eficientes las comunicaciones entre vehículos en ciudades inteligente...</p>
-                <a href="https://www.mdpi.com/2504-446X/6/12/377" target="_blank" class="read-more">Leer más →</a>
-            </article>
-        </section>
-
-        <!-- Energía Section -->
-        <section class="article-section" id="energia">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Energía</h2>
-            </div>
-            
-            <article class="article-card">
-                <h3 class="article-title">Planificación óptima de rutas energéticamente eficientes para la inspección de torres de transmisión con drones basada en un algoritmo de recocido simulado</h3>
-                <p class="article-excerpt">Un nuevo modelo de consumo energético combinado con un algoritmo de recocido simulado permite a los UAV ahorrar hasta un 36,5% de energía en la inspección de torres de transmisión, optimizando rutas y aumentando significativamente la eficiencia operativa...</p>
-                <a href="https://www.mdpi.com/1996-1073/15/21/8036" target="_blank" class="read-more">Leer más →</a>
-            </article>
-        </section>
-
-        <!-- Sensores Remotos Section -->
-        <section class="article-section" id="sensores">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Sensores Remotos</h2>
-            </div>
-            
-            <article class="article-card">
-                <h3 class="article-title">Sensores Proximales Vs. Sensores Satelitales ¿Qué mejora los sistemas de predicción de variables biofísicas en teledetección: la resolucion espacial o la espectral?</h3>
-                <p class="article-excerpt">La integración de espectrometría e inteligencia artificial abre el camino hacia una agricultura más precisa, quizas, la respuesta al desafio de mejora de modelos de predicción está en el la respuesta espectral de la vegetación, y no tanto en la capacidad del sensor en capturar información espacial ...</p>
-                <a href="https://www.mdpi.com/2624-7402/7/4/111" target="_blank" class="read-more">Leer más →</a>
-            </article>
-        </section>
-
-        <!-- Tecnologías Emergentes Section -->
-        <section class="article-section" id="tecnologias">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Tecnologías Emergentes</h2>
-            </div>
-            
-            <article class="article-card">
-                <h3 class="article-title">Sistema de paneles fotovoltaicos con dispersión óptica de luz solar para aplicaciones agrícolas de invernadero</h3>
-                <p class="article-excerpt">El sistema Agri-PV con lentes ópticas transforma la energía solar en electricidad limpia mientras protege los cultivos, reduce la evaporación y garantiza luz uniforme, uniendo sostenibilidad y productividad agrícola en un mismo diseño...</p>
-                <a href="https://www.mdpi.com/2624-7402/7/4/125" target="_blank" class="read-more">Acceder al Paper →</a>
-            </article>
-        </section>
-
-        <!-- Featured Section -->
-        <section class="featured-section">
-            <h2 class="featured-title">Proyecto Destacado del Mes - SEMILLERO SIOTEM UNISINU</h2>
-            <p class="featured-content">
-                Desarrollo de un sistema de procesamiento de imagenes para el control térmico en sistemas cerrados con aire acondicionado. Las potencialidades del uso de IA y sistemas de procesamiento de imagenes en la Ingeniería Eléctrica.
-            </p>
-            <a href="https://www.nature.com/articles/s41467-022-28980-9" target="_blank" class="featured-btn">Ver Proyecto Completo</a>
-        </section>
-
+        <!-- INSERTA TU TEXTO AQUÍ (LÍNEA 175) -->
+        <p class="content-text">
+            Tu texto del newsletter va aquí...
+        </p>
+        <!-- FIN DEL TEXTO -->
     </main>
 
     <!-- Footer -->
@@ -521,7 +176,7 @@
         <div class="footer-content">
             <h3 class="footer-title">Mantente Conectado</h3>
             <p class="footer-text">Sígueme en redes sociales para más contenido sobre agricultura digital, energía, sensores remotos, innovación y tecnologías emergentes.</p>
-            
+
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/claudia-milena-serpa-imbett-a69520136/" class="social-link" target="_blank">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -539,9 +194,9 @@
                     </svg>
                 </a>
             </div>
-            
+
             <a href="index.html" class="back-to-site">← Volver al Sitio Principal</a>
-            
+
             <p style="margin-top: 30px; font-size: 0.8em; color: var(--beige-muted);">
                 © 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.
             </p>
