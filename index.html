@@ -1070,33 +1070,59 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
 
             /* Testimonials Mobile */
             .testimonials {
-                padding: 60px 10px;
+                padding: 50px 15px;
             }
 
             .testimonials-wrapper {
-                padding: 10px 0;
+                padding: 15px 0;
+                overflow-x: hidden;
             }
 
             .testimonial-card {
-                flex: 0 0 280px;
-                padding: 25px 15px;
-                min-height: 200px;
+                flex: 0 0 90vw;
+                max-width: 350px;
+                padding: 30px 20px;
+                min-height: auto;
+                margin: 0 10px;
             }
 
             .testimonial-card::before {
-                font-size: 2.5em;
-                top: 8px;
-                left: 10px;
+                font-size: 3em;
+                top: 10px;
+                left: 15px;
+                opacity: 0.3;
             }
 
             .testimonials-container {
                 max-width: 100%;
                 padding: 0;
+                overflow: hidden;
             }
 
             .testimonials-track {
-                animation: scroll-testimonials 40s linear infinite;
-                gap: 20px;
+                animation: scroll-testimonials 50s linear infinite;
+                gap: 15px;
+                padding: 0 10px;
+            }
+
+            .testimonial-text {
+                font-size: 0.95em;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+
+            .testimonial-author {
+                margin-top: 20px;
+                padding-top: 15px;
+                gap: 10px;
+            }
+
+            .author-info h4 {
+                font-size: 1em;
+            }
+
+            .author-info p {
+                font-size: 0.85em;
             }
 
             .testimonial-text {
