@@ -703,19 +703,30 @@
                     Aprende a procesar imágenes satelitales y de drones, comprender la óptica de los dispositivos, implementar algoritmos de machine learning y desarrollar soluciones AgTech con Python y Google Earth Engine. Modalidad 100% online vía plataforma Zoom.
                 </p>
 
-                <!-- Video del curso con filtro negro -->
-                <div style="margin: 40px auto; max-width: 800px;">
+                <!-- Video del curso con filtro de transparencia -->
+                <div style="margin: 40px auto; max-width: 800px; position: relative;">
                     <video autoplay muted loop playsinline style="
                         width: 100%;
                         height: auto;
                         border-radius: 15px;
                         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                        filter: brightness(0.7) contrast(1.2);
                         border: 3px solid var(--black);
+                        display: block;
                     ">
                         <source src="videos/Video Hover -Pagina.mp4" type="video/mp4">
                         Tu navegador no soporta el elemento de video.
                     </video>
+                    <!-- Overlay de transparencia oscura -->
+                    <div style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.4);
+                        border-radius: 15px;
+                        pointer-events: none;
+                    "></div>
                 </div>
 
                 <p class="course-description" style="margin-top: 20px; font-weight: bold; color: white; background-color: #4e7e32; padding: 15px; border-radius: 10px; display: inline-block;">
