@@ -1501,10 +1501,6 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
 
     <!-- Certificación Call-to-Action Section -->
     <section class="services" id="curso-agtech" style="
-        background-image: url('img/banner-curso-agtech.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         position: relative;
         color: white;
         padding: 120px 20px;
@@ -1512,7 +1508,25 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     ">
+        <!-- Video de fondo con filtro negro -->
+        <video autoplay muted loop playsinline style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.2);
+        ">
+            <source src="videos/Video Hover -Pagina.mp4" type="video/mp4">
+        </video>
+
         <!-- Dark overlay for better text readability -->
         <div style="
             position: absolute;
@@ -1520,7 +1534,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.3);
             z-index: 1;
         "></div>
 
