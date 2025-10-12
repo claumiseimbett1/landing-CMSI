@@ -2779,6 +2779,21 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
           });
         }
 
+        // ============================================
+        // SERVICE WORKER REGISTRATION FOR BREVO PUSH NOTIFICATIONS
+        // ============================================
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js?key=kqq726uscep89abxw9oaqp0n')
+              .then(function(registration) {
+                console.log('Service Worker registrado correctamente:', registration.scope);
+              })
+              .catch(function(error) {
+                console.log('Error al registrar el Service Worker:', error);
+              });
+          });
+        }
+
     </script>
 </body>
 </html>

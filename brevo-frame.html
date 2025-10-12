@@ -9,8 +9,46 @@
   <meta name="brevo-integration" content="frame,popup">
   <script id="brevo-sdk" src="https://cdn.brevo.com/js/sdk-loader.js"></script>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: transparent;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    #whole-content {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #main-content {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+    }
+
     .default-style {
-      font-family: sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      text-align: center;
+      color: #666;
+    }
+
+    /* Estilos para elementos de Brevo cuando se carguen */
+    .brevo-form {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -18,7 +56,7 @@
 <body>
   <div id="whole-content">
     <div id="main-content">
-      <p id="text-content" class="default-style">Please wait...</p>
+      <p id="text-content" class="default-style">Cargando...</p>
     </div>
   </div>
 </body>
