@@ -24,8 +24,16 @@
         Brevo.push([
             "init",
             {
-            client_key: "kqq726uscep89abxw9oaqp0n",
-            // Optional: Add other initialization options, see documentation
+                client_key: "kqq726uscep89abxw9oaqp0n",
+                automation: {
+                    popup: true
+                },
+                push_notification: {
+                    enabled: true,
+                    auto_subscribe: false,
+                    show_optin: true,
+                    show_manage_link: true
+                }
             }
         ]);
     </script>
