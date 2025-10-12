@@ -1165,17 +1165,35 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         }
 
         /* Biography Buttons Hover Effects */
-        .bio-btn-consulta:hover,
-        .bio-btn-cursos:hover {
-            background-color: var(--beige-dark) !important;
-            border-color: var(--beige-dark) !important;
+        .bio-btn-consulta:hover {
+            background-color: var(--yellow) !important;
+            color: var(--black) !important;
+            border-color: var(--yellow) !important;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(213,182,144,0.4) !important;
+            box-shadow: 0 6px 20px rgba(255, 252, 0, 0.4) !important;
         }
 
-        .bio-btn-consulta:hover svg,
-        .bio-btn-cursos:hover svg {
-            stroke: white !important;
+        .bio-btn-consulta:hover svg {
+            fill: var(--black) !important;
+        }
+
+        /* Download Zone Buttons Hover Effects */
+        .bio-btn-cursos:hover,
+        .bio-btn-docencia:hover,
+        .bio-btn-applets:hover,
+        .bio-btn-hypersatellite:hover {
+            background-color: var(--yellow) !important;
+            color: var(--black) !important;
+            border-color: var(--yellow) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 252, 0, 0.4) !important;
+        }
+
+        .bio-btn-cursos:hover svg,
+        .bio-btn-docencia:hover svg,
+        .bio-btn-applets:hover svg,
+        .bio-btn-hypersatellite:hover svg {
+            stroke: var(--black) !important;
         }
 
         /* Modal Popup Styles */
