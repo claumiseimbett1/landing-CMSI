@@ -1296,6 +1296,17 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             }
         }
 
+        @keyframes pulse-urgency {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+            }
+        }
+
         @media (max-width: 768px) {
             .modal-content {
                 width: 95%;
@@ -1333,6 +1344,25 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 </h1>
             </div>
             <div class="modal-body">
+                <!-- Mensaje de urgencia -->
+                <div style="
+                    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 1.1em;
+                    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+                    animation: pulse-urgency 2s ease-in-out infinite;
+                ">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: white; display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                    </svg>
+                    ¡ÚLTIMOS CUPOS DISPONIBLES! - Inscripciones cierran pronto
+                </div>
+
                 <h2>Curso Certificado AgTech con GEE + ML + Python - 50% off</h2>
                 <p>Domina las tecnologías más avanzadas en Agricultura Digital: Google Earth Engine, Machine Learning y Python para revolucionar tus proyectos AgTech.</p>
                 <p style="font-size: 0.95em; color: #999;">
