@@ -137,16 +137,17 @@
         }
 
         .resource-card {
-            background-color: var(--beige-light);
+            background-color: #fff;
             padding: 30px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border: 2px solid transparent;
+            border: 2px solid var(--beige-dark);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            border-radius: 10px;
         }
 
         .resource-card:hover {
@@ -183,6 +184,7 @@
         
         .resource-card p {
             flex-grow: 1;
+            margin-bottom: 20px;
         }
 
         .download-link {
@@ -193,11 +195,14 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
+            border-radius: 5px;
         }
 
         .download-link:hover {
-            background-color: var(--beige-dark);
+            background-color: var(--yellow);
+            color: var(--black);
             transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(255, 252, 0, 0.4);
         }
 
         .back-link {
@@ -230,7 +235,7 @@
 
         .featured-resource .resource-card {
             max-width: 450px;
-            background-color: var(--beige-muted);
+            background-color: #ffffff;
             border: 2px solid var(--beige-dark);
         }
 
