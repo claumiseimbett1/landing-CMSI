@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificación Profesional AgTech - Claudia Milena Serpa Imbett, PhD</title>
+    <meta name="description" content="Certificación profesional en AgTech con imágenes satelitales, machine learning y Python. Aprende agricultura de precisión con Google Earth Engine y tecnologías emergentes.">
+    <meta name="keywords" content="certificación AgTech, curso agricultura digital, machine learning agricultura, Google Earth Engine, sensores remotos, Python agricultura, Hotmart curso">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Claudia Milena Serpa Imbett, PhD">
+    <meta property="og:title" content="Certificación Profesional AgTech - Agricultura Digital y Machine Learning">
+    <meta property="og:description" content="Aprende agricultura de precisión con imágenes satelitales, machine learning y Python. Certificación profesional en AgTech con Google Earth Engine.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/banner-curso-agtech.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Certificación Profesional AgTech">
+    <meta name="twitter:description" content="Aprende agricultura de precisión con imágenes satelitales y machine learning. Certificación profesional en AgTech.">
+
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">
+    _linkedin_partner_id = "8119242";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script>
+    <script type="text/javascript">
+    (function(l) {
+    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+    window.lintrk.q=[]}
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})(window.lintrk);
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8119242&fmt=gif" />
+    </noscript>
+    <!-- End LinkedIn Insight Tag -->
+
+    <!-- Hotmart Widget Integration -->
+    <script type="text/javascript">
+        function importHotmart(){
+             var imported = document.createElement('script');
+             imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+             document.head.appendChild(imported);
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+            document.head.appendChild(link);
+        }
+        importHotmart();
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "AgTech con Google Earth Engine, Machine Learning y Python",
+      "description": "Certificación profesional en agricultura de precisión con imágenes satelitales, machine learning y Python. Aprende sensores remotos aplicados a AgTech con Google Earth Engine.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Hotmart",
+        "url": "https://hotmart.com"
+      },
+      "instructor": {
+        "@type": "Person",
+        "name": "Claudia Milena Serpa Imbett",
+        "jobTitle": "PhD en Óptica y Fotónica",
+        "description": "Experta en agricultura de precisión, sensores remotos y machine learning aplicado a AgTech"
+      },
+      "educationalLevel": "Professional",
+      "teaches": [
+        "Agricultura de precisión",
+        "Imágenes satelitales agricultura",
+        "Machine learning agricultura",
+        "Google Earth Engine",
+        "Sensores remotos agricultura",
+        "AgTech",
+        "Python para agricultura"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "100",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2025-01-01",
+        "priceValidUntil": "2025-12-31"
+      },
+      "courseMode": "online",
+      "startDate": "2025-10-15",
+      "inLanguage": "es",
+      "keywords": "agricultura de precisión, imágenes satelitales agricultura, AgTech, curso Hotmart, machine learning agricultura, sensores remotos, óptica aplicada, fotónica"
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --beige-light: #f3ede0;
+            --black: #000000;
+            --beige-dark: #d5b690;
+            --yellow: #fffc00;
+            --beige-muted: #d6ccc2;
+            --green: #4e7e32;
+            --green-light: #6fbf4f;
+            --green-accent: #8ed973;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* Course Hero Section */
+        .course-hero {
+            background-color: white;
+            position: relative;
+            color: var(--black);
+            padding: 100px 20px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: var(--black);
+        }
+
+        .course-subtitle {
+            color: var(--black);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .course-description {
+            color: var(--black);
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .content-section.dark {
+            background-color: var(--beige-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Video Section */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            background: #4e7e32;
+            padding: 20px;
+            border-radius: 20px;
+            border: 2px solid #4e7e32;
+            box-shadow: 0 8px 25px rgba(78, 126, 50, 0.15);
+        }
+
+        .video-title {
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            background: #000;
+            border: 3px solid var(--yellow);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 12px;
+        }
+
+        .video-description {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--white);
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .youtube-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .youtube-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 8px 16px;
+            border: 2px solid var(--black);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: var(--black);
+        }
+
+        .youtube-btn:hover {
+            background: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
+        }
+
+        /* Purchase Section */
+        .purchase-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .purchase-card {
+            background: #4e7e32;
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(78, 126, 50, 0.25);
+            flex: 1;
+            min-width: 300px;
+            border: 2px solid #4e7e32;
+            text-align: center;
+        }
+
+        .purchase-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .purchase-icon svg {
+            stroke: var(--yellow);
+        }
+
+        .purchase-title {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .purchase-subtitle {
+            margin-bottom: 25px;
+            color: var(--white);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .date-highlight {
+            background-color: var(--yellow);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--black);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .date-text {
+            margin: 0;
+            color: var(--black);
+            font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .brochure-section {
+            margin-bottom: 25px;
+        }
+
+        .brochure-text {
+            margin-bottom: 15px;
+            color: var(--white);
+            font-size: 0.95em;
+        }
+
+        .download-btn {
+            background-color: var(--black);
+            color: white;
+            border: 2px solid var(--black);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .download-btn:hover {
+            background-color: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
+        }
+
+        .hotmart-container {
+            margin: 20px 0;
+        }
+
+        .hotmart-btn {
+            display: inline-block !important;
+            background-color: var(--black) !important;
+            background: var(--black) !important;
+            color: white !important;
+            border: 2px solid var(--black) !important;
+            padding: 15px 30px !important;
+            text-decoration: none !important;
+            border-radius: 5px !important;
+            font-size: 1.1em !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease !important;
+            box-shadow: none !important;
+        }
+
+        .hotmart-btn:hover {
+            background-color: var(--yellow) !important;
+            background: var(--yellow) !important;
+            border-color: var(--yellow) !important;
+            color: var(--black) !important;
+            transform: translateY(-2px);
+        }
+
+        .course-links {
+            font-size: 0.9em;
+            color: var(--white);
+            margin-top: 15px;
+        }
+
+        .course-links a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .course-links a:hover {
+            color: var(--yellow);
+        }
+
+        /* Back to Home Button */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--black);
+            color: white;
+            border: 2px solid var(--black);
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-weight: bold;
+        }
+
+        .back-home:hover {
+            background-color: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 252, 0, 0.4);
+        }
+
+        .faq-btn {
+            display: inline-block !important;
+            background-color: var(--black) !important;
+            background: var(--black) !important;
+            color: white !important;
+            border: 2px solid var(--black) !important;
+            padding: 15px 30px !important;
+            text-decoration: none !important;
+            border-radius: 5px !important;
+            font-size: 1.1em !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease !important;
+            box-shadow: none !important;
+        }
+
+        .faq-btn:hover {
+            background-color: var(--yellow) !important;
+            background: var(--yellow) !important;
+            border-color: var(--yellow) !important;
+            color: var(--black) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5) !important;
+        }
+
+        .contact-btn {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--black) !important;
+            background: var(--black) !important;
+            color: white !important;
+            border: 2px solid var(--black) !important;
+            padding: 15px 30px !important;
+            text-decoration: none !important;
+            border-radius: 5px !important;
+            font-size: 1.1em !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease !important;
+            box-shadow: none !important;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--yellow) !important;
+            background: var(--yellow) !important;
+            border-color: var(--yellow) !important;
+            color: var(--black) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5) !important;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--beige-light);
+            padding: 40px 20px;
+            margin-top: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--beige-dark);
+        }
+
+        .testimonials-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: var(--black);
+            margin-bottom: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid var(--beige-dark);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            color: var(--black);
+            font-size: 1.1em;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            color: var(--beige-dark);
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .course-subtitle {
+                font-size: 1.8em;
+            }
+
+            .course-description {
+                font-size: 1.1em;
+            }
+
+            .purchase-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .back-home {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                margin-top: 60px;
+            }
+
+            .course-hero {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .course-subtitle {
+                font-size: 1.5em;
+            }
+
+            .course-description {
+                font-size: 1em;
+            }
+
+            .content-section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header style="background: white; box-shadow: none; padding: 15px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: left; padding: 0 20px;">
+            <a href="index.html" style="
+                color: var(--black);
+                text-decoration: none;
+                font-size: 1em;
+                font-weight: 500;
+            ">← Volver al Inicio</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Course Hero Section -->
+        <section class="course-hero" style="position: relative; overflow: hidden; min-height: 600px; padding: 0;">
+            <!-- Video de fondo -->
+            <video autoplay muted loop playsinline style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 0;
+            ">
+                <source src="videos/Video Hover -Pagina.mp4" type="video/mp4">
+            </video>
+
+            <!-- Overlay de transparencia oscura -->
+            <div style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            "></div>
+
+            <!-- Contenido encima del video -->
+            <div class="hero-content" style="position: relative; z-index: 2; padding: 100px 20px;">
+                <h1 class="section-title" style="color: #5db53a;">Curso AgTech</h1>
+                <h2 class="course-subtitle" style="color: white;">AgTech con Google Earth Engine, Machine Learning y Python</h2>
+                <p class="course-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    Aprende a procesar imágenes satelitales y de drones, comprender la óptica de los dispositivos, implementar algoritmos de machine learning y desarrollar soluciones AgTech con Python y Google Earth Engine. Modalidad 100% online vía plataforma Zoom.
+                </p>
+
+                <!-- Brochure Download Button -->
+                <div style="margin-top: 30px;">
+                    <a href="recursos/Brochure AgTech-Hotmart-Course.pdf" download="Brochure-AgTech-Certificacion.pdf" style="
+                        background: var(--yellow);
+                        color: var(--black);
+                        padding: 15px 40px;
+                        text-decoration: none;
+                        border-radius: 50px;
+                        font-size: 1.2em;
+                        font-weight: 700;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 6px 20px rgba(255, 252, 0, 0.4);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 12px;
+                        border: 3px solid var(--yellow);
+                    " onmouseover="this.style.background='var(--green)'; this.style.color='white'; this.style.borderColor='var(--green)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(78, 126, 50, 0.5)';" onmouseout="this.style.background='var(--yellow)'; this.style.color='var(--black)'; this.style.borderColor='var(--yellow)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(255, 252, 0, 0.4)';">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span>Descargar Brochure</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Info Section -->
+        <section style="background-color: white; padding: 60px 20px;">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2em; font-weight: bold; color: var(--black); margin-bottom: 30px;">
+                    Certificado por @cel.education (CEL: Center of Education and Leadership) y avalado por @fgu_online (Florida Global University)
+                </p>
+
+                <!-- Logos -->
+                <div style="display: flex; justify-content: space-evenly; gap: 20px; align-items: center; margin-bottom: 40px;">
+                    <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" style="height: 85px;">
+                    <img src="logos/CEL_Leadership_color_horizontal.png" alt="Logo CEL" style="height: 60px;">
+                    <img src="logos/FGU_kit de marca_RGB_Mesa de trabajo 1 copia 2.png" alt="Logo FGU" style="height: 110px;">
+                </div>
+
+                <!-- Alerta Hotmart: Disponibilidad Online -->
+                <div style="
+                    background: linear-gradient(135deg, #fff9e6 0%, #fffef5 100%);
+                    color: var(--black);
+                    padding: 25px 30px;
+                    border-radius: 12px;
+                    margin: 0 auto 30px auto;
+                    max-width: 850px;
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+                    border: 2px solid var(--yellow);
+                ">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 35px; height: 35px; fill: var(--black); flex-shrink: 0;">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm-1-11h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                        <p style="margin: 0; font-size: 1.3em; font-weight: 700; text-align: center; line-height: 1.4;">
+                            ¡DISPONIBLE 100% ONLINE DESDE EL 5 DE NOVIEMBRE EN PLATAFORMA HOTMART: VIDEOS TUTORIALES, APPLETS, REPOSITORIOS Y MAS!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Información Importante: Modalidades -->
+                <div style="
+                    background: white;
+                    color: var(--black);
+                    padding: 35px;
+                    border-radius: 15px;
+                    margin: 0 auto 40px auto;
+                    max-width: 850px;
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                    border: 3px solid var(--yellow);
+                ">
+                    <h3 style="color: var(--black); margin-bottom: 20px; font-size: 1.5em; text-align: center;">🚀 ¡Atención participantes del curso AgTech!</h3>
+                    <p style="margin-bottom: 15px; font-size: 1.1em;"><strong>📅 Desde este miércoles 15 de octubre iniciamos clases.</strong></p>
+                    <p style="margin-bottom: 15px; font-size: 1.05em;">Tendremos dos modalidades de participación:</p>
+                    <div style="background: var(--beige-light); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <p style="margin-bottom: 0; font-size: 1.05em;"><strong>💻 Sincrónica:</strong> en vivo por Zoom, lunes y miércoles de 6:00 p.m. a 10:00 p.m. (del 15 de octubre al 3 de noviembre de 2025).</p>
+                    </div>
+                    <div style="background: var(--beige-light); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                        <p style="margin-bottom: 0; font-size: 1.05em;"><strong>🌐 Asincrónica (totalmente online):</strong> materiales disponibles 2 días después de cada clase. La primera grabación estará disponible desde el 17 de octubre.</p>
+                    </div>
+                    <p style="margin-bottom: 20px; font-size: 1.05em;"><strong>🎯 En ambas modalidades realizarás 3 cuestionarios de evaluación (sesiones 2, 4 y 6) que certifican tus competencias para la Certificación Internacional CEL–FGU (Florida Global University).</strong></p>
+                    <p style="margin-bottom: 0; font-size: 1.15em; color: var(--black); text-align: center;"><strong>✅ ¡Prepárate para aprender y certificarte en AgTech con GEE + Python + Machine Learning!</strong></p>
+                </div>
+
+                <!-- Beneficios destacados -->
+                <div style="
+                    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                    border-left: 4px solid var(--yellow);
+                    padding: 25px 30px;
+                    margin: 0 auto;
+                    max-width: 750px;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                ">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; fill: none; stroke: #2c5f2d; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                            <span style="font-size: 0.95em; color: var(--black); line-height: 1.4;">97% de empleadores buscan profesionales certificados</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; fill: none; stroke: #2c5f2d; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                            <span style="font-size: 0.95em; color: var(--black); line-height: 1.4;">76% confirma mayor demanda laboral</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; fill: none; stroke: #2c5f2d; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6m5.2-14.8l-4.2 4.2m-2 2l-4.2 4.2M23 12h-6m-6 0H5m14.8 5.2l-4.2-4.2m-2-2l-4.2-4.2"/>
+                            </svg>
+                            <span style="font-size: 0.95em; color: var(--black); line-height: 1.4;">El 100% de nuestros egresados aplica esta certificación para automatizar procesos en campo</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; fill: none; stroke: #2c5f2d; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span style="font-size: 0.95em; color: var(--black); line-height: 1.4;">Lee sus testimonios en: 'Lo que dicen nuestros egresados'</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section with white background -->
+        <section class="content-section" style="background-color: white; padding: 80px 20px;">
+            <div class="container">
+                <!-- Fecha y Modalidad -->
+                <p style="font-size: 1.1em; color: #333; line-height: 1.6; max-width: 700px; margin: 0 auto 40px auto; text-align: center;">
+                    15 de Octubre - 3 de Noviembre de 2025 | Modalidad online vía Zoom | Lunes y Miércoles 6-10 PM | 24 horas | 6 módulos
+                </p>
+
+                <!-- Pricing Section -->
+                <div style="
+                    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                    border: 3px solid var(--yellow);
+                    border-radius: 15px;
+                    padding: 30px;
+                    margin: 35px auto;
+                    max-width: 600px;
+                    box-shadow: 0 8px 25px rgba(255, 252, 0, 0.3);
+                    position: relative;
+                ">
+                    <!-- 50% OFF Badge -->
+                    <div style="
+                        position: absolute;
+                        top: -15px;
+                        right: 30px;
+                        background: var(--yellow);
+                        color: var(--black);
+                        padding: 10px 25px;
+                        border-radius: 50px;
+                        font-weight: 900;
+                        font-size: 1.3em;
+                        box-shadow: 0 4px 15px rgba(255, 252, 0, 0.6);
+                        border: 2px solid var(--black);
+                        transform: rotate(-5deg);
+                    ">
+                        🔥 50% OFF
+                    </div>
+
+                    <div style="text-align: center; margin-top: 15px;">
+                        <!-- Precio Regular Tachado -->
+                        <div style="margin-bottom: 10px;">
+                            <span style="
+                                font-size: 1.4em;
+                                color: #999;
+                                text-decoration: line-through;
+                                font-weight: 500;
+                            ">USD $200</span>
+                            <span style="
+                                font-size: 0.9em;
+                                color: #666;
+                                margin-left: 8px;
+                                font-style: italic;
+                            ">(Precio Regular)</span>
+                        </div>
+
+                        <!-- Precio Actual -->
+                        <div style="margin: 15px 0;">
+                            <div style="
+                                font-size: 1.1em;
+                                color: var(--black);
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                                margin-bottom: 8px;
+                            ">
+                                💰 PRECIO HOY
+                            </div>
+                            <div style="
+                                font-size: 3.5em;
+                                color: #2c5f2d;
+                                font-weight: 900;
+                                line-height: 1;
+                                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                            ">
+                                USD $100
+                            </div>
+                        </div>
+
+                        <!-- Texto de Ahorro -->
+                        <div style="
+                            background: #2c5f2d;
+                            color: white;
+                            padding: 12px 20px;
+                            border-radius: 8px;
+                            font-size: 1.1em;
+                            font-weight: 600;
+                            margin-top: 15px;
+                            display: inline-block;
+                        ">
+                            ¡Ahorra $100 USD hoy!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones de Inscripción Principal -->
+                <div style="text-align: center; margin: 40px 0; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://pay.hotmart.com/X101723249X?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="
+                        background: var(--black);
+                        color: white;
+                        padding: 20px 60px;
+                        text-decoration: none;
+                        border-radius: 50px;
+                        font-size: 1.5em;
+                        font-weight: 700;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 15px;
+                        border: 3px solid var(--black);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                    " onmouseover="this.style.background='var(--yellow)'; this.style.color='var(--black)'; this.style.borderColor='var(--yellow)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(255, 252, 0, 0.5)';" onmouseout="this.style.background='var(--black)'; this.style.color='white'; this.style.borderColor='var(--black)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.3)';">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Pago al contado</span>
+                    </a>
+                    <a href="https://pay.hotmart.com/X101723249X?checkoutMode=2&off=1d6chiwe" class="hotmart-fb hotmart__button-checkout" style="
+                        background: var(--black);
+                        color: white;
+                        padding: 20px 60px;
+                        text-decoration: none;
+                        border-radius: 50px;
+                        font-size: 1.5em;
+                        font-weight: 700;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 15px;
+                        border: 3px solid var(--black);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                    " onmouseover="this.style.background='var(--yellow)'; this.style.color='var(--black)'; this.style.borderColor='var(--yellow)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(255, 252, 0, 0.5)';" onmouseout="this.style.background='var(--black)'; this.style.color='white'; this.style.borderColor='var(--black)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.3)';">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Pago en 2 cuotas</span>
+                    </a>
+                </div>
+
+                <!-- Video Promocional -->
+                <div class="video-container">
+                    <h4 class="video-title">Video Promocional de la Certificación</h4>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/4gNrxm7tmgQ?rel=0&modestbranding=1&showinfo=0&controls=1"
+                            title="Certificación Profesional AgTech - Video Promocional"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-description">
+                        Descubre todo lo que aprenderás en nuestra certificación profesional
+                    </p>
+                    <div class="youtube-link">
+                        <a href="https://www.youtube.com/watch?v=4gNrxm7tmgQ" target="_blank" class="youtube-btn">
+                            Ver en YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Invitación al Curso -->
+                <div class="video-container">
+                    <h4 class="video-title">Invitación al Curso</h4>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/Xkeys62vyLw?start=352&rel=0&modestbranding=1&showinfo=0&controls=1"
+                            title="Certificación Profesional AgTech - Invitación al Curso"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-description">
+                        Conoce más detalles sobre el curso y cómo inscribirte
+                    </p>
+                    <div class="youtube-link">
+                        <a href="https://www.youtube.com/watch?v=Xkeys62vyLw&t=352s" target="_blank" class="youtube-btn">
+                            Ver Webinar en YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FAQ and Contact Buttons -->
+                <div style="text-align: center; margin: 60px 0; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: center;">
+                    <a href="faq.html" class="faq-btn" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; flex: 0 1 auto; margin: 0;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        <span>Preguntas Frecuentes</span>
+                    </a>
+                    <a href="https://wa.me/573043499052?text=Hola,%20estoy%20interesado%20en%20el%20curso%20AgTech." class="contact-btn" target="_blank" style="margin: 0;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: white;">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        <span>Contáctame</span>
+                    </a>
+                </div>
+
+                <!-- Course Links -->
+                <div style="text-align: center; font-size: 0.9em; color: var(--black); margin-top: 20px;">
+                    <a href="https://go.hotmart.com/X101723249X?dp=1" target="_blank" style="color: var(--black); text-decoration: underline;">Ver más información del curso →</a><br>
+                    <a href="https://claumiseimbett.hotmart.host/agtech-con-google-earth-engine-machine-learning-y-python" target="_blank" style="color: var(--black); text-decoration: underline; margin-top: 5px; display: inline-block;">Información del producto →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home">Volver al Inicio</a>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p>&copy; 2025 Claudia Milena Serpa Imbett, PhD. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
