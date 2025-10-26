@@ -590,27 +590,27 @@
     <main class="main-content">
         <!-- Course Hero Section -->
         <section class="course-hero" style="position: relative; overflow: hidden; min-height: 600px; padding: 0;">
-            <!-- Video de fondo -->
-            <video autoplay muted loop playsinline style="
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                z-index: 0;
-            ">
-                <source src="videos/Video Hover -Pagina.mp4" type="video/mp4">
-            </video>
-
-            <!-- Overlay de transparencia oscura -->
+            <!-- Imagen de fondo -->
             <div style="
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.5);
+                background-image: url('img/agtech-program.jpeg');
+                background-size: cover;
+                background-position: center;
+                z-index: 0;
+            "></div>
+
+            <!-- Overlay de transparencia oscura para mejorar contraste -->
+            <div style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.65);
                 z-index: 1;
             "></div>
 
@@ -656,8 +656,8 @@
             <div style="max-width: 900px; margin: 0 auto; text-align: center;">
                 <!-- Logos -->
                 <div style="display: flex; justify-content: center; gap: 30px; align-items: center; margin-bottom: 40px;">
-                    <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" style="height: 85px;">
-                    <img src="logos/Logo-Agtiva.png" alt="Logo Agtiva" style="height: 85px;">
+                    <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" style="height: 85px; background: white; padding: 15px; border-radius: 10px;">
+                    <img src="logos/Logo-Agtiva.png" alt="Logo Agtiva" style="height: 85px; background: white; padding: 15px; border-radius: 10px;">
                 </div>
 
                 <!-- Alerta Hotmart: Disponibilidad Online -->
@@ -696,10 +696,10 @@
                     <p style="margin-bottom: 15px; font-size: 1.1em;"><strong>📅 Desde el lunes 17 de noviembre iniciamos clases.</strong></p>
                     <p style="margin-bottom: 15px; font-size: 1.05em;">Tendremos dos modalidades de participación:</p>
                     <div style="background: var(--beige-light); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-                        <p style="margin-bottom: 0; font-size: 1.05em;"><strong>💻 Sincrónica:</strong> en vivo por Zoom, lunes y miércoles de 6:00 p.m. a 10:00 p.m. (del 17 de noviembre al 9 de diciembre de 2025).</p>
+                        <p style="margin-bottom: 0; font-size: 1.05em;"><strong>💻 Sincrónica:</strong> en vivo por Zoom, lunes y miércoles de 6:00 p.m. a 10:00 p.m. (del 17 de noviembre al 3 de diciembre de 2025).</p>
                     </div>
                     <div style="background: var(--beige-light); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                        <p style="margin-bottom: 0; font-size: 1.05em;"><strong>🌐 Asincrónica (totalmente online):</strong> materiales disponibles 2 días después de cada clase. La primera grabación estará disponible desde el 19 de noviembre.</p>
+                        <p style="margin-bottom: 0; font-size: 1.05em;"><strong>🌐 Asincrónica (totalmente online):</strong> materiales disponibles por Hotmart 2 días después de cada clase. La primera grabación estará disponible desde el 19 de noviembre.</p>
                     </div>
                     <p style="margin-bottom: 20px; font-size: 1.05em;"><strong>🎯 En ambas modalidades realizarás 3 cuestionarios de evaluación (sesiones 2, 4 y 6) que validan tus competencias en Agricultura 4.0.</strong></p>
                     <p style="margin-bottom: 0; font-size: 1.15em; color: var(--black); text-align: center;"><strong>✅ ¡Prepárate para aprender Agricultura 4.0 con GEE + Python + Machine Learning!</strong></p>
@@ -752,7 +752,7 @@
             <div class="container">
                 <!-- Fecha y Modalidad -->
                 <p style="font-size: 1.1em; color: #333; line-height: 1.6; max-width: 700px; margin: 0 auto 40px auto; text-align: center;">
-                    17 de Noviembre - 9 de Diciembre de 2025 | Modalidad online vía Zoom | Lunes y Miércoles 6-10 PM | 24 horas | 6 módulos
+                    17 de Noviembre - 3 de Diciembre de 2025 | Modalidad online vía Zoom | Lunes y Miércoles 6-10 PM | 24 horas | 6 módulos
                 </p>
 
                 <!-- Pricing Section -->
@@ -766,42 +766,8 @@
                     box-shadow: 0 8px 25px rgba(255, 252, 0, 0.3);
                     position: relative;
                 ">
-                    <!-- 50% OFF Badge -->
-                    <div style="
-                        position: absolute;
-                        top: -15px;
-                        right: 30px;
-                        background: var(--yellow);
-                        color: var(--black);
-                        padding: 10px 25px;
-                        border-radius: 50px;
-                        font-weight: 900;
-                        font-size: 1.3em;
-                        box-shadow: 0 4px 15px rgba(255, 252, 0, 0.6);
-                        border: 2px solid var(--black);
-                        transform: rotate(-5deg);
-                    ">
-                        🔥 50% OFF
-                    </div>
-
                     <div style="text-align: center; margin-top: 15px;">
-                        <!-- Precio Regular Tachado -->
-                        <div style="margin-bottom: 10px;">
-                            <span style="
-                                font-size: 1.4em;
-                                color: #999;
-                                text-decoration: line-through;
-                                font-weight: 500;
-                            ">USD $200</span>
-                            <span style="
-                                font-size: 0.9em;
-                                color: #666;
-                                margin-left: 8px;
-                                font-style: italic;
-                            ">(Precio Regular)</span>
-                        </div>
-
-                        <!-- Precio Actual -->
+                        <!-- Precio -->
                         <div style="margin: 15px 0;">
                             <div style="
                                 font-size: 1.1em;
@@ -811,7 +777,7 @@
                                 letter-spacing: 1px;
                                 margin-bottom: 8px;
                             ">
-                                💰 PRECIO HOY
+                                💰 PRECIO
                             </div>
                             <div style="
                                 font-size: 3.5em;
@@ -822,20 +788,6 @@
                             ">
                                 USD $100
                             </div>
-                        </div>
-
-                        <!-- Texto de Ahorro -->
-                        <div style="
-                            background: #2c5f2d;
-                            color: white;
-                            padding: 12px 20px;
-                            border-radius: 8px;
-                            font-size: 1.1em;
-                            font-weight: 600;
-                            margin-top: 15px;
-                            display: inline-block;
-                        ">
-                            ¡Ahorra $100 USD hoy!
                         </div>
                     </div>
                 </div>
@@ -896,7 +848,7 @@
 
                 <!-- FAQ and Contact Buttons -->
                 <div style="text-align: center; margin: 60px 0; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: center;">
-                    <a href="faq.html" class="faq-btn" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; flex: 0 1 auto; margin: 0;">
+                    <a href="faq40.html" class="faq-btn" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; flex: 0 1 auto; margin: 0;">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
                             <circle cx="12" cy="12" r="10"/>
                             <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
