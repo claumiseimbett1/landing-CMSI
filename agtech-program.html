@@ -209,6 +209,115 @@
             box-shadow: 0 6px 20px rgba(153, 153, 153, 0.3);
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 20px;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--green);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonials-wrapper {
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .testimonials-track {
+            display: flex;
+            gap: 30px;
+            animation: scroll-testimonials 30s linear infinite;
+            width: max-content;
+        }
+
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-testimonials {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-33.333%);
+            }
+        }
+
+        .testimonial-card {
+            flex: 0 0 450px;
+            background-color: white;
+            padding: 35px;
+            border-left: 5px solid var(--yellow);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 4em;
+            color: var(--beige-light);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid var(--beige-light);
+        }
+
+        .author-info h4 {
+            font-size: 1.1em;
+            color: var(--black);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.4;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-title h1 {
@@ -227,6 +336,67 @@
             .program-card h2 {
                 font-size: 1.4em;
                 min-height: auto;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+
+            .testimonials {
+                padding: 50px 15px;
+            }
+
+            .testimonials-wrapper {
+                padding: 15px 0;
+                overflow-x: hidden;
+            }
+
+            .testimonial-card {
+                flex: 0 0 90vw;
+                max-width: 350px;
+                padding: 30px 20px;
+                min-height: auto;
+                margin: 0 10px;
+            }
+
+            .testimonial-card::before {
+                font-size: 3em;
+                top: 10px;
+                left: 15px;
+                opacity: 0.3;
+            }
+
+            .testimonials-container {
+                max-width: 100%;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .testimonials-track {
+                animation: scroll-testimonials 50s linear infinite;
+                gap: 15px;
+                padding: 0 10px;
+            }
+
+            .testimonial-text {
+                font-size: 0.95em;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+
+            .testimonial-author {
+                margin-top: 20px;
+                padding-top: 15px;
+                gap: 10px;
+            }
+
+            .author-info h4 {
+                font-size: 1em;
+            }
+
+            .author-info p {
+                font-size: 0.85em;
             }
         }
     </style>
@@ -308,6 +478,229 @@
                     </svg>
                     <span>Próximamente</span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios" style="background-color: white;">
+        <h2 class="section-title">Lo que dicen nuestros egresados</h2>
+        <div class="testimonials-container">
+            <div class="testimonials-wrapper">
+                <div class="testimonials-track">
+                    <!-- Original testimonials -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso. Contenido actualizado, ejercicios prácticos, recursos didácticos para el aprendizaje, acceso a códigos y aplicación directa a proyectos AgTech. Aprendí a procesar imágenes satelitales con GEE y comprender ML. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Erika Luciana Gómez</h4>
+                                    <p>Zootecnista Independiente, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Curso excepcional con aplicación práctica inmediata. Los módulos de GEE y Python me permitieron implementar soluciones de monitoreo con UAV y análisis multitemporal de cultivos. Excelente equilibrio entre teoría y práctica, con herramientas que uso diariamente en mis operaciones. Totalmente recomendado para profesionales del sector."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Argemiro David Arroyo</h4>
+                                    <p>Técnico SIG & Operador UAV - AirData, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso para profesionales del sector pecuario. Las herramientas de GEE y ML son directamente aplicables al monitoreo de pasturas y gestión de sistemas ganaderos. Contenido práctico y actualizado que aplico regularmente en mis consultorías en Canadá. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Juan Carlos Rojas</h4>
+                                    <p>Consulting Ruminant Nutritionist - Beefsmart Consulting Inc., Alberta, Canadá</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "El curso me abrió una nueva visión sobre la teledetección y el poder del machine learning para interpretar nuestro entorno. Fue una experiencia motivadora que despertó aún más mi interés por aplicar estas herramientas en la investigación."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Luis Avila Lorduy</h4>
+                                    <p>Doctor (C) UNINORTE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Un curso de muy alto nivel. El cual fortalece el conocimiento que uniendo BIG DATA e IA favorece el desarrollo sostenible de las comunidades y de la ganadería en particular."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Manuel Gómez V</h4>
+                                    <p>Director sostenibilidad FEDEGAN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicated testimonials for infinite loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso. Contenido actualizado, ejercicios prácticos, recursos didácticos para el aprendizaje, acceso a códigos y aplicación directa a proyectos AgTech. Aprendí a procesar imágenes satelitales con GEE y comprender ML. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Erika Luciana Gómez</h4>
+                                    <p>Zootecnista Independiente, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Curso excepcional con aplicación práctica inmediata. Los módulos de GEE y Python me permitieron implementar soluciones de monitoreo con UAV y análisis multitemporal de cultivos. Excelente equilibrio entre teoría y práctica, con herramientas que uso diariamente en mis operaciones. Totalmente recomendado para profesionales del sector."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Argemiro David Arroyo</h4>
+                                    <p>Técnico SIG & Operador UAV - AirData, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso para profesionales del sector pecuario. Las herramientas de GEE y ML son directamente aplicables al monitoreo de pasturas y gestión de sistemas ganaderos. Contenido práctico y actualizado que aplico regularmente en mis consultorías en Canadá. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Juan Carlos Rojas</h4>
+                                    <p>Consulting Ruminant Nutritionist - Beefsmart Consulting Inc., Alberta, Canadá</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "El curso me abrió una nueva visión sobre la teledetección y el poder del machine learning para interpretar nuestro entorno. Fue una experiencia motivadora que despertó aún más mi interés por aplicar estas herramientas en la investigación."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Luis Avila Lorduy</h4>
+                                    <p>Doctor (C) UNINORTE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Un curso de muy alto nivel. El cual fortalece el conocimiento que uniendo BIG DATA e IA favorece el desarrollo sostenible de las comunidades y de la ganadería en particular."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Manuel Gómez V</h4>
+                                    <p>Director sostenibilidad FEDEGAN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third set for smooth infinite loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso. Contenido actualizado, ejercicios prácticos, recursos didácticos para el aprendizaje, acceso a códigos y aplicación directa a proyectos AgTech. Aprendí a procesar imágenes satelitales con GEE y comprender ML. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Erika Luciana Gómez</h4>
+                                    <p>Zootecnista Independiente, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Curso excepcional con aplicación práctica inmediata. Los módulos de GEE y Python me permitieron implementar soluciones de monitoreo con UAV y análisis multitemporal de cultivos. Excelente equilibrio entre teoría y práctica, con herramientas que uso diariamente en mis operaciones. Totalmente recomendado para profesionales del sector."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Argemiro David Arroyo</h4>
+                                    <p>Técnico SIG & Operador UAV - AirData, Colombia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excelente curso para profesionales del sector pecuario. Las herramientas de GEE y ML son directamente aplicables al monitoreo de pasturas y gestión de sistemas ganaderos. Contenido práctico y actualizado que aplico regularmente en mis consultorías en Canadá. Altamente recomendado."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Juan Carlos Rojas</h4>
+                                    <p>Consulting Ruminant Nutritionist - Beefsmart Consulting Inc., Alberta, Canadá</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "El curso me abrió una nueva visión sobre la teledetección y el poder del machine learning para interpretar nuestro entorno. Fue una experiencia motivadora que despertó aún más mi interés por aplicar estas herramientas en la investigación."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Luis Avila Lorduy</h4>
+                                    <p>Doctor (C) UNINORTE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Un curso de muy alto nivel. El cual fortalece el conocimiento que uniendo BIG DATA e IA favorece el desarrollo sostenible de las comunidades y de la ganadería en particular."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Manuel Gómez V</h4>
+                                    <p>Director sostenibilidad FEDEGAN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
