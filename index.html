@@ -684,12 +684,12 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             display: inline-block;
             margin-top: 15px;
             padding: 10px 20px;
-            background-color: var(--black);
+            background-color: var(--beige-dark);
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
             border-radius: 30px;
-            border: 2px solid var(--black);
+            border: 2px solid var(--beige-dark);
             font-weight: 600;
         }
 
@@ -995,6 +995,20 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 font-size: 0.8em;
                 margin-top: 15px;
             }
+
+            /* AgTech Program Button - Tablet */
+            .agtech-icon {
+                width: 24px !important;
+                height: 24px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* AgTech Program Button - Mobile */
+            .agtech-icon {
+                width: 20px !important;
+                height: 20px !important;
+            }
         }
 
         /* Hero Buttons Hover Effects */
@@ -1058,7 +1072,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#biografia">Acerca de Mí</a></li>
-                <li><a href="certificacion.html">Curso AgTech</a></li>
+                <li><a href="agtech-program.html">AGTECH PROGRAM</a></li>
                 <li><a href="recursos.html">Capacitaciones</a></li>
                 <li><a href="docencia.html">Docencia</a></li>
                 <li><a href="applets.html">Applets</a></li>
@@ -1138,9 +1152,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 text-transform: uppercase;
                 letter-spacing: 1px;
             " onmouseover="this.style.background='#4e9e2e'; this.style.borderColor='#4e9e2e'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 35px rgba(93, 181, 58, 0.5)';" onmouseout="this.style.background='#5db53a'; this.style.borderColor='#5db53a'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(93, 181, 58, 0.4)';">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                    <polyline points="9 22 9 12 15 12 15 22"/>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon" style="width: 28px; height: 28px; fill: currentColor; stroke: none;">
+                    <path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0L5 13.18zm6.04-9.66l-8.43 4.6c-.69.38-.69 1.38 0 1.76l8.43 4.6c.6.33 1.32.33 1.92 0l8.43-4.6c.69-.38.69-1.38 0-1.76l-8.43-4.6c-.6-.33-1.32-.33-1.92 0z"/>
                 </svg>
                 <span>Conoce AgTech Program</span>
             </a>
