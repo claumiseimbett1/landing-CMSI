@@ -1081,7 +1081,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         }
 
         /* Biography Buttons Hover Effects */
-        .bio-btn-consulta:hover {
+        .bio-btn-consulta:hover,
+        .bio-btn-orcid:hover {
             background-color: var(--yellow) !important;
             color: var(--black) !important;
             border-color: var(--yellow) !important;
@@ -1089,7 +1090,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             box-shadow: 0 6px 20px rgba(255, 252, 0, 0.4) !important;
         }
 
-        .bio-btn-consulta:hover svg {
+        .bio-btn-consulta:hover svg,
+        .bio-btn-orcid:hover svg {
             fill: var(--black) !important;
         }
 
@@ -1274,6 +1276,26 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         </svg>
                         <span>Contáctame</span>
                     </a>
+                    <a href="https://orcid.org/0000-0002-1420-0084" target="_blank" class="bio-btn-orcid" style="
+                        background-color: var(--black);
+                        color: white;
+                        padding: 12px 24px;
+                        text-decoration: none;
+                        border-radius: 30px;
+                        font-size: 1em;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        border: 2px solid var(--black);
+                    " onmouseover="this.style.backgroundColor='var(--yellow)'; this.style.color='var(--black)'; this.style.borderColor='var(--yellow)'; this.querySelector('svg').style.fill='var(--black)'" onmouseout="this.style.backgroundColor='var(--black)'; this.style.color='white'; this.style.borderColor='var(--black)'; this.querySelector('svg').style.fill='white'">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: white; transition: fill 0.3s ease;">
+                            <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 7.375c.939 0 1.702.763 1.702 1.702 0 .939-.763 1.701-1.702 1.701-.938 0-1.701-.762-1.701-1.701 0-.939.762-1.702 1.701-1.702zm.144 11.625V9.75h1.514V19H7.513zm5.29 0h-1.514V9.75h1.514v1.28c.462-.799 1.395-1.44 2.486-1.44 1.786 0 3.042 1.16 3.042 3.365V19h-1.514v-5.523c0-1.431-.752-2.204-1.908-2.204-1.224 0-1.962.928-1.962 2.359V19z"/>
+                        </svg>
+                        <span>Ver mi ORCID</span>
+                    </a>
                 </div>
 
                 <!-- Zona de Descarga -->
@@ -1304,7 +1326,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                     </h4>
                     <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
                         <a href="recursos.html" class="bio-btn-cursos" style="
-                            background-color: var(--beige-dark);
+                            background-color: var(--black);
                             color: white;
                             padding: 12px 24px;
                             text-decoration: none;
@@ -1325,7 +1347,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             <span>Capacitaciones</span>
                         </a>
                         <a href="docencia.html" class="bio-btn-docencia" style="
-                            background-color: var(--beige-dark);
+                            background-color: var(--black);
                             color: white;
                             padding: 12px 24px;
                             text-decoration: none;
@@ -1337,8 +1359,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             display: inline-flex;
                             align-items: center;
                             gap: 10px;
-                            border: 2px solid var(--beige-dark);
-                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='var(--beige-dark)'; this.style.color='white'; this.style.borderColor='var(--beige-dark)'; this.querySelector('svg').style.stroke='white';">
+                            border: 2px solid var(--black);
+                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='#000000'; this.style.color='white'; this.style.borderColor='#000000'; this.querySelector('svg').style.stroke='white';">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s ease;">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
                                 <path d="M6 12v5c3 3 9 3 12 0v-5"/>
@@ -1346,7 +1368,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             <span>Docencia y Formación</span>
                         </a>
                         <a href="applets.html" class="bio-btn-applets" style="
-                            background-color: var(--beige-dark);
+                            background-color: var(--black);
                             color: white;
                             padding: 12px 24px;
                             text-decoration: none;
@@ -1358,8 +1380,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             display: inline-flex;
                             align-items: center;
                             gap: 10px;
-                            border: 2px solid var(--beige-dark);
-                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='var(--beige-dark)'; this.style.color='white'; this.style.borderColor='var(--beige-dark)'; this.querySelector('svg').style.stroke='white';">
+                            border: 2px solid var(--black);
+                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='#000000'; this.style.color='white'; this.style.borderColor='#000000'; this.querySelector('svg').style.stroke='white';">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s ease;">
                                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                             </svg>
