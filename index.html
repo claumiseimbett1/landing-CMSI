@@ -1003,11 +1003,63 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             }
         }
 
+        /* AgTech Program Button Styles */
+        .agtech-btn {
+            background: #5db53a;
+            color: white;
+            padding: 25px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(93, 181, 58, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            border: 3px solid #5db53a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .agtech-btn:hover {
+            background: #4e9e2e;
+            border-color: #4e9e2e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(93, 181, 58, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            /* AgTech Program - Tablet */
+            .agtech-btn {
+                padding: 18px 35px !important;
+                font-size: 1.2em !important;
+                gap: 12px !important;
+            }
+
+            .agtech-logo {
+                height: 100px !important;
+            }
+        }
+
         @media (max-width: 480px) {
             /* AgTech Program Button - Mobile */
+            .agtech-btn {
+                padding: 14px 25px !important;
+                font-size: 0.95em !important;
+                gap: 8px !important;
+                letter-spacing: 0.5px !important;
+                width: 90%;
+                max-width: 320px;
+            }
+
             .agtech-icon {
-                width: 20px !important;
-                height: 20px !important;
+                width: 18px !important;
+                height: 18px !important;
+            }
+
+            .agtech-logo {
+                height: 80px !important;
             }
         }
 
@@ -1130,29 +1182,14 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         <div style="max-width: 600px; margin: 0 auto; text-align: center;">
             <!-- Logo AgTech Program -->
             <div style="margin-bottom: 30px;">
-                <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" style="height: 120px;">
+                <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" class="agtech-logo" style="height: 120px;">
             </div>
 
             <!-- Botón CONOCE AGTECH PROGRAM -->
-            <a href="agtech-program.html" style="
-                background: #5db53a;
-                color: white;
-                padding: 25px 50px;
-                text-decoration: none;
-                border-radius: 50px;
-                font-size: 1.5em;
-                font-weight: 700;
-                transition: all 0.3s ease;
-                box-shadow: 0 8px 25px rgba(93, 181, 58, 0.4);
-                display: inline-flex;
-                align-items: center;
-                gap: 15px;
-                border: 3px solid #5db53a;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            " onmouseover="this.style.background='#4e9e2e'; this.style.borderColor='#4e9e2e'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 35px rgba(93, 181, 58, 0.5)';" onmouseout="this.style.background='#5db53a'; this.style.borderColor='#5db53a'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(93, 181, 58, 0.4)';">
+            <a href="agtech-program.html" class="agtech-btn">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon" style="width: 28px; height: 28px; fill: currentColor; stroke: none;">
-                    <path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0L5 13.18zm6.04-9.66l-8.43 4.6c-.69.38-.69 1.38 0 1.76l8.43 4.6c.6.33 1.32.33 1.92 0l8.43-4.6c.69-.38.69-1.38 0-1.76l-8.43-4.6c-.6-.33-1.32-.33-1.92 0z"/>
+                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
                 </svg>
                 <span>Conoce AgTech Program</span>
             </a>
@@ -1241,7 +1278,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
 
                 <!-- Zona de Descarga -->
                 <div style="
-                    background-color: var(--beige-dark);
+                    background-color: var(--beige-light);
                     padding: 30px;
                     margin-top: 40px;
                     border-radius: 15px;
@@ -1251,14 +1288,14 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         text-align: center;
                         font-size: 1.3em;
                         margin-bottom: 20px;
-                        color: white;
+                        color: var(--black);
                         font-weight: 600;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         gap: 10px;
                     ">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: none; stroke: white; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: none; stroke: var(--black); stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                             <polyline points="7 10 12 15 17 10"/>
                             <line x1="12" y1="15" x2="12" y2="3"/>
@@ -1267,7 +1304,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                     </h4>
                     <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
                         <a href="recursos.html" class="bio-btn-cursos" style="
-                            background-color: var(--black);
+                            background-color: var(--beige-dark);
                             color: white;
                             padding: 12px 24px;
                             text-decoration: none;
@@ -1288,7 +1325,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             <span>Capacitaciones</span>
                         </a>
                         <a href="docencia.html" class="bio-btn-docencia" style="
-                            background-color: var(--black);
+                            background-color: var(--beige-dark);
                             color: white;
                             padding: 12px 24px;
                             text-decoration: none;
@@ -1300,8 +1337,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             display: inline-flex;
                             align-items: center;
                             gap: 10px;
-                            border: 2px solid var(--black);
-                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='#000000'; this.style.color='white'; this.style.borderColor='#000000'; this.querySelector('svg').style.stroke='white';">
+                            border: 2px solid var(--beige-dark);
+                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='var(--beige-dark)'; this.style.color='white'; this.style.borderColor='var(--beige-dark)'; this.querySelector('svg').style.stroke='white';">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s ease;">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
                                 <path d="M6 12v5c3 3 9 3 12 0v-5"/>
@@ -1309,7 +1346,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             <span>Docencia y Formación</span>
                         </a>
                         <a href="applets.html" class="bio-btn-applets" style="
-                            background-color: var(--black);
+                            background-color: var(--beige-dark);
                             color: white;
                             padding: 12px 24px;
                             text-decoration: none;
@@ -1321,8 +1358,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             display: inline-flex;
                             align-items: center;
                             gap: 10px;
-                            border: 2px solid var(--black);
-                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='#000000'; this.style.color='white'; this.style.borderColor='#000000'; this.querySelector('svg').style.stroke='white';">
+                            border: 2px solid var(--beige-dark);
+                        " onmouseover="this.style.backgroundColor='#fffc00'; this.style.color='#000000'; this.style.borderColor='#fffc00'; this.querySelector('svg').style.stroke='#000000';" onmouseout="this.style.backgroundColor='var(--beige-dark)'; this.style.color='white'; this.style.borderColor='var(--beige-dark)'; this.querySelector('svg').style.stroke='white';">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s ease;">
                                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                             </svg>
