@@ -544,6 +544,27 @@
                 padding: 12px 16px;
                 font-size: 0.9em;
             }
+
+            /* Hotmart button responsive */
+            .hotmart-btn {
+                padding: 12px 25px !important;
+                font-size: 1em !important;
+            }
+
+            .faq-btn, .contact-btn {
+                padding: 12px 25px !important;
+                font-size: 1em !important;
+            }
+
+            /* Video container responsive */
+            .video-title {
+                font-size: 1.2em;
+            }
+
+            /* Purchase card responsive */
+            .purchase-card {
+                padding: 30px 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -556,19 +577,174 @@
             }
 
             .section-title {
-                font-size: 2em;
+                font-size: 1.8em;
             }
 
             .course-subtitle {
-                font-size: 1.5em;
+                font-size: 1.4em;
             }
 
             .course-description {
-                font-size: 1em;
+                font-size: 0.95em;
             }
 
             .content-section {
                 padding: 60px 20px;
+            }
+
+            /* Hotmart button mobile */
+            .hotmart-btn {
+                padding: 10px 20px !important;
+                font-size: 0.9em !important;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .faq-btn, .contact-btn {
+                padding: 10px 20px !important;
+                font-size: 0.9em !important;
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Download button mobile */
+            .download-btn {
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+
+            /* Video title mobile */
+            .video-title {
+                font-size: 1em;
+            }
+
+            /* Purchase card mobile */
+            .purchase-card {
+                padding: 25px 15px;
+                min-width: auto;
+            }
+
+            .purchase-title {
+                font-size: 1.3em;
+            }
+
+            .purchase-subtitle {
+                font-size: 1em;
+            }
+
+            .date-text {
+                font-size: 1em;
+            }
+
+            /* Logos responsive */
+            header a {
+                font-size: 0.9em !important;
+            }
+        }
+
+        /* Estilos responsive adicionales */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-container img {
+            width: 220px;
+            height: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        /* Main CTA Button */
+        .main-cta-button {
+            background: var(--green);
+            color: white;
+            padding: 20px 60px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(78, 126, 50, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            border: 3px solid var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .main-cta-button:hover {
+            background: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 252, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+
+            .logo-container img {
+                width: 150px;
+                padding: 15px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .main-cta-button {
+                padding: 15px 40px;
+                font-size: 1.2em;
+                gap: 10px;
+            }
+
+            .main-cta-button svg {
+                width: 22px !important;
+                height: 22px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo-container img {
+                width: 180px;
+                padding: 15px;
+            }
+
+            .main-cta-button {
+                padding: 12px 30px;
+                font-size: 1em;
+                gap: 8px;
+                width: 100%;
+                justify-content: center;
+                letter-spacing: 0.5px;
+            }
+
+            .main-cta-button svg {
+                width: 20px !important;
+                height: 20px !important;
             }
         }
     </style>
@@ -654,9 +830,9 @@
         <section style="background-color: white; padding: 60px 20px;">
             <div style="max-width: 900px; margin: 0 auto; text-align: center;">
                 <!-- Logos -->
-                <div style="display: flex; justify-content: center; gap: 30px; align-items: center; margin-bottom: 40px;">
-                    <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" style="width: 220px; height: auto; background: white; padding: 25px; border-radius: 15px; display: block;">
-                    <img src="logos/Logo-Agtiva.png" alt="Logo Agtiva" style="width: 220px; height: auto; background: white; padding: 25px; border-radius: 15px; display: block;">
+                <div class="logo-container">
+                    <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program">
+                    <img src="logos/Logo-Agtiva.png" alt="Logo Agtiva">
                 </div>
 
                 <!-- Alerta Hotmart: Disponibilidad Online -->
@@ -714,7 +890,7 @@
                     border-radius: 10px;
                     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
                 ">
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div class="benefits-grid">
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; fill: none; stroke: #2c5f2d; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;">
                                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
@@ -793,24 +969,7 @@
 
                 <!-- Botón de Inscripción Principal con Hotmart -->
                 <div style="text-align: center; margin: 40px 0; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a onclick="return false;" href="https://pay.hotmart.com/R102622408S?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="
-                        background: var(--green);
-                        color: white;
-                        padding: 20px 60px;
-                        text-decoration: none;
-                        border-radius: 50px;
-                        font-size: 1.5em;
-                        font-weight: 700;
-                        box-shadow: 0 6px 20px rgba(78, 126, 50, 0.4);
-                        display: inline-flex;
-                        align-items: center;
-                        gap: 15px;
-                        border: 3px solid var(--green);
-                        text-transform: uppercase;
-                        letter-spacing: 1px;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.background='var(--yellow)'; this.style.color='var(--black)'; this.style.borderColor='var(--yellow)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(255, 252, 0, 0.5)';" onmouseout="this.style.background='var(--green)'; this.style.color='white'; this.style.borderColor='var(--green)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(78, 126, 50, 0.4)';">
+                    <a onclick="return false;" href="https://pay.hotmart.com/R102622408S?checkoutMode=2" class="hotmart-fb hotmart__button-checkout main-cta-button">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;">
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
                             <polyline points="16 17 21 12 16 7"/>

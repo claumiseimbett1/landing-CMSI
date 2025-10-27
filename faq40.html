@@ -30,6 +30,21 @@
     </noscript>
     <!-- End LinkedIn Insight Tag -->
 
+    <!-- Hotmart Widget Integration -->
+    <script type="text/javascript">
+        function importHotmart(){
+             var imported = document.createElement('script');
+             imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+             document.head.appendChild(imported);
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+            document.head.appendChild(link);
+        }
+        importHotmart();
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:title" content="FAQ - Curso AgTech con ML y Sensores Remotos">
     <meta property="og:description" content="Encuentra respuestas a todas tus preguntas sobre el curso de agricultura de precisión con Google Earth Engine y Python">
@@ -330,6 +345,23 @@
             box-shadow: 0 6px 25px rgba(255, 252, 0, 0.5);
         }
 
+        /* Logos responsive */
+        .logo-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 150px;
+            height: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
 
@@ -374,6 +406,69 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .logo-container {
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .logo-container img {
+                width: 120px;
+                padding: 12px;
+            }
+
+            .faq-cta {
+                padding: 15px 30px !important;
+                font-size: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .faq-header p {
+                font-size: 0.95rem;
+            }
+
+            .faq-tabs {
+                gap: 6px;
+            }
+
+            .faq-tab {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+
+            .faq-tab svg {
+                width: 14px;
+                height: 14px;
+                margin-right: 4px;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo-container img {
+                width: 140px;
+            }
+
+            .faq-cta {
+                padding: 12px 20px !important;
+                font-size: 0.95rem !important;
+                width: 100%;
+            }
+
+            .contact-btn {
+                font-size: 0.95rem !important;
+            }
+
+            header a {
+                font-size: 0.9em !important;
+            }
         }
     </style>
 </head>
@@ -401,9 +496,9 @@
                 <p>Todo lo que necesitas saber sobre el curso AgTech con Machine Learning y Sensores Remotos</p>
             </div>
             <!-- Logos -->
-            <div style="margin-top: 40px; display: flex; justify-content: center; gap: 30px; align-items: center;">
-                <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" style="width: 150px; height: auto; background: white; padding: 15px; border-radius: 10px;">
-                <img src="logos/Logo-Agtiva.png" alt="Logo Agtiva" style="width: 150px; height: auto; background: white; padding: 15px; border-radius: 10px;">
+            <div class="logo-container">
+                <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program">
+                <img src="logos/Logo-Agtiva.png" alt="Logo Agtiva">
             </div>
 
 
@@ -919,12 +1014,12 @@
                     </a>
                 </div>
                 <div style="margin-top: 30px;">
-                    <span class="faq-cta" style="font-size: 1.1rem; padding: 18px 40px; display: inline-flex; align-items: center; gap: 10px; opacity: 0.5; cursor: not-allowed; background: #999; border-color: #999;">
+                    <a onclick="return false;" href="https://pay.hotmart.com/R102622408S?checkoutMode=2" class="hotmart-fb hotmart__button-checkout faq-cta" style="font-size: 1.1rem; padding: 18px 40px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; background: var(--black); border-color: var(--black);">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: currentColor;">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
-                        <span>Inscripción Próximamente</span>
-                    </span>
+                        <span>Inscribirse al Curso</span>
+                    </a>
                 </div>
                 <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
                     Cupos limitados: 30 personas | Bonus: Scripts Python + comunidad extendida
