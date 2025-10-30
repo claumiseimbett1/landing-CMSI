@@ -1448,8 +1448,60 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
                         transform: translateY(-2px);
                     }
+
+                    /* Mobile optimizations */
+                    @media (max-width: 768px) {
+                        .libutton {
+                            width: 220px !important;
+                            height: 45px !important;
+                            flex-direction: row !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            padding: 10px 15px !important;
+                            font-size: 0.95em;
+                        }
+
+                        .read-article-btn {
+                            padding: 12px 28px !important;
+                            font-size: 1em !important;
+                        }
+
+                        .read-article-btn svg {
+                            width: 18px !important;
+                            height: 18px !important;
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .libutton {
+                            width: 200px !important;
+                            height: 42px !important;
+                            font-size: 0.9em;
+                        }
+
+                        .libutton svg {
+                            width: 16px !important;
+                            height: 16px !important;
+                            margin-right: 6px !important;
+                        }
+
+                        .read-article-btn {
+                            padding: 10px 22px !important;
+                            font-size: 0.95em !important;
+                        }
+
+                        .read-article-btn svg {
+                            width: 16px !important;
+                            height: 16px !important;
+                        }
+                    }
                 </style>
-                <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7382523988381683712" target="_blank">Suscribirte en LinkedIn</a>
+                <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7382523988381683712" target="_blank">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; fill: white; margin-right: 8px; display: inline-block; vertical-align: middle;">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 6.66h-2.47v6.84h2.47v-6.84zM8.22 8.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM16.5 11.38c-1.66 0-2.5 1.06-2.5 1.06V11.5h-2.47v6.84h2.47v-3.55c0-.9.6-1.63 1.8-1.63s1.6.73 1.6 1.63v3.55h2.5v-4.1c0-2.5-1.9-3.5-4.3-3.5z"/>
+                    </svg>
+                    <span style="vertical-align: middle;">Suscribirte en LinkedIn</span>
+                </a>
             </div>
 
             <!-- Latest Article Section -->
@@ -1464,7 +1516,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                     <div style="text-align: center;">
                         <a href="https://www.linkedin.com/pulse/el-elefante-en-invernadero-por-qu%C3%A9-tus-drones-van-la-40-serpa-imbett-sjmhe/?trackingId=XeX%2FkzlFQJutelDaXy5H3g%3D%3D"
                            target="_blank"
-                           style="display: inline-flex; align-items: center; gap: 10px; background: #0A66C2; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-size: 1.1em; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(10, 102, 194, 0.3);">
+                           class="read-article-btn"
+                           style="display: inline-flex; align-items: center; gap: 10px; background: #000000; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-size: 1.1em; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: currentColor;">
                                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 6.66h-2.47v6.84h2.47v-6.84zM8.22 8.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM16.5 11.38c-1.66 0-2.5 1.06-2.5 1.06V11.5h-2.47v6.84h2.47v-3.55c0-.9.6-1.63 1.8-1.63s1.6.73 1.6 1.63v3.55h2.5v-4.1c0-2.5-1.9-3.5-4.3-3.5z"/>
                             </svg>
