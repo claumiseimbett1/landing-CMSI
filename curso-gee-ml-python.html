@@ -926,8 +926,8 @@
         <section class="content-section" style="background-color: white; padding: 80px 20px;">
             <div class="container">
                 <!-- Fecha y Modalidad -->
-                <p style="font-size: 1.1em; color: #333; line-height: 1.6; max-width: 700px; margin: 0 auto 40px auto; text-align: center;">
-                    17 de Noviembre - 3 de Diciembre de 2025 | Modalidad online vía Zoom | Lunes y Miércoles 6-10 PM | 24 horas | 6 módulos
+                <p style="font-size: 1.1em; color: #333; line-height: 1.6; max-width: 800px; margin: 0 auto 40px auto; text-align: center;">
+                    17 de Noviembre - 3 de Diciembre de 2025 | Modalidad online vía Zoom | Lunes y Miércoles 5-9 PM (Costa Rica y Centroamérica) / 6-10 PM (Colombia) | 24 horas | 6 módulos
                 </p>
 
                 <!-- Pricing Section -->
@@ -1080,6 +1080,30 @@
                             </svg>
                             <span>Descargar</span>
                         </a>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--beige-light);">
+                            <p style="font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: 600;">Comparte este recurso:</p>
+                            <button onclick="copyToClipboard('colab-link', this)" style="
+                                background: var(--beige-light);
+                                color: var(--black);
+                                border: 2px solid var(--beige-dark);
+                                padding: 8px 16px;
+                                border-radius: 8px;
+                                font-size: 0.85em;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 8px;
+                                font-weight: 600;
+                            " onmouseover="this.style.background='var(--beige-dark)'; this.style.color='white';" onmouseout="this.style.background='var(--beige-light)'; this.style.color='var(--black)';">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                                </svg>
+                                <span id="colab-link-text">Copiar enlace</span>
+                            </button>
+                            <input type="hidden" id="colab-link" value="https://claudiaserpa.com/recursos/INFOGRAFIA-PASO%20PARA%20ABRIR%20UNA%20CUENTA%20GOOGLE%20COLAB.pdf">
+                        </div>
                     </div>
 
                     <!-- Botón 2: Google Earth Engine -->
@@ -1128,6 +1152,30 @@
                             </svg>
                             <span>Descargar</span>
                         </a>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--beige-light);">
+                            <p style="font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: 600;">Comparte este recurso:</p>
+                            <button onclick="copyToClipboard('gee-link', this)" style="
+                                background: var(--beige-light);
+                                color: var(--black);
+                                border: 2px solid var(--beige-dark);
+                                padding: 8px 16px;
+                                border-radius: 8px;
+                                font-size: 0.85em;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 8px;
+                                font-weight: 600;
+                            " onmouseover="this.style.background='var(--beige-dark)'; this.style.color='white';" onmouseout="this.style.background='var(--beige-light)'; this.style.color='var(--black)';">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                                </svg>
+                                <span id="gee-link-text">Copiar enlace</span>
+                            </button>
+                            <input type="hidden" id="gee-link" value="https://claudiaserpa.com/recursos/INFOGRAFIA-PASO%20PARA%20ABRIR%20UNA%20CUENTA%20GEE.pdf">
+                        </div>
                     </div>
 
                     <!-- Botón 3: 4 Proyectos GEE + ML -->
@@ -1176,6 +1224,30 @@
                             </svg>
                             <span>Descargar</span>
                         </a>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--beige-light);">
+                            <p style="font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: 600;">Comparte este recurso:</p>
+                            <button onclick="copyToClipboard('projects-link', this)" style="
+                                background: var(--beige-light);
+                                color: var(--black);
+                                border: 2px solid var(--beige-dark);
+                                padding: 8px 16px;
+                                border-radius: 8px;
+                                font-size: 0.85em;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 8px;
+                                font-weight: 600;
+                            " onmouseover="this.style.background='var(--beige-dark)'; this.style.color='white';" onmouseout="this.style.background='var(--beige-light)'; this.style.color='var(--black)';">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                                </svg>
+                                <span id="projects-link-text">Copiar enlace</span>
+                            </button>
+                            <input type="hidden" id="projects-link" value="https://claudiaserpa.com/recursos/INFOGRAFIA_4-PROYECTOS_GEE_ML.pdf">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1205,6 +1277,31 @@
                 }
             });
         });
+
+        // Function to copy link to clipboard
+        function copyToClipboard(inputId, button) {
+            const input = document.getElementById(inputId);
+            const link = input.value;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(link).then(function() {
+                // Get the span inside the button
+                const spanId = inputId + '-text';
+                const span = document.getElementById(spanId);
+                const originalText = span.textContent;
+
+                // Change button text to "¡Copiado!"
+                span.textContent = '¡Copiado!';
+
+                // Reset button text after 2 seconds
+                setTimeout(function() {
+                    span.textContent = originalText;
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Error al copiar el enlace: ', err);
+                alert('No se pudo copiar el enlace. Por favor, inténtalo de nuevo.');
+            });
+        }
     </script>
 </body>
 </html>
