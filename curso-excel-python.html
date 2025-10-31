@@ -325,16 +325,16 @@
         }
 
         .faq-item {
-            background: var(--beige-light);
+            background: transparent;
             border-radius: 10px;
             margin-bottom: 15px;
             overflow: hidden;
-            border: 2px solid var(--beige-dark);
+            border: 2px solid #ddd;
         }
 
         .faq-question {
             width: 100%;
-            background: var(--beige-light);
+            background: transparent;
             border: none;
             padding: 20px 25px;
             text-align: left;
@@ -349,22 +349,22 @@
         }
 
         .faq-question:hover {
-            background: var(--beige-dark);
-            color: white;
+            background: #f5f5f5;
         }
 
         .faq-question.active {
-            background: var(--green);
-            color: white;
+            background: transparent;
+            color: var(--black);
         }
 
         .faq-icon {
             font-size: 1.5em;
             transition: transform 0.3s ease;
+            color: #666;
         }
 
         .faq-question.active .faq-icon {
-            transform: rotate(180deg);
+            transform: rotate(45deg);
         }
 
         .faq-answer {
@@ -372,12 +372,13 @@
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
             padding: 0 25px;
-            background: white;
+            background: transparent;
         }
 
         .faq-answer.active {
             max-height: 500px;
             padding: 20px 25px;
+            border-top: 1px solid #eee;
         }
 
         .faq-answer p {
@@ -761,7 +762,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Necesito experiencia previa en programación?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>No es necesario tener experiencia previa en programación. El curso está diseñado para personas que usan Excel y desean migrar a Python. Comenzamos desde los fundamentos y avanzamos progresivamente.</p>
@@ -771,7 +772,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Qué software necesito instalar?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Necesitarás instalar Python (gratuito) y algunas librerías como Pandas, NumPy y Matplotlib. También trabajaremos con Jupyter Notebooks o Google Colab (también gratuito). Te proporcionaremos una guía detallada de instalación.</p>
@@ -781,7 +782,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Recibiré certificado?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Sí, al completar el curso recibirás un certificado digital de finalización que valida tus conocimientos en análisis de datos con Python.</p>
@@ -791,7 +792,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Las clases quedan grabadas?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Sí, todas las sesiones quedan grabadas y disponibles para los participantes. Podrás revisarlas cuando lo necesites durante y después del curso.</p>
@@ -801,7 +802,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Qué temas se cubren en el curso?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Cubrimos fundamentos de Python, manipulación de datos con Pandas, visualización con Matplotlib y Seaborn, análisis estadístico, y una introducción al machine learning aplicado a datos agrícolas.</p>
@@ -811,7 +812,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Puedo aplicar lo aprendido a otros sectores además de agricultura?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>¡Absolutamente! Aunque usamos ejemplos del sector agrícola, las herramientas y técnicas que aprenderás son aplicables a cualquier tipo de datos y sector.</p>

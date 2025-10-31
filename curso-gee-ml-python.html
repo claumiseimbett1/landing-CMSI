@@ -435,16 +435,16 @@
         }
 
         .faq-item {
-            background: var(--beige-light);
+            background: transparent;
             border-radius: 10px;
             margin-bottom: 15px;
             overflow: hidden;
-            border: 2px solid var(--beige-dark);
+            border: 2px solid #ddd;
         }
 
         .faq-question {
             width: 100%;
-            background: var(--beige-light);
+            background: transparent;
             border: none;
             padding: 20px 25px;
             text-align: left;
@@ -459,22 +459,22 @@
         }
 
         .faq-question:hover {
-            background: var(--beige-dark);
-            color: white;
+            background: #f5f5f5;
         }
 
         .faq-question.active {
-            background: var(--green);
-            color: white;
+            background: transparent;
+            color: var(--black);
         }
 
         .faq-icon {
             font-size: 1.5em;
             transition: transform 0.3s ease;
+            color: #666;
         }
 
         .faq-question.active .faq-icon {
-            transform: rotate(180deg);
+            transform: rotate(45deg);
         }
 
         .faq-answer {
@@ -482,12 +482,13 @@
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
             padding: 0 25px;
-            background: white;
+            background: transparent;
         }
 
         .faq-answer.active {
             max-height: 500px;
             padding: 20px 25px;
+            border-top: 1px solid #eee;
         }
 
         .faq-answer p {
@@ -845,7 +846,7 @@
 
             <!-- Contenido encima del video -->
             <div class="hero-content" style="position: relative; z-index: 2; padding: 100px 20px;">
-                <h1 class="section-title" style="color: #5db53a;">Curso Agricultura 4.0</h1>
+                <h1 class="section-title" style="color: #4e7e32;">Curso Agricultura 4.0</h1>
                 <h2 class="course-subtitle" style="color: white;">Google Earth Engine, Machine Learning y Python</h2>
                 <p class="course-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                     Aprende a procesar imágenes satelitales y de drones, comprender la óptica de los dispositivos, implementar algoritmos de machine learning y desarrollar soluciones para la Agricultura 4.0 con Python y Google Earth Engine. Modalidad 100% online vía plataforma Zoom. Horarios adaptados a Costa Rica, Centroamérica y Colombia.
@@ -1125,12 +1126,12 @@
                             </svg>
                             <span>Descargar</span>
                         </a>
-                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--beige-light);">
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #eee;">
                             <p style="font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: 600;">Comparte este recurso:</p>
                             <button onclick="copyToClipboard('colab-link', this)" style="
-                                background: var(--beige-light);
+                                background: #f5f5f5;
                                 color: var(--black);
-                                border: 2px solid var(--beige-dark);
+                                border: 2px solid #ddd;
                                 padding: 8px 16px;
                                 border-radius: 8px;
                                 font-size: 0.85em;
@@ -1140,7 +1141,7 @@
                                 align-items: center;
                                 gap: 8px;
                                 font-weight: 600;
-                            " onmouseover="this.style.background='var(--beige-dark)'; this.style.color='white';" onmouseout="this.style.background='var(--beige-light)'; this.style.color='var(--black)';">
+                            " onmouseover="this.style.background='#999'; this.style.color='white'; this.style.borderColor='#999';" onmouseout="this.style.background='#f5f5f5'; this.style.color='var(--black)'; this.style.borderColor='#ddd';">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
                                     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
                                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
@@ -1197,12 +1198,12 @@
                             </svg>
                             <span>Descargar</span>
                         </a>
-                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--beige-light);">
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #eee;">
                             <p style="font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: 600;">Comparte este recurso:</p>
                             <button onclick="copyToClipboard('gee-link', this)" style="
-                                background: var(--beige-light);
+                                background: #f5f5f5;
                                 color: var(--black);
-                                border: 2px solid var(--beige-dark);
+                                border: 2px solid #ddd;
                                 padding: 8px 16px;
                                 border-radius: 8px;
                                 font-size: 0.85em;
@@ -1212,7 +1213,7 @@
                                 align-items: center;
                                 gap: 8px;
                                 font-weight: 600;
-                            " onmouseover="this.style.background='var(--beige-dark)'; this.style.color='white';" onmouseout="this.style.background='var(--beige-light)'; this.style.color='var(--black)';">
+                            " onmouseover="this.style.background='#999'; this.style.color='white'; this.style.borderColor='#999';" onmouseout="this.style.background='#f5f5f5'; this.style.color='var(--black)'; this.style.borderColor='#ddd';">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
                                     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
                                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
@@ -1269,12 +1270,12 @@
                             </svg>
                             <span>Descargar</span>
                         </a>
-                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid var(--beige-light);">
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #eee;">
                             <p style="font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: 600;">Comparte este recurso:</p>
                             <button onclick="copyToClipboard('projects-link', this)" style="
-                                background: var(--beige-light);
+                                background: #f5f5f5;
                                 color: var(--black);
-                                border: 2px solid var(--beige-dark);
+                                border: 2px solid #ddd;
                                 padding: 8px 16px;
                                 border-radius: 8px;
                                 font-size: 0.85em;
@@ -1284,7 +1285,7 @@
                                 align-items: center;
                                 gap: 8px;
                                 font-weight: 600;
-                            " onmouseover="this.style.background='var(--beige-dark)'; this.style.color='white';" onmouseout="this.style.background='var(--beige-light)'; this.style.color='var(--black)';">
+                            " onmouseover="this.style.background='#999'; this.style.color='white'; this.style.borderColor='#999';" onmouseout="this.style.background='#f5f5f5'; this.style.color='var(--black)'; this.style.borderColor='#ddd';">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round;">
                                     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
                                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
@@ -1306,7 +1307,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Necesito experiencia previa en programación?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>No es obligatorio. El curso está diseñado desde cero, pero si ya programas avanzarás más rápido. Cubrimos desde apertura de cuenta en Google Colab hasta algoritmos ML paso a paso.</p>
@@ -1316,7 +1317,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Qué software necesito?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Necesitas Google Earth Engine (gratuito, basado en web), Python (gratuito, te enseñamos a operarlo en Colab o VS Code) y una cuenta Google activa.</p>
@@ -1326,7 +1327,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Las clases quedan grabadas?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Sí, todas las sesiones quedan grabadas y tienes acceso por 6 meses. Recibes el link en menos de 24 horas.</p>
@@ -1336,7 +1337,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Recibo certificado?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Sí, el curso otorga certificado de finalización al completar los requisitos: nota mínima global de 75%, completar los 3 quizzes, proyecto final aprobado y asistencia mínima del 70%.</p>
@@ -1346,7 +1347,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Mi computadora es suficiente?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Sí. Con 8GB RAM y navegador web moderno funciona perfectamente. GEE procesa en la nube, no requieres equipo potente.</p>
@@ -1356,7 +1357,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Qué incluye exactamente el curso?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>24 horas de clases en vivo, scripts Python listos para usar, códigos GEE comentados, datasets de práctica, 3 proyectos prácticos, acceso a grabaciones por 6 meses, certificado de finalización y repositorio GitHub.</p>
@@ -1366,7 +1367,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Puedo aplicarlo a ganadería o solo agricultura?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Aplica para ambos. Cubrimos: monitoreo de pasturas, suelo, análisis multitemporal, clasificación de coberturas (cultivos, pastos, suelo).</p>
@@ -1376,7 +1377,7 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>¿Hay garantía?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Garantía 100% de satisfacción. Si en las primeras 2 sesiones no cumple tus expectativas, devolvemos tu inversión completa.</p>
