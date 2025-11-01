@@ -34,6 +34,21 @@
     </noscript>
     <!-- End LinkedIn Insight Tag -->
 
+    <!-- Hotmart Script -->
+    <script type="text/javascript">
+    function importHotmart(){
+         var imported = document.createElement('script');
+         imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+         document.head.appendChild(imported);
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+        document.head.appendChild(link);    }
+     importHotmart();
+    </script>
+    <!-- End Hotmart Script -->
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -733,15 +748,9 @@
                     </div>
                 </div>
 
-                <!-- Botón de Inscripción Desactivado -->
+                <!-- Botón de Inscripción Hotmart -->
                 <div style="text-align: center; margin: 40px 0;">
-                    <button class="main-cta-button disabled" disabled>
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        <span>Inscripciones próximamente</span>
-                    </button>
+                    <a onclick="return false;" href="https://pay.hotmart.com/G102726005L?checkoutMode=2" class="hotmart-fb hotmart__button-checkout"><img src='https://static.hotmart.com/img/btn-buy-green.png'></a>
                 </div>
 
                 <!-- Contact Button -->
