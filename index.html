@@ -1034,12 +1034,41 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             box-shadow: 0 12px 35px rgba(93, 181, 58, 0.5);
         }
 
+        /* Primary AgTech Button - Larger for featured content */
+        .agtech-btn-primary {
+            font-size: 1.6em;
+            padding: 22px 55px;
+        }
+
+        /* AgTech Icon Sizes */
+        .agtech-icon {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .agtech-btn-primary .agtech-icon {
+            width: 32px;
+            height: 32px;
+        }
+
         @media (max-width: 768px) {
             /* AgTech Program - Tablet */
-            .agtech-btn {
+            .agtech-btn, .agtech-btn-primary {
                 padding: 18px 35px !important;
                 font-size: 1.2em !important;
                 gap: 12px !important;
+            }
+
+            .agtech-icon {
+                width: 24px !important;
+                height: 24px !important;
+            }
+
+            .agtech-btn-primary .agtech-icon {
+                width: 26px !important;
+                height: 26px !important;
             }
 
             .agtech-logo {
@@ -1055,7 +1084,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
 
         @media (max-width: 480px) {
             /* AgTech Program Button - Mobile */
-            .agtech-btn {
+            .agtech-btn, .agtech-btn-primary {
                 padding: 14px 25px !important;
                 font-size: 0.95em !important;
                 gap: 8px !important;
@@ -1064,7 +1093,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 max-width: 320px;
             }
 
-            .agtech-icon {
+            .agtech-icon, .agtech-btn-primary .agtech-icon {
                 width: 18px !important;
                 height: 18px !important;
             }
@@ -1558,11 +1587,21 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 margin-bottom: 30px;
             }
 
-            /* Biography Section - Mobile */
+            /* Biography Section - Mobile: Text below photo */
+            .biography-content {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
             .bio-image-container {
                 width: 220px;
                 height: 300px;
                 margin: 0 auto 30px;
+                order: 1;
+            }
+
+            .bio-text {
+                order: 2;
             }
 
             .bio-text h3 {
@@ -1709,14 +1748,14 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 min-height: 48px;
             }
 
-            .agtech-btn {
+            .agtech-btn, .agtech-btn-primary {
                 padding: 16px 30px !important;
                 font-size: 1.1em !important;
                 min-height: 48px;
                 gap: 10px !important;
             }
 
-            .agtech-icon {
+            .agtech-icon, .agtech-btn-primary .agtech-icon {
                 width: 22px !important;
                 height: 22px !important;
             }
@@ -1943,15 +1982,17 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 min-height: 44px;
             }
 
-            .agtech-btn {
+            .agtech-btn, .agtech-btn-primary {
                 padding: 14px 24px !important;
                 font-size: 0.95em !important;
                 letter-spacing: 0.3px !important;
                 min-height: 44px;
                 gap: 8px !important;
+                width: 100%;
+                max-width: 300px;
             }
 
-            .agtech-icon {
+            .agtech-icon, .agtech-btn-primary .agtech-icon {
                 width: 18px !important;
                 height: 18px !important;
             }
@@ -2033,9 +2074,14 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 font-size: 1.2em !important;
             }
 
-            .agtech-btn {
+            .agtech-btn, .agtech-btn-primary {
                 font-size: 0.85em !important;
                 padding: 12px 20px !important;
+            }
+
+            .agtech-icon, .agtech-btn-primary .agtech-icon {
+                width: 16px !important;
+                height: 16px !important;
             }
         }
 
@@ -2061,7 +2107,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 min-height: 48px;
             }
 
-            button, .cta-button, .agtech-btn {
+            button, .cta-button, .agtech-btn, .agtech-btn-primary {
                 min-height: 48px;
                 padding: 16px 24px;
             }
@@ -2233,8 +2279,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 <div style="margin-bottom: 35px;">
                     <img src="logos/AGTECH_PROGRAM_LOGO.webp" alt="Logo AgTech Program" class="agtech-logo" style="height: 150px;">
                 </div>
-                <a href="agtech-program.html" class="agtech-btn" style="font-size: 1.6em; padding: 22px 55px;">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon" style="width: 32px; height: 32px; fill: currentColor; stroke: none;">
+                <a href="agtech-program.html" class="agtech-btn agtech-btn-primary">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon">
                         <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
                         <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
                     </svg>
@@ -2251,7 +2297,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         <img src="logos/LOGO_HYPERSATELLITE.png" alt="Logo HYPERSATELLITE" class="agtech-logo" style="height: 130px;">
                     </div>
                     <a href="https://hypersatelliteapp.com/" target="_blank" class="agtech-btn">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon" style="width: 28px; height: 28px; fill: currentColor; stroke: none;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon">
                             <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
                             <circle cx="12" cy="16.5" r="1.5"/>
                         </svg>
@@ -2265,7 +2311,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         <img src="logos/MapiaDigital.webp" alt="Logo Mapia Digital" class="agtech-logo" style="height: 70px;">
                     </div>
                     <a href="https://mapia-digital.netlify.app/" target="_blank" class="agtech-btn">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon" style="width: 28px; height: 28px; fill: currentColor; stroke: none;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg>
                         <span>Visita Mapia Digital</span>
