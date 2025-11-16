@@ -1615,6 +1615,21 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 text-align: center;
             }
 
+            .bio-contact-buttons {
+                order: 3;
+                margin-top: 30px !important;
+            }
+
+            .bio-download-zone {
+                order: 4;
+                margin-top: 40px !important;
+            }
+
+            .bio-trajectory {
+                order: 5;
+                margin-top: 40px !important;
+            }
+
             .bio-highlights {
                 margin-top: 25px;
                 padding: 15px;
@@ -1907,6 +1922,18 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
 
             .bio-text p {
                 font-size: 0.9em !important;
+            }
+
+            .bio-contact-buttons {
+                margin-top: 25px !important;
+            }
+
+            .bio-download-zone {
+                margin-top: 35px !important;
+            }
+
+            .bio-trajectory {
+                margin-top: 35px !important;
             }
 
             /* Impact Cards - Single Column */
@@ -2333,7 +2360,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             </div>
             <div class="bio-text">
                 <h3> Claudia Milena Serpa Imbett, PhD </h3>
-                <div style="margin-top: 25px; margin-bottom: 30px;">
+                <div class="bio-description" style="margin-top: 25px; margin-bottom: 30px;">
                     <p style="font-size: 1.05em; line-height: 1.8; color: #333; margin-bottom: 20px;">
                         PhD en Tecnologías Ópticas Avanzadas con 15 años de experiencia profesional en investigación, empresa y academia.
                     </p>
@@ -2347,9 +2374,10 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         Fuera del laboratorio, entreno natación en Montería: mi equilibrio entre mente y cuerpo.
                     </p>
                 </div>
+            </div>
 
-                <!-- Botones de CTA en Biografía -->
-                <div style="display: flex; gap: 15px; margin-top: 35px; flex-wrap: wrap; justify-content: center;">
+            <!-- Botones de CTA en Biografía -->
+            <div class="bio-contact-buttons" style="grid-column: span 2; display: flex; gap: 15px; margin-top: 0; flex-wrap: wrap; justify-content: center;">
                     <a href="https://wa.me/573043499052?text=Hola,%20estoy%20interesado%20en%20una%20consultoría." class="bio-btn-consulta" style="
                         background-color: var(--black);
                         color: white;
@@ -2394,7 +2422,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             </div>
 
             <!-- Zona de Descarga - Centered Below -->
-            <div style="grid-column: span 2; margin-top: 50px;">
+            <div class="bio-download-zone" style="grid-column: span 2; margin-top: 50px;">
                 <div style="
                     background-color: var(--beige-light);
                     padding: 30px;
@@ -2511,7 +2539,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             </div>
 
             <!-- Impact Statistics Section - Below Photo -->
-            <div style="grid-column: span 2; margin-top: 60px;">
+            <div class="bio-trajectory" style="grid-column: span 2; margin-top: 60px;">
                 <h3 style="font-size: 1.8em; margin-bottom: 30px; color: var(--black); font-weight: 700; text-align: center;">
                     Trayectoria Científica y Profesional
                 </h3>
