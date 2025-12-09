@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /recursos/
+Disallow: /*.backup
+Disallow: /sw.js
+
+# Sitemap
+Sitemap: https://www.claumiseimbett.com/sitemap.xml
+
