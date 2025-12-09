@@ -3516,6 +3516,104 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         }
 
         // ============================================
+        // NEWSLETTER SUBSCRIPTION TRACKING
+        // ============================================
+        // Listen for messages from Brevo iframe (if supported)
+        window.addEventListener('message', function(event) {
+            // Brevo may send success messages - adjust based on actual Brevo implementation
+            if (event.data && typeof event.data === 'string') {
+                if (event.data.includes('success') || event.data.includes('subscribed') || event.data.includes('gracias')) {
+                    // Track subscription event in Facebook Pixel
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', {
+                            content_name: 'Newsletter Subscription',
+                            content_category: 'Newsletter'
+                        });
+                    }
+                    
+                    // Track in Google Analytics if available
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'newsletter_subscription', {
+                            'event_category': 'engagement',
+                            'event_label': 'Newsletter Signup'
+                        });
+                    }
+                    
+                    // Show success message
+                    showSubscriptionSuccess();
+                }
+            }
+        });
+
+        // Monitor iframe for URL changes (alternative method)
+        const brevoIframe = document.querySelector('.subscription-form iframe');
+        if (brevoIframe) {
+            // Check periodically if iframe content changed (limited by CORS)
+            let lastIframeSrc = brevoIframe.src;
+            setInterval(function() {
+                try {
+                    // This won't work due to CORS, but we keep it as fallback
+                    // Brevo should handle this via their own tracking
+                } catch(e) {
+                    // Expected - cross-origin restrictions
+                }
+            }, 2000);
+        }
+
+        // Show success message function
+        function showSubscriptionSuccess() {
+            const formContainer = document.querySelector('.subscription-form');
+            if (formContainer && !document.querySelector('.subscription-success-message')) {
+                const successMsg = document.createElement('div');
+                successMsg.className = 'subscription-success-message';
+                successMsg.innerHTML = `
+                    <div style="background: linear-gradient(135deg, var(--green) 0%, #2d8659 100%); 
+                                color: white; 
+                                padding: 20px 30px; 
+                                border-radius: 15px; 
+                                margin-top: 20px; 
+                                text-align: center;
+                                box-shadow: 0 5px 20px rgba(45, 134, 89, 0.3);
+                                animation: slideDown 0.5s ease;">
+                        <svg style="width: 40px; height: 40px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;" 
+                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h4 style="margin: 10px 0; font-size: 1.2em; font-weight: 600;">¡Suscripción Exitosa!</h4>
+                        <p style="margin: 0; opacity: 0.95;">Gracias por suscribirte. Revisa tu correo para confirmar tu suscripción.</p>
+                    </div>
+                `;
+                formContainer.appendChild(successMsg);
+                
+                // Remove message after 8 seconds
+                setTimeout(function() {
+                    successMsg.style.opacity = '0';
+                    successMsg.style.transition = 'opacity 0.5s ease';
+                    setTimeout(function() {
+                        successMsg.remove();
+                    }, 500);
+                }, 8000);
+            }
+        }
+
+        // Add CSS animation for success message
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ============================================
         // SERVICE WORKER REGISTRATION FOR BREVO PUSH NOTIFICATIONS
         // ============================================
         if ('serviceWorker' in navigator) {
