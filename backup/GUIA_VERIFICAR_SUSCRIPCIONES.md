@@ -1,5 +1,7 @@
 # 📧 Guía: Cómo Verificar Suscripciones al Newsletter
 
+> 💡 **¿Quieres enviar desde tu dominio personalizado?** Consulta: [GUIA_CONFIGURAR_DOMINIO_BREVO.md](./GUIA_CONFIGURAR_DOMINIO_BREVO.md)
+
 ## 🔍 Método Principal: Panel de Brevo
 
 ### 1. Acceder al Panel de Brevo
@@ -86,6 +88,93 @@ El código ya está configurado para rastrear suscripciones en:
 - **Límites**: Revisa los límites de tu plan de Brevo (número de contactos permitidos)
 
 ## 🆘 Solución de Problemas
+
+### ⚠️ PROBLEMA: Se suscriben pero NO reciben email de confirmación
+
+Este es un problema común. Sigue estos pasos para solucionarlo:
+
+#### **Paso 1: Verificar Configuración del Formulario en Brevo**
+
+1. **Accede a Brevo** → [https://app.brevo.com](https://app.brevo.com)
+2. Ve a **"Formularios"** → **"Formularios"**
+3. Selecciona tu formulario de newsletter
+4. Haz clic en **"Configuración"** o **"Settings"**
+
+#### **Paso 2: Verificar Configuración de Doble Opt-in**
+
+1. Busca la sección **"Confirmación por email"** o **"Double opt-in"**
+2. Verifica que esté **ACTIVADA** (debe estar habilitada)
+3. Si está desactivada, **ACTÍVALA** y guarda los cambios
+
+#### **Paso 3: Verificar Plantilla de Email de Confirmación**
+
+1. En la configuración del formulario, busca **"Plantilla de confirmación"** o **"Confirmation email template"**
+2. Verifica que haya una plantilla configurada
+3. Si no hay plantilla:
+   - Haz clic en **"Crear plantilla"** o **"Create template"**
+   - Usa una plantilla predeterminada o crea una personalizada
+   - Asegúrate de incluir el enlace de confirmación
+4. **Guarda** la plantilla
+
+#### **Paso 4: Verificar Configuración del Dominio (CRÍTICO)**
+
+Los emails pueden no enviarse si el dominio no está verificado:
+
+1. Ve a **"Configuración"** → **"Dominios"** o **"Settings"** → **"Domains"**
+2. Verifica que tu dominio esté:
+   - ✅ **Verificado** (debe aparecer un check verde)
+   - ✅ **Autenticado** (SPF, DKIM, DMARC configurados)
+3. Si no está verificado:
+   - Sigue las instrucciones de Brevo para verificar tu dominio
+   - Agrega los registros DNS que Brevo te proporciona
+   - Espera 24-48 horas para la propagación DNS
+
+#### **Paso 5: Verificar que los Emails no vayan a Spam**
+
+1. **Pide a un suscriptor que revise:**
+   - Carpeta de **Spam/Correo no deseado**
+   - Carpeta de **Promociones** (Gmail)
+   - Filtros de email personalizados
+
+2. **Agrega el remitente a contactos:**
+   - Pide que agreguen el email de Brevo a sus contactos
+   - Esto mejora la entrega futura
+
+#### **Paso 6: Verificar Límites de Envío**
+
+1. Ve a **"Configuración"** → **"Límites"** o **"Settings"** → **"Limits"**
+2. Verifica que no hayas alcanzado:
+   - Límite diario de emails
+   - Límite mensual de emails
+   - Límite de contactos (plan gratuito: 300 contactos)
+
+#### **Paso 7: Probar el Formulario**
+
+1. **Suscríbete tú mismo** con un email de prueba
+2. Revisa:
+   - ✅ Si recibes el email de confirmación
+   - ✅ Si aparece en la lista de contactos de Brevo
+   - ✅ Si el estado es "Pendiente de confirmación" o "Suscrito"
+
+#### **Paso 8: Verificar Logs de Envío**
+
+1. Ve a **"Email"** → **"Estadísticas"** o **"Email"** → **"Statistics"**
+2. Busca los emails de confirmación enviados
+3. Verifica:
+   - Si se están enviando (estado: "Enviado")
+   - Si hay errores (estado: "Error" o "Rebotado")
+   - Razón del error si hay alguno
+
+#### **Solución Rápida: Desactivar Doble Opt-in Temporalmente**
+
+Si necesitas una solución inmediata mientras verificas el problema:
+
+1. Ve a **"Formularios"** → Tu formulario → **"Configuración"**
+2. **Desactiva** temporalmente el doble opt-in
+3. Los usuarios se suscribirán directamente sin confirmación
+4. **⚠️ IMPORTANTE**: Vuelve a activarlo después de solucionar el problema
+
+**Nota**: Esto no es recomendable a largo plazo porque puede afectar la calidad de tu lista.
 
 ### No veo nuevas suscripciones:
 1. Verifica que el iframe del formulario esté cargando correctamente

@@ -2699,6 +2699,9 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             <div class="subscription-text">
                 <h3>Suscríbete a nuestro Newsletter</h3>
                 <p><strong>IA y Datos en AgroTech</strong> - Recibe las últimas tendencias en agricultura digital, sensores remotos, machine learning y tecnologías emergentes directamente en tu bandeja de entrada.</p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic;">
+                    ⚠️ <strong>Importante:</strong> Después de suscribirte, revisa tu correo (incluyendo spam) para confirmar tu suscripción.
+                </p>
             </div>
             <div class="subscription-form" style="max-width: 600px; margin: 30px auto; position: relative; overflow: visible;">
                 <!-- Brevo Newsletter Form with reCAPTCHA -->
@@ -3569,7 +3572,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 successMsg.innerHTML = `
                     <div style="background: linear-gradient(135deg, var(--green) 0%, #2d8659 100%); 
                                 color: white; 
-                                padding: 20px 30px; 
+                                padding: 25px 30px; 
                                 border-radius: 15px; 
                                 margin-top: 20px; 
                                 text-align: center;
@@ -3581,19 +3584,31 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
                         <h4 style="margin: 10px 0; font-size: 1.2em; font-weight: 600;">¡Suscripción Exitosa!</h4>
-                        <p style="margin: 0; opacity: 0.95;">Gracias por suscribirte. Revisa tu correo para confirmar tu suscripción.</p>
+                        <p style="margin: 12px 0 8px 0; opacity: 0.95; font-size: 1em;">
+                            <strong>Revisa tu correo electrónico</strong> para confirmar tu suscripción.
+                        </p>
+                        <div style="background: rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 0.9em; line-height: 1.6;">
+                            <p style="margin: 0 0 6px 0; opacity: 0.95;">
+                                <strong>📧 ¿No ves el email?</strong>
+                            </p>
+                            <ul style="margin: 0; padding-left: 20px; text-align: left; opacity: 0.9;">
+                                <li>Revisa tu carpeta de <strong>Spam</strong> o <strong>Correo no deseado</strong></li>
+                                <li>Busca en la carpeta de <strong>Promociones</strong> (Gmail)</li>
+                                <li>El email puede tardar unos minutos en llegar</li>
+                            </ul>
+                        </div>
                     </div>
                 `;
                 formContainer.appendChild(successMsg);
                 
-                // Remove message after 8 seconds
+                // Remove message after 15 seconds (increased time for users to read)
                 setTimeout(function() {
                     successMsg.style.opacity = '0';
                     successMsg.style.transition = 'opacity 0.5s ease';
                     setTimeout(function() {
                         successMsg.remove();
                     }, 500);
-                }, 8000);
+                }, 15000);
             }
         }
 
