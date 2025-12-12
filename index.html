@@ -2417,7 +2417,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                     <div style="margin-bottom: 30px; height: 130px; display: flex; align-items: center; justify-content: center;">
                         <img src="logos/LOGO_HYPERSATELLITE.png" alt="Logo HYPERSATELLITE - App móvil para procesamiento satelital automatizado" class="agtech-logo" style="height: 130px;" loading="lazy">
                     </div>
-                    <a href="https://hypersatelliteapp.com/" target="_blank" rel="noopener noreferrer" class="agtech-btn">
+                    <a href="http://hypersatelliteserver.com/back/HyperSatellite.apk" target="_blank" rel="noopener noreferrer" class="agtech-btn">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon">
                             <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
                             <circle cx="12" cy="16.5" r="1.5"/>
@@ -2605,7 +2605,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             </svg>
                             <span>Explora Applets</span>
                         </a>
-                        <a href="https://hypersatelliteapp.com/" target="_blank" rel="noopener noreferrer" class="bio-btn-hypersatellite" style="
+                        <a href="http://hypersatelliteserver.com/back/HyperSatellite.apk" target="_blank" rel="noopener noreferrer" class="bio-btn-hypersatellite" style="
                             background-color: var(--black);
                             color: white;
                             padding: 12px 24px;
@@ -2960,7 +2960,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                             this.trackDownload('Acceso a Newsletter');
                         }
                         // Track HYPERSATELLITE visits specifically
-                        else if (href.includes('hypersatelliteapp.com')) {
+                        else if (href.includes('hypersatelliteserver.com') || href.includes('HyperSatellite.apk')) {
                             this.trackDownload('Acceso a HYPERSATELLITE');
                         }
                         // Track specific docencia tools from index
@@ -3001,7 +3001,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                                 !href.includes('linkedin.com') && 
                                 !href.includes('github.com') && 
                                 !href.includes('orcid.org') &&
-                                !href.includes('hypersatelliteapp.com')) {
+                                !href.includes('hypersatelliteserver.com')) {
                             this.trackDownload(`Enlace externo: ${linkText}`);
                         }
                     }
