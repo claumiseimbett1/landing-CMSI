@@ -92,6 +92,7 @@ Landing_CMSI/
 ├── faq40.html              # FAQ específico AgTech
 ├── applets.html            # Applets interactivos
 ├── thanks.html             # Página de agradecimiento
+├── politica-privacidad.html # Política de Privacidad (Google Ads compliant)
 │
 ├── robots.txt              # Configuración para crawlers
 ├── sitemap.xml             # Mapa del sitio
@@ -353,6 +354,45 @@ Todas las páginas tienen su URL canónica configurada:
 
 ---
 
+## 🔐 Política de Privacidad
+
+El sitio incluye una **Política de Privacidad completa** que cumple con:
+- ✅ **Google Ads**: Requisitos para publicidad personalizada
+- ✅ **RGPD**: Reglamento General de Protección de Datos (UE)
+- ✅ **LOPDGDD**: Ley Orgánica de Protección de Datos (España)
+- ✅ **Ley 1581 de 2012**: Protección de datos personales (Colombia)
+
+### Ubicación
+- **URL**: `https://www.claumiseimbett.com/politica-privacidad.html`
+- **Archivo**: `politica-privacidad.html`
+
+### Enlaces de la Política
+La política de privacidad está enlazada en:
+- ✅ **Footer de todas las páginas HTML**
+- ✅ **Formularios de suscripción** (newsletter)
+- ✅ **Página de agradecimiento** (thanks.html)
+
+### Contenido de la Política
+Incluye información sobre:
+- Responsable del tratamiento de datos
+- Información recopilada (datos personales, cookies, tracking)
+- Uso de cookies y tecnologías de seguimiento
+- Servicios de terceros (Brevo, Google Ads, Facebook Pixel, LinkedIn)
+- Derechos del usuario (acceso, rectificación, supresión, portabilidad)
+- Gestión de cookies y opciones de exclusión
+- Consentimiento para anuncios personalizados de Google Ads
+- Transferencias internacionales de datos
+- Medidas de seguridad
+
+### Cumplimiento Google Ads
+La política incluye específicamente:
+- Descripción del uso de Google Ads
+- Información sobre cookies de publicidad
+- Enlaces para optar por no recibir anuncios personalizados
+- Transparencia sobre seguimiento y personalización
+
+---
+
 ## 📞 Soporte y Contacto
 
 **Autora**: Claudia Milena Serpa Imbett, PhD  
@@ -377,6 +417,8 @@ Todos los derechos reservados © 2025 Claudia Milena Serpa Imbett, PhD
 - ✅ Schema markup agregado
 - ✅ Tracking de eventos configurado
 - ✅ Sitemap y robots.txt creados
+- ✅ Política de Privacidad implementada (Google Ads compliant)
+- ✅ Enlaces a política de privacidad en todos los footers y formularios
 
 ---
 
