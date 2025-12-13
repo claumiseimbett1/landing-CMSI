@@ -29,6 +29,17 @@
     <meta http-equiv="content-language" content="es-CO">
     <meta name="facebook-domain-verification" content="65z3g2iog97nw4ppc4iclwvtf73v83" />
     <meta name="google-site-verification" content="b8V0ptu-FYRjLjTkmc9RApkdDUJgqfOUzxp6lc2NC50" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-417231404"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-417231404');
+    </script>
+    <!-- End Google Ads -->
+    
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/ecf1677014cf3d8b59783e7b7/6536563fa8592948744d549c1.js");</script>
     <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
     <script>
@@ -2865,6 +2876,14 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                     }
                     analytics.dailyStats[today]++;
                     
+                    // Track page view in Google Ads / Google Analytics
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'page_view', {
+                            'event_category': 'engagement',
+                            'event_label': 'Homepage'
+                        });
+                    }
+                    
                     // Track unique visitors (approximation)
                     const lastVisit = localStorage.getItem('last_visit');
                     const now = Date.now();
@@ -2887,6 +2906,30 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 }
                 analytics.downloads[filename]++;
                 this.saveAnalytics(analytics);
+                
+                // Track in Google Ads / Google Analytics if available
+                if (typeof gtag !== 'undefined') {
+                    // Google Analytics event
+                    gtag('event', 'file_download', {
+                        'event_category': 'download',
+                        'event_label': filename
+                    });
+                    
+                    // Google Ads conversion for important downloads
+                    // Solo rastrea descargas importantes como conversiones
+                    if (filename.includes('HYPERSATELLITE') || 
+                        filename.includes('Recursos') || 
+                        filename.includes('Applets') ||
+                        filename.includes('Docencia')) {
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-417231404/CONVERSION_ID',
+                            'value': 1.0,
+                            'currency': 'USD',
+                            'event_category': 'download',
+                            'event_label': filename
+                        });
+                    }
+                }
                 
                 // Show download notification
                 this.showNotification(`✅ ${filename}`);
@@ -3520,11 +3563,23 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         });
                     }
                     
-                    // Track in Google Analytics if available
+                    // Track in Google Ads / Google Analytics if available
                     if (typeof gtag !== 'undefined') {
+                        // Google Analytics event
                         gtag('event', 'newsletter_subscription', {
                             'event_category': 'engagement',
                             'event_label': 'Newsletter Signup'
+                        });
+                        
+                        // Google Ads conversion event
+                        // INSTRUCCIONES: Reemplaza 'CONVERSION_ID' con el ID de tu conversión de Google Ads
+                        // Obtén el ID en: Google Ads → Conversiones → [Tu conversión] → Etiqueta
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-417231404/CONVERSION_ID',
+                            'value': 1.0,
+                            'currency': 'USD',
+                            'event_category': 'newsletter',
+                            'event_label': 'Newsletter Subscription'
                         });
                     }
                     
