@@ -85,6 +85,41 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+        }
+
+        ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--beige-dark);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .thanks-container {
+                padding: 40px 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .back-btn {
+                display: block;
+                margin: 10px auto;
+                width: 100%;
+                max-width: 250px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -94,13 +129,25 @@
                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
             </svg>
         </div>
-        <h1>¡Gracias por suscribirte!</h1>
-        <p>Tu suscripción ha sido registrada exitosamente. Pronto recibirás en tu bandeja de entrada las últimas novedades sobre agricultura digital, sensores remotos y tecnologías emergentes.</p>
-        <p>Te mantendremos informado sobre nuevos recursos, cursos y desarrollos en el campo de la investigación científica aplicada.</p>
+        <h1>¡Suscripción Confirmada!</h1>
+        <p><strong>¡Gracias por confirmar tu suscripción!</strong></p>
+        <p>Ya estás suscrito(a) al newsletter <strong>"IA y Datos en AgroTech"</strong> y comenzarás a recibir en tu bandeja de entrada las últimas novedades sobre:</p>
+        <ul style="text-align: left; max-width: 400px; margin: 20px auto; padding-left: 30px;">
+            <li style="margin-bottom: 10px;">Agricultura digital e inteligencia artificial</li>
+            <li style="margin-bottom: 10px;">Sensores remotos y análisis geoespacial</li>
+            <li style="margin-bottom: 10px;">Machine Learning aplicado al agro</li>
+            <li style="margin-bottom: 10px;">Tecnologías emergentes en AgTech</li>
+            <li style="margin-bottom: 10px;">Nuevos cursos y recursos</li>
+        </ul>
+        <p style="margin-top: 30px;">Revisa tu correo para acceder a nuestros contenidos exclusivos.</p>
+        <div style="margin: 30px 0;">
+            <a href="newsletter.html" class="back-btn" style="margin-right: 15px; background-color: var(--black);">Leer Último Newsletter</a>
+            <a href="blog.html" class="back-btn" style="background-color: var(--beige-dark);">Ver Blog Completo</a>
+        </div>
         <p style="margin-top: 30px; font-size: 0.85em; color: #666;">
             Al suscribirte, aceptas nuestra <a href="politica-privacidad.html" style="color: var(--black); text-decoration: underline;">Política de Privacidad</a>
         </p>
-        <a href="index.html" class="back-btn">Regresar al Sitio</a>
+        <a href="index.html" style="display: inline-block; margin-top: 20px; color: #666; text-decoration: none; font-size: 0.9em;">← Regresar al Sitio</a>
     </div>
 
     <script>
