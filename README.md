@@ -162,7 +162,7 @@ Landing_CMSI/
 ### Schema Markup
 - ✅ **Course** - Para cursos ofrecidos
 - ✅ **Person** - Información de la autora
-- ✅ **Organization** - DR-Innova SAS
+- ✅ **Organization** - DR-Innova
 - ✅ **Blog** - Para el blog
 - ✅ **BlogPosting** - Para cada artículo
 
@@ -396,7 +396,7 @@ La política incluye específicamente:
 ## 📞 Soporte y Contacto
 
 **Autora**: Claudia Milena Serpa Imbett, PhD  
-**Organización**: DR-Innova SAS  
+**Organización**: DR-Innova  
 **Sitio Web**: [https://www.claumiseimbett.com](https://www.claumiseimbett.com)  
 **LinkedIn**: [Claudia Milena Serpa Imbett](https://www.linkedin.com/in/claudia-milena-serpa-imbett-a69520136/)
 
