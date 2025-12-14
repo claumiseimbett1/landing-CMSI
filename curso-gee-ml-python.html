@@ -635,8 +635,8 @@
             }
 
             /* Recursos grid responsive */
-            div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
-                grid-template-columns: repeat(2, 1fr) !important;
+            div[style*="grid-template-columns: repeat(2, 1fr)"] {
+                grid-template-columns: 1fr !important;
                 gap: 15px !important;
             }
         }
@@ -854,7 +854,7 @@
             }
 
             /* Recursos grid mobile */
-            div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+            div[style*="grid-template-columns: repeat(2, 1fr)"] {
                 grid-template-columns: 1fr !important;
                 gap: 12px !important;
             }
@@ -961,7 +961,7 @@
 
                 <!-- Alerta Hotmart: Disponibilidad Online -->
                 <div style="
-                    background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%);
+                    background: white;
                     color: var(--black);
                     padding: 35px 30px;
                     border-radius: 20px;
@@ -999,87 +999,86 @@
                         ">Recursos completos disponibles</h3>
                         <div style="
                             display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                            grid-template-columns: repeat(2, 1fr);
                             gap: 20px;
                             margin-top: 20px;
+                            max-width: 700px;
+                            margin-left: auto;
+                            margin-right: auto;
                         ">
                             <div style="
-                                background: white;
-                                padding: 20px;
+                                background: #0077B6;
+                                padding: 25px;
                                 border-radius: 12px;
-                                border: 2px solid #0077B6;
-                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
                             ">
                                 <div style="
                                     font-size: 2.5em;
                                     font-weight: 900;
-                                    color: #0077B6;
+                                    color: white;
                                     line-height: 1;
                                     margin-bottom: 8px;
                                 ">41</div>
                                 <div style="
                                     font-size: 1em;
-                                    color: #333;
+                                    color: white;
                                     font-weight: 600;
                                 ">Videos Tutoriales</div>
                             </div>
                             <div style="
-                                background: white;
-                                padding: 20px;
+                                background: #0077B6;
+                                padding: 25px;
                                 border-radius: 12px;
-                                border: 2px solid #0077B6;
-                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
                             ">
                                 <div style="
                                     font-size: 2.5em;
                                     font-weight: 900;
-                                    color: #0077B6;
+                                    color: white;
                                     line-height: 1;
                                     margin-bottom: 8px;
                                 ">5</div>
                                 <div style="
                                     font-size: 1em;
-                                    color: #333;
+                                    color: white;
                                     font-weight: 600;
                                 ">Applets Interactivos</div>
                             </div>
                             <div style="
-                                background: white;
-                                padding: 20px;
+                                background: #0077B6;
+                                padding: 25px;
                                 border-radius: 12px;
-                                border: 2px solid #0077B6;
-                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
                             ">
                                 <div style="
                                     font-size: 2.5em;
                                     font-weight: 900;
-                                    color: #0077B6;
+                                    color: white;
                                     line-height: 1;
                                     margin-bottom: 8px;
                                 ">1</div>
                                 <div style="
                                     font-size: 1em;
-                                    color: #333;
+                                    color: white;
                                     font-weight: 600;
                                 ">Repositorio Completo</div>
                             </div>
                             <div style="
-                                background: white;
-                                padding: 20px;
+                                background: #0077B6;
+                                padding: 25px;
                                 border-radius: 12px;
-                                border: 2px solid #0077B6;
-                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
                             ">
                                 <div style="
                                     font-size: 2.5em;
                                     font-weight: 900;
-                                    color: #0077B6;
+                                    color: white;
                                     line-height: 1;
                                     margin-bottom: 8px;
                                 ">4</div>
                                 <div style="
                                     font-size: 1em;
-                                    color: #333;
+                                    color: white;
                                     font-weight: 600;
                                 ">Cuestionarios de Aprendizaje</div>
                             </div>
@@ -1135,7 +1134,7 @@
                                     font-size: 1.1em;
                                     color: #0077B6;
                                     font-weight: 700;
-                                ">Próximo inicio: Próximamente</p>
+                                ">Próximo inicio: Por anunciar</p>
                             </div>
                             
                             <p style="
@@ -1145,7 +1144,7 @@
                                 margin-bottom: 20px;
                                 text-align: left;
                             ">
-                                Participa en clases en vivo vía Zoom. Interactúa en tiempo real con la instructora y otros participantes. Incluye mentorías los lunes de 5:00 p.m. a 7:00 p.m. hora Costa Rica y Centroamérica / 6:00 p.m. a 7:00 p.m. hora Colombia. Ideal si prefieres un aprendizaje guiado y estructurado con seguimiento directo.
+                                Participa en clases en vivo vía Zoom. Interactúa en tiempo real con la instructora y otros participantes. Incluye mentorías los lunes y miércoles de 5:00 p.m. a 7:00 p.m. hora Costa Rica y Centroamérica / 6:00 p.m. a 7:00 p.m. hora Colombia. Ideal si prefieres un aprendizaje guiado y estructurado con seguimiento directo.
                             </p>
                             
                             <div style="
@@ -1288,7 +1287,7 @@
             <div class="container">
                 <!-- Fecha y Modalidad -->
                 <p style="font-size: 1.1em; color: #333; line-height: 1.6; max-width: 800px; margin: 0 auto 40px auto; text-align: center;">
-                    Inscripciones Permanentes | Modalidad online vía Hotmart | Mentorías Lunes 5-6 PM (Costa Rica y Centroamérica) / 6-7 PM (Colombia) | 24 horas | 6 módulos
+                    Inscripciones Permanentes | Modalidad online vía Hotmart | Mentorías Lunes y Miércoles 5-6 PM (Costa Rica y Centroamérica) / 6-7 PM (Colombia) | 24 horas | 6 módulos
                 </p>
 
                 <!-- Pricing Section -->
