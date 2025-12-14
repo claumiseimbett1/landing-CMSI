@@ -19,6 +19,8 @@
             --yellow: #fffc00;
             --green: #5db53a;
             --green-dark: #4e9e2e;
+            --blue: #0077b6;
+            --blue-dark: #005885;
             --white: #ffffff;
         }
 
@@ -207,6 +209,33 @@
             border-color: #999;
             transform: none;
             box-shadow: 0 6px 20px rgba(153, 153, 153, 0.3);
+        }
+
+        /* Estilos específicos para Certificación AgTech (Azul) */
+        .program-card-certification::before {
+            background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+        }
+
+        .program-card-certification:hover {
+            box-shadow: 0 15px 50px rgba(0, 119, 182, 0.3);
+            border-color: var(--blue);
+        }
+
+        .program-card-certification .program-icon {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            box-shadow: 0 8px 20px rgba(0, 119, 182, 0.3);
+        }
+
+        .program-card-certification .program-btn {
+            background: var(--blue);
+            border-color: var(--blue);
+            box-shadow: 0 6px 20px rgba(0, 119, 182, 0.3);
+        }
+
+        .program-card-certification .program-btn:hover {
+            background: var(--blue-dark);
+            border-color: var(--blue-dark);
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.4);
         }
 
         /* Testimonials Section */
@@ -549,7 +578,7 @@
             </div>
 
             <!-- Programa 2: Certificación AgTech -->
-            <div class="program-card">
+            <div class="program-card program-card-certification">
                 <div class="program-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
