@@ -591,8 +591,39 @@
             text-align: center;
         }
 
+        /* Modalidades Section */
+        .modalidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .modalidad-card {
+            background: white;
+            border: 3px solid #0077B6;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 25px rgba(0, 119, 182, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .modalidad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 119, 182, 0.3);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            /* Modalidades responsive */
+            .modalidades-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .modalidad-card {
+                padding: 30px 20px !important;
+            }
 
             .section-title {
                 font-size: 2.5em;
@@ -642,6 +673,16 @@
 
             .content-section {
                 padding: 60px 20px;
+            }
+
+            /* Modalidades responsive mobile */
+            .modalidades-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            .modalidad-card {
+                padding: 25px 15px !important;
             }
         }
     </style>
@@ -758,25 +799,99 @@
                     </div>
                 </div>
 
-                <!-- Información Importante: Modalidades -->
-                <div style="
-                    background: white;
-                    color: var(--black);
-                    padding: 35px;
-                    border-radius: 15px;
-                    margin: 0 auto 40px auto;
-                    max-width: 850px;
-                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-                    border: 3px solid var(--yellow);
-                ">
-                    <h3 style="color: var(--black); margin-bottom: 20px; font-size: 1.5em; text-align: center;">🚀 ¡Atención participantes del curso AgTech!</h3>
-                    <p style="margin-bottom: 15px; font-size: 1.1em;"><strong>📅 Todas las clases estan en Plataforma Hotmart y tendremos hasta 6 horas de mentoría vía Zoom.</strong></p>
-                    <p style="margin-bottom: 15px; font-size: 1.05em;">Modalidad de participación:</p>
-                    <div style="background: var(--beige-light); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-                        <p style="margin-bottom: 0; font-size: 1.05em;"><strong>💻 Asincrónica:</strong> por Hotmart, mentorías por Zoom lunes de 6:00 p.m. a 8:00 p.m.</p>
+                <!-- Modalidades Disponibles -->
+                <div style="max-width: 1000px; margin: 0 auto 50px auto; padding: 0 20px;">
+                    <h2 style="
+                        font-size: 2.2em;
+                        color: var(--black);
+                        text-align: center;
+                        margin-bottom: 15px;
+                        font-weight: 700;
+                    ">Modalidades Disponibles</h2>
+                    <p style="
+                        font-size: 1.2em;
+                        color: #666;
+                        text-align: center;
+                        margin-bottom: 40px;
+                        line-height: 1.6;
+                    ">Elige la modalidad que mejor se adapte a tu disponibilidad y ritmo de aprendizaje</p>
+
+                    <div class="modalidades-grid">
+                        <!-- Modalidad Online -->
+                        <div class="modalidad-card">
+                            <div style="
+                                font-size: 1.8em;
+                                font-weight: 700;
+                                color: #0077B6;
+                                margin-bottom: 20px;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                            ">Online</div>
+                            
+                            <h3 style="
+                                font-size: 1.5em;
+                                color: var(--black);
+                                margin-bottom: 20px;
+                                font-weight: 700;
+                            ">Modalidad Online</h3>
+                            
+                            <div style="
+                                background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%);
+                                padding: 15px;
+                                border-radius: 10px;
+                                margin-bottom: 25px;
+                                border: 2px solid #0077B6;
+                            ">
+                                <p style="
+                                    margin: 0;
+                                    font-size: 1.1em;
+                                    color: #0077B6;
+                                    font-weight: 700;
+                                ">A tu ritmo</p>
+                            </div>
+                            
+                            <p style="
+                                font-size: 1.05em;
+                                color: #333;
+                                line-height: 1.8;
+                                margin-bottom: 20px;
+                                text-align: left;
+                            ">
+                                Accede a todos los videos del curso en la plataforma Hotmart. Estudia cuando quieras, a tu propio ritmo y desde cualquier lugar. Los videos están disponibles permanentemente. Incluye mentorías los lunes de 6:00 p.m. a 8:00 p.m. hora Colombia vía Zoom. Modalidad ideal para profesionales con horarios flexibles.
+                            </p>
+                            
+                            <div style="
+                                background: #f8f9fa;
+                                padding: 15px;
+                                border-radius: 8px;
+                                margin-top: 20px;
+                                border-left: 4px solid #0077B6;
+                            ">
+                                <p style="
+                                    margin: 0;
+                                    font-size: 0.95em;
+                                    color: #555;
+                                    font-weight: 600;
+                                ">📋 Incluye: 3 cuestionarios de evaluación (sesiones 2, 4 y 6) que certifican tus competencias para la Certificación Internacional CEL–FGU (Florida Global University)</p>
+                            </div>
+                        </div>
                     </div>
-                    <p style="margin-bottom: 20px; font-size: 1.05em;"><strong>🎯 Realizarás 3 cuestionarios de evaluación (sesiones 2, 4 y 6) que certifican tus competencias para la Certificación Internacional CEL–FGU (Florida Global University).</strong></p>
-                    <p style="margin-bottom: 0; font-size: 1.15em; color: var(--black); text-align: center;"><strong>✅ ¡Prepárate para aprender y certificarte en AgTech con GEE + Python + Machine Learning!</strong></p>
+
+                    <div style="
+                        text-align: center;
+                        margin-top: 40px;
+                        padding: 25px;
+                        background: linear-gradient(135deg, #fff9e6 0%, #fffef5 100%);
+                        border-radius: 12px;
+                        border: 2px solid #0077B6;
+                    ">
+                        <p style="
+                            margin: 0;
+                            font-size: 1.15em;
+                            color: var(--black);
+                            font-weight: 600;
+                        ">🎯 Realizarás 3 cuestionarios de evaluación (sesiones 2, 4 y 6) que certifican tus competencias para la Certificación Internacional CEL–FGU (Florida Global University)</p>
+                    </div>
                 </div>
 
                 <!-- Beneficios destacados -->

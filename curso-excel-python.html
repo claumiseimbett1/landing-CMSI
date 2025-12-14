@@ -434,8 +434,40 @@
             display: block;
         }
 
+        /* Modalidades Section */
+        .modalidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .modalidad-card {
+            background: white;
+            border: 3px solid #0077B6;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 25px rgba(0, 119, 182, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .modalidad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 119, 182, 0.3);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            /* Modalidades responsive */
+            .modalidades-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .modalidad-card {
+                padding: 30px 20px !important;
+            }
+
             .section-title {
                 font-size: 2.5em;
             }
@@ -500,6 +532,16 @@
 
             .content-section {
                 padding: 60px 20px;
+            }
+
+            /* Modalidades responsive mobile */
+            .modalidades-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            .modalidad-card {
+                padding: 25px 15px !important;
             }
 
             .main-cta-button {
@@ -569,7 +611,7 @@
                 <h1 class="section-title" style="color: #4e7e32;">De Excel a Python</h1>
                 <h2 class="course-subtitle" style="color: white;">Analisis de datos Inteligente con Machine Learning</h2>
                 <p class="course-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                    Transforma tu forma de analizar datos. Convierte tus hojas de Excel en un laboratorio inteligente, donde Python y el aprendizaje automático te guíen para tomar decisiones visuales. Despliega modelos directamente sin salir de Excel. Descubre cómo el poder del Machine Learning puede simplificar tus decisiones de datos de manera práctica y accesible. Modalidad 100% online - Clases grabadas en Hotmart.
+                    Usa Excel y Python para analizar tus datos más allá de lo descriptivo: aplica técnicas de aprendizaje automático para tomar mejores decisiones en tu campo profesional. Ejercicios prácticos en temática de Energía y Agrotecnología adaptables a cualquier sector. Modalidad 100% online - Clases grabadas en Hotmart.
                 </p>
 
                 <!-- Brochure Download Button -->
@@ -680,6 +722,72 @@
                             </svg>
                             <span style="font-size: 0.95em; color: var(--black); line-height: 1.4;">Aplica machine learning a tus datos</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modalidades Disponibles -->
+        <section style="background-color: white; padding: 80px 20px;">
+            <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+                <h2 style="
+                    font-size: 2.2em;
+                    color: var(--black);
+                    text-align: center;
+                    margin-bottom: 15px;
+                    font-weight: 700;
+                ">Modalidades Disponibles</h2>
+                <p style="
+                    font-size: 1.2em;
+                    color: #666;
+                    text-align: center;
+                    margin-bottom: 40px;
+                    line-height: 1.6;
+                ">Elige la modalidad que mejor se adapte a tu disponibilidad y ritmo de aprendizaje</p>
+
+                <div class="modalidades-grid">
+                    <!-- Modalidad Online -->
+                    <div class="modalidad-card">
+                        <div style="
+                            font-size: 1.8em;
+                            font-weight: 700;
+                            color: #0077B6;
+                            margin-bottom: 20px;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                        ">Online</div>
+                        
+                        <h3 style="
+                            font-size: 1.5em;
+                            color: var(--black);
+                            margin-bottom: 20px;
+                            font-weight: 700;
+                        ">Modalidad Online</h3>
+                        
+                        <div style="
+                            background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%);
+                            padding: 15px;
+                            border-radius: 10px;
+                            margin-bottom: 25px;
+                            border: 2px solid #0077B6;
+                        ">
+                            <p style="
+                                margin: 0;
+                                font-size: 1.1em;
+                                color: #0077B6;
+                                font-weight: 700;
+                            ">A tu ritmo</p>
+                        </div>
+                        
+                        <p style="
+                            font-size: 1.05em;
+                            color: #333;
+                            line-height: 1.8;
+                            margin-bottom: 20px;
+                            text-align: left;
+                        ">
+                            Accede a todos los videos del curso en la plataforma Hotmart. Estudia cuando quieras, a tu propio ritmo y desde cualquier lugar. Los videos están disponibles permanentemente. Incluye mentorías los viernes de 8:00 p.m. a 9:00 p.m. hora Colombia vía Zoom. Modalidad ideal para profesionales con horarios flexibles.
+                        </p>
                     </div>
                 </div>
             </div>
