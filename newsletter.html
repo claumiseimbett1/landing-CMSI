@@ -112,7 +112,64 @@
             box-shadow: 0 6px 20px rgba(255, 252, 0, 0.4) !important;
         }
 
+        /* Newsletter Header */
+        .newsletter-header {
+            background: linear-gradient(135deg, var(--green) 0%, #6fbf4f 100%), url('img/baner-curso-excel.png');
+            background-size: cover, contain;
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
+            background-blend-mode: overlay;
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 60px;
+            border-bottom: 4px solid var(--yellow);
+            position: relative;
+        }
 
+        .newsletter-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('img/baner-curso-excel.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .newsletter-header h1,
+        .newsletter-header h2,
+        .newsletter-header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .newsletter-header h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-date {
+            font-size: 0.9em;
+            font-style: italic;
+            opacity: 0.9;
+        }
 
         /* Main Content */
         .newsletter-content {
@@ -220,6 +277,23 @@
                 height: 18px;
             }
 
+            .newsletter-header {
+                padding: 40px 15px;
+                margin-bottom: 40px;
+            }
+
+            .newsletter-header h1 {
+                font-size: 2em;
+            }
+
+            .newsletter-header h2 {
+                font-size: 1.2em;
+            }
+
+            .newsletter-date {
+                font-size: 0.85em;
+            }
+
             .newsletter-content {
                 padding: 40px 15px;
             }
@@ -236,6 +310,13 @@
             <span>Volver al Inicio</span>
         </a>
     </div>
+
+    <!-- Newsletter Header -->
+    <section class="newsletter-header">
+        <h1>IA y Datos en AgroTech</h1>
+        <h2>IA y Agricultura: por qué el machine learning, la tokenización y la seguridad digital deben enseñarse hoy a agrónomos y productores</h2>
+        <p class="newsletter-date">Última Edición • Diciembre 2025</p>
+    </section>
 
     <!-- Main Content -->
     <main class="newsletter-content">
