@@ -633,6 +633,12 @@
             .modalidad-card {
                 padding: 30px 20px !important;
             }
+
+            /* Recursos grid responsive */
+            div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -846,6 +852,24 @@
             .modalidad-card {
                 padding: 25px 15px !important;
             }
+
+            /* Recursos grid mobile */
+            div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+
+            div[style*="font-size: 2.5em"] {
+                font-size: 2em !important;
+            }
+
+            div[style*="padding: 35px 30px"] {
+                padding: 25px 20px !important;
+            }
+
+            div[style*="font-size: 1.8em"] {
+                font-size: 1.4em !important;
+            }
         }
     </style>
 </head>
@@ -895,7 +919,7 @@
                 <h1 class="section-title" style="color: #4e7e32;">Curso Agricultura 4.0</h1>
                 <h2 class="course-subtitle" style="color: white;">Google Earth Engine, Machine Learning y Python</h2>
                 <p class="course-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                    Aprende a procesar imágenes satelitales, comprende la óptica de los dispositivos y la vegetación, implementa algoritmos de machine learning que impulsen soluciones para la Agricultura 4.0 con Python y Google Earth Engine. Modalidad 100% online vía plataforma Zoom - Clases quedaran grabadas en Hotmart. Horarios adaptados a Costa Rica, Centroamérica y Colombia.
+                    Aprende a procesar imágenes satelitales, comprende la óptica de los dispositivos y la vegetación, e implementa algoritmos de machine learning que impulsen soluciones para la Agricultura 4.0 con Python y Google Earth Engine. Modalidad 100% online vía plataforma Hotmart, con recursos completos que incluyen clases grabadas, PDF, repositorios y guías prácticas. Horarios de mentoría adaptados a Costa Rica, Centroamérica y Colombia.
                 </p>
 
                 <!-- Brochure Download Button -->
@@ -937,22 +961,129 @@
 
                 <!-- Alerta Hotmart: Disponibilidad Online -->
                 <div style="
-                    background: linear-gradient(135deg, #fff9e6 0%, #fffef5 100%);
+                    background: linear-gradient(135deg, #e6f4ff 0%, #f0f8ff 100%);
                     color: var(--black);
-                    padding: 25px 30px;
-                    border-radius: 12px;
+                    padding: 35px 30px;
+                    border-radius: 20px;
                     margin: 0 auto 30px auto;
-                    max-width: 850px;
-                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-                    border: 2px solid #0077B6;
+                    max-width: 900px;
+                    box-shadow: 0 8px 30px rgba(0, 119, 182, 0.15);
+                    border: 3px solid #0077B6;
                 ">
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 35px; height: 35px; fill: var(--black); flex-shrink: 0;">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm-1-11h2v6h-2zm0 8h2v2h-2z"/>
-                        </svg>
-                        <p style="margin: 0; font-size: 1.3em; font-weight: 700; text-align: center; line-height: 1.4;">
-                            ¡DISPONIBLE 100% ONLINE DESDE EL 17 DE NOVIEMBRE: VIDEOS TUTORIALES, APPLETS, REPOSITORIOS Y MAS!
-                        </p>
+                    <div style="text-align: center;">
+                        <div style="
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 12px;
+                            background: #0077B6;
+                            color: white;
+                            padding: 12px 25px;
+                            border-radius: 50px;
+                            margin-bottom: 25px;
+                            font-weight: 700;
+                            font-size: 1.1em;
+                            letter-spacing: 0.5px;
+                        ">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; fill: white; flex-shrink: 0;">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>100% ONLINE</span>
+                        </div>
+                        <h3 style="
+                            margin: 0 0 25px 0;
+                            font-size: 1.8em;
+                            font-weight: 700;
+                            color: var(--black);
+                            line-height: 1.3;
+                        ">Recursos completos disponibles</h3>
+                        <div style="
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                            gap: 20px;
+                            margin-top: 20px;
+                        ">
+                            <div style="
+                                background: white;
+                                padding: 20px;
+                                border-radius: 12px;
+                                border: 2px solid #0077B6;
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                            ">
+                                <div style="
+                                    font-size: 2.5em;
+                                    font-weight: 900;
+                                    color: #0077B6;
+                                    line-height: 1;
+                                    margin-bottom: 8px;
+                                ">41</div>
+                                <div style="
+                                    font-size: 1em;
+                                    color: #333;
+                                    font-weight: 600;
+                                ">Videos Tutoriales</div>
+                            </div>
+                            <div style="
+                                background: white;
+                                padding: 20px;
+                                border-radius: 12px;
+                                border: 2px solid #0077B6;
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                            ">
+                                <div style="
+                                    font-size: 2.5em;
+                                    font-weight: 900;
+                                    color: #0077B6;
+                                    line-height: 1;
+                                    margin-bottom: 8px;
+                                ">5</div>
+                                <div style="
+                                    font-size: 1em;
+                                    color: #333;
+                                    font-weight: 600;
+                                ">Applets Interactivos</div>
+                            </div>
+                            <div style="
+                                background: white;
+                                padding: 20px;
+                                border-radius: 12px;
+                                border: 2px solid #0077B6;
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                            ">
+                                <div style="
+                                    font-size: 2.5em;
+                                    font-weight: 900;
+                                    color: #0077B6;
+                                    line-height: 1;
+                                    margin-bottom: 8px;
+                                ">1</div>
+                                <div style="
+                                    font-size: 1em;
+                                    color: #333;
+                                    font-weight: 600;
+                                ">Repositorio Completo</div>
+                            </div>
+                            <div style="
+                                background: white;
+                                padding: 20px;
+                                border-radius: 12px;
+                                border: 2px solid #0077B6;
+                                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+                            ">
+                                <div style="
+                                    font-size: 2.5em;
+                                    font-weight: 900;
+                                    color: #0077B6;
+                                    line-height: 1;
+                                    margin-bottom: 8px;
+                                ">4</div>
+                                <div style="
+                                    font-size: 1em;
+                                    color: #333;
+                                    font-weight: 600;
+                                ">Cuestionarios de Aprendizaje</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1088,7 +1219,7 @@
                                     font-size: 0.95em;
                                     color: #555;
                                     font-weight: 600;
-                                ">✅ Disponible desde el 17 de noviembre: videos tutoriales, applets, repositorios y más recursos exclusivos</p>
+                                ">✅ Incluye: 41 videos tutoriales, 5 applets interactivos, 1 repositorio completo y 4 cuestionarios de aprendizaje</p>
                             </div>
                         </div>
                     </div>
