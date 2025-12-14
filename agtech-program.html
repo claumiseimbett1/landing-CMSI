@@ -318,41 +318,113 @@
             top: 48px;
         }
 
-        /* Aviso Legal */
+        /* Aviso Legal - Estilo Moderno */
         .legal-notice {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 60px auto;
-            padding: 30px 40px;
-            background: #f8f9fa;
-            border-left: 4px solid var(--green);
-            border-radius: 8px;
+            padding: 0;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(93, 181, 58, 0.1);
+            overflow: hidden;
             text-align: left;
+            position: relative;
+        }
+
+        .legal-notice::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--green), var(--green-dark));
+        }
+
+        .legal-notice-header {
+            background: linear-gradient(135deg, rgba(93, 181, 58, 0.1) 0%, rgba(93, 181, 58, 0.05) 100%);
+            padding: 30px 40px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .legal-notice-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(93, 181, 58, 0.3);
+        }
+
+        .legal-notice-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .legal-notice h3 {
-            font-size: 1.3em;
+            font-size: 1.5em;
             color: var(--black);
-            margin-bottom: 20px;
+            margin: 0;
             font-weight: 700;
         }
 
+        .legal-notice-content {
+            padding: 30px 40px 40px;
+        }
+
         .legal-notice p {
-            font-size: 0.95em;
-            color: #555;
+            font-size: 1em;
+            color: #444;
             line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .legal-notice ul {
-            font-size: 0.95em;
-            color: #555;
+            font-size: 1em;
+            color: #444;
             line-height: 1.8;
-            margin-left: 20px;
-            margin-bottom: 15px;
+            margin: 0 0 20px 0;
+            padding-left: 0;
+            list-style: none;
         }
 
         .legal-notice li {
-            margin-bottom: 8px;
+            margin-bottom: 18px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .legal-notice li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(93, 181, 58, 0.3);
+        }
+
+        .legal-notice li strong {
+            color: var(--green-dark);
+            font-weight: 700;
         }
 
         /* Testimonials Section */
@@ -589,17 +661,48 @@
 
             .legal-notice {
                 margin: 40px 20px;
-                padding: 20px 25px;
+                border-radius: 15px;
+            }
+
+            .legal-notice-header {
+                padding: 25px 25px 15px;
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .legal-notice-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .legal-notice-icon svg {
+                width: 24px;
+                height: 24px;
             }
 
             .legal-notice h3 {
-                font-size: 1.1em;
-                margin-bottom: 15px;
+                font-size: 1.2em;
+            }
+
+            .legal-notice-content {
+                padding: 20px 25px 30px;
             }
 
             .legal-notice p,
             .legal-notice ul {
                 font-size: 0.9em;
+            }
+
+            .legal-notice li {
+                padding-left: 30px;
+                margin-bottom: 15px;
+            }
+
+            .legal-notice li::before {
+                width: 20px;
+                height: 20px;
+                font-size: 0.7em;
             }
 
             .testimonials {
@@ -827,25 +930,36 @@
 
         <!-- Aviso Legal sobre Horas Académicas -->
         <div class="legal-notice">
-            <h3>Información sobre Horas Académicas</h3>
-            <p>
-                Las horas académicas indicadas en nuestros programas se calculan conforme a estándares educativos internacionales. 
-                Es importante aclarar que:
-            </p>
-            <ul>
-                <li>
-                    <strong>Conversión de horas:</strong> 12 horas académicas equivalen a 8 horas de sesiones presenciales u online en tiempo real.
-                </li>
-                <li>
-                    <strong>Videos editados:</strong> Todas las horas de video de nuestros cursos están editadas, optimizadas y estructuradas pedagógicamente, sin intervenciones o pausas innecesarias, lo que permite un aprendizaje más eficiente y concentrado.
-                </li>
-                <li>
-                    <strong>Cálculo total:</strong> El número total de horas académicas de cada programa se obtiene de la suma de las horas de video editadas más las horas de mentoría síncrona (cuando aplique), garantizando una experiencia formativa completa y estructurada.
-                </li>
-            </ul>
-            <p>
-                Esta metodología permite optimizar el tiempo de aprendizaje y asegurar que cada hora académica represente contenido de alto valor educativo.
-            </p>
+            <div class="legal-notice-header">
+                <div class="legal-notice-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                </div>
+                <h3>Información sobre Horas Académicas</h3>
+            </div>
+            <div class="legal-notice-content">
+                <p>
+                    Las horas académicas indicadas en nuestros programas se calculan conforme a estándares educativos internacionales. 
+                    Es importante aclarar que:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Conversión de horas:</strong> 12 horas académicas equivalen a 8 horas de sesiones presenciales u online en tiempo real.
+                    </li>
+                    <li>
+                        <strong>Videos editados:</strong> Todas las horas de video de nuestros cursos están editadas, optimizadas y estructuradas pedagógicamente, sin intervenciones o pausas innecesarias, lo que permite un aprendizaje más eficiente y concentrado.
+                    </li>
+                    <li>
+                        <strong>Cálculo total:</strong> El número total de horas académicas de cada programa se obtiene de la suma de las horas de video editadas más las horas de mentoría síncrona (cuando aplique), garantizando una experiencia formativa completa y estructurada.
+                    </li>
+                </ul>
+                <p>
+                    Esta metodología permite optimizar el tiempo de aprendizaje y asegurar que cada hora académica represente contenido de alto valor educativo.
+                </p>
+            </div>
         </div>
     </section>
 
