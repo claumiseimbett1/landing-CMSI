@@ -764,6 +764,68 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             position: relative;
         }
 
+        /* Newsletter Header - Estilo similar al blog */
+        .newsletter-header {
+            background: linear-gradient(135deg, var(--green) 0%, #6fbf4f 100%), url('img/baner-curso-excel.png');
+            background-size: cover, contain;
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
+            background-blend-mode: overlay;
+            padding: 50px 20px;
+            text-align: center;
+            color: var(--white);
+            margin: 0 auto 40px;
+            border-radius: 15px;
+            border-bottom: 4px solid var(--yellow);
+            position: relative;
+            max-width: 900px;
+        }
+
+        .newsletter-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('img/baner-curso-excel.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: 0;
+            border-radius: 15px;
+        }
+
+        .newsletter-header h1,
+        .newsletter-header h2,
+        .newsletter-header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .newsletter-header h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-date {
+            font-size: 0.95em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
         .subscription-text h3 {
             font-size: 2em;
             margin-bottom: 20px;
@@ -1896,6 +1958,24 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                 font-size: 0.95em;
             }
 
+            /* Newsletter Header - Mobile */
+            .newsletter-header {
+                padding: 40px 15px !important;
+                margin-bottom: 30px !important;
+            }
+
+            .newsletter-header h1 {
+                font-size: 1.8em !important;
+            }
+
+            .newsletter-header h2 {
+                font-size: 1.1em !important;
+            }
+
+            .newsletter-date {
+                font-size: 0.85em !important;
+            }
+
             /* Newsletter Article Card - Mobile */
             div[style*="Último Artículo"] {
                 padding: 20px !important;
@@ -2395,7 +2475,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
             <!-- Título y Descripción del Ecosistema -->
             <h2 style="font-size: 2.5em; font-weight: 800; color: var(--black); margin-bottom: 20px;">
-                DR-Innova: Ecosistema Integral AgTech
+                DR-Innova es Tecnología e Innovación
             </h2>
             <p style="font-size: 1.2em; color: #555; max-width: 900px; margin: 0 auto 50px; line-height: 1.7;">
                 Un flujo integral desde formación hasta aplicación práctica.
@@ -2687,15 +2767,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         <div class="subscription-content">
             <div class="subscription-text">
                 <h3>Suscríbete a nuestro Contenido</h3>
-                <p><strong>IA y Datos en AgroTech</strong> - Suscríbete a nuestro newsletter en LinkedIn y recibe las últimas tendencias en agricultura digital, sensores remotos, machine learning y tecnologías emergentes directamente en tu bandeja de entrada.</p>
-                <p style="margin-top: 15px; font-size: 1em; color: #333; line-height: 1.6;">
-                    Al suscribirte recibirás notificaciones sobre:
-                </p>
-                <ul style="text-align: left; max-width: 600px; margin: 15px auto; font-size: 1em; color: #333; line-height: 1.8;">
-                    <li>📧 <strong>Newsletters:</strong> Los últimos artículos de "IA y Datos en AgroTech" cuando se publiquen</li>
-                    <li>🎥 <strong>Videos:</strong> Nuevos contenidos en video sobre agricultura digital y tecnologías emergentes</li>
-                    <li>🎙️ <strong>Podcast "Sapiencia":</strong> Episodios sobre ciencia, tecnología e innovación en el sector agro</li>
-                </ul>
+                <p style="margin-bottom: 25px;">Recibe notificaciones sobre newsletters, videos y episodios del podcast "Sapiencia" cuando publiquemos nuevo contenido.</p>
                 <p style="margin-top: 20px; font-size: 0.9em; color: #666; font-style: italic;">
                     ⚠️ <strong>Importante:</strong> Después de suscribirte, revisa tu correo (incluyendo spam) para confirmar tu suscripción.
                 </p>
@@ -2718,6 +2790,13 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
                         </svg>
                         <span>Seguir en LinkedIn</span>
                     </a>
+                </div>
+
+                <!-- Encabezado del Último Newsletter -->
+                <div class="newsletter-header">
+                    <h1>IA y Datos en AgroTech</h1>
+                    <h2>IA y Agricultura: por qué el machine learning, la tokenización y la seguridad digital deben enseñarse hoy a agrónomos y productores</h2>
+                    <p class="newsletter-date">Última Edición • Diciembre 2025</p>
                 </div>
 
                 <!-- Botones de Acceso -->
