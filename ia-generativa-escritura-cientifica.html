@@ -886,7 +886,7 @@
                 <!-- Pricing Section -->
                 <div style="
                     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-                    border: 3px solid #0077B6;
+                    border: 3px solid var(--yellow);
                     border-radius: 15px;
                     padding: 30px;
                     margin: 35px auto;
@@ -894,8 +894,42 @@
                     box-shadow: 0 8px 25px rgba(255, 252, 0, 0.3);
                     position: relative;
                 ">
+                    <!-- 50% OFF Badge -->
+                    <div style="
+                        position: absolute;
+                        top: -15px;
+                        right: 30px;
+                        background: var(--yellow);
+                        color: var(--black);
+                        padding: 10px 25px;
+                        border-radius: 50px;
+                        font-weight: 900;
+                        font-size: 1.3em;
+                        box-shadow: 0 4px 15px rgba(255, 252, 0, 0.6);
+                        border: 2px solid var(--black);
+                        transform: rotate(-5deg);
+                    ">
+                        🔥 50% OFF
+                    </div>
+
                     <div style="text-align: center; margin-top: 15px;">
-                        <!-- Precio -->
+                        <!-- Precio Regular Tachado -->
+                        <div style="margin-bottom: 10px;">
+                            <span style="
+                                font-size: 1.4em;
+                                color: #999;
+                                text-decoration: line-through;
+                                font-weight: 500;
+                            ">USD $100</span>
+                            <span style="
+                                font-size: 0.9em;
+                                color: #666;
+                                margin-left: 8px;
+                                font-style: italic;
+                            ">(Precio Regular)</span>
+                        </div>
+
+                        <!-- Precio Actual -->
                         <div style="margin: 15px 0;">
                             <div style="
                                 font-size: 1.1em;
@@ -905,7 +939,7 @@
                                 letter-spacing: 1px;
                                 margin-bottom: 8px;
                             ">
-                                💰 PRECIO
+                                💰 PRECIO HOY
                             </div>
                             <div style="
                                 font-size: 3.5em;
@@ -924,6 +958,20 @@
                             ">
                                 por persona
                             </div>
+                        </div>
+
+                        <!-- Texto de Ahorro -->
+                        <div style="
+                            background: #4e7e32;
+                            color: white;
+                            padding: 12px 20px;
+                            border-radius: 8px;
+                            font-size: 1.1em;
+                            font-weight: 600;
+                            margin-top: 15px;
+                            display: inline-block;
+                        ">
+                            ¡Ahorra $50 USD hoy!
                         </div>
                     </div>
                 </div>
