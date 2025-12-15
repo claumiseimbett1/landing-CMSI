@@ -348,11 +348,19 @@
             background: rgba(78, 126, 50, 0.95);
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            z-index: 6;
         }
 
         .program-card-certification .price-badge {
             background: var(--blue);
             box-shadow: 0 4px 12px rgba(0, 119, 182, 0.4);
+        }
+
+        .program-card-certification:hover .price-badge {
+            background: rgba(0, 119, 182, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            z-index: 6;
         }
 
         /* Etiqueta informativa (sin precio) */
@@ -366,10 +374,18 @@
             font-size: 0.7em;
             font-weight: 700;
             box-shadow: 0 4px 12px rgba(0, 119, 182, 0.4);
-            z-index: 10;
+            z-index: 5;
             white-space: nowrap;
             text-align: center;
             display: block;
+            transition: all 0.4s ease;
+        }
+
+        .program-card:hover .info-badge {
+            background: rgba(0, 119, 182, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            z-index: 6;
         }
 
         .info-badge:nth-child(1) {
@@ -875,7 +891,7 @@
         <!-- Programs Grid -->
         <div class="programs-grid">
             <!-- Programa 1: Curso GEE+ML+Python -->
-            <div class="program-card">
+            <div class="program-card" style="--hover-image: url('img/banner-curso-agtech.png');">
                 <span class="price-badge">200 USD/persona</span>
                 <div class="program-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -897,7 +913,7 @@
             </div>
 
             <!-- Programa 2: Certificación AgTech -->
-            <div class="program-card program-card-certification">
+            <div class="program-card program-card-certification" style="--hover-image: url('img/agtech-program.jpeg');">
                 <span class="price-badge">100 USD/persona</span>
                 <div class="program-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -918,7 +934,7 @@
             </div>
 
             <!-- Programa 3: De Excel a Python -->
-            <div class="program-card">
+            <div class="program-card" style="--hover-image: url('img/baner-curso-excel.png');">
                 <span class="price-badge">100 USD/persona</span>
                 <div class="program-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -939,7 +955,7 @@
             </div>
 
             <!-- Programa 4: Excel para Entrenadores -->
-            <div class="program-card program-card-certification">
+            <div class="program-card program-card-certification" style="--hover-image: url('img/baner-curso-excel.png');">
                 <span class="info-badge">55 USD/persona</span>
                 <span class="info-badge">500 USD /10 personas</span>
                 <div class="program-icon">
