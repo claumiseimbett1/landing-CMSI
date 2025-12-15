@@ -675,6 +675,13 @@
                 padding: 60px 20px;
             }
 
+            .price-badge {
+                top: 10px !important;
+                right: 10px !important;
+                font-size: 0.75em !important;
+                padding: 6px 12px !important;
+            }
+
             /* Modalidades responsive mobile */
             .modalidades-grid {
                 grid-template-columns: 1fr !important;
@@ -730,6 +737,20 @@
 
             <!-- Contenido encima del video -->
             <div class="hero-content" style="position: relative; z-index: 2; padding: 100px 20px;">
+                <span class="price-badge" style="
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--blue);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: 0.85em;
+                    font-weight: 700;
+                    box-shadow: 0 4px 12px rgba(0, 119, 182, 0.4);
+                    z-index: 10;
+                    white-space: nowrap;
+                ">100 USD/persona</span>
                 <h1 class="section-title" style="color: #5db53a;">Curso AgTech</h1>
                 <h2 class="course-subtitle" style="color: white;">AgTech con Google Earth Engine, Machine Learning y Python</h2>
                 <p class="course-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
