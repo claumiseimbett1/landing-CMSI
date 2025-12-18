@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - IA y Datos en AgroTech | AgTech, Sensores Remotos y Machine Learning</title>
+    <title>Blog - IA y datos | AgTech, Sensores Remotos y Machine Learning</title>
     <meta name="description" content="Artículos completos sobre agricultura digital, sensores remotos, Google Earth Engine, Machine Learning, Python, tokenización y seguridad digital en AgTech. Por Claudia Milena Serpa Imbett, PhD.">
     <meta name="keywords" content="blog agtech, sensores remotos, google earth engine, machine learning agricultura, python agtech, agricultura digital, tokenización agricultura, seguridad digital agro">
     <meta name="author" content="Claudia Milena Serpa Imbett, PhD">
@@ -23,7 +23,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.claumiseimbett.com/blog.html">
-    <meta property="og:title" content="Blog - IA y Datos en AgroTech | Claudia Milena Serpa Imbett, PhD">
+    <meta property="og:title" content="Blog - IA y datos | Claudia Milena Serpa Imbett, PhD">
     <meta property="og:description" content="Artículos completos sobre AgTech, sensores remotos, Google Earth Engine, Machine Learning y tecnologías emergentes en agricultura digital.">
     <meta property="og:image" content="https://www.claumiseimbett.com/img/baner-curso-excel.png">
     <meta property="og:site_name" content="DR-Innova - AgTech Program">
@@ -31,7 +31,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.claumiseimbett.com/blog.html">
-    <meta name="twitter:title" content="Blog - IA y Datos en AgroTech">
+    <meta name="twitter:title" content="Blog - IA y datos">
     <meta name="twitter:description" content="Artículos completos sobre AgTech, sensores remotos, Machine Learning y tecnologías emergentes.">
     <meta name="twitter:image" content="https://www.claumiseimbett.com/img/baner-curso-excel.png">
     
@@ -40,7 +40,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Blog",
-      "name": "IA y Datos en AgroTech",
+      "name": "IA y datos",
       "description": "Blog sobre agricultura digital, sensores remotos, Google Earth Engine, Machine Learning y tecnologías emergentes en AgTech",
       "url": "https://www.claumiseimbett.com/blog.html",
       "author": {
@@ -143,6 +143,27 @@
             background-repeat: no-repeat;
             opacity: 0.3;
             z-index: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .blog-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('img/BannerBlogHover.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .blog-header:hover::after {
+            opacity: 0.3;
         }
 
         .blog-header h1,
@@ -371,7 +392,7 @@
 
     <!-- Blog Header -->
     <section class="blog-header">
-        <h1>IA y Datos en AgroTech</h1>
+        <h1>IA y datos</h1>
         <h2>Escudriñando más allá de los datos: ¿por qué la física óptica es indispensable en la investigación de biomasa y captura de carbono? – Caso Caribe Colombiano</h2>
         <p class="blog-date">Última Edición • Enero 2026</p>
     </section>
