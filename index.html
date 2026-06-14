@@ -29,108 +29,116 @@
     <meta http-equiv="content-language" content="es-CO">
     <meta name="facebook-domain-verification" content="65z3g2iog97nw4ppc4iclwvtf73v83" />
     <meta name="google-site-verification" content="b8V0ptu-FYRjLjTkmc9RApkdDUJgqfOUzxp6lc2NC50" />
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-417231404"></script>
+
+    <!-- LCP: imagen hero -->
+    <link rel="preload" as="image" href="img/banner-landing.png" fetchpriority="high">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://snap.licdn.com">
+    <link rel="dns-prefetch" href="https://cdn.brevo.com">
+
+    <!-- Analytics y marketing: diferidos tras la carga para mejorar LCP/INP en móvil -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-417231404');
-    </script>
-    <!-- End Google Ads -->
-    
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/ecf1677014cf3d8b59783e7b7/6536563fa8592948744d549c1.js");</script>
-    <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
-    <script>
-        // Version: 2.0
-        window.Brevo = window.Brevo || [];
-        Brevo.push([
-            "init",
-            {
+
+        function loadGoogleAds() {
+            if (window.__googleAdsLoaded) return;
+            window.__googleAdsLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-417231404';
+            s.onload = function() {
+                gtag('js', new Date());
+                gtag('config', 'AW-417231404');
+            };
+            document.head.appendChild(s);
+        }
+
+        function loadMarketingScripts() {
+            if (window.__marketingLoaded) return;
+            window.__marketingLoaded = true;
+
+            loadGoogleAds();
+
+            !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/ecf1677014cf3d8b59783e7b7/6536563fa8592948744d549c1.js");
+
+            window.Brevo = window.Brevo || [];
+            Brevo.push(["init", {
                 client_key: "kqq726uscep89abxw9oaqp0n",
-                automation: {
-                    popup: true
-                },
+                automation: { popup: true },
                 push_notification: {
                     enabled: true,
                     auto_subscribe: false,
                     show_optin: true,
                     show_manage_link: true
                 }
-            }
-        ]);
-    </script>
-<!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1746350276009338');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1746350276009338&ev=PageView&noscript=1"
-    /></noscript>
-<!-- End Meta Pixel Code -->
- <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1688391071856563');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+            }]);
+            var brevo = document.createElement('script');
+            brevo.async = true;
+            brevo.src = 'https://cdn.brevo.com/js/sdk-loader.js';
+            document.head.appendChild(brevo);
 
-    <!-- LinkedIn Insight Tag -->
-    <script type="text/javascript">
-    _linkedin_partner_id = "8119242";
-    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script type="text/javascript">
-    (function(l) {
-    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-    window.lintrk.q=[]}
-    var s = document.getElementsByTagName("script")[0];
-    var b = document.createElement("script");
-    b.type = "text/javascript";b.async = true;
-    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-    s.parentNode.insertBefore(b, s);})(window.lintrk);
+            !function(f,b,e,v,n,t,s){
+                if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+                t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+            }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1746350276009338');
+            fbq('init', '1688391071856563');
+            fbq('track', 'PageView');
+
+            window._linkedin_partner_id = "8119242";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+            (function(l) {
+                if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
+                var s = document.getElementsByTagName("script")[0];
+                var b = document.createElement("script");
+                b.type = "text/javascript";b.async = true;
+                b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+                s.parentNode.insertBefore(b, s);
+            })(window.lintrk);
+        }
+
+        function scheduleMarketingScripts() {
+            var run = function() { loadMarketingScripts(); };
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(run, { timeout: 3500 });
+            } else {
+                setTimeout(run, 2500);
+            }
+        }
+
+        function loadHeroVideo() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var video = document.querySelector('.hero-background');
+            if (!video || video.dataset.loaded) return;
+            var source = video.querySelector('source[data-src]');
+            if (!source) return;
+            video.dataset.loaded = '1';
+            source.src = source.getAttribute('data-src');
+            video.load();
+            video.play().catch(function() {});
+        }
+
+        window.addEventListener('load', function() {
+            scheduleMarketingScripts();
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadHeroVideo, { timeout: 4000 });
+            } else {
+                setTimeout(loadHeroVideo, 3000);
+            }
+        });
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(function(evt) {
+            window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
+        });
     </script>
     <noscript>
-    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8119242&fmt=gif" />
+        <img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1746350276009338&ev=PageView&noscript=1">
+        <img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1">
+        <img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=8119242&fmt=gif">
     </noscript>
-    <!-- End LinkedIn Insight Tag -->
-
-    <!-- Hotmart Widget Integration -->
-    <script type="text/javascript">
-        function importHotmart(){
-             var imported = document.createElement('script');
-             imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
-             document.head.appendChild(imported);
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
-            document.head.appendChild(link);
-        }
-        importHotmart();
-    </script>
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -345,13 +353,35 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             left: 0;
             width: 100%;
             height: 100%;
-            /* INDICACIÓN: Coloca la ruta de tu imagen de fondo aquí */
+            z-index: 0;
+        }
+
+        video.hero-background {
+            object-fit: cover;
+        }
+
+        .hero--poster-fallback {
             background-image: url('img/banner-landing.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 1;
-            z-index: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before {
+                animation: none;
+            }
+            video.hero-background {
+                display: none;
+            }
+            .hero.hero--poster-fallback {
+                background-image: url('img/banner-landing.png');
+            }
+        }
+
+        .below-fold-section {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 500px;
         }
 
         .hero::before {
@@ -2416,7 +2446,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
         <nav>
             <div class="logo-container">
                 <!-- INDICACIÓN: Coloca la ruta de tu logo aquí -->
-                <img src="logos/logo-CLAU.svg" alt="Logo DR-Innova - AgTech Program" loading="lazy">
+                <img src="logos/logo-CLAU.svg" alt="Logo DR-Innova - AgTech Program" width="180" height="60" fetchpriority="high">
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
@@ -2437,18 +2467,16 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <!-- Video de fondo del hero -->
-        <video autoplay muted loop playsinline class="hero-background" style="
+    <section class="hero hero--poster-fallback" id="inicio">
+        <video muted loop playsinline preload="none" poster="img/banner-landing.png" class="hero-background" aria-hidden="true" style="
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             z-index: 0;
         ">
-            <source src="videos/Video Hover -Pagina.mp4" type="video/mp4">
+            <source data-src="videos/Video Hover -Pagina.mp4" type="video/mp4">
         </video>
         <!-- Overlay de transparencia oscura -->
         <div style="
@@ -2475,7 +2503,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
     </section>
 
     <!-- DR-Innova Ecosistema AgTech Section -->
-    <section style="background-color: #f8f9fa; padding: 80px 20px;">
+    <section class="below-fold-section" style="background-color: #f8f9fa; padding: 80px 20px;">
         <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
             <!-- Título y Descripción del Ecosistema -->
             <h2 style="font-size: 2.5em; font-weight: 800; color: var(--black); margin-bottom: 20px;">
@@ -2539,7 +2567,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
     </section>
 
     <!-- Biography Section -->
-    <section class="biography" id="biografia">
+    <section class="biography below-fold-section" id="biografia">
         <h2 class="section-title">Acerca de Mí</h2>
         <div class="biography-content">
             <div class="bio-image-container">
@@ -2763,7 +2791,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
     </section>
 
     <!-- Newsletter Subscription Section -->
-    <section class="newsletter-subscription" id="suscripcion">
+    <section class="newsletter-subscription below-fold-section" id="suscripcion">
         <h2 class="section-title">Mantente Actualizado</h2>
         <div class="subscription-content">
             <div class="subscription-text">
@@ -2775,7 +2803,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
             </div>
             <div class="subscription-form" style="max-width: 600px; margin: 30px auto; position: relative; overflow: visible;">
                 <!-- Brevo Newsletter Form with reCAPTCHA -->
-                <iframe width="540" height="305" src="https://d22ced48.sibforms.com/serve/MUIFAIUJQfZcYtDwg5OVdbH0WnY8PEJwkIvBED_lRa2IFNmC4xEFCgQUpBLYOW9FwX1dtiehvRZyPMKS7xfUMMClBfR_4IurCP73DndNWls-MMzSYdzg8BHea78jRnuJNL78Irq5pUzerJEZYjGp6S6YwzAVR4U8jRrgCjHZgb_9WJxgV4-PZsN2wo_FRj2ryaefCuerECyC1S1u" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+                <iframe width="540" height="305" src="https://d22ced48.sibforms.com/serve/MUIFAIUJQfZcYtDwg5OVdbH0WnY8PEJwkIvBED_lRa2IFNmC4xEFCgQUpBLYOW9FwX1dtiehvRZyPMKS7xfUMMClBfR_4IurCP73DndNWls-MMzSYdzg8BHea78jRnuJNL78Irq5pUzerJEZYjGp6S6YwzAVR4U8jRrgCjHZgb_9WJxgV4-PZsN2wo_FRj2ryaefCuerECyC1S1u" frameborder="0" scrolling="auto" allowfullscreen loading="lazy" title="Formulario de suscripción al newsletter" style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
                 <p style="margin-top: 15px; font-size: 0.85em; text-align: center; color: #666;">
                     Al suscribirte, aceptas nuestra <a href="politica-privacidad.html" style="color: var(--green); text-decoration: underline;">Política de Privacidad</a>
                 </p>
@@ -2813,7 +2841,7 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contacto">
+    <section class="contact below-fold-section" id="contacto">
         <div class="contact-content">
             <h2 class="section-title">¿Listo para transformar tu proyecto?</h2>
             <p style="font-size: 1.2em; margin-bottom: 30px;">
@@ -4113,8 +4141,8 @@ src="https://www.facebook.com/tr?id=1688391071856563&ev=PageView&noscript=1"
 
         // Show modal after 3 seconds or on scroll (50% of page)
         document.addEventListener('DOMContentLoaded', function() {
-            // Show after 3 seconds
-            setTimeout(showNewsletterModal, 3000);
+            // Show after 5 seconds (mejor INP en móvil)
+            setTimeout(showNewsletterModal, 5000);
 
             // Also show on scroll (50% of page)
             let scrollTriggered = false;
