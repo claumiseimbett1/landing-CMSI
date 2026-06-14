@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applets para Aprendizaje - Claudia Milena Serpa Imbett, PhD</title>
+    <link rel="stylesheet" href="css/perf-global.css">
+    <script>
+        window.SitePerf = { heroVideo: true };
+    </script>
+    <script defer src="js/site-perf.js"></script>
     <style>
         * {
             margin: 0;
@@ -550,12 +555,14 @@
                     padding: 10px;
                 ">
                     <video
-                        autoplay
                         muted
                         loop
                         playsinline
                         controls
-                        preload="auto"
+                        preload="none"
+                        poster="img/banner-landing.png"
+                        class="hero-background"
+                        data-deferred-video
                         style="
                             width: 100%;
                             height: auto;
@@ -563,7 +570,7 @@
                             border-radius: 8px;
                         "
                     >
-                        <source src="videos/APPLET.mp4" type="video/mp4">
+                        <source data-src="videos/APPLET.mp4" type="video/mp4">
                         Tu navegador no soporta el elemento de video.
                     </video>
                 </div>

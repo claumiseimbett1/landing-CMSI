@@ -1,0 +1,35 @@
+/* Rendimiento global: visibilidad, movimiento y embeds */
+.below-fold-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 480px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (hover: none) {
+    .blog-header::before,
+    .blog-header::after,
+    .newsletter-header::before,
+    .newsletter-header::after {
+        display: none !important;
+    }
+}
+
+iframe[loading="lazy"],
+img[loading="lazy"] {
+    content-visibility: auto;
+}
+
+.youtube-lazy-placeholder {
+    background: #1a1a1a;
+    min-height: 200px;
+}
