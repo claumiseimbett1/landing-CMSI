@@ -14,12 +14,15 @@
         brevoKey: 'kqq726uscep89abxw9oaqp0n',
         hotmart: false,
         heroVideo: false,
-        heroVideoSelector: 'video.hero-background, video[data-deferred-video]',
+        heroVideoSelector: 'video.hero-background, video.hero-video-desktop, video[data-deferred-video]',
         serviceWorker: false,
         serviceWorkerKey: 'kqq726uscep89abxw9oaqp0n',
         youtubeLazy: true,
+        mobileLite: true,
         deferMs: 2500,
-        idleTimeout: 3500
+        idleTimeout: 3500,
+        mobileDeferMs: 6000,
+        mobileIdleTimeout: 8000
     };
 
     var cfg = window.SitePerf || {};
@@ -31,16 +34,24 @@
 
     var marketingLoaded = false;
 
+    function isMobile() {
+        return window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
+    }
+
+    function isReducedMotion() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () {
         window.dataLayer.push(arguments);
     };
 
-    function loadScript(src, async) {
+    function loadScript(src) {
         return new Promise(function (resolve, reject) {
             var s = document.createElement('script');
             s.src = src;
-            s.async = async !== false;
+            s.async = true;
             s.onload = resolve;
             s.onerror = reject;
             document.head.appendChild(s);
@@ -117,16 +128,20 @@
         if (!cfg.brevo || window.__brevoLoaded) {
             return;
         }
+        if (cfg.mobileLite && isMobile()) {
+            return;
+        }
         window.__brevoLoaded = true;
+        var brevoMobile = cfg.mobileLite && isMobile();
         window.Brevo = window.Brevo || [];
         Brevo.push(['init', {
             client_key: cfg.brevoKey,
-            automation: { popup: true },
+            automation: { popup: !brevoMobile },
             push_notification: {
-                enabled: true,
+                enabled: !brevoMobile,
                 auto_subscribe: false,
-                show_optin: true,
-                show_manage_link: true
+                show_optin: !brevoMobile,
+                show_manage_link: !brevoMobile
             }
         }]);
         loadScript('https://cdn.brevo.com/js/sdk-loader.js').catch(function () {});
@@ -147,7 +162,9 @@
         }
         marketingLoaded = true;
         loadGoogleAds();
-        loadMailchimp();
+        if (!(cfg.mobileLite && isMobile())) {
+            loadMailchimp();
+        }
         loadBrevo();
         loadFacebook();
         loadLinkedIn();
@@ -155,15 +172,17 @@
     }
 
     function scheduleIdle(fn) {
+        var timeout = (cfg.mobileLite && isMobile()) ? cfg.mobileIdleTimeout : cfg.idleTimeout;
+        var fallback = (cfg.mobileLite && isMobile()) ? cfg.mobileDeferMs : cfg.deferMs;
         if ('requestIdleCallback' in window) {
-            requestIdleCallback(fn, { timeout: cfg.idleTimeout });
+            requestIdleCallback(fn, { timeout: timeout });
         } else {
-            setTimeout(fn, cfg.deferMs);
+            setTimeout(fn, fallback);
         }
     }
 
     function loadHeroVideo() {
-        if (!cfg.heroVideo || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if (!cfg.heroVideo || isReducedMotion() || isMobile()) {
             return;
         }
         document.querySelectorAll(cfg.heroVideoSelector).forEach(function (video) {
@@ -207,15 +226,36 @@
                         obs.unobserve(iframe);
                     }
                 });
-            }, { rootMargin: '300px 0px' });
+            }, { rootMargin: isMobile() ? '120px 0px' : '300px 0px' });
 
             observer.observe(iframe);
         });
     }
 
-    function initLazyIframes() {
-        document.querySelectorAll('iframe:not([src*="youtube"])').forEach(function (iframe) {
+    function initDeferredIframes() {
+        document.querySelectorAll('iframe[data-src]').forEach(function (iframe) {
+            if (iframe.dataset.deferredReady) {
+                return;
+            }
+            iframe.dataset.deferredReady = '1';
             if (!iframe.hasAttribute('loading')) {
+                iframe.setAttribute('loading', 'lazy');
+            }
+
+            var observer = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        iframe.src = iframe.getAttribute('data-src');
+                        obs.unobserve(iframe);
+                    }
+                });
+            }, { rootMargin: isMobile() ? '80px 0px' : '200px 0px' });
+
+            observer.observe(iframe);
+        });
+
+        document.querySelectorAll('iframe:not([data-src]):not([src*="youtube"])').forEach(function (iframe) {
+            if (iframe.getAttribute('src') && !iframe.hasAttribute('loading')) {
                 iframe.setAttribute('loading', 'lazy');
             }
         });
@@ -225,12 +265,15 @@
         if (!cfg.serviceWorker || !('serviceWorker' in navigator)) {
             return;
         }
+        if (cfg.mobileLite && isMobile()) {
+            return;
+        }
         navigator.serviceWorker.register('/sw.js?key=' + cfg.serviceWorkerKey).catch(function () {});
     }
 
     function onReady() {
         initYoutubeLazy();
-        initLazyIframes();
+        initDeferredIframes();
         scheduleIdle(loadMarketingScripts);
         scheduleIdle(loadHeroVideo);
         if (cfg.serviceWorker) {
@@ -249,7 +292,13 @@
         scheduleIdle(loadHeroVideo);
     });
 
-    ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (evt) {
-        window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
-    });
+    if (cfg.mobileLite && isMobile()) {
+        ['scroll', 'touchstart'].forEach(function (evt) {
+            window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
+        });
+    } else {
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (evt) {
+            window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
+        });
+    }
 })();

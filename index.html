@@ -48,7 +48,8 @@
             hotmart: false,
             heroVideo: true,
             serviceWorker: true,
-            youtubeLazy: true
+            youtubeLazy: true,
+            mobileLite: true
         };
     </script>
     <script defer src="js/site-perf.js"></script>
@@ -2386,7 +2387,8 @@
 
     <!-- Hero Section -->
     <section class="hero hero--poster-fallback" id="inicio">
-        <video muted loop playsinline preload="none" poster="img/banner-landing.png" class="hero-background" aria-hidden="true" style="
+        <img src="img/banner-landing.png" alt="" class="hero-lcp-img" width="1200" height="675" fetchpriority="high" decoding="sync">
+        <video muted loop playsinline preload="none" poster="img/banner-landing.png" class="hero-background hero-video-desktop" aria-hidden="true" style="
             position: absolute;
             top: 0;
             left: 0;
@@ -2721,7 +2723,7 @@
             </div>
             <div class="subscription-form" style="max-width: 600px; margin: 30px auto; position: relative; overflow: visible;">
                 <!-- Brevo Newsletter Form with reCAPTCHA -->
-                <iframe width="540" height="305" src="https://d22ced48.sibforms.com/serve/MUIFAIUJQfZcYtDwg5OVdbH0WnY8PEJwkIvBED_lRa2IFNmC4xEFCgQUpBLYOW9FwX1dtiehvRZyPMKS7xfUMMClBfR_4IurCP73DndNWls-MMzSYdzg8BHea78jRnuJNL78Irq5pUzerJEZYjGp6S6YwzAVR4U8jRrgCjHZgb_9WJxgV4-PZsN2wo_FRj2ryaefCuerECyC1S1u" frameborder="0" scrolling="auto" allowfullscreen loading="lazy" title="Formulario de suscripción al newsletter" style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+                <iframe width="540" height="305" data-src="https://d22ced48.sibforms.com/serve/MUIFAIUJQfZcYtDwg5OVdbH0WnY8PEJwkIvBED_lRa2IFNmC4xEFCgQUpBLYOW9FwX1dtiehvRZyPMKS7xfUMMClBfR_4IurCP73DndNWls-MMzSYdzg8BHea78jRnuJNL78Irq5pUzerJEZYjGp6S6YwzAVR4U8jRrgCjHZgb_9WJxgV4-PZsN2wo_FRj2ryaefCuerECyC1S1u" frameborder="0" scrolling="auto" allowfullscreen loading="lazy" title="Formulario de suscripción al newsletter" style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
                 <p style="margin-top: 15px; font-size: 0.85em; text-align: center; color: #666;">
                     Al suscribirte, aceptas nuestra <a href="politica-privacidad.html" style="color: var(--green); text-decoration: underline;">Política de Privacidad</a>
                 </p>
@@ -3263,7 +3265,8 @@
         // MODERN ANIMATIONS PACKAGE
         // ============================================
 
-        // 1. SCROLL REVEAL ANIMATIONS
+        // 1. SCROLL REVEAL ANIMATIONS (solo escritorio)
+        const isMobileView = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
         const scrollRevealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -3277,30 +3280,36 @@
 
         // Add scroll-reveal class to sections and stagger to cards
         document.addEventListener('DOMContentLoaded', () => {
-            // Add scroll-reveal to main sections
+            if (isMobileView) {
+                document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));
+            }
+
             const sections = document.querySelectorAll('.biography, .services, .resources, .newsletter-subscription, .contact');
             sections.forEach(section => {
-                section.classList.add('scroll-reveal');
-                scrollRevealObserver.observe(section);
+                if (!isMobileView) {
+                    section.classList.add('scroll-reveal');
+                    scrollRevealObserver.observe(section);
+                }
             });
 
-            // Add scroll-reveal and stagger to section titles
             const titles = document.querySelectorAll('.section-title');
             titles.forEach(title => {
-                title.classList.add('scroll-reveal');
-                scrollRevealObserver.observe(title);
+                if (!isMobileView) {
+                    title.classList.add('scroll-reveal');
+                    scrollRevealObserver.observe(title);
+                }
             });
 
-            // Add scroll-reveal and stagger to impact cards
             const impactCards = document.querySelectorAll('.impact-stat-card');
             impactCards.forEach((card, index) => {
-                card.classList.add('scroll-reveal', `stagger-${index + 1}`);
-                scrollRevealObserver.observe(card);
+                if (!isMobileView) {
+                    card.classList.add('scroll-reveal', `stagger-${index + 1}`);
+                    scrollRevealObserver.observe(card);
+                }
             });
 
-            // Add scroll-reveal to DR-Innova ecosystem cards
             const ecosystemSection = document.querySelector('section[style*="background-color: #f8f9fa"]');
-            if (ecosystemSection) {
+            if (ecosystemSection && !isMobileView) {
                 ecosystemSection.classList.add('scroll-reveal');
                 scrollRevealObserver.observe(ecosystemSection);
             }
@@ -3366,7 +3375,7 @@
             }
 
             lastScroll = currentScroll;
-        });
+        }, { passive: true });
 
         // 4. RIPPLE EFFECT ON BUTTONS
         function createRipple(event) {
@@ -4013,22 +4022,25 @@
             }
         }
 
-        // Show modal after 3 seconds or on scroll (50% of page)
+        // Modal: en móvil solo al hacer scroll profundo; en escritorio también con retardo
         document.addEventListener('DOMContentLoaded', function() {
-            // Show after 5 seconds (mejor INP en móvil)
-            setTimeout(showNewsletterModal, 5000);
+            var mobileModal = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
 
-            // Also show on scroll (50% of page)
+            if (!mobileModal) {
+                setTimeout(showNewsletterModal, 5000);
+            }
+
             let scrollTriggered = false;
             window.addEventListener('scroll', function() {
                 if (!scrollTriggered) {
                     const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                    if (scrollPercent > 50) {
+                    var threshold = mobileModal ? 65 : 50;
+                    if (scrollPercent > threshold) {
                         scrollTriggered = true;
                         showNewsletterModal();
                     }
                 }
-            });
+            }, { passive: true });
 
             // Close modal when clicking overlay
             const overlay = document.querySelector('.newsletter-modal-overlay');
