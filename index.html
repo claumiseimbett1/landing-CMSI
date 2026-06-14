@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="logos/logo-CLAU.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,7 +49,7 @@
             mailchimp: true,
             brevo: true,
             hotmart: false,
-            heroVideo: false,
+            heroVideo: true,
             serviceWorker: true,
             youtubeLazy: true,
             mobileLite: true
@@ -2393,7 +2395,7 @@
             <source media="(min-width: 769px)" srcset="img/banner-landing.webp" type="image/webp">
             <img src="img/banner-landing.png" alt="" class="hero-lcp-img" width="1200" height="675" fetchpriority="high" decoding="sync">
         </picture>
-        <video muted loop playsinline preload="none" poster="img/banner-landing-mobile.webp" class="hero-background hero-video-desktop" aria-hidden="true" style="
+        <video muted loop playsinline preload="none" poster="img/banner-landing.webp" class="hero-background hero-video-desktop" aria-hidden="true" style="
             position: absolute;
             top: 0;
             left: 0;
@@ -2465,7 +2467,7 @@
                     <div style="margin-bottom: 30px; height: 130px; display: flex; align-items: center; justify-content: center;">
                         <img src="logos/LOGO_HYPERSATELLITE.png" alt="Logo HYPERSATELLITE - App móvil para procesamiento satelital automatizado" class="agtech-logo" style="height: 130px;" loading="lazy">
                     </div>
-                    <a href="http://hypersatelliteserver.com/back/HyperSatellite.apk" target="_blank" rel="noopener noreferrer" class="agtech-btn">
+                    <a href="https://hypersatelliteserver.com/back/HyperSatellite.apk" target="_blank" rel="noopener noreferrer" class="agtech-btn">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="agtech-icon">
                             <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
                             <circle cx="12" cy="16.5" r="1.5"/>
@@ -3494,14 +3496,29 @@
             localStorage.setItem('subscriber_email', email.toLowerCase());
         }
 
+        // Check URL parameters and stored subscription state
+        function checkSubscriptionStatus() {
+            const params = new URLSearchParams(window.location.search);
+            const subscribedParam = params.get('subscribed');
+            const email = params.get('email');
+
+            if (subscribedParam === 'true' || subscribedParam === '1') {
+                if (email) {
+                    storeSubscription(email);
+                } else {
+                    localStorage.setItem('newsletter_subscribed', 'true');
+                    setCookie('newsletter_subscribed', 'true', 365);
+                }
+                activateNewsletterButton();
+            }
+        }
+
         // Newsletter access control
         document.addEventListener('DOMContentLoaded', function() {
             const accessBtn = document.getElementById('newsletter-access-btn');
             
-            // Check URL first
             checkSubscriptionStatus();
             
-            // Check both localStorage and cookies for subscription status
             const localSubscribed = localStorage.getItem('newsletter_subscribed') === 'true';
             const cookieSubscribed = getCookie('newsletter_subscribed') === 'true';
             
@@ -3509,7 +3526,10 @@
                 activateNewsletterButton();
             }
             
-            // Always add click handler that checks subscription status
+            if (!accessBtn) {
+                return;
+            }
+
             accessBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 

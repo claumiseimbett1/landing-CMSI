@@ -13,6 +13,7 @@
     object-fit: cover;
     z-index: 0;
     pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 .hero picture {
@@ -24,11 +25,36 @@
     height: 100%;
 }
 
-/* Hero: imagen WebP en todos los viewports; vídeo desactivado (26 MB) */
 video.hero-background,
 video.hero-video-desktop,
 video[data-deferred-video] {
-    display: none !important;
+    object-fit: cover;
+}
+
+/* Móvil: solo imagen WebP (sin descargar vídeo) */
+@media (hover: none), (max-width: 768px) {
+    video.hero-background,
+    video.hero-video-desktop,
+    video[data-deferred-video] {
+        display: none !important;
+    }
+}
+
+/* Escritorio: vídeo sobre el poster WebP cuando está activo */
+@media (min-width: 769px) and (hover: hover) {
+    video.hero-background,
+    video.hero-video-desktop,
+    video[data-deferred-video] {
+        display: block;
+    }
+
+    .hero.hero--video-active picture,
+    .hero.hero--video-active .hero-lcp-img,
+    .course-hero.hero--video-active picture,
+    .course-hero.hero--video-active .hero-lcp-img {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -39,6 +65,12 @@ video[data-deferred-video] {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    video.hero-background,
+    video.hero-video-desktop,
+    video[data-deferred-video] {
+        display: none !important;
     }
 }
 

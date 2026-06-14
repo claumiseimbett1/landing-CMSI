@@ -1,11 +1,14 @@
 (function () {
     'use strict';
 
+    var CONSENT_KEY = 'cmsi_marketing_consent';
+
     var defaults = {
         googleAds: false,
         googleAdsId: 'AW-417231404',
         linkedin: false,
         linkedinId: '8119242',
+        linkedinPixelOnly: true,
         facebook: false,
         facebookPixels: ['1746350276009338', '1688391071856563'],
         mailchimp: false,
@@ -13,12 +16,13 @@
         brevo: false,
         brevoKey: 'kqq726uscep89abxw9oaqp0n',
         hotmart: false,
-        heroVideo: false,
+        heroVideo: true,
         heroVideoSelector: 'video.hero-background, video.hero-video-desktop, video[data-deferred-video]',
         serviceWorker: false,
         serviceWorkerKey: 'kqq726uscep89abxw9oaqp0n',
         youtubeLazy: true,
         mobileLite: true,
+        requireConsent: true,
         deferMs: 2500,
         idleTimeout: 3500,
         mobileDeferMs: 6000,
@@ -33,6 +37,7 @@
     });
 
     var marketingLoaded = false;
+    var consentBannerReady = false;
 
     function isMobile() {
         return window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
@@ -40,6 +45,23 @@
 
     function isReducedMotion() {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function hasMarketingConsent() {
+        if (!cfg.requireConsent) {
+            return true;
+        }
+        try {
+            return localStorage.getItem(CONSENT_KEY) === 'accepted';
+        } catch (err) {
+            return false;
+        }
+    }
+
+    function saveMarketingConsent() {
+        try {
+            localStorage.setItem(CONSENT_KEY, 'accepted');
+        } catch (err) {}
     }
 
     window.dataLayer = window.dataLayer || [];
@@ -105,8 +127,26 @@
         fbq('track', 'PageView');
     }
 
+    function loadLinkedInPixel() {
+        if (!cfg.linkedin || window.__linkedinPixelLoaded) {
+            return;
+        }
+        window.__linkedinPixelLoaded = true;
+        var img = document.createElement('img');
+        img.height = 1;
+        img.width = 1;
+        img.alt = '';
+        img.style.display = 'none';
+        img.src = 'https://px.ads.linkedin.com/collect/?pid=' + cfg.linkedinId + '&fmt=gif';
+        document.body.appendChild(img);
+    }
+
     function loadLinkedIn() {
         if (!cfg.linkedin || window.__linkedinLoaded) {
+            return;
+        }
+        if (cfg.linkedinPixelOnly) {
+            loadLinkedInPixel();
             return;
         }
         window.__linkedinLoaded = true;
@@ -156,8 +196,15 @@
         loadStylesheet('https://static.hotmart.com/css/hotmart-fb.min.css');
     }
 
+    function marketingEnabled() {
+        return cfg.googleAds || cfg.linkedin || cfg.facebook || cfg.mailchimp || cfg.brevo || cfg.hotmart;
+    }
+
     function loadMarketingScripts() {
-        if (marketingLoaded) {
+        if (marketingLoaded || !marketingEnabled()) {
+            return;
+        }
+        if (!hasMarketingConsent()) {
             return;
         }
         marketingLoaded = true;
@@ -169,6 +216,89 @@
         loadFacebook();
         loadLinkedIn();
         loadHotmart();
+    }
+
+    function hideConsentBanner() {
+        var banner = document.getElementById('cmsi-cookie-consent');
+        if (banner) {
+            banner.classList.add('cmsi-cookie-consent--hidden');
+            setTimeout(function () {
+                banner.remove();
+            }, 300);
+        }
+    }
+
+    function acceptMarketingConsent() {
+        saveMarketingConsent();
+        hideConsentBanner();
+        loadMarketingScripts();
+    }
+
+    function rejectMarketingConsent() {
+        try {
+            localStorage.setItem(CONSENT_KEY, 'rejected');
+        } catch (err) {}
+        hideConsentBanner();
+    }
+
+    function injectConsentStyles() {
+        if (document.getElementById('cmsi-cookie-consent-styles')) {
+            return;
+        }
+        var style = document.createElement('style');
+        style.id = 'cmsi-cookie-consent-styles';
+        style.textContent = [
+            '#cmsi-cookie-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:10000;',
+            'max-width:560px;margin:0 auto;padding:16px 18px;background:#1a1a1a;color:#fff;',
+            'border:2px solid #fffc00;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.35);',
+            'font:14px/1.5 Arial,sans-serif;transition:opacity .3s ease,transform .3s ease}',
+            '#cmsi-cookie-consent.cmsi-cookie-consent--hidden{opacity:0;transform:translateY(12px);pointer-events:none}',
+            '#cmsi-cookie-consent p{margin:0 0 12px}',
+            '#cmsi-cookie-consent a{color:#fffc00}',
+            '#cmsi-cookie-consent-actions{display:flex;flex-wrap:wrap;gap:8px}',
+            '#cmsi-cookie-consent-actions button{border:0;border-radius:6px;padding:10px 14px;cursor:pointer;font-weight:600}',
+            '#cmsi-cookie-consent-accept{background:#4e7e32;color:#fff}',
+            '#cmsi-cookie-consent-reject{background:transparent;color:#fff;border:1px solid #d6ccc2!important}'
+        ].join('');
+        document.head.appendChild(style);
+    }
+
+    function showConsentBanner() {
+        if (!cfg.requireConsent || !marketingEnabled() || hasMarketingConsent() || consentBannerReady) {
+            return;
+        }
+        var existing = localStorage.getItem(CONSENT_KEY);
+        if (existing === 'rejected') {
+            return;
+        }
+        consentBannerReady = true;
+        injectConsentStyles();
+
+        var banner = document.createElement('div');
+        banner.id = 'cmsi-cookie-consent';
+        banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-label', 'Consentimiento de cookies');
+        banner.innerHTML = [
+            '<p>Usamos cookies de terceros (Google, Meta, LinkedIn) para medición y publicidad. ',
+            'Puedes aceptar o rechazar. Más información en nuestra ',
+            '<a href="politica-privacidad.html">Política de Privacidad</a>.</p>',
+            '<div id="cmsi-cookie-consent-actions">',
+            '<button type="button" id="cmsi-cookie-consent-accept">Aceptar</button>',
+            '<button type="button" id="cmsi-cookie-consent-reject">Rechazar</button>',
+            '</div>'
+        ].join('');
+
+        document.body.appendChild(banner);
+        document.getElementById('cmsi-cookie-consent-accept').addEventListener('click', acceptMarketingConsent);
+        document.getElementById('cmsi-cookie-consent-reject').addEventListener('click', rejectMarketingConsent);
+    }
+
+    function scheduleHeroVideo() {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadHeroVideo, { timeout: 1200 });
+        } else {
+            setTimeout(loadHeroVideo, 800);
+        }
     }
 
     function scheduleIdle(fn) {
@@ -189,6 +319,15 @@
             if (video.dataset.loaded) {
                 return;
             }
+            var hero = video.closest('.hero, .course-hero, section');
+            var markActive = function () {
+                if (hero) {
+                    hero.classList.add('hero--video-active');
+                }
+            };
+            video.addEventListener('playing', markActive, { once: true });
+            video.addEventListener('loadeddata', markActive, { once: true });
+
             var source = video.querySelector('source[data-src]');
             if (source) {
                 video.dataset.loaded = '1';
@@ -274,8 +413,11 @@
     function onReady() {
         initYoutubeLazy();
         initDeferredIframes();
-        scheduleIdle(loadMarketingScripts);
-        scheduleIdle(loadHeroVideo);
+        showConsentBanner();
+        if (hasMarketingConsent()) {
+            scheduleIdle(loadMarketingScripts);
+        }
+        scheduleHeroVideo();
         if (cfg.serviceWorker) {
             registerServiceWorker();
         }
@@ -288,17 +430,21 @@
     }
 
     window.addEventListener('load', function () {
-        scheduleIdle(loadMarketingScripts);
-        scheduleIdle(loadHeroVideo);
+        if (hasMarketingConsent()) {
+            scheduleIdle(loadMarketingScripts);
+        }
+        scheduleHeroVideo();
     });
 
-    if (cfg.mobileLite && isMobile()) {
-        ['scroll', 'touchstart'].forEach(function (evt) {
-            window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
-        });
-    } else {
-        ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (evt) {
-            window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
-        });
+    if (hasMarketingConsent()) {
+        if (cfg.mobileLite && isMobile()) {
+            ['scroll', 'touchstart'].forEach(function (evt) {
+                window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
+            });
+        } else {
+            ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (evt) {
+                window.addEventListener(evt, loadMarketingScripts, { once: true, passive: true });
+            });
+        }
     }
 })();
