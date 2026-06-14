@@ -1,1 +1,4 @@
 node_modules/
+psi-*.json
+lh-*.json
+lighthouse*.json
