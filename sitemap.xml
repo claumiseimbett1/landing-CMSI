@@ -7,7 +7,7 @@
     <!-- Página Principal -->
     <url>
         <loc>https://www.claumiseimbett.com/</loc>
-        <lastmod>2025-01-20</lastmod>
+        <lastmod>2026-04-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -44,15 +44,15 @@
     
     <url>
         <loc>https://www.claumiseimbett.com/ia-generativa-escritura-cientifica.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
     
     <!-- Blog -->
     <url>
         <loc>https://www.claumiseimbett.com/blog.html</loc>
-        <lastmod>2025-01-20</lastmod>
+        <lastmod>2026-04-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -60,7 +60,7 @@
     <!-- Páginas de Contenido -->
     <url>
         <loc>https://www.claumiseimbett.com/recursos.html</loc>
-        <lastmod>2025-01-20</lastmod>
+        <lastmod>2026-04-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -87,17 +87,10 @@
     </url>
     
     <url>
-        <loc>https://www.claumiseimbett.com/faq40.html</loc>
-        <lastmod>2025-01-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <url>
         <loc>https://www.claumiseimbett.com/newsletter.html</loc>
-        <lastmod>2025-01-20</lastmod>
+        <lastmod>2026-04-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.7</priority>
     </url>
     
     <url>
@@ -113,6 +106,92 @@
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+    
+    <!-- PDFs descargables (recursos/) -->
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Sensores_Remotos_CMSI_UNIMAG.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Capacitacion_MULTI_HYPER_AGROSAVIA.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Agricultura4.0-SAHED_UNIREMINGTON.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Fundamentos_Inv_Cientifica_UNISINU.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Pautas_Redaccion_Articulos_Cientificos_UNISINU.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Capacitacion_FO_SIEMENS.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/ClasesTELEDETECCION_AGROSAVIA.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Curso_IA_generativa_Escritura_Cientifica.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Brochure-Excel-Python.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Brochure%20AgTech-Hotmart-Course.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/Curso_Agtech-Program_GEE_ML-Python_Ag40.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/INFOGRAFIA-PASO%20PARA%20ABRIR%20UNA%20CUENTA%20GOOGLE%20COLAB.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/INFOGRAFIA-PASO%20PARA%20ABRIR%20UNA%20CUENTA%20GEE.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://www.claumiseimbett.com/recursos/INFOGRAFIA_4-PROYECTOS_GEE_ML.pdf</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
     </url>
     
 </urlset>

@@ -1,9 +1,13 @@
 User-agent: *
 Allow: /
-Disallow: /recursos/
-Disallow: /*.backup
+
+# Copias de desarrollo y backups (contenido duplicado)
+Disallow: /backup/
+Disallow: /*.backup$
+
+# Utilidades técnicas, no son páginas de contenido
 Disallow: /sw.js
+Disallow: /brevo-frame.html
 
 # Sitemap
 Sitemap: https://www.claumiseimbett.com/sitemap.xml
-
