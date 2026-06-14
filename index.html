@@ -31,7 +31,8 @@
     <meta name="google-site-verification" content="b8V0ptu-FYRjLjTkmc9RApkdDUJgqfOUzxp6lc2NC50" />
 
     <!-- LCP + rendimiento -->
-    <link rel="preload" as="image" href="img/banner-landing.png" fetchpriority="high">
+    <link rel="preload" as="image" href="img/banner-landing-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="img/banner-landing.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
     <link rel="stylesheet" href="css/perf-global.css">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
@@ -46,7 +47,7 @@
             mailchimp: true,
             brevo: true,
             hotmart: false,
-            heroVideo: true,
+            heroVideo: false,
             serviceWorker: true,
             youtubeLazy: true,
             mobileLite: true
@@ -280,7 +281,7 @@
         }
 
         .hero--poster-fallback {
-            background-image: url('img/banner-landing.png');
+            background-image: url('img/banner-landing.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -294,7 +295,7 @@
                 display: none;
             }
             .hero.hero--poster-fallback {
-                background-image: url('img/banner-landing.png');
+                background-image: url('img/banner-landing.webp');
             }
         }
 
@@ -720,7 +721,7 @@
 
         /* Newsletter Header - Estilo similar al blog */
         .newsletter-header {
-            background: linear-gradient(135deg, var(--green) 0%, #6fbf4f 100%), url('img/baner-curso-excel.png');
+            background: linear-gradient(135deg, var(--green) 0%, #6fbf4f 100%), url('img/baner-curso-excel.webp');
             background-size: cover, contain;
             background-position: center, center;
             background-repeat: no-repeat, no-repeat;
@@ -742,7 +743,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('img/baner-curso-excel.png');
+            background-image: url('img/baner-curso-excel.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1132,7 +1133,7 @@
             transform: translateX(-50%);
             width: 300px;
             height: 200px;
-            background-image: url('img/baner-curso-excel.png');
+            background-image: url('img/baner-curso-excel.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1164,7 +1165,7 @@
         }
 
         .cta-newsletter:hover, .cta-blog:hover {
-            background-image: url('img/baner-curso-excel.png');
+            background-image: url('img/baner-curso-excel.webp');
             background-size: cover;
             background-position: center;
             color: white !important;
@@ -2387,8 +2388,12 @@
 
     <!-- Hero Section -->
     <section class="hero hero--poster-fallback" id="inicio">
-        <img src="img/banner-landing.png" alt="" class="hero-lcp-img" width="1200" height="675" fetchpriority="high" decoding="sync">
-        <video muted loop playsinline preload="none" poster="img/banner-landing.png" class="hero-background hero-video-desktop" aria-hidden="true" style="
+        <picture>
+            <source media="(max-width: 768px)" srcset="img/banner-landing-mobile.webp" type="image/webp">
+            <source media="(min-width: 769px)" srcset="img/banner-landing.webp" type="image/webp">
+            <img src="img/banner-landing.png" alt="" class="hero-lcp-img" width="1200" height="675" fetchpriority="high" decoding="sync">
+        </picture>
+        <video muted loop playsinline preload="none" poster="img/banner-landing-mobile.webp" class="hero-background hero-video-desktop" aria-hidden="true" style="
             position: absolute;
             top: 0;
             left: 0;

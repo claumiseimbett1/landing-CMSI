@@ -16,13 +16,14 @@
     <meta name="twitter:title" content="Claudia Milena Serpa Imbett | Certificación CEL-FGU en Agrotecnología">
     <meta name="twitter:description" content="Claudia Milena Serpa Imbett, PhD | Certificación internacional CEL-FGU en Agrotecnología y teledetección en Latinoamérica. Google Earth Engine, machine learning e IA aplicada a agricultura.">
 
-    <link rel="preload" as="image" href="img/banner-landing.png" fetchpriority="high">
+    <link rel="preload" as="image" href="img/banner-landing-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="img/banner-landing.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
     <link rel="stylesheet" href="css/perf-global.css">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://snap.licdn.com">
     <link rel="dns-prefetch" href="https://static.hotmart.com">
     <script>
-        window.SitePerf = { linkedin: true, hotmart: true, heroVideo: true, youtubeLazy: true, mobileLite: true };
+        window.SitePerf = { linkedin: true, hotmart: true, heroVideo: false, youtubeLazy: true, mobileLite: true };
     </script>
     <script defer src="js/site-perf.js"></script>
     <noscript>
@@ -693,8 +694,12 @@
     <main class="main-content">
         <!-- Course Hero Section -->
         <section class="course-hero" style="position: relative; overflow: hidden; min-height: 600px; padding: 0;">
-            <img src="img/banner-landing.png" alt="" class="hero-lcp-img" width="1200" height="675" fetchpriority="high" decoding="sync">
-            <video muted loop playsinline preload="none" poster="img/banner-landing.png" class="hero-background hero-video-desktop" data-deferred-video aria-hidden="true" style="
+            <picture>
+                <source media="(max-width: 768px)" srcset="img/banner-landing-mobile.webp" type="image/webp">
+                <source media="(min-width: 769px)" srcset="img/banner-landing.webp" type="image/webp">
+                <img src="img/banner-landing.png" alt="" class="hero-lcp-img" width="1200" height="675" fetchpriority="high" decoding="sync">
+            </picture>
+            <video muted loop playsinline preload="none" poster="img/banner-landing-mobile.webp" class="hero-background hero-video-desktop" data-deferred-video aria-hidden="true" style="
                 position: absolute;
                 top: 0;
                 left: 0;
