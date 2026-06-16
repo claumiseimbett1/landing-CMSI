@@ -35,6 +35,7 @@
     <link rel="preload" as="image" href="img/banner-landing-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
     <link rel="preload" as="image" href="img/banner-landing.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
     <link rel="stylesheet" href="css/perf-global.css">
+    <link rel="stylesheet" href="css/course-promo-modal.css">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://snap.licdn.com">
@@ -3808,317 +3809,17 @@
         </div>
     </div>
 
-    <style>
-        .course-promo-header {
-            background: linear-gradient(135deg, #0077B6 0%, #4e7e32 100%);
-        }
-
-        .course-promo-badge {
-            display: inline-block;
-            background: var(--yellow, #fffc00);
-            color: var(--black, #000);
-            font-weight: 700;
-            font-size: 0.85em;
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-        }
-
-        .course-promo-price {
-            text-align: center;
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #0077B6;
-        }
-
-        .course-promo-content {
-            border-color: #0077B6;
-            max-width: 640px;
-        }
-
-        /* Newsletter Modal Styles */
-        .newsletter-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .newsletter-modal-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-        }
-
-        .newsletter-modal-content {
-            position: relative;
-            background: linear-gradient(135deg, #ffffff 0%, #f3ede0 100%);
-            border-radius: 20px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 3px solid var(--green, #4e7e32);
-            animation: slideUp 0.4s ease;
-            z-index: 10001;
-        }
-
-        .newsletter-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: transparent;
-            border: none;
-            font-size: 32px;
-            color: var(--green, #4e7e32);
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            z-index: 10002;
-        }
-
-        .newsletter-modal-close:hover {
-            background-color: rgba(78, 126, 50, 0.1);
-            transform: rotate(90deg);
-        }
-
-        .newsletter-modal-header {
-            background: linear-gradient(135deg, var(--green, #4e7e32) 0%, #6fbf4f 100%);
-            color: white;
-            padding: 30px 40px 25px 40px;
-            border-radius: 17px 17px 0 0;
-            text-align: center;
-        }
-
-        .newsletter-modal-header h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.8em;
-            font-weight: 700;
-        }
-
-        .newsletter-modal-date {
-            margin: 0;
-            font-size: 0.9em;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .newsletter-modal-body {
-            padding: 30px 40px;
-        }
-
-        .newsletter-modal-body h3 {
-            color: var(--green, #4e7e32);
-            font-size: 1.4em;
-            margin: 0 0 20px 0;
-            line-height: 1.3;
-            font-weight: 700;
-        }
-
-        .newsletter-modal-summary {
-            color: #333;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 1.05em;
-        }
-
-        .newsletter-modal-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 25px 0;
-            padding: 20px;
-            background: rgba(78, 126, 50, 0.05);
-            border-radius: 12px;
-            border-left: 4px solid var(--green, #4e7e32);
-        }
-
-        .newsletter-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-            min-width: 150px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .newsletter-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            color: var(--green, #4e7e32);
-        }
-        
-        .newsletter-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .newsletter-modal-footer {
-            padding: 20px 40px 30px 40px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            border-top: 2px solid rgba(78, 126, 50, 0.1);
-        }
-
-        .newsletter-modal-btn-primary {
-            background: linear-gradient(135deg, var(--green, #4e7e32) 0%, #6fbf4f 100%);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            border: 3px solid var(--green, #4e7e32);
-            box-shadow: 0 5px 20px rgba(78, 126, 50, 0.3);
-            display: inline-block;
-        }
-
-        .newsletter-modal-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(78, 126, 50, 0.5);
-            background: linear-gradient(135deg, #6fbf4f 0%, var(--green, #4e7e32) 100%);
-        }
-
-        .newsletter-modal-btn-secondary {
-            background: transparent;
-            color: var(--green, #4e7e32);
-            padding: 15px 35px;
-            border-radius: 50px;
-            border: 2px solid var(--green, #4e7e32);
-            font-weight: 600;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-modal-btn-secondary:hover {
-            background: rgba(78, 126, 50, 0.1);
-            transform: translateY(-2px);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .newsletter-modal-content {
-                width: 95%;
-                max-height: 95vh;
-                border-radius: 15px;
-            }
-
-            .newsletter-modal-header {
-                padding: 25px 20px 20px 20px;
-            }
-
-            .newsletter-modal-header h2 {
-                font-size: 1.5em;
-            }
-
-            .newsletter-modal-body {
-                padding: 25px 20px;
-            }
-
-            .newsletter-modal-body h3 {
-                font-size: 1.2em;
-            }
-
-            .newsletter-modal-summary {
-                font-size: 1em;
-            }
-
-            .newsletter-modal-footer {
-                padding: 20px;
-                flex-direction: column;
-            }
-
-            .newsletter-modal-btn-primary,
-            .newsletter-modal-btn-secondary {
-                width: 100%;
-                text-align: center;
-            }
-
-            .newsletter-feature {
-                min-width: 100%;
-            }
-        }
-    </style>
-
+    <script defer src="js/course-promo-modal.js"></script>
     <script>
-        // Curso IA — ventana emergente de promoción
-        function showCoursePromoModal() {
-            const modal = document.getElementById('coursePromoModal');
+        function showNewsletterModal() {
+            const modal = document.getElementById('newsletterModal');
             if (!modal) return;
-            const lastShown = localStorage.getItem('coursePromoModalLastShown');
+            const lastShown = localStorage.getItem('newsletterModalLastShown');
             const today = new Date().toDateString();
             if (lastShown !== today) {
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-                localStorage.setItem('coursePromoModalLastShown', today);
-            }
-        }
-
-        function closeCoursePromoModal() {
-            const modal = document.getElementById('coursePromoModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Newsletter Modal Functionality
-        function showNewsletterModal() {
-            const modal = document.getElementById('newsletterModal');
-            if (modal) {
-                // Check if user has already seen the modal today
-                const lastShown = localStorage.getItem('newsletterModalLastShown');
-                const today = new Date().toDateString();
-                
-                if (lastShown !== today) {
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                    localStorage.setItem('newsletterModalLastShown', today);
-                }
+                localStorage.setItem('newsletterModalLastShown', today);
             }
         }
 
@@ -4130,39 +3831,22 @@
             }
         }
 
-        // Modal: en móvil solo al hacer scroll profundo; en escritorio también con retardo
         document.addEventListener('DOMContentLoaded', function() {
-            var mobileModal = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
+            const newsletterModal = document.getElementById('newsletterModal');
+            if (!newsletterModal) return;
 
-            if (!mobileModal) {
-                setTimeout(showCoursePromoModal, 5000);
+            const overlay = newsletterModal.querySelector('.newsletter-modal-overlay');
+            if (overlay) {
+                overlay.addEventListener('click', closeNewsletterModal);
             }
 
-            let scrollTriggered = false;
-            window.addEventListener('scroll', function() {
-                if (!scrollTriggered) {
-                    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                    var threshold = mobileModal ? 65 : 50;
-                    if (scrollPercent > threshold) {
-                        scrollTriggered = true;
-                        showCoursePromoModal();
-                    }
-                }
-            }, { passive: true });
-
-            const courseOverlay = document.querySelector('.course-promo-overlay');
-            if (courseOverlay) {
-                courseOverlay.addEventListener('click', closeCoursePromoModal);
-            }
-
-            const courseCloseBtn = document.querySelector('.course-promo-close');
-            if (courseCloseBtn) {
-                courseCloseBtn.addEventListener('click', closeCoursePromoModal);
+            const closeBtn = newsletterModal.querySelector('.newsletter-modal-close');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeNewsletterModal);
             }
 
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
-                    closeCoursePromoModal();
                     closeNewsletterModal();
                 }
             });
