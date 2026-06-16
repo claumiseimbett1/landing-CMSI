@@ -1,16 +1,17 @@
 (function () {
     'use strict';
 
+    var STORAGE_KEY = 'coursePromoModalShownSession';
+
     function showCoursePromoModal() {
         var modal = document.getElementById('coursePromoModal');
-        if (!modal) return;
-        var lastShown = localStorage.getItem('coursePromoModalLastShown');
-        var today = new Date().toDateString();
-        if (lastShown !== today) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            localStorage.setItem('coursePromoModalLastShown', today);
-        }
+        if (!modal || modal.dataset.visible === '1') return;
+        if (sessionStorage.getItem(STORAGE_KEY) === '1') return;
+
+        modal.dataset.visible = '1';
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        sessionStorage.setItem(STORAGE_KEY, '1');
     }
 
     function closeCoursePromoModal() {
@@ -24,20 +25,18 @@
     window.closeCoursePromoModal = closeCoursePromoModal;
 
     document.addEventListener('DOMContentLoaded', function () {
-        var mobileModal = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
+        /* Al entrar: popup tras breve pausa (consentimiento / LCP) */
+        setTimeout(showCoursePromoModal, 1800);
 
-        if (!mobileModal) {
-            setTimeout(showCoursePromoModal, 5000);
-        }
+        /* Respaldo si el usuario cierra rápido el banner de cookies */
+        setTimeout(showCoursePromoModal, 4500);
 
         var scrollTriggered = false;
         window.addEventListener('scroll', function () {
-            if (scrollTriggered) return;
+            if (scrollTriggered || sessionStorage.getItem(STORAGE_KEY) === '1') return;
             var docHeight = document.documentElement.scrollHeight - window.innerHeight;
             if (docHeight <= 0) return;
-            var scrollPercent = (window.scrollY / docHeight) * 100;
-            var threshold = mobileModal ? 65 : 50;
-            if (scrollPercent > threshold) {
+            if ((window.scrollY / docHeight) * 100 > 25) {
                 scrollTriggered = true;
                 showCoursePromoModal();
             }
