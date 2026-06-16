@@ -133,7 +133,6 @@
     padding: 20px;
     background: var(--beige-light);
     border-radius: 12px;
-    border-left: 4px solid var(--yellow);
     border: 1px solid var(--beige-muted);
     border-left: 4px solid var(--yellow);
 }
@@ -280,4 +279,143 @@
     #coursePromoModal .newsletter-feature {
         min-width: 100%;
     }
+}
+
+/* Popup newsletter (solo index) — mantiene verde */
+#newsletterModal .newsletter-modal-content {
+    border: 3px solid #4e7e32;
+}
+
+#newsletterModal .newsletter-modal-header {
+    background: linear-gradient(135deg, #4e7e32 0%, #6fbf4f 100%);
+    color: #fff;
+    padding: 30px 40px 25px;
+    border-radius: 17px 17px 0 0;
+    text-align: center;
+}
+
+#newsletterModal .newsletter-modal-header h2 {
+    margin: 0 0 10px;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+#newsletterModal .newsletter-modal-date {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+#newsletterModal .newsletter-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    color: #4e7e32;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10002;
+}
+
+#newsletterModal .newsletter-modal-close:hover {
+    background-color: rgba(78, 126, 50, 0.1);
+    transform: rotate(90deg);
+}
+
+#newsletterModal .newsletter-modal-body {
+    padding: 30px 40px;
+}
+
+#newsletterModal .newsletter-modal-body h3 {
+    color: #4e7e32;
+    font-size: 1.4em;
+    margin: 0 0 20px;
+    font-weight: 700;
+}
+
+#newsletterModal .newsletter-modal-summary {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+
+#newsletterModal .newsletter-modal-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(78, 126, 50, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #4e7e32;
+}
+
+#newsletterModal .newsletter-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 150px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+#newsletterModal .newsletter-icon {
+    width: 24px;
+    height: 24px;
+    color: #4e7e32;
+}
+
+#newsletterModal .newsletter-modal-footer {
+    padding: 20px 40px 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 2px solid rgba(78, 126, 50, 0.1);
+}
+
+#newsletterModal .newsletter-modal-btn-primary {
+    background: linear-gradient(135deg, #4e7e32 0%, #6fbf4f 100%);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    border: 3px solid #4e7e32;
+    box-shadow: 0 5px 20px rgba(78, 126, 50, 0.3);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+#newsletterModal .newsletter-modal-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(78, 126, 50, 0.5);
+}
+
+#newsletterModal .newsletter-modal-btn-secondary {
+    background: transparent;
+    color: #4e7e32;
+    padding: 15px 35px;
+    border-radius: 50px;
+    border: 2px solid #4e7e32;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#newsletterModal .newsletter-modal-btn-secondary:hover {
+    background: rgba(78, 126, 50, 0.1);
 }
