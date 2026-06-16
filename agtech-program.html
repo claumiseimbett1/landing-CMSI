@@ -99,6 +99,10 @@
         }
 
         /* Programs Grid */
+        .programs-grid .program-card--hidden {
+            display: none !important;
+        }
+
         .programs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -903,8 +907,8 @@
     <section class="main-section">
         <!-- Programs Grid -->
         <div class="programs-grid">
-            <!-- Programa 1: Curso GEE+ML+Python -->
-            <div class="program-card" style="--hover-image: url('img/newsletter.jpeg');">
+            <!-- Programa 1: Curso GEE+ML+Python (oculto temporalmente — 200 USD) -->
+            <div class="program-card program-card--hidden" style="--hover-image: url('img/newsletter.jpeg');" aria-hidden="true">
                 <span class="price-badge">200 USD/persona</span>
                 <div class="program-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
