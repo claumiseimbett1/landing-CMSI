@@ -66,6 +66,47 @@
     margin: 0 auto;
     padding: 40px 24px 60px;
   }
+  .wordcloud-figure {
+    margin: 0 0 48px;
+    padding: 24px;
+    background: var(--beige-light);
+    border: 2px solid var(--beige-muted);
+    border-radius: 16px;
+    border-left: 5px solid var(--green);
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+  .wordcloud-figure h2 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    color: var(--black);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+    border: none;
+    padding: 0;
+  }
+  .wordcloud-figure p {
+    margin: 0 0 18px;
+    font-size: 0.95em;
+    color: var(--text-muted);
+  }
+  .wordcloud-figure img {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 1px solid var(--beige-muted);
+    background: #fff;
+  }
+  .wordcloud-figure figcaption {
+    margin-top: 14px;
+    font-size: 0.85em;
+    color: var(--text-muted);
+    font-style: italic;
+  }
   .grupo { margin-bottom: 38px; }
   .grupo h2 {
     font-size: 0.85rem;
@@ -83,12 +124,6 @@
     font-size: 1.05rem;
     margin-top: 18px;
     color: var(--black);
-  }
-  dt .peso {
-    color: var(--text-muted);
-    font-weight: 400;
-    font-size: 0.78rem;
-    margin-left: 8px;
   }
   dd {
     margin: 4px 0 0 0;
@@ -120,25 +155,32 @@
 
 <div class="wrap">
 
+  <figure class="wordcloud-figure">
+    <h2>Nube de palabras — Arquitectura Transformer</h2>
+    <p>Visualización de los términos clave del glosario; el tamaño refleja su relevancia en el modelo.</p>
+    <img src="img/nube_llm.png" alt="Nube de palabras: Token, Self-attention, Embedding, Transformer, Softmax y términos de arquitectura LLM" width="760" height="auto" loading="lazy" decoding="async">
+    <figcaption>Figura 1. Nube de palabras del curso Investigación Científica Potenciada por Inteligencia Artificial.</figcaption>
+  </figure>
+
   <div class="grupo">
     <h2>1. Entrada / Representación</h2>
     <dl>
-      <dt>Token <span class="peso">peso 90</span></dt>
+      <dt>Token</dt>
       <dd>Unidad mínima en que se divide el texto (palabra, subpalabra o carácter) antes de ser procesada por el modelo.</dd>
 
-      <dt>Tokenización <span class="peso">peso 60</span></dt>
+      <dt>Tokenización</dt>
       <dd>Proceso de segmentar el texto crudo en tokens, usando algoritmos como BPE o WordPiece.</dd>
 
-      <dt>id-token <span class="peso">peso 55</span></dt>
+      <dt>id-token</dt>
       <dd>Número entero que identifica a cada token dentro del vocabulario del modelo; es lo que realmente recibe la red.</dd>
 
-      <dt>Matriz embedding <span class="peso">peso 95</span></dt>
+      <dt>Matriz embedding</dt>
       <dd>Tabla aprendida que convierte cada id-token en un vector denso de dimensión fija, capturando relaciones semánticas.</dd>
 
-      <dt>Embedding posicional <span class="peso">peso 70</span></dt>
+      <dt>Embedding posicional</dt>
       <dd>Vector adicional que codifica la posición del token en la secuencia, ya que el self-attention no tiene noción de orden por sí mismo.</dd>
 
-      <dt>Vocabulario <span class="peso">peso 40</span></dt>
+      <dt>Vocabulario</dt>
       <dd>Conjunto finito de tokens posibles que el modelo puede reconocer y generar.</dd>
     </dl>
   </div>
@@ -146,22 +188,22 @@
   <div class="grupo">
     <h2>2. Núcleo del Transformer</h2>
     <dl>
-      <dt>Self-attention <span class="peso">peso 100</span></dt>
+      <dt>Self-attention</dt>
       <dd>Mecanismo que permite a cada token ponderar la relevancia de todos los demás tokens en la secuencia para construir su representación contextual.</dd>
 
-      <dt>Multi-head attention <span class="peso">peso 85</span></dt>
+      <dt>Multi-head attention</dt>
       <dd>Varias cabezas de atención en paralelo, cada una aprendiendo distintos tipos de relaciones entre tokens.</dd>
 
-      <dt>Query, Key, Value (Q, K, V) <span class="peso">peso 80</span></dt>
+      <dt>Query, Key, Value (Q, K, V)</dt>
       <dd>Tres proyecciones lineales de los embeddings sobre las que se calcula la atención: consulta, clave y valor.</dd>
 
-      <dt>Feed-forward network (FFN) <span class="peso">peso 75</span></dt>
+      <dt>Feed-forward network (FFN)</dt>
       <dd>Capa densa aplicada token a token después de la atención, típicamente con expansión y contracción de dimensión.</dd>
 
-      <dt>Layer normalization <span class="peso">peso 50</span></dt>
+      <dt>Layer normalization</dt>
       <dd>Normalización que estabiliza el entrenamiento y acelera la convergencia en cada subcapa del bloque.</dd>
 
-      <dt>Residual connection <span class="peso">peso 45</span></dt>
+      <dt>Residual connection</dt>
       <dd>Conexión que suma la entrada de una subcapa a su salida, facilitando el flujo de gradientes en redes profundas.</dd>
     </dl>
   </div>
@@ -169,22 +211,22 @@
   <div class="grupo">
     <h2>3. Salida / Generación</h2>
     <dl>
-      <dt>Logits <span class="peso">peso 65</span></dt>
+      <dt>Logits</dt>
       <dd>Puntuaciones sin normalizar sobre el vocabulario para el siguiente token candidato.</dd>
 
-      <dt>Softmax <span class="peso">peso 55</span></dt>
+      <dt>Softmax</dt>
       <dd>Función que convierte logits en una distribución de probabilidad sobre el vocabulario.</dd>
 
-      <dt>Decodificación autoregresiva <span class="peso">peso 70</span></dt>
+      <dt>Decodificación autoregresiva</dt>
       <dd>Generación secuencial donde cada token predicho se añade a la entrada para predecir el siguiente.</dd>
 
-      <dt>Encoder <span class="peso">peso 60</span></dt>
+      <dt>Encoder</dt>
       <dd>Bloque que procesa toda la secuencia de entrada a la vez para producir una representación contextual completa.</dd>
 
-      <dt>Contexto <span class="peso">peso 45</span></dt>
+      <dt>Contexto</dt>
       <dd>Ventana de tokens (pasados y a veces futuros) que el modelo puede "ver" al procesar o generar una posición dada.</dd>
 
-      <dt>Temperatura <span class="peso">peso 30</span></dt>
+      <dt>Temperatura</dt>
       <dd>Hiperparámetro que escala los logits antes del softmax, controlando qué tan determinista o aleatoria es la generación.</dd>
     </dl>
   </div>
