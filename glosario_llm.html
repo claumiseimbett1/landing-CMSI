@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="logos/logo-CLAU.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glosario LLM — Arquitectura Transformer | Curso IA Científica</title>
+<meta name="description" content="Glosario de términos de arquitectura Transformer y LLM. Complemento del curso Investigación Científica Potenciada por Inteligencia Artificial. Claudia Serpa Imbett, PhD.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.claumiseimbett.com/glosario_llm.html">
+<link rel="stylesheet" href="css/perf-global.css">
+<style>
+  :root {
+    --beige-light: #f3ede0;
+    --black: #000000;
+    --beige-dark: #d5b690;
+    --yellow: #fffc00;
+    --beige-muted: #d6ccc2;
+    --green: #4e7e32;
+    --green-light: #6fbf4f;
+    --text-muted: #555;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: var(--black);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .top-bar {
+    background: var(--beige-light);
+    border-bottom: 3px solid var(--yellow);
+    padding: 14px 20px;
+  }
+  .top-bar a {
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .top-bar a:hover { color: var(--green); }
+  .hero {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+    border-bottom: 4px solid var(--yellow);
+  }
+  .hero h1 {
+    margin: 0 0 10px;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+  }
+  .hero .sub {
+    max-width: 720px;
+    margin: 0 auto;
+    opacity: 0.95;
+    font-size: 1.05em;
+  }
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+  .grupo { margin-bottom: 38px; }
+  .grupo h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    border-bottom: 2px solid var(--beige-muted);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  dl { margin: 0; }
+  dt {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-top: 18px;
+    color: var(--black);
+  }
+  dt .peso {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.78rem;
+    margin-left: 8px;
+  }
+  dd {
+    margin: 4px 0 0 0;
+    color: #333;
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 2px solid var(--beige-muted);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  footer a {
+    color: var(--green);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <a href="ia-generativa-escritura-cientifica.html">← Volver al curso de IA Científica</a>
+</div>
+
+<div class="hero">
+  <h1>Glosario — Arquitectura de un LLM</h1>
+  <p class="sub">Términos ordenados por bloque funcional, correspondientes a la nube de palabras generada previamente. Complemento del curso <em>Investigación Científica Potenciada por Inteligencia Artificial</em>.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="grupo">
+    <h2>1. Entrada / Representación</h2>
+    <dl>
+      <dt>Token <span class="peso">peso 90</span></dt>
+      <dd>Unidad mínima en que se divide el texto (palabra, subpalabra o carácter) antes de ser procesada por el modelo.</dd>
+
+      <dt>Tokenización <span class="peso">peso 60</span></dt>
+      <dd>Proceso de segmentar el texto crudo en tokens, usando algoritmos como BPE o WordPiece.</dd>
+
+      <dt>id-token <span class="peso">peso 55</span></dt>
+      <dd>Número entero que identifica a cada token dentro del vocabulario del modelo; es lo que realmente recibe la red.</dd>
+
+      <dt>Matriz embedding <span class="peso">peso 95</span></dt>
+      <dd>Tabla aprendida que convierte cada id-token en un vector denso de dimensión fija, capturando relaciones semánticas.</dd>
+
+      <dt>Embedding posicional <span class="peso">peso 70</span></dt>
+      <dd>Vector adicional que codifica la posición del token en la secuencia, ya que el self-attention no tiene noción de orden por sí mismo.</dd>
+
+      <dt>Vocabulario <span class="peso">peso 40</span></dt>
+      <dd>Conjunto finito de tokens posibles que el modelo puede reconocer y generar.</dd>
+    </dl>
+  </div>
+
+  <div class="grupo">
+    <h2>2. Núcleo del Transformer</h2>
+    <dl>
+      <dt>Self-attention <span class="peso">peso 100</span></dt>
+      <dd>Mecanismo que permite a cada token ponderar la relevancia de todos los demás tokens en la secuencia para construir su representación contextual.</dd>
+
+      <dt>Multi-head attention <span class="peso">peso 85</span></dt>
+      <dd>Varias cabezas de atención en paralelo, cada una aprendiendo distintos tipos de relaciones entre tokens.</dd>
+
+      <dt>Query, Key, Value (Q, K, V) <span class="peso">peso 80</span></dt>
+      <dd>Tres proyecciones lineales de los embeddings sobre las que se calcula la atención: consulta, clave y valor.</dd>
+
+      <dt>Feed-forward network (FFN) <span class="peso">peso 75</span></dt>
+      <dd>Capa densa aplicada token a token después de la atención, típicamente con expansión y contracción de dimensión.</dd>
+
+      <dt>Layer normalization <span class="peso">peso 50</span></dt>
+      <dd>Normalización que estabiliza el entrenamiento y acelera la convergencia en cada subcapa del bloque.</dd>
+
+      <dt>Residual connection <span class="peso">peso 45</span></dt>
+      <dd>Conexión que suma la entrada de una subcapa a su salida, facilitando el flujo de gradientes en redes profundas.</dd>
+    </dl>
+  </div>
+
+  <div class="grupo">
+    <h2>3. Salida / Generación</h2>
+    <dl>
+      <dt>Logits <span class="peso">peso 65</span></dt>
+      <dd>Puntuaciones sin normalizar sobre el vocabulario para el siguiente token candidato.</dd>
+
+      <dt>Softmax <span class="peso">peso 55</span></dt>
+      <dd>Función que convierte logits en una distribución de probabilidad sobre el vocabulario.</dd>
+
+      <dt>Decodificación autoregresiva <span class="peso">peso 70</span></dt>
+      <dd>Generación secuencial donde cada token predicho se añade a la entrada para predecir el siguiente.</dd>
+
+      <dt>Encoder <span class="peso">peso 60</span></dt>
+      <dd>Bloque que procesa toda la secuencia de entrada a la vez para producir una representación contextual completa.</dd>
+
+      <dt>Contexto <span class="peso">peso 45</span></dt>
+      <dd>Ventana de tokens (pasados y a veces futuros) que el modelo puede "ver" al procesar o generar una posición dada.</dd>
+
+      <dt>Temperatura <span class="peso">peso 30</span></dt>
+      <dd>Hiperparámetro que escala los logits antes del softmax, controlando qué tan determinista o aleatoria es la generación.</dd>
+    </dl>
+  </div>
+
+  <footer>
+    Basado en Vaswani et al., &ldquo;Attention Is All You Need&rdquo; (2017). ·
+    <a href="ia-generativa-escritura-cientifica.html">Volver al curso de IA Científica</a>
+  </footer>
+</div>
+</body>
+</html>

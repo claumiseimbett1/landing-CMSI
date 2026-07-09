@@ -419,3 +419,76 @@
 #newsletterModal .newsletter-modal-btn-secondary:hover {
     background: rgba(78, 126, 50, 0.1);
 }
+
+/* Enlace glosario dentro del popup curso */
+#coursePromoModal .course-promo-glosario-link {
+    color: var(--green, #4e7e32);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#coursePromoModal .course-promo-glosario-link:hover {
+    color: var(--black);
+}
+
+/* Popup curso en AgTech Program — verde de la página */
+body.agtech-page #coursePromoModal .course-promo-content {
+    border-color: #5db53a;
+}
+
+body.agtech-page #coursePromoModal .course-promo-header {
+    background: linear-gradient(135deg, #5db53a 0%, #6fbf4f 100%);
+    color: #fff;
+    border-bottom-color: var(--yellow);
+}
+
+body.agtech-page #coursePromoModal .course-promo-badge {
+    background: var(--yellow);
+    color: var(--black);
+    border-color: var(--black);
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-header h2,
+body.agtech-page #coursePromoModal .newsletter-modal-date {
+    color: #fff;
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-close {
+    color: var(--yellow);
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-body h3 {
+    color: #5db53a;
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-features {
+    border-left-color: #5db53a;
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-btn-primary {
+    background: linear-gradient(135deg, #5db53a 0%, #6fbf4f 100%);
+    border-color: #5db53a;
+    color: #fff;
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-btn-primary:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--black);
+    box-shadow: 0 8px 30px rgba(255, 252, 0, 0.45);
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-btn-secondary {
+    border-color: #5db53a;
+    color: #5db53a;
+}
+
+body.agtech-page #coursePromoModal .newsletter-modal-btn-secondary:hover {
+    background: #5db53a;
+    border-color: #5db53a;
+    color: #fff;
+}
+
+body.agtech-page #coursePromoModal .course-promo-glosario-link {
+    color: #5db53a;
+}

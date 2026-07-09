@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var STORAGE_KEY = 'coursePromoModalShownSession';
+    var STORAGE_KEY = 'coursePromoModalShownJul2026';
 
     function showCoursePromoModal() {
         var modal = document.getElementById('coursePromoModal');
