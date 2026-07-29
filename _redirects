@@ -1,0 +1,6 @@
+# Dominio canónico: apex (sin www). Netlify ya redirige www -> apex.
+# Evitar duplicado /index.html vs /
+/index.html    /    301
+
+# Backups de desarrollo: no indexar ni servir como contenido
+/backup/*      /    301
