@@ -281,6 +281,259 @@
     }
 }
 
+/* —— Popup Blog: listado moderno —— */
+#blogPromoModal .blog-promo-content {
+    border: 3px solid var(--black);
+    max-width: 640px;
+    background: #fff;
+}
+
+#blogPromoModal .blog-promo-header {
+    background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+    color: var(--beige-light);
+    padding: 28px 36px 22px;
+    border-radius: 17px 17px 0 0;
+    text-align: left;
+    border-bottom: 4px solid var(--yellow);
+}
+
+#blogPromoModal .blog-promo-eyebrow {
+    display: inline-block;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--yellow);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+#blogPromoModal .blog-promo-header h2 {
+    margin: 0 0 8px;
+    font-size: 1.45em;
+    font-weight: 800;
+    color: var(--beige-light);
+    line-height: 1.25;
+}
+
+#blogPromoModal .blog-promo-header .newsletter-modal-date {
+    margin: 0;
+    font-size: 0.88em;
+    color: var(--beige-muted);
+    font-style: normal;
+    opacity: 1;
+}
+
+#blogPromoModal .newsletter-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: var(--yellow);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10002;
+}
+
+#blogPromoModal .newsletter-modal-close:hover {
+    background-color: rgba(255, 252, 0, 0.15);
+    transform: rotate(90deg);
+}
+
+#blogPromoModal .blog-promo-body {
+    padding: 12px 20px 8px;
+    max-height: min(52vh, 420px);
+    overflow-y: auto;
+}
+
+#blogPromoModal .blog-promo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#blogPromoModal .blog-promo-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 4px;
+    align-items: start;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: #fafafa;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+#blogPromoModal .blog-promo-item:hover {
+    background: var(--beige-light);
+    border-color: var(--beige-muted);
+    transform: translateX(3px);
+}
+
+#blogPromoModal .blog-promo-item--featured {
+    background: linear-gradient(135deg, var(--beige-light) 0%, #fff 100%);
+    border: 1px solid var(--beige-muted);
+    border-left: 4px solid var(--yellow);
+}
+
+#blogPromoModal .blog-promo-meta {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+#blogPromoModal .blog-promo-meta time {
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #666;
+    font-variant-numeric: tabular-nums;
+}
+
+#blogPromoModal .blog-promo-tag {
+    font-size: 0.68em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--black);
+    background: rgba(0, 0, 0, 0.06);
+    padding: 3px 8px;
+    border-radius: 999px;
+}
+
+#blogPromoModal .blog-promo-item-title {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 0.98em;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--black);
+}
+
+#blogPromoModal .blog-promo-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--black);
+    opacity: 0.35;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#blogPromoModal .blog-promo-item:hover .blog-promo-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+#blogPromoModal .blog-promo-footer {
+    padding: 16px 24px 24px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--beige-muted);
+    background: var(--beige-light);
+    border-radius: 0 0 17px 17px;
+}
+
+#blogPromoModal .newsletter-modal-btn-primary {
+    background: var(--black);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1em;
+    border: 3px solid var(--black);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+#blogPromoModal .newsletter-modal-btn-primary:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+#blogPromoModal .newsletter-modal-btn-secondary {
+    background: transparent;
+    color: var(--black);
+    padding: 13px 28px;
+    border-radius: 50px;
+    border: 2px solid var(--black);
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#blogPromoModal .newsletter-modal-btn-secondary:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+}
+
+@media (max-width: 768px) {
+    #blogPromoModal .blog-promo-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    #blogPromoModal .blog-promo-header {
+        padding: 22px 20px 18px;
+        padding-right: 48px;
+    }
+
+    #blogPromoModal .blog-promo-header h2 {
+        font-size: 1.25em;
+    }
+
+    #blogPromoModal .blog-promo-body {
+        padding: 10px 12px;
+        max-height: 55vh;
+    }
+
+    #blogPromoModal .blog-promo-item {
+        padding: 12px;
+    }
+
+    #blogPromoModal .blog-promo-item-title {
+        font-size: 0.92em;
+    }
+
+    #blogPromoModal .blog-promo-footer {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    #blogPromoModal .newsletter-modal-btn-primary,
+    #blogPromoModal .newsletter-modal-btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 /* Popup newsletter (solo index) — mantiene verde */
 #newsletterModal .newsletter-modal-content {
     border: 3px solid #4e7e32;

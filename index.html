@@ -3709,42 +3709,79 @@
     <!-- Blog Modal Popup -->
     <div id="blogPromoModal" class="newsletter-modal" style="display: none;" role="dialog" aria-labelledby="blogPromoTitle" aria-modal="true">
         <div class="newsletter-modal-overlay blog-promo-overlay"></div>
-        <div class="newsletter-modal-content">
+        <div class="newsletter-modal-content blog-promo-content">
             <button class="newsletter-modal-close blog-promo-close" aria-label="Cerrar">&times;</button>
-            <div class="newsletter-modal-header">
-                <h2 id="blogPromoTitle">
-                    <svg style="width: 24px; height: 24px; display: inline-block; vertical-align: middle; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
-                    Blog · Machine Learning, Óptica e IA
-                </h2>
-                <p class="newsletter-modal-date">Última edición · 2 de abril de 2026</p>
+            <div class="newsletter-modal-header blog-promo-header">
+                <span class="blog-promo-eyebrow">Lecturas recientes</span>
+                <h2 id="blogPromoTitle">Blog · Machine Learning, Óptica e IA</h2>
+                <p class="newsletter-modal-date">Teledetección · agricultura digital · energía · ciencia de datos</p>
             </div>
-            <div class="newsletter-modal-body">
-                <h3>Representatividad de datos e IA en campo: por qué el modelo necesita mediciones de tu sistema</h3>
-                <p class="newsletter-modal-summary">
-                    <strong>No es metáfora:</strong> si entrenas con registros que no representan tu población, tu suelo o tu red eléctrica local, el algoritmo optimiza patrones ajenos. La calidad predictiva depende de cuán alineados estén los datos con el sistema real.
-                </p>
-                <p class="newsletter-modal-summary">
-                    En el blog encontrarás este y otros artículos sobre teledetección, machine learning, agricultura digital y energía en Latinoamérica.
-                </p>
-                <div class="newsletter-modal-features">
-                    <div class="newsletter-feature">
-                        <span class="newsletter-icon">✓</span>
-                        <span>Representatividad y datos de dominio</span>
-                    </div>
-                    <div class="newsletter-feature">
-                        <span class="newsletter-icon">✓</span>
-                        <span>IA, agro y energía en contexto local</span>
-                    </div>
-                    <div class="newsletter-feature">
-                        <span class="newsletter-icon">✓</span>
-                        <span>Teledetección y sensores remotos</span>
-                    </div>
-                </div>
+            <div class="newsletter-modal-body blog-promo-body">
+                <ul class="blog-promo-list">
+                    <li>
+                        <a href="blog.html" class="blog-promo-item blog-promo-item--featured">
+                            <span class="blog-promo-meta">
+                                <time datetime="2026-04-02">2 abr 2026</time>
+                                <span class="blog-promo-tag">Ciencia de Datos</span>
+                            </span>
+                            <span class="blog-promo-item-title">Representatividad de datos e IA en campo: por qué el modelo necesita mediciones de tu sistema</span>
+                            <span class="blog-promo-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="blog-promo-item">
+                            <span class="blog-promo-meta">
+                                <time datetime="2026-01-20">20 ene 2026</time>
+                                <span class="blog-promo-tag">Energía</span>
+                            </span>
+                            <span class="blog-promo-item-title">De los transistores a la energía nuclear: la física detrás de la inteligencia artificial</span>
+                            <span class="blog-promo-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="blog-promo-item">
+                            <span class="blog-promo-meta">
+                                <time datetime="2026-01-04">4 ene 2026</time>
+                                <span class="blog-promo-tag">Sensores Remotos</span>
+                            </span>
+                            <span class="blog-promo-item-title">Del Paper a la Práctica: fusión de sensores remotos con más ciencia y menos especificación técnica</span>
+                            <span class="blog-promo-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="blog-promo-item">
+                            <span class="blog-promo-meta">
+                                <time datetime="2026-01-01">Ene 2026</time>
+                                <span class="blog-promo-tag">Óptica</span>
+                            </span>
+                            <span class="blog-promo-item-title">Escudriñando más allá de los datos: física óptica en biomasa y captura de carbono</span>
+                            <span class="blog-promo-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="blog-promo-item">
+                            <span class="blog-promo-meta">
+                                <time datetime="2025-12-01">Dic 2025</time>
+                                <span class="blog-promo-tag">AgTech &amp; IA</span>
+                            </span>
+                            <span class="blog-promo-item-title">IA y Agricultura: machine learning, tokenización y seguridad digital para agrónomos</span>
+                            <span class="blog-promo-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="blog-promo-item">
+                            <span class="blog-promo-meta">
+                                <time datetime="2025-11-01">Nov 2025</time>
+                                <span class="blog-promo-tag">Sensores Remotos</span>
+                            </span>
+                            <span class="blog-promo-item-title">Sensores Remotos en Agricultura: por qué los megapíxeles no determinan la calidad de tus datos</span>
+                            <span class="blog-promo-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="newsletter-modal-footer">
-                <a href="blog.html" class="newsletter-modal-btn-primary">Ir al Blog</a>
+            <div class="newsletter-modal-footer blog-promo-footer">
+                <a href="blog.html" class="newsletter-modal-btn-primary">Ver todos los artículos</a>
                 <button type="button" class="newsletter-modal-btn-secondary blog-promo-close">Cerrar</button>
             </div>
         </div>
@@ -3752,7 +3789,7 @@
 
     <script>
         (function () {
-            var STORAGE_KEY = 'blogPromoModalShownSession';
+            var STORAGE_KEY = 'blogPromoModalListAug2026';
 
             function showBlogPromoModal() {
                 var modal = document.getElementById('blogPromoModal');
